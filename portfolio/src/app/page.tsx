@@ -126,15 +126,13 @@ export default function Home() {
             >
               <span className="text-white">Hi, I'm </span>
               <span className="creative-text">Lucas</span>
-              <span className="text-white">!</span>
             </motion.h1>
             
             <motion.p 
               className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto"
               variants={fadeInUp}
             >
-              Software Engineer specialized in backend development, data privacy, 
-              and technical leadership with 6+ years building scalable solutions.
+              Driven by creative problem-solving and a passion for Data Privacy & AI, I'm a <strong className="font-semibold text-white">Fullstack Software Engineer</strong> crafting secure and scalable solutions for millions of users.
             </motion.p>
 
             <motion.div 
