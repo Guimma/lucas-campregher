@@ -40,25 +40,25 @@ export default function Home() {
     <div className="min-h-screen animated-bg">
       {/* Navigation */}
       <motion.nav 
-        className="fixed top-0 w-full z-50 glass"
+        className="fixed top-0 w-full z-50 glass nav-glass"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
         <div className="max-w-6xl mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center relative z-10">
             <motion.div 
-              className="text-2xl font-bold gradient-text"
-              whileHover={{ scale: 1.05 }}
+              className="text-2xl font-bold header-brand"
+              whileHover={{ scale: 1.02 }}
             >
-              Portfolio
+              Lucas Campregher
             </motion.div>
             <div className="hidden md:flex space-x-8">
               {['About', 'Skills', 'Projects', 'Contact'].map((item) => (
                 <motion.a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className="relative text-gray-300 hover:text-white transition-all duration-300 nav-link"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
