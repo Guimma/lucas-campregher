@@ -55,7 +55,7 @@ export default function Home() {
                 <motion.a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="relative text-gray-300 hover:text-white transition-all duration-300 nav-link"
+                  className="relative text-gray-300 hover:text-white transition-all duration-150 nav-link"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -142,14 +142,14 @@ export default function Home() {
               variants={fadeInUp}
             >
               <motion.button
-                className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold hover:shadow-2xl transition-all duration-300"
+                className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold hover:shadow-2xl transition-all duration-150"
                 whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(59, 130, 246, 0.5)" }}
                 whileTap={{ scale: 0.95 }}
               >
                 View My Work
               </motion.button>
               <motion.button
-                className="px-8 py-4 glass text-white rounded-full font-semibold hover:bg-white/20 transition-all duration-300"
+                className="px-8 py-4 glass text-white rounded-full font-semibold hover:bg-white/20 transition-all duration-150"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -171,8 +171,8 @@ export default function Home() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 glass rounded-full hover:bg-white/20 transition-all duration-300"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  className="p-3 glass rounded-full hover:bg-white/20 transition-all duration-150"
+                  whileHover={{ scale: 1.1, rotate: 5, transition: { duration: 0.15 } }}
                   whileTap={{ scale: 0.9 }}
                   title={item.label}
                 >
@@ -231,7 +231,7 @@ export default function Home() {
                     <motion.span
                       key={tech}
                       className="px-4 py-2 glass rounded-full text-sm"
-                      whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.2)" }}
+                      whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.2)", transition: { duration: 0.15 } }}
                     >
                       {tech}
                     </motion.span>
@@ -254,8 +254,8 @@ export default function Home() {
                 ].map((item, index) => (
                   <motion.div
                     key={index}
-                    className="p-6 glass rounded-2xl hover:bg-white/10 transition-all duration-300"
-                    whileHover={{ scale: 1.05, y: -5 }}
+                    className="p-6 glass rounded-2xl hover:bg-white/10 transition-all duration-150"
+                    whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.15 } }}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -305,12 +305,12 @@ export default function Home() {
               ].map((category, index) => (
                 <motion.div
                   key={index}
-                  className="p-8 glass rounded-2xl hover:bg-white/10 transition-all duration-300"
+                  className="p-8 glass rounded-2xl hover:bg-white/10 transition-all duration-150"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.2 }}
-                  whileHover={{ scale: 1.02, y: -5 }}
+                  whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.15 } }}
                 >
                   <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${category.color} mb-6 flex items-center justify-center`}>
                     <Code2 className="w-6 h-6 text-white" />
@@ -385,18 +385,18 @@ export default function Home() {
               ].map((project, index) => (
                 <motion.div
                   key={index}
-                  className="group glass rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300"
+                  className="group glass rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-150"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.02, y: -5 }}
+                  whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.15 } }}
                 >
                   <div className="aspect-video bg-gradient-to-br from-blue-500/20 to-purple-500/20 relative overflow-hidden">
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-br from-blue-500/40 to-purple-500/40"
                       whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.3 }}
+                      transition={{ duration: 0.15 }}
                     />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <ExternalLink className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -448,7 +448,7 @@ export default function Home() {
             >
               <motion.a
                 href="mailto:your.email@example.com"
-                className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2"
+                className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold hover:shadow-2xl transition-all duration-150 flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(59, 130, 246, 0.5)" }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -457,7 +457,7 @@ export default function Home() {
               </motion.a>
               <motion.a
                 href="#"
-                className="px-8 py-4 glass text-white rounded-full font-semibold hover:bg-white/20 transition-all duration-300 flex items-center justify-center gap-2"
+                className="px-8 py-4 glass text-white rounded-full font-semibold hover:bg-white/20 transition-all duration-150 flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
