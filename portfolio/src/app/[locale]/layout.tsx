@@ -24,8 +24,36 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Lucas Campregher - Software Engineer",
-  description: "Software Engineer specialized in backend development, data privacy, and technical leadership with 6+ years building scalable solutions for millions of users.",
+  title: "Lucas Campregher - Fullstack Software Engineer | Data Privacy & AI Specialist",
+  description: "Experienced Fullstack Software Engineer with 6+ years building scalable solutions for millions of users. Specializing in backend development, data privacy (LGPD/GDPR), and AI integration.",
+  keywords: "Lucas Campregher, Software Engineer, Fullstack Developer, Backend Development, Data Privacy, LGPD, GDPR, AI, Node.js, Python, Java, AWS, React, TypeScript",
+  authors: [{ name: "Lucas Campregher" }],
+  creator: "Lucas Campregher",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    title: "Lucas Campregher - Fullstack Software Engineer",
+    description: "Experienced Fullstack Software Engineer specializing in backend development, data privacy, and AI integration.",
+    siteName: "Lucas Campregher Portfolio",
+    images: [
+      {
+        url: "/lucas-avatar.jpg",
+        width: 400,
+        height: 400,
+        alt: "Lucas Campregher - Software Engineer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lucas Campregher - Fullstack Software Engineer",
+    description: "Experienced Software Engineer specializing in backend development and data privacy.",
+    images: ["/lucas-avatar.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   icons: {
     icon: [
       {
