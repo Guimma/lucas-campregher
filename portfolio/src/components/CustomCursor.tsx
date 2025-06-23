@@ -13,9 +13,12 @@ const CustomCursor: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [trail, setTrail] = useState<TrailPoint[]>([]);
+  const [isMounted, setIsMounted] = useState(false);
   const trailRef = useRef<TrailPoint[]>([]);
 
   useEffect(() => {
+    setIsMounted(true);
+    
     const updateMousePosition = (e: MouseEvent) => {
       const newPosition = { x: e.clientX, y: e.clientY };
       setMousePosition(newPosition);
@@ -60,6 +63,11 @@ const CustomCursor: React.FC = () => {
       });
     };
   }, []);
+
+  // Don't render on server to avoid hydration mismatch
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <>

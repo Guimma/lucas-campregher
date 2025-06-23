@@ -40,33 +40,50 @@
   "skills": {
     "title": "Skills & Expertise",
     "categories": {
-      "backend": "Backend",
-      "cloud": "Cloud & DevOps", 
-      "data": "Data & Tools"
+      "backend": {
+        "title": "Backend Development",
+        "description": "Robust server-side applications and APIs"
+      },
+      "cloud": {
+        "title": "Cloud & DevOps",
+        "description": "Scalable infrastructure and deployment solutions"
+      },
+      "data": {
+        "title": "Data & Privacy",
+        "description": "Database management and data privacy compliance"
+      }
     }
   },
   "projects": {
     "title": "Featured Projects",
     "items": {
-      "ecommerce": {
-        "title": "E-Commerce Platform",
-        "description": "Full-stack e-commerce solution with React, Node.js, and Stripe integration"
+      "dataPrivacy": {
+        "title": "Data Privacy Platform",
+        "description": "LGPD/GDPR compliance platform for data protection and user rights management"
       },
-      "taskManagement": {
-        "title": "Task Management App", 
-        "description": "Collaborative project management tool with real-time updates"
+      "microservices": {
+        "title": "Microservices Architecture", 
+        "description": "Scalable microservices ecosystem with container orchestration and CI/CD"
       },
-      "aiChat": {
-        "title": "AI Chat Interface",
-        "description": "Modern chat interface with AI integration and voice commands"
+      "analytics": {
+        "title": "Real-time Analytics",
+        "description": "High-performance analytics engine processing millions of events per day"
       }
     }
   },
   "contact": {
     "title": "Let's Create Something Amazing",
+    "subtitle": "Ready to collaborate?",
     "description": "Ready to bring your ideas to life? Let's collaborate and build something extraordinary together.",
-    "sendEmail": "Send Email",
-    "viewGithub": "View GitHub"
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "your.email@example.com",
+      "message": "Message",
+      "messagePlaceholder": "Tell me about your project...",
+      "send": "Send Message"
+    }
   },
   "footer": {
     "copyright": "© 2024 Lucas Campregher. Crafted with ❤️ and lots of coffee."

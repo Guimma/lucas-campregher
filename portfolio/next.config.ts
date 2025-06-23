@@ -4,4 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
 };
 
-export default nextConfig;
+// This plugin is required for next-intl to work properly
+const withNextIntl = require('next-intl/plugin')('./i18n.ts');
+
+export default withNextIntl(nextConfig);

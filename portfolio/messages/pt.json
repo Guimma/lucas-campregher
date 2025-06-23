@@ -40,33 +40,50 @@
   "skills": {
     "title": "Habilidades e Especialidades",
     "categories": {
-      "backend": "Backend",
-      "cloud": "Cloud & DevOps", 
-      "data": "Dados e Ferramentas"
+      "backend": {
+        "title": "Desenvolvimento Backend",
+        "description": "Aplicações robustas do lado servidor e APIs"
+      },
+      "cloud": {
+        "title": "Cloud & DevOps",
+        "description": "Infraestrutura escalável e soluções de deploy"
+      },
+      "data": {
+        "title": "Dados e Privacidade",
+        "description": "Gerenciamento de banco de dados e conformidade de privacidade"
+      }
     }
   },
   "projects": {
     "title": "Projetos em Destaque",
     "items": {
-      "ecommerce": {
-        "title": "Plataforma E-Commerce",
-        "description": "Solução e-commerce fullstack com React, Node.js e integração Stripe"
+      "dataPrivacy": {
+        "title": "Plataforma de Privacidade de Dados",
+        "description": "Plataforma de conformidade LGPD/GDPR para proteção de dados e gestão de direitos do usuário"
       },
-      "taskManagement": {
-        "title": "App de Gerenciamento de Tarefas", 
-        "description": "Ferramenta colaborativa de gerenciamento de projetos com atualizações em tempo real"
+      "microservices": {
+        "title": "Arquitetura de Microsserviços", 
+        "description": "Ecossistema escalável de microsserviços com orquestração de containers e CI/CD"
       },
-      "aiChat": {
-        "title": "Interface de Chat com IA",
-        "description": "Interface de chat moderna com integração de IA e comandos de voz"
+      "analytics": {
+        "title": "Analytics em Tempo Real",
+        "description": "Motor de analytics de alta performance processando milhões de eventos por dia"
       }
     }
   },
   "contact": {
     "title": "Vamos Criar Algo Incrível",
+    "subtitle": "Pronto para colaborar?",
     "description": "Pronto para dar vida às suas ideias? Vamos colaborar e construir algo extraordinário juntos.",
-    "sendEmail": "Enviar Email",
-    "viewGithub": "Ver GitHub"
+    "form": {
+      "name": "Nome",
+      "namePlaceholder": "Seu nome",
+      "email": "Email",
+      "emailPlaceholder": "seu.email@exemplo.com",
+      "message": "Mensagem",
+      "messagePlaceholder": "Me conte sobre seu projeto...",
+      "send": "Enviar Mensagem"
+    }
   },
   "footer": {
     "copyright": "© 2024 Lucas Campregher. Criado com ❤️ e muito café."
