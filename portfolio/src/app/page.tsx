@@ -124,8 +124,9 @@ export default function Home() {
               className="text-5xl md:text-7xl font-bold mb-6"
               variants={fadeInUp}
             >
-              <span className="text-white">Lucas</span>{' '}
-              <span className="creative-text">Campregher</span>
+              <span className="text-white">Hi, I'm </span>
+              <span className="creative-text">Lucas</span>
+              <span className="text-white">!</span>
             </motion.h1>
             
             <motion.p 
