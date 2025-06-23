@@ -22,8 +22,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio - Creative Developer",
-  description: "Modern, interactive portfolio showcasing creative development skills with beautiful animations and cutting-edge design.",
+  title: "Lucas Campregher - Software Engineer",
+  description: "Software Engineer specialized in backend development, data privacy, and technical leadership with 6+ years building scalable solutions for millions of users.",
 };
 
 export default function RootLayout({

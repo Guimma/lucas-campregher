@@ -106,20 +106,37 @@ export default function Home() {
             initial="initial"
             animate="animate"
           >
+            {/* Profile Photo */}
+            <motion.div 
+              className="mb-8"
+              variants={fadeInUp}
+            >
+              <div className="relative inline-block">
+                <motion.img
+                  src="/src/lucas-avatar.jpg"
+                  alt="Lucas Campregher"
+                  className="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto object-cover border-4 border-white/20 shadow-2xl"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500/20 to-purple-600/20"></div>
+              </div>
+            </motion.div>
+
             <motion.h1 
               className="text-5xl md:text-7xl font-bold mb-6"
               variants={fadeInUp}
             >
-              <span className="creative-text">Creative</span>{' '}
-              <span className="text-white">Developer</span>
+              <span className="text-white">Lucas</span>{' '}
+              <span className="creative-text">Campregher</span>
             </motion.h1>
             
             <motion.p 
               className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto"
               variants={fadeInUp}
             >
-              I craft beautiful, interactive experiences that bring ideas to life 
-              through code, design, and innovative thinking.
+              Software Engineer specialized in backend development, data privacy, 
+              and technical leadership with 6+ years building scalable solutions.
             </motion.p>
 
             <motion.div 

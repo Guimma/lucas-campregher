@@ -100,20 +100,37 @@ export default function Home() {
             initial="initial"
             animate="animate"
           >
+            {/* Profile Photo */}
+            <motion.div 
+              className="mb-8"
+              variants={fadeInUp}
+            >
+              <div className="relative inline-block">
+                <motion.img
+                  src="/lucas-avatar.jpg"
+                  alt="Lucas Campregher"
+                  className="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto object-cover border-4 border-white/20 shadow-2xl"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500/20 to-purple-600/20"></div>
+              </div>
+            </motion.div>
+
             <motion.h1 
               className="text-5xl md:text-7xl font-bold mb-6"
               variants={fadeInUp}
             >
-              <span className="creative-text">Creative</span>{' '}
-              <span className="text-white">Developer</span>
+              <span className="text-white">Lucas</span>{' '}
+              <span className="creative-text">Campregher</span>
             </motion.h1>
             
             <motion.p 
               className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto"
               variants={fadeInUp}
             >
-              I craft beautiful, interactive experiences that bring ideas to life 
-              through code, design, and innovative thinking.
+              Software Engineer specialized in backend development, data privacy, 
+              and technical leadership with 6+ years building scalable solutions.
             </motion.p>
 
             <motion.div 
@@ -140,15 +157,22 @@ export default function Home() {
               className="flex justify-center space-x-6"
               variants={fadeInUp}
             >
-              {[Github, Linkedin, Mail].map((Icon, index) => (
+              {[
+                { Icon: Github, href: "https://github.com/Guimma", label: "GitHub" },
+                { Icon: Linkedin, href: "https://www.linkedin.com/in/lucas-campregher/", label: "LinkedIn" },
+                { Icon: Mail, href: "mailto:lucas@campregher.com", label: "Email" }
+              ].map((item, index) => (
                 <motion.a
                   key={index}
-                  href="#"
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-3 glass rounded-full hover:bg-white/20 transition-all duration-300"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   whileTap={{ scale: 0.9 }}
+                  title={item.label}
                 >
-                  <Icon size={24} />
+                  <item.Icon size={24} />
                 </motion.a>
               ))}
             </motion.div>
@@ -185,17 +209,21 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
               >
                 <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                  I'm a passionate software developer who loves creating digital experiences 
-                  that make a difference. With a keen eye for design and a strong technical 
-                  foundation, I bridge the gap between functionality and aesthetics.
+                  I'm a creative and communicative software engineer with over 6 years of market experience. 
+                  I specialize in backend development and am passionate about data privacy and security. 
+                  I constantly evolve and quickly adapt to new challenges in my professional journey.
+                </p>
+                <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+                  Throughout my career, I've worked with diverse technologies - from developing complex APIs 
+                  to web and mobile frontend applications. I've also gained experience with DevOps and Cloud computing. 
+                  As a technical leader, I focus on improving team deliveries and agile methodologies.
                 </p>
                 <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                  When I'm not coding, you'll find me exploring new technologies, 
-                  contributing to open source projects, or sketching out ideas for 
-                  the next big thing.
+                  Beyond my development work, I co-host "Entre Chaves," a podcast for the developer community. 
+                  I'm passionate about mentoring developers and have participated in team hiring and planning processes.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  {['React', 'TypeScript', 'Next.js', 'Node.js', 'Python', 'AWS'].map((tech) => (
+                  {['Node.js', 'Python', 'Java', 'AWS', 'Docker', 'PostgreSQL', 'React', 'TypeScript'].map((tech) => (
                     <motion.span
                       key={tech}
                       className="px-4 py-2 glass rounded-full text-sm"
@@ -215,10 +243,10 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
               >
                 {[
-                  { icon: Code2, title: 'Clean Code', desc: 'Writing maintainable, scalable solutions' },
-                  { icon: Palette, title: 'UI/UX Design', desc: 'Creating beautiful user experiences' },
-                  { icon: Rocket, title: 'Performance', desc: 'Optimizing for speed and efficiency' },
-                  { icon: Brain, title: 'Problem Solving', desc: 'Turning complex challenges into simple solutions' }
+                  { icon: Code2, title: 'Backend Development', desc: 'API development of rich and complex domains' },
+                  { icon: Palette, title: 'Technical Leadership', desc: 'Leading development teams and improving deliveries' },
+                  { icon: Rocket, title: 'Cloud & DevOps', desc: 'AWS infrastructure and cloud computing management' },
+                  { icon: Brain, title: 'Data Privacy', desc: 'Enthusiast in data security and privacy solutions' }
                 ].map((item, index) => (
                   <motion.div
                     key={index}
@@ -256,18 +284,18 @@ export default function Home() {
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
-                  category: 'Frontend',
-                  skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+                  category: 'Backend',
+                  skills: ['Node.js', 'Python', 'Java', 'Spring Boot', 'Express.js'],
                   color: 'from-blue-500 to-cyan-500'
                 },
                 {
-                  category: 'Backend',
-                  skills: ['Node.js', 'Python', 'PostgreSQL', 'MongoDB', 'GraphQL'],
+                  category: 'Cloud & DevOps',
+                  skills: ['AWS', 'Docker', 'Kubernetes', 'CI/CD', 'Linux'],
                   color: 'from-purple-500 to-pink-500'
                 },
                 {
-                  category: 'Tools & Others',
-                  skills: ['Git', 'Docker', 'AWS', 'Figma', 'Linux'],
+                  category: 'Data & Tools',
+                  skills: ['PostgreSQL', 'MongoDB', 'Redis', 'Apache Kafka', 'Git'],
                   color: 'from-emerald-500 to-teal-500'
                 }
               ].map((category, index) => (
