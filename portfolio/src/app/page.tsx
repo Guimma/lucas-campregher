@@ -141,20 +141,22 @@ export default function Home() {
               className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
               variants={fadeInUp}
             >
-              <motion.button
+              <motion.a
+                href="#projects"
                 className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold hover:shadow-2xl transition-all duration-150"
                 whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(59, 130, 246, 0.5)" }}
                 whileTap={{ scale: 0.95 }}
               >
                 View My Work
-              </motion.button>
-              <motion.button
+              </motion.a>
+              <motion.a
+                href="#contact"
                 className="px-8 py-4 glass text-white rounded-full font-semibold hover:bg-white/20 transition-all duration-150"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Get In Touch
-              </motion.button>
+              </motion.a>
             </motion.div>
 
             <motion.div 
