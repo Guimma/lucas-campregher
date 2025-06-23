@@ -110,7 +110,7 @@ export default function Home() {
               className="text-5xl md:text-7xl font-bold mb-6"
               variants={fadeInUp}
             >
-              <span className="gradient-text">Creative</span>{' '}
+              <span className="creative-text">Creative</span>{' '}
               <span className="text-white">Developer</span>
             </motion.h1>
             

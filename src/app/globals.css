@@ -77,11 +77,40 @@ html {
   background-clip: text;
 }
 
+/* Creative text with elegant glow */
+.creative-text {
+  background: linear-gradient(45deg, #3b82f6, #6366f1, #8b5cf6, #a855f7);
+  background-size: 300% 300%;
+  animation: gradient-flow 8s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 
+    0 0 20px rgba(59, 130, 246, 0.4),
+    0 0 40px rgba(139, 92, 246, 0.3);
+  filter: 
+    drop-shadow(0 0 8px rgba(59, 130, 246, 0.5)) 
+    drop-shadow(0 0 16px rgba(139, 92, 246, 0.3));
+}
+
 /* Animated gradient background */
 .animated-bg {
   background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #475569);
   background-size: 400% 400%;
   animation: gradient-x 15s ease infinite;
+}
+
+/* Enhanced gradient animation for text */
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Floating elements */
