@@ -65,7 +65,7 @@ const CustomCursor: React.FC = () => {
     <>
       {/* Glowing light area */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[9995]"
+        className="fixed top-0 left-0 pointer-events-none z-[10005]"
         style={{
           background: `radial-gradient(circle 100px at ${mousePosition.x}px ${mousePosition.y}px, 
             rgba(147, 51, 234, 0.08) 0%, 
@@ -90,7 +90,7 @@ const CustomCursor: React.FC = () => {
         return (
           <motion.div
             key={`${point.timestamp}-${index}`}
-            className="fixed top-0 left-0 pointer-events-none z-[9997]"
+            className="fixed top-0 left-0 pointer-events-none z-[10007]"
             style={{
               x: point.x - 4,
               y: point.y - 4,
@@ -113,7 +113,7 @@ const CustomCursor: React.FC = () => {
 
       {/* Main cursor glow */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[9998]"
+        className="fixed top-0 left-0 pointer-events-none z-[10008]"
         animate={{
           x: mousePosition.x - 25,
           y: mousePosition.y - 25,
@@ -131,7 +131,7 @@ const CustomCursor: React.FC = () => {
 
       {/* Main cursor dot - removed the border ring */}
       <motion.div
-        className="fixed top-0 left-0 w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full pointer-events-none z-[9999]"
+        className="fixed top-0 left-0 w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full pointer-events-none z-[10009]"
         animate={{
           x: mousePosition.x - 6,
           y: mousePosition.y - 6,
@@ -153,7 +153,7 @@ const CustomCursor: React.FC = () => {
       {/* Sparkle effects */}
       {isHovering && (
         <motion.div
-          className="fixed top-0 left-0 pointer-events-none z-[9996]"
+          className="fixed top-0 left-0 pointer-events-none z-[10006]"
           animate={{
             x: mousePosition.x - 15,
             y: mousePosition.y - 15,

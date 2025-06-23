@@ -92,7 +92,6 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3),
     0 1px 0 rgba(255, 255, 255, 0.1);
   position: fixed !important;
   top: 0 !important;
@@ -108,8 +107,33 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  font-weight: 600;
-  letter-spacing: -0.025em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+/* Enhanced header logo container */
+.header-logo {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.header-logo:hover {
+  transform: translateY(-1px);
+}
+
+.header-logo::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.header-logo:hover::before {
+  opacity: 1;
 }
 
 /* Navigation link hover effects */

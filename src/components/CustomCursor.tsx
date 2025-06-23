@@ -38,7 +38,7 @@ const CustomCursor: React.FC = () => {
     <>
       {/* Main cursor */}
       <motion.div
-        className="fixed top-0 left-0 w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full pointer-events-none z-[9999] mix-blend-difference"
+        className="fixed top-0 left-0 w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full pointer-events-none z-[10009] mix-blend-difference"
         animate={{
           x: mousePosition.x - 8,
           y: mousePosition.y - 8,
@@ -54,7 +54,7 @@ const CustomCursor: React.FC = () => {
       
       {/* Cursor trail */}
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 border-2 border-blue-400/50 rounded-full pointer-events-none z-[9998]"
+        className="fixed top-0 left-0 w-8 h-8 border-2 border-blue-400/50 rounded-full pointer-events-none z-[10008]"
         animate={{
           x: mousePosition.x - 16,
           y: mousePosition.y - 16,

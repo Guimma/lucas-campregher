@@ -42,10 +42,16 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center relative z-10">
             <motion.div 
-              className="text-2xl font-bold header-brand"
+              className="flex items-center space-x-3"
               whileHover={{ scale: 1.02 }}
             >
-              Lucas Campregher
+              <div className="relative header-logo">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500/20 to-purple-600/20 backdrop-blur-sm border border-white/20 flex items-center justify-center shadow-lg">
+                  <span className="text-sm font-bold header-brand">LC</span>
+                </div>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500/10 to-purple-600/10 animate-pulse"></div>
+              </div>
+              <span className="text-lg font-medium text-gray-300 hidden sm:block">Portfolio</span>
             </motion.div>
             <div className="hidden md:flex space-x-8">
               {['About', 'Skills', 'Projects', 'Contact'].map((item) => (
