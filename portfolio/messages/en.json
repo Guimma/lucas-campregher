@@ -1,0 +1,74 @@
+{
+  "navigation": {
+    "name": "Lucas Campregher",
+    "about": "About",
+    "skills": "Skills", 
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm ",
+    "name": "Lucas",
+    "description": "Driven by creative problem-solving and a passion for Data Privacy & AI, I'm a Fullstack Software Engineer crafting secure and scalable solutions for millions of users.",
+    "viewWork": "View My Work",
+    "getInTouch": "Get In Touch"
+  },
+  "about": {
+    "title": "About Me",
+    "paragraph1": "I'm a creative and communicative software engineer with over 6 years of market experience. I specialize in backend development and am passionate about data privacy and security. I constantly evolve and quickly adapt to new challenges in my professional journey.",
+    "paragraph2": "Throughout my career, I've worked with diverse technologies - from developing complex APIs to web and mobile frontend applications. I've also gained experience with DevOps and Cloud computing. As a technical leader, I focus on improving team deliveries and agile methodologies.",
+    "paragraph3": "Beyond my development work, I co-host \"Entre Chaves,\" a podcast for the developer community. I'm passionate about mentoring developers and have participated in team hiring and planning processes.",
+    "cards": {
+      "backend": {
+        "title": "Backend Development",
+        "description": "API development of rich and complex domains"
+      },
+      "leadership": {
+        "title": "Technical Leadership", 
+        "description": "Leading development teams and improving deliveries"
+      },
+      "cloud": {
+        "title": "Cloud & DevOps",
+        "description": "AWS infrastructure and cloud computing management"
+      },
+      "privacy": {
+        "title": "Data Privacy",
+        "description": "Enthusiast in data security and privacy solutions"
+      }
+    }
+  },
+  "skills": {
+    "title": "Skills & Expertise",
+    "categories": {
+      "backend": "Backend",
+      "cloud": "Cloud & DevOps", 
+      "data": "Data & Tools"
+    }
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "items": {
+      "ecommerce": {
+        "title": "E-Commerce Platform",
+        "description": "Full-stack e-commerce solution with React, Node.js, and Stripe integration"
+      },
+      "taskManagement": {
+        "title": "Task Management App", 
+        "description": "Collaborative project management tool with real-time updates"
+      },
+      "aiChat": {
+        "title": "AI Chat Interface",
+        "description": "Modern chat interface with AI integration and voice commands"
+      }
+    }
+  },
+  "contact": {
+    "title": "Let's Create Something Amazing",
+    "description": "Ready to bring your ideas to life? Let's collaborate and build something extraordinary together.",
+    "sendEmail": "Send Email",
+    "viewGithub": "View GitHub"
+  },
+  "footer": {
+    "copyright": "© 2024 Lucas Campregher. Crafted with ❤️ and lots of coffee."
+  }
+} 
