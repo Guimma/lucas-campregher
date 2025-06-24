@@ -54,14 +54,46 @@
         "company": "Dev.Pro",
         "period": "Ago 2024 - Presente",
         "description": "Trabalhando com equipe altamente técnica e sênior em produto global com impacto em milhões de usuários. Colaboração internacional com membros de diversos países, focando em desafios técnicos complexos, melhorias de performance e refinamento técnico de alto nível.",
-        "technologies": ["Java", "Spring Boot", "Microsserviços", "Escala Global"]
+        "technologies": ["Java", "Spring Boot", "Microsserviços", "Escala Global"],
+        "clients": {
+          "starbucks": {
+            "name": "Starbucks",
+            "description": "Liderando equipe de desenvolvimento para integração abrangente do All Delivery em todas as unidades Starbucks nos Estados Unidos e Canadá. Arquitetando sistemas de escala global que atendem milhões de clientes diariamente através de microsserviços de alto desempenho, enfrentando desafios técnicos complexos enquanto mantém colaboração internacional perfeita e excelência operacional."
+          }
+        }
       },
       "dti": {
         "title": "Squad Leader e Referência Técnica",
         "company": "DTI Digital",
         "period": "Jun 2019 - Ago 2024",
         "description": "Liderança de equipes técnicas como Squad Leader e Referência Técnica, conduzindo liderança de chapter de segurança, co-apresentando podcast de desenvolvimento e participando do planejamento estratégico. Apoio em processos de contratação e mentoria de novos líderes.",
-        "technologies": ["Java", "C#", ".NET", "Angular", "Flutter", "AWS", "Azure"]
+        "technologies": ["Java", "C#", ".NET", "Angular", "Flutter", "AWS", "Azure"],
+        "clients": {
+          "bancoInter": {
+            "name": "Banco Inter",
+            "description": "Squad Leader desenvolvendo microsserviços com Java 17 e Micronaut. Uso extensivo do GitHub Copilot, migração de sistemas legados, gerenciamento AWS Cloud e planejamento de arquitetura técnica."
+          },
+          "valeGeotec": {
+            "name": "VALE - Geotec",
+            "description": "Liderei o desenvolvimento da plataforma de monitoramento de barragens da VALE. Construí app mobile Flutter, frontend Angular e microsserviços Java Spring Boot. Otimizei performance em +400%, economizei mais de 1M de reais em custos Azure, alcancei 99% de estabilidade do sistema."
+          },
+          "valeGcm": {
+            "name": "VALE - GCM",
+            "description": "Desenvolvi portal de contingência médica da VALE durante a pandemia COVID-19. Desenvolvimento full-stack com frontend Angular e backend C# .NET em contexto de projeto urgente."
+          },
+          "bancoBS2": {
+            "name": "Banco BS2",
+            "description": "Desenvolvedor full-stack construindo microsserviços com C# .NET 3.1 e frontend Vue.js. Implementei soluções Azure Cloud e Azure Functions usando metodologias ágeis."
+          },
+          "landor": {
+            "name": "Landor",
+            "description": "Primeira experiência com projeto internacional. Trabalhando com produto de marketing principal para usar QR codes para promoções de grandes empresas como Coca Cola."
+          },
+          "entreChaves": {
+            "name": "Entre Chaves",
+            "description": "Apresentador em podcast de desenvolvimento de software com mais de 100 episódios, focado em tópicos de desenvolvimento, tendências tecnológicas e insights da comunidade de desenvolvedores."
+          }
+        }
       },
       "anp": {
         "title": "Estagiário de Desenvolvimento",

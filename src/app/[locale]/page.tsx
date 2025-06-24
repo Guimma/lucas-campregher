@@ -328,54 +328,61 @@ export default function Home() {
                 {[
                   { 
                     key: 'devpro', 
-                    techs: ['Java', 'Spring Boot', 'Microservices', 'Global Scale'],
+                    techs: t.raw('career.experiences.devpro.technologies'),
                     clients: [
                       { 
-                        name: 'Starbucks', 
+                        key: 'starbucks',
+                        name: t('career.experiences.devpro.clients.starbucks.name'), 
                         logo: '/sbux.png',
-                        description: 'Working in a team for All Delivery integration for all Starbucks stores from US and Canada. Developing global-scale systems serving millions of customers worldwide with high-performance microservices, complex technical challenges, and international team collaboration.'
+                        description: t('career.experiences.devpro.clients.starbucks.description')
                       }
                     ]
                   },
                   { 
                     key: 'dti', 
-                    techs: ['Java', 'C#', '.NET', 'Angular', 'Flutter', 'AWS', 'Azure'],
+                    techs: t.raw('career.experiences.dti.technologies'),
                     clients: [
                       { 
-                        name: 'Banco Inter', 
+                        key: 'bancoInter',
+                        name: t('career.experiences.dti.clients.bancoInter.name'), 
                         logo: '/inter.png',
-                        description: 'Squad Leader developing microservices with Java 17 and Micronaut. Extensive use of GitHub Copilot, legacy system migration, AWS Cloud management, and technical architecture planning.'
+                        description: t('career.experiences.dti.clients.bancoInter.description')
                       },
                       { 
-                        name: 'VALE - Geotec', 
+                        key: 'valeGeotec',
+                        name: t('career.experiences.dti.clients.valeGeotec.name'), 
                         logo: '/vale.png',
-                        description: 'Led VALE\'s dam monitoring platform development. Built Flutter mobile app, Angular frontend, and Java Spring Boot microservices. Optimized performance by +400%, saved over 1M reais in Azure costs, achieved 99% system stability.'
+                        description: t('career.experiences.dti.clients.valeGeotec.description')
                       },
                       { 
-                        name: 'VALE - GCM', 
+                        key: 'valeGcm',
+                        name: t('career.experiences.dti.clients.valeGcm.name'), 
                         logo: '/vale.png',
-                        description: 'Developed VALE\'s medical contingency portal during COVID-19 pandemic. Full-stack development with Angular frontend and C# .NET backend in urgent project context.'
+                        description: t('career.experiences.dti.clients.valeGcm.description')
                       },
                       { 
-                        name: 'Banco BS2', 
+                        key: 'bancoBS2',
+                        name: t('career.experiences.dti.clients.bancoBS2.name'), 
                         logo: '/bs2.png',
-                        description: 'Full-stack developer building microservices with C# .NET 3.1 and Vue.js frontend. Implemented Azure Cloud solutions and Azure Functions using agile methodologies.'
+                        description: t('career.experiences.dti.clients.bancoBS2.description')
                       },
                       { 
-                        name: 'Landor', 
+                        key: 'landor',
+                        name: t('career.experiences.dti.clients.landor.name'), 
                         logo: '/landor.png',
-                        description: 'First experience with international project. Working with a major marketing product to use QR codes for promotions for big companies like Coca Cola.'
+                        description: t('career.experiences.dti.clients.landor.description')
                       },
                       { 
-                        name: 'Entre Chaves', 
+                        key: 'entreChaves',
+                        name: t('career.experiences.dti.clients.entreChaves.name'), 
                         logo: '/ec.jpg',
-                        description: 'Host in a software development podcast with more than 100 episodes, focused on development topics, technology trends, and developer community insights.'
+                        description: t('career.experiences.dti.clients.entreChaves.description')
                       }
                     ]
                   },
                   { 
                     key: 'anp', 
-                    techs: ['Visual Basic', 'Excel', 'Data Processing']
+                    techs: t.raw('career.experiences.anp.technologies')
                   }
                 ].map((item, index) => (
                   <motion.div

@@ -54,14 +54,46 @@
         "company": "Dev.Pro",
         "period": "Aug 2024 - Present",
         "description": "Working with a highly technical and senior team on a global product impacting millions of users. International collaboration with team members from diverse countries, focusing on complex technical challenges, performance improvements, and high-level technical refinement.",
-        "technologies": ["Java", "Spring Boot", "Microservices", "Global Scale"]
+        "technologies": ["Java", "Spring Boot", "Microservices", "Global Scale"],
+        "clients": {
+          "starbucks": {
+            "name": "Starbucks",
+            "description": "Leading development team for comprehensive All Delivery integration across all Starbucks locations in the United States and Canada. Architecting global-scale systems serving millions of customers daily through high-performance microservices, addressing complex technical challenges while maintaining seamless international team collaboration and operational excellence."
+          }
+        }
       },
       "dti": {
         "title": "Squad Leader & Technical Reference",
         "company": "DTI Digital",
         "period": "Jun 2019 - Aug 2024",
         "description": "Led technical teams as Squad Leader and Technical Reference, driving security chapter leadership, co-hosting software development podcast, and participating in strategic planning. Supported hiring processes and mentored new team leads.",
-        "technologies": ["Java", "C#", ".NET", "Angular", "Flutter", "AWS", "Azure"]
+        "technologies": ["Java", "C#", ".NET", "Angular", "Flutter", "AWS", "Azure"],
+        "clients": {
+          "bancoInter": {
+            "name": "Banco Inter",
+            "description": "Squad Leader developing microservices with Java 17 and Micronaut. Extensive use of GitHub Copilot, legacy system migration, AWS Cloud management, and technical architecture planning."
+          },
+          "valeGeotec": {
+            "name": "VALE - Geotec",
+            "description": "Led VALE's dam monitoring platform development. Built Flutter mobile app, Angular frontend, and Java Spring Boot microservices. Optimized performance by +400%, saved over 1M reais in Azure costs, achieved 99% system stability."
+          },
+          "valeGcm": {
+            "name": "VALE - GCM",
+            "description": "Developed VALE's medical contingency portal during COVID-19 pandemic. Full-stack development with Angular frontend and C# .NET backend in urgent project context."
+          },
+          "bancoBS2": {
+            "name": "Banco BS2",
+            "description": "Full-stack developer building microservices with C# .NET 3.1 and Vue.js frontend. Implemented Azure Cloud solutions and Azure Functions using agile methodologies."
+          },
+          "landor": {
+            "name": "Landor",
+            "description": "First experience with international project. Working with a major marketing product to use QR codes for promotions for big companies like Coca Cola."
+          },
+          "entreChaves": {
+            "name": "Entre Chaves",
+            "description": "Host in a software development podcast with more than 100 episodes, focused on development topics, technology trends, and developer community insights."
+          }
+        }
       },
       "anp": {
         "title": "Software Development Intern",
