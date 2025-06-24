@@ -7,21 +7,25 @@
     "contact": "Contato"
   },
   "hero": {
-    "greeting": "Oi, meu nome é ",
+    "greeting": "Olá! Sou o ",
     "name": "Lucas",
     "description": "Movido pela resolução criativa de problemas e pela paixão por Privacidade de Dados e IA, sou um Engenheiro de Software Fullstack criando soluções seguras e escaláveis para milhões de usuários.",
-    "viewWork": "Ver Meu Trabalho",
+    "viewWork": "Veja Meus Projetos",
     "getInTouch": "Entre em Contato"
   },
   "about": {
     "title": "Sobre Mim",
-    "paragraph1": "Sou um engenheiro de software criativo e comunicativo com mais de 6 anos de experiência no mercado. Especializo-me em desenvolvimento backend e sou apaixonado por privacidade e segurança de dados. Estou em constante evolução e me adapto rapidamente a novos desafios em minha jornada profissional.",
+    "paragraph1": "Sou um engenheiro de software criativo e comunicativo trabalhando desde 2018. Especializo-me em desenvolvimento backend e sou apaixonado por privacidade e segurança de dados. Estou em constante evolução e me adapto rapidamente a novos desafios em minha jornada profissional.",
     "paragraph2": "Ao longo da minha carreira, trabalhei com tecnologias diversas - desde o desenvolvimento de APIs complexas até aplicações frontend web e mobile. Também ganhei experiência com DevOps e Cloud computing. Como líder técnico, foco em melhorar as entregas das equipes e metodologias ágeis.",
-    "paragraph3": "Além do meu trabalho de desenvolvimento, co-apresento o \"Entre Chaves\", um podcast para a comunidade de desenvolvedores. Tenho paixão por mentorar desenvolvedores e participei de processos de contratação e planejamento de equipes.",
+    "paragraph3": "Além do meu trabalho de desenvolvimento, tive experiência co-apresentando o \"Entre Chaves\", um podcast para a comunidade de desenvolvedores. Tenho paixão por mentorar desenvolvedores e participei de processos de contratação e planejamento de equipes.",
     "cards": {
       "backend": {
         "title": "Desenvolvimento Backend",
         "description": "Desenvolvimento de APIs de domínios ricos e complexos"
+      },
+      "frontend": {
+        "title": "Desenvolvimento Frontend",
+        "description": "Desenvolvimento web com frameworks JavaScript e mobile com Flutter"
       },
       "leadership": {
         "title": "Liderança Técnica", 
@@ -34,6 +38,10 @@
       "privacy": {
         "title": "Privacidade de Dados",
         "description": "Entusiasta em segurança de dados e soluções de privacidade"
+      },
+      "communication": {
+        "title": "Comunicação",
+        "description": "Palestrante em eventos e co-apresentador do podcast 'Entre Chaves'"
       }
     }
   },
