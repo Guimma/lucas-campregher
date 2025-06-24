@@ -18,7 +18,11 @@ import {
   Calendar,
   Briefcase,
   GraduationCap,
-  School
+  School,
+  Wrench,
+  Cloud as CloudIcon,
+  Sparkles,
+  Globe
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
@@ -787,46 +791,129 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
               <span className="gradient-text">{t('skills.title')}</span>
             </h2>
-            
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                {
-                  key: 'backend',
-                  icon: Code2,
-                  skills: ['Node.js', 'Python', 'Java', 'PHP', 'C#']
-                },
-                {
-                  key: 'cloud',
-                  icon: Rocket,
-                  skills: ['AWS', 'Docker', 'Kubernetes', 'CI/CD', 'Microservices']
-                },
-                {
-                  key: 'data',
-                  icon: Brain,
-                  skills: ['PostgreSQL', 'Redis', 'MongoDB', 'Data Privacy', 'LGPD/GDPR']
-                }
-              ].map((category, index) => (
-                <motion.div
-                  key={category.key}
-                  className="p-8 glass rounded-2xl hover:bg-white/10 transition-all duration-150"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.15 } }}
-                >
-                  <category.icon className="w-12 h-12 text-blue-400 mb-6" />
-                  <h3 className="text-xl font-semibold mb-4">{t(`skills.categories.${category.key}.title`)}</h3>
-                  <p className="text-gray-300 mb-6">{t(`skills.categories.${category.key}.description`)}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {category.skills.map((skill) => (
-                      <span key={skill} className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
+            <div className="grid md:grid-cols-2 gap-10">
+              {/* Programming Languages */}
+              <motion.div
+                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-xl group"
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
+              >
+                <h3 className="text-xl font-semibold mb-6 text-white group-hover:text-blue-300 flex items-center gap-2 transition-colors duration-300">
+                  <Code2 className="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
+                  {t('skills.areas.languages')}
+                </h3>
+                {[
+                  { name: 'Java', value: 100 },
+                  { name: 'C#', value: 100 },
+                  { name: 'Javascript', value: 90 },
+                  { name: 'Python', value: 85 },
+                  { name: 'Dart', value: 70 },
+                  { name: 'SQL', value: 85 },
+                ].map(skill => (
+                  <SkillBar key={skill.name} name={skill.name} value={skill.value} />
+                ))}
+              </motion.div>
+              {/* Frameworks & Dev Tools */}
+              <motion.div
+                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-xl group"
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
+              >
+                <h3 className="text-xl font-semibold mb-6 text-white group-hover:text-blue-300 flex items-center gap-2 transition-colors duration-300">
+                  <Wrench className="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
+                  {t('skills.areas.frameworks')}
+                </h3>
+                {[
+                  { name: 'Spring Boot', value: 100 },
+                  { name: 'Micronaut', value: 90 },
+                  { name: '.NET', value: 100 },
+                  { name: 'Flutter', value: 70 },
+                  { name: 'Angular', value: 80 },
+                  { name: 'Vue', value: 70 },
+                  { name: 'Next.js', value: 60 },
+                  { name: 'NoSQL', value: 80 },
+                  { name: 'Event Streaming', value: 80 },
+                  { name: 'Logs & Monitoring', value: 90 },
+                  { name: 'AI', value: 90 },
+                ].map(skill => (
+                  <SkillBar key={skill.name} name={skill.name} value={skill.value} />
+                ))}
+              </motion.div>
+              {/* Cloud & DevOps */}
+              <motion.div
+                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-xl group"
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
+              >
+                <h3 className="text-xl font-semibold mb-6 text-white group-hover:text-blue-300 flex items-center gap-2 transition-colors duration-300">
+                  <CloudIcon className="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
+                  {t('skills.areas.cloud')}
+                </h3>
+                {[
+                  { name: 'Azure Cloud', value: 80 },
+                  { name: 'AWS Cloud', value: 70 },
+                  { name: 'Cloud', value: 80 },
+                  { name: 'Devops', value: 75 },
+                  { name: 'Agile', value: 95 },
+                  { name: 'Cost-Effective Thinking', value: 85 },
+                ].map(skill => (
+                  <SkillBar key={skill.name} name={skill.name} value={skill.value} />
+                ))}
+              </motion.div>
+              {/* Software & Solution Skills */}
+              <motion.div
+                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-xl group"
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
+              >
+                <h3 className="text-xl font-semibold mb-6 text-white group-hover:text-blue-300 flex items-center gap-2 transition-colors duration-300">
+                  <Brain className="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
+                  {t('skills.areas.software')}
+                </h3>
+                {[
+                  { name: 'Software Architecture', value: 80 },
+                  { name: 'Clean Code & Design Patterns', value: 90 },
+                  { name: 'Creativity & Innovation', value: 100 },
+                  { name: 'Communication', value: 100 },
+                ].map(skill => (
+                  <SkillBar key={skill.name} name={skill.name} value={skill.value} />
+                ))}
+              </motion.div>
+              {/* AI & Productivity */}
+              <motion.div
+                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-xl md:col-span-1 group"
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
+              >
+                <h3 className="text-xl font-semibold mb-6 text-white group-hover:text-blue-300 flex items-center gap-2 transition-colors duration-300">
+                  <Sparkles className="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
+                  {t('skills.areas.ai')}
+                </h3>
+                {[
+                  { name: 'Cursor', value: 90 },
+                  { name: 'Copilot', value: 80 },
+                  { name: 'Data Privacy', value: 90 },
+                ].map(skill => (
+                  <SkillBar key={skill.name} name={skill.name} value={skill.value} />
+                ))}
+              </motion.div>
+              {/* Spoken Languages */}
+              <motion.div
+                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-xl md:col-span-1 group"
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
+              >
+                <h3 className="text-xl font-semibold mb-6 text-white group-hover:text-blue-300 flex items-center gap-2 transition-colors duration-300">
+                  <Globe className="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
+                  {t('skills.areas.spokenTitle')}
+                </h3>
+                {[
+                  { name: t('spoken.portuguese'), value: 100 },
+                  { name: t('spoken.english'), value: 100 },
+                ].map(skill => (
+                  <SkillBar key={skill.name} name={skill.name} value={skill.value} />
+                ))}
+              </motion.div>
             </div>
           </motion.div>
         </div>
@@ -1050,6 +1137,27 @@ export default function Home() {
           </p>
         </div>
       </footer>
+    </div>
+  );
+}
+
+// SkillBar component
+function SkillBar({ name, value }: { name: string; value: number }) {
+  return (
+    <div className="mb-4">
+      <div className="flex justify-between items-center mb-1">
+        <span className="text-gray-200 font-medium">{name}</span>
+        <span className="text-gray-400 font-mono text-sm">{value}%</span>
+      </div>
+      <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
+        <motion.div
+          className="h-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full shadow-lg"
+          initial={{ width: 0 }}
+          whileInView={{ width: `${value}%` }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: 'easeOut' }}
+        />
+      </div>
     </div>
   );
 } 

@@ -105,20 +105,14 @@
     }
   },
   "skills": {
-    "title": "Skills & Expertise",
-    "categories": {
-      "backend": {
-        "title": "Backend Development",
-        "description": "Robust server-side applications and APIs"
-      },
-      "cloud": {
-        "title": "Cloud & DevOps",
-        "description": "Scalable infrastructure and deployment solutions"
-      },
-      "data": {
-        "title": "Data & Privacy",
-        "description": "Database management and data privacy compliance"
-      }
+    "title": "Skills",
+    "areas": {
+      "languages": "Programming Languages",
+      "frameworks": "Frameworks & Development Tools",
+      "cloud": "Cloud & DevOps",
+      "software": "Software & Solution Skills",
+      "ai": "AI & Productivity",
+      "spokenTitle": "Languages"
     }
   },
   "projects": {
@@ -169,5 +163,9 @@
         "degree": "High School"
       }
     }
+  },
+  "spoken": {
+    "portuguese": "Portuguese",
+    "english": "English"
   }
 } 

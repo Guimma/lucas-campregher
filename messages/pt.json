@@ -105,20 +105,14 @@
     }
   },
   "skills": {
-    "title": "Habilidades e Especialidades",
-    "categories": {
-      "backend": {
-        "title": "Desenvolvimento Backend",
-        "description": "Aplicações robustas do lado servidor e APIs"
-      },
-      "cloud": {
-        "title": "Cloud & DevOps",
-        "description": "Infraestrutura escalável e soluções de deploy"
-      },
-      "data": {
-        "title": "Dados e Privacidade",
-        "description": "Gerenciamento de banco de dados e conformidade de privacidade"
-      }
+    "title": "Habilidades",
+    "areas": {
+      "languages": "Linguagens de Programação",
+      "frameworks": "Frameworks e Ferramentas",
+      "cloud": "Cloud & DevOps",
+      "software": "Habilidades de Software e Solução",
+      "ai": "IA & Produtividade",
+      "spokenTitle": "Línguas"
     }
   },
   "projects": {
