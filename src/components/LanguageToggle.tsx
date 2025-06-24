@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { Globe } from 'lucide-react';
+import Image from 'next/image';
 
 const languages = [
   { code: 'en', flag: '/en-us.png', name: 'English' },
@@ -47,9 +48,11 @@ export default function LanguageToggle() {
         title={`Current: ${currentLanguage?.name}`}
       >
         {currentLanguage?.flag ? (
-          <img 
+          <Image 
             src={currentLanguage.flag} 
             alt={currentLanguage.name}
+            width={24}
+            height={24}
             className="w-6 h-6 rounded-full object-cover"
             onError={(e) => {
               // Fallback se a imagem não carregar
@@ -87,9 +90,11 @@ export default function LanguageToggle() {
                   whileTap={{ scale: 0.95 }}
                   title={language.name}
                 >
-                  <img 
+                  <Image 
                     src={language.flag} 
                     alt={language.name}
+                    width={24}
+                    height={24}
                     className="w-6 h-6 rounded-full object-cover"
                     onError={(e) => {
                       // Fallback se a imagem não carregar

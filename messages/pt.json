@@ -2,6 +2,7 @@
   "navigation": {
     "name": "Lucas Campregher",
     "about": "Sobre",
+    "career": "Carreira",
     "skills": "Habilidades", 
     "projects": "Projetos",
     "contact": "Contato"
@@ -45,21 +46,73 @@
       }
     }
   },
-  "skills": {
-    "title": "Habilidades e Especialidades",
-    "categories": {
-      "backend": {
-        "title": "Desenvolvimento Backend",
-        "description": "Aplicações robustas do lado servidor e APIs"
+  "career": {
+    "title": "Jornada Profissional",
+    "experiences": {
+      "devpro": {
+        "title": "Engenheiro de Software",
+        "company": "Dev.Pro",
+        "period": "Ago 2024 - Presente",
+        "description": "Trabalhando com equipe altamente técnica e sênior em produto global com impacto em milhões de usuários. Colaboração internacional com membros de diversos países, focando em desafios técnicos complexos, melhorias de performance e refinamento técnico de alto nível.",
+        "technologies": ["Java", "Spring Boot", "Microsserviços", "Escala Global"],
+        "clients": {
+          "starbucks": {
+            "name": "Starbucks",
+            "description": "Responsável pela integração das lojas Starbucks nos EUA e Canadá com todos os principais parceiros de delivery, garantindo operações de pedidos e entregas de forma eficiente e escalável."
+          }
+        }
       },
-      "cloud": {
-        "title": "Cloud & DevOps",
-        "description": "Infraestrutura escalável e soluções de deploy"
+      "dti": {
+        "title": "Squad Leader e Referência Técnica",
+        "company": "DTI Digital",
+        "period": "Jun 2019 - Ago 2024",
+        "description": "Liderança de equipes técnicas como Squad Leader e Referência Técnica, conduzindo liderança de chapter de segurança, co-apresentando podcast de desenvolvimento e participando do planejamento estratégico. Apoio em processos de contratação e mentoria de novos líderes.",
+        "technologies": ["Java", "C#", ".NET", "Angular", "Flutter", "AWS", "Azure"],
+        "clients": {
+          "bancoInter": {
+            "name": "Banco Inter",
+            "description": "Squad Leader desenvolvendo microsserviços com Java 17 e Micronaut. Uso extensivo do GitHub Copilot, migração de sistemas legados, gerenciamento AWS Cloud e planejamento de arquitetura técnica."
+          },
+          "valeGeotec": {
+            "name": "VALE - Geotec",
+            "description": "Liderei o desenvolvimento da plataforma de monitoramento de barragens da VALE. Construí app mobile Flutter, frontend Angular e microsserviços Java Spring Boot. Otimizei performance em +400%, economizei mais de 1M de reais em custos Azure, alcancei 99% de estabilidade do sistema."
+          },
+          "valeGcm": {
+            "name": "VALE - GCM",
+            "description": "Desenvolvi portal de contingência médica da VALE durante a pandemia COVID-19. Desenvolvimento full-stack com frontend Angular e backend C# .NET em contexto de projeto urgente."
+          },
+          "bancoBS2": {
+            "name": "Banco BS2",
+            "description": "Desenvolvedor full-stack construindo microsserviços com C# .NET 3.1 e frontend Vue.js. Implementei soluções Azure Cloud e Azure Functions usando metodologias ágeis."
+          },
+          "landor": {
+            "name": "Landor",
+            "description": "Primeira experiência com projeto internacional. Trabalhando com produto de marketing principal para usar QR codes para promoções de grandes empresas como Coca Cola."
+          },
+          "entreChaves": {
+            "name": "Entre Chaves",
+            "description": "Apresentador em podcast de desenvolvimento de software com mais de 100 episódios, focado em tópicos de desenvolvimento, tendências tecnológicas e insights da comunidade de desenvolvedores."
+          }
+        }
       },
-      "data": {
-        "title": "Dados e Privacidade",
-        "description": "Gerenciamento de banco de dados e conformidade de privacidade"
+      "anp": {
+        "title": "Estagiário de Desenvolvimento",
+        "company": "ANP - Agência Nacional do Petróleo",
+        "period": "Jan 2019 - Jun 2019",
+        "description": "Experiência inicial em desenvolvimento de software com foco em soluções de processamento de dados usando Visual Basic em Excel para aplicações da indústria petrolífera.",
+        "technologies": ["Visual Basic", "Excel", "Processamento de Dados"]
       }
+    }
+  },
+  "skills": {
+    "title": "Habilidades",
+    "areas": {
+      "languages": "Linguagens de Programação",
+      "frameworks": "Frameworks e Ferramentas",
+      "cloud": "Cloud & DevOps",
+      "software": "Habilidades de Software e Solução",
+      "ai": "IA & Produtividade",
+      "spokenTitle": "Línguas"
     }
   },
   "projects": {
@@ -95,5 +148,20 @@
   },
   "footer": {
     "copyright": "© 2024 Lucas Campregher. Criado com ❤️ e muito café."
+  },
+  "education": {
+    "title": "Educação",
+    "items": {
+      "puc": {
+        "name": "Pontifícia Universidade Católica de Minas Gerais",
+        "period": "01/2018 — 12/2022",
+        "degree": "Bacharelado em Ciência da Computação"
+      },
+      "magnum": {
+        "name": "Colégio Magnum Agostiniano",
+        "period": "12/2017",
+        "degree": "Ensino Médio"
+      }
+    }
   }
 } 
