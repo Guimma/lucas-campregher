@@ -316,9 +316,9 @@ export default function Home() {
               {/* Minimalist Timeline Line */}
               <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
               
-              {/* Progressive Timeline Fill */}
+              {/* Progressive Timeline Fill with gradient to transparent */}
               <motion.div
-                className="absolute left-6 md:left-8 top-0 w-px bg-gradient-to-b from-blue-500/60 to-purple-500/60"
+                className="absolute left-6 md:left-8 top-0 w-px bg-gradient-to-b from-blue-500/60 via-purple-500/60 to-transparent"
                 initial={{ height: 0 }}
                 whileInView={{ height: "100%" }}
                 viewport={{ once: true }}
@@ -330,7 +330,7 @@ export default function Home() {
                 {[
                   { 
                     key: 'devpro', 
-                    techs: ['Java', 'Spring Boot', 'Microservices', 'Global Scale'],
+                    techs: ['Microservices', 'Global Scale', 'C#', '.NET', 'Azure', 'Kubernetes'],
                     clients: [
                       { 
                         key: 'starbucks',
@@ -351,6 +351,12 @@ export default function Home() {
                         description: t('career.experiences.dti.clients.bancoInter.description')
                       },
                       { 
+                        key: 'landor',
+                        name: 'Landor & Fitch',
+                        logo: '/landor.png',
+                        description: t('career.experiences.dti.clients.landor.description')
+                      },
+                      { 
                         key: 'valeGeotec',
                         name: t('career.experiences.dti.clients.valeGeotec.name'), 
                         logo: '/vale.png',
@@ -367,12 +373,6 @@ export default function Home() {
                         name: t('career.experiences.dti.clients.bancoBS2.name'), 
                         logo: '/bs2.png',
                         description: t('career.experiences.dti.clients.bancoBS2.description')
-                      },
-                      { 
-                        key: 'landor',
-                        name: t('career.experiences.dti.clients.landor.name'), 
-                        logo: '/landor.png',
-                        description: t('career.experiences.dti.clients.landor.description')
                       },
                       { 
                         key: 'entreChaves',
@@ -683,7 +683,7 @@ export default function Home() {
               {/* Linha vertical igual carreira */}
               <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
               <motion.div
-                className="absolute left-6 md:left-8 top-0 w-px bg-gradient-to-b from-blue-500/60 to-purple-500/60"
+                className="absolute left-6 md:left-8 top-0 w-px bg-gradient-to-b from-blue-500/60 via-purple-500/60 to-transparent"
                 initial={{ height: 0 }}
                 whileInView={{ height: '100%' }}
                 viewport={{ once: true }}

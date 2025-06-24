@@ -58,7 +58,7 @@
         "clients": {
           "starbucks": {
             "name": "Starbucks",
-            "description": "Leading development team for comprehensive All Delivery integration across all Starbucks locations in the United States and Canada. Architecting global-scale systems serving millions of customers daily through high-performance microservices, addressing complex technical challenges while maintaining seamless international team collaboration and operational excellence."
+            "description": "Responsible for integrating Starbucks stores across the US and Canada with all major delivery partners, ensuring seamless order and delivery operations at scale."
           }
         }
       },
@@ -159,7 +159,7 @@
     "title": "Education",
     "items": {
       "puc": {
-        "name": "Pontifical Catholic University of Minas Gerais",
+        "name": "Pontifícia Universidade Católica de Minas Gerais",
         "period": "01/2018 — 12/2022",
         "degree": "Bachelor of Computer Science"
       },
