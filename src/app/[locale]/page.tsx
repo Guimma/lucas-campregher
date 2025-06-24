@@ -333,7 +333,7 @@ export default function Home() {
                       { 
                         name: 'Starbucks', 
                         logo: '/sbux.png',
-                        description: 'Working on global-scale systems serving millions of Starbucks customers worldwide. Developing high-performance microservices with complex technical challenges and international team collaboration.'
+                        description: 'Working in a team for All Delivery integration for all Starbucks stores from US and Canada. Developing global-scale systems serving millions of customers worldwide with high-performance microservices, complex technical challenges, and international team collaboration.'
                       }
                     ]
                   },
