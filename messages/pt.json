@@ -154,5 +154,20 @@
   },
   "footer": {
     "copyright": "© 2024 Lucas Campregher. Criado com ❤️ e muito café."
+  },
+  "education": {
+    "title": "Educação",
+    "items": {
+      "puc": {
+        "name": "Pontifícia Universidade Católica de Minas Gerais",
+        "period": "01/2018 — 12/2022",
+        "degree": "Bacharelado em Ciência da Computação"
+      },
+      "magnum": {
+        "name": "Colégio Magnum Agostiniano",
+        "period": "12/2017",
+        "degree": "Ensino Médio"
+      }
+    }
   }
 } 

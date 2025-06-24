@@ -154,5 +154,20 @@
   },
   "footer": {
     "copyright": "© 2024 Lucas Campregher. Crafted with ❤️ and lots of coffee."
+  },
+  "education": {
+    "title": "Education",
+    "items": {
+      "puc": {
+        "name": "Pontifical Catholic University of Minas Gerais",
+        "period": "01/2018 — 12/2022",
+        "degree": "Bachelor of Computer Science"
+      },
+      "magnum": {
+        "name": "Colégio Magnum Agostiniano",
+        "period": "12/2017",
+        "degree": "High School"
+      }
+    }
   }
 } 

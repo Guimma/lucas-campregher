@@ -16,7 +16,9 @@ import {
   Shield,
   Mic,
   Calendar,
-  Briefcase
+  Briefcase,
+  GraduationCap,
+  School
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
@@ -655,6 +657,114 @@ export default function Home() {
 
                         {/* Subtle Hover Glow */}
                         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                      </div>
+                    </motion.div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Education Section (Timeline) */}
+      <section id="education" className="py-20 relative">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+              <span className="gradient-text">{t('education.title')}</span>
+            </h2>
+            <div className="relative max-w-4xl mx-auto">
+              {/* Linha vertical igual carreira */}
+              <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
+              <motion.div
+                className="absolute left-6 md:left-8 top-0 w-px bg-gradient-to-b from-blue-500/60 to-purple-500/60"
+                initial={{ height: 0 }}
+                whileInView={{ height: '100%' }}
+                viewport={{ once: true }}
+                transition={{ duration: 2, ease: 'easeOut' }}
+              />
+              {/* Itens da timeline */}
+              <div className="space-y-20">
+                {[
+                  {
+                    key: 'puc',
+                    icon: GraduationCap,
+                    degree: t('education.items.puc.degree'),
+                    institution: t('education.items.puc.name'),
+                    period: t('education.items.puc.period'),
+                  },
+                  {
+                    key: 'magnum',
+                    icon: School,
+                    degree: t('education.items.magnum.degree'),
+                    institution: t('education.items.magnum.name'),
+                    period: t('education.items.magnum.period'),
+                  }
+                ].map((edu, index) => (
+                  <motion.div
+                    key={edu.key}
+                    className="relative flex items-start"
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: '-100px' }}
+                    transition={{ duration: 0.6, delay: index * 0.15, ease: 'easeOut' }}
+                  >
+                    {/* Bolinha com ícone */}
+                    <motion.div
+                      className="absolute left-2 md:left-4 w-8 h-8 bg-gradient-to-br from-blue-500/80 to-purple-600/80 rounded-full border-2 border-white flex items-center justify-center shadow-lg z-10"
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.15 + 0.3, type: 'spring', stiffness: 300 }}
+                      whileHover={{ scale: 1.2, backgroundColor: 'rgba(255,255,255,0.6)', transition: { duration: 0.2 } }}
+                    >
+                      <edu.icon className="w-5 h-5 text-white" />
+                    </motion.div>
+                    {/* Card de educação */}
+                    <motion.div
+                      className="ml-16 flex-1 group p-8 glass rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-xl"
+                      whileHover={{ y: -5 }}
+                      transition={{ duration: 0.3, ease: 'easeOut' }}
+                    >
+                      <div className="flex-1">
+                        {/* Grau (título) */}
+                        <motion.h3
+                          className="text-2xl font-semibold text-white mb-2 group-hover:text-blue-300 transition-colors duration-300"
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5, delay: index * 0.15 + 0.9 }}
+                        >
+                          {edu.degree}
+                        </motion.h3>
+                        {/* Nome da instituição com ícone */}
+                        <motion.div
+                          className="flex items-center gap-2 text-lg text-blue-300 font-medium mb-2"
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.4, delay: index * 0.15 + 1.0 }}
+                        >
+                          <edu.icon className="w-5 h-5 text-blue-400" />
+                          <span>{edu.institution}</span>
+                        </motion.div>
+                        {/* Período com ícone Calendar, igual carreira */}
+                        <motion.div
+                          className="flex items-center gap-2 text-gray-400 mb-2"
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.4, delay: index * 0.15 + 1.1 }}
+                        >
+                          <Calendar size={16} />
+                          <span>{edu.period}</span>
+                        </motion.div>
                       </div>
                     </motion.div>
                   </motion.div>
