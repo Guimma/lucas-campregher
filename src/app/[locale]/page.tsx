@@ -322,56 +322,55 @@ export default function Home() {
               <div className="space-y-20">
                 {[
                   { 
-                    key: 'senior', 
-                    techs: ['Java', 'Spring Boot', 'Azure', 'Microservices'],
+                    key: 'devpro', 
+                    techs: ['Java', 'Spring Boot', 'Microservices', 'Global Scale'],
                     clients: [
                       { 
-                        name: 'TechCorp', 
-                        logo: '/client-logo-1.png',
-                        description: 'Led development of microservices architecture serving 2M+ users, implementing cloud-native solutions with 99.9% uptime.'
-                      },
-                      { 
-                        name: 'DataFlow', 
-                        logo: '/client-logo-2.png',
-                        description: 'Built real-time data processing pipelines handling 100K+ transactions/hour with automated monitoring and alerting.'
-                      },
-                      { 
-                        name: 'CloudVision', 
-                        logo: '/client-logo-3.png',
-                        description: 'Architected scalable cloud infrastructure reducing operational costs by 40% while improving performance metrics.'
+                        name: 'Starbucks', 
+                        logo: '/sbux.png',
+                        description: 'Working on global-scale systems serving millions of Starbucks customers worldwide. Developing high-performance microservices with complex technical challenges and international team collaboration.'
                       }
                     ]
                   },
                   { 
-                    key: 'fullstack', 
-                    techs: ['TypeScript', 'React', '.NET', 'SQL'],
+                    key: 'dti', 
+                    techs: ['Java', 'C#', '.NET', 'Angular', 'Flutter', 'AWS', 'Azure'],
                     clients: [
                       { 
-                        name: 'StartupX', 
-                        logo: '/client-logo-4.png',
-                        description: 'Developed MVP from concept to launch in 6 months, building responsive web app with modern UI/UX principles.'
+                        name: 'Banco Inter', 
+                        logo: '/inter.png',
+                        description: 'Squad Leader developing microservices with Java 17 and Micronaut. Extensive use of GitHub Copilot, legacy system migration, AWS Cloud management, and technical architecture planning.'
                       },
                       { 
-                        name: 'FinanceApp', 
-                        logo: '/client-logo-5.png',
-                        description: 'Created secure financial dashboard with real-time analytics, implementing PCI-DSS compliance standards.'
-                      }
-                    ]
-                  },
-                  { 
-                    key: 'backend', 
-                    techs: ['Python', 'PostgreSQL', 'Docker', 'AWS'],
-                    clients: [
+                        name: 'VALE - Geotec', 
+                        logo: '/vale.png',
+                        description: 'Led VALE\'s dam monitoring platform development. Built Flutter mobile app, Angular frontend, and Java Spring Boot microservices. Optimized performance by +400%, saved over 1M reais in Azure costs, achieved 99% system stability.'
+                      },
                       { 
-                        name: 'RetailCorp', 
-                        logo: '/client-logo-6.png',
-                        description: 'Optimized e-commerce backend APIs, improving response times by 60% and supporting Black Friday traffic spikes.'
+                        name: 'VALE - GCM', 
+                        logo: '/vale.png',
+                        description: 'Developed VALE\'s medical contingency portal during COVID-19 pandemic. Full-stack development with Angular frontend and C# .NET backend in urgent project context.'
+                      },
+                      { 
+                        name: 'Banco BS2', 
+                        logo: '/bs2.png',
+                        description: 'Full-stack developer building microservices with C# .NET 3.1 and Vue.js frontend. Implemented Azure Cloud solutions and Azure Functions using agile methodologies.'
+                      },
+                      { 
+                        name: 'Landor', 
+                        logo: '/landor.png',
+                        description: 'First experience with international project. Working with a major marketing product to use QR codes for promotions for big companies like Coca Cola.'
+                      },
+                      { 
+                        name: 'Entre Chaves', 
+                        logo: '/ec.jpg',
+                        description: 'Host in a software development podcast with more than 100 episodes, focused on development topics, technology trends, and developer community insights.'
                       }
                     ]
                   },
                   { 
-                    key: 'podcast', 
-                    techs: ['Communication', 'Content Creation', 'Community Building']
+                    key: 'anp', 
+                    techs: ['Visual Basic', 'Excel', 'Data Processing']
                   }
                 ].map((item, index) => (
                   <motion.div
@@ -469,7 +468,7 @@ export default function Home() {
                                 <span>{t(`career.experiences.${item.key}.company`)}</span>
                                 {item.clients && (
                                   <span className="text-xs text-gray-500 ml-2">
-                                    ({item.clients.length} {item.clients.length === 1 ? 'cliente' : 'clientes'})
+                                    ({item.clients.length} {item.clients.length === 1 ? 'client' : 'clients'})
                                   </span>
                                 )}
                               </motion.div>
@@ -483,10 +482,29 @@ export default function Home() {
                               viewport={{ once: true }}
                               transition={{ duration: 0.5, delay: index * 0.15 + 0.7 }}
                             >
-                              <div className="w-16 h-16 glass rounded-xl flex items-center justify-center border border-white/10 group-hover:border-white/20 transition-all duration-300">
-                                {/* Minimalist Logo Placeholder */}
-                                <div className="w-8 h-8 bg-gradient-to-br from-blue-400/30 to-purple-400/30 rounded-lg backdrop-blur-sm border border-white/20"></div>
-                              </div>
+                                                      <a 
+                          href={
+                            item.key === 'devpro' ? 'https://dev.pro/' :
+                            item.key === 'dti' ? 'https://www.dtidigital.com.br/' :
+                            item.key === 'anp' ? 'https://www.gov.br/anp/pt-br' : 
+                            'https://www.dtidigital.com.br/'
+                          }
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block w-20 h-20 glass rounded-xl flex items-center justify-center border border-white/10 group-hover:border-white/20 hover:border-white/30 transition-all duration-300 overflow-hidden"
+                        >
+                          {/* Company Logo */}
+                          <img 
+                            src={
+                              item.key === 'devpro' ? '/devpro.png' :
+                              item.key === 'dti' ? '/dti.png' :
+                              item.key === 'anp' ? '/anp.png' : 
+                              '/dti.png'
+                            }
+                            alt={t(`career.experiences.${item.key}.company`)}
+                            className="w-16 h-16 object-contain"
+                          />
+                        </a>
                             </motion.div>
                           </div>
 
@@ -578,17 +596,38 @@ export default function Home() {
                                       initial={{ opacity: 0, y: 20 }}
                                       animate={{ opacity: 1, y: 0 }}
                                       transition={{ duration: 0.3, delay: clientIndex * 0.1 }}
-                                      className="flex items-start gap-4 p-4 glass rounded-xl border border-white/5 hover:border-white/10 transition-all duration-300"
+                                      className="flex items-center gap-6 p-6 glass rounded-xl border border-white/5 hover:border-white/10 transition-all duration-300"
                                     >
                                       {/* Client Logo */}
-                                      <div className="w-12 h-12 glass rounded-lg flex items-center justify-center border border-white/10 flex-shrink-0">
-                                        <div className="w-8 h-8 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-md backdrop-blur-sm border border-white/10"></div>
+                                      <div className="flex items-center justify-center w-24 h-24 flex-shrink-0">
+                                        <a 
+                                          href={
+                                            client.logo === '/sbux.png' ? 'https://www.starbucks.com.br/' :
+                                            client.logo === '/inter.png' ? 'https://www.bancointer.com.br/' :
+                                            client.logo === '/vale.png' ? 'https://vale.com/' :
+                                            client.logo === '/bs2.png' ? 'https://www.bancobs2.com.br/' :
+                                            client.logo === '/landor.png' ? 'https://landor.com/' :
+                                            client.logo === '/ec.jpg' ? 'https://open.spotify.com/show/1ub9YZKamdMKdKbLia4YrX?si=fc775f395d994ae8' :
+                                            '#'
+                                          }
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          className="block hover:scale-105 transition-transform duration-300"
+                                        >
+                                          <img 
+                                            src={client.logo}
+                                            alt={client.name}
+                                            className="w-20 h-20 object-contain"
+                                          />
+                                        </a>
                                       </div>
                                       
                                       {/* Client Info */}
                                       <div className="flex-1">
                                         <h5 className="font-medium text-white mb-2">{client.name}</h5>
                                         <p className="text-sm text-gray-300 leading-relaxed">{client.description}</p>
+                                        
+
                                       </div>
                                     </motion.div>
                                   ))}
@@ -820,6 +859,59 @@ export default function Home() {
                 </form>
               </motion.div>
             </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Podcast Showcase Section */}
+      <section className="py-20 relative">
+        <div className="max-w-4xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <motion.h2 
+              className="text-3xl md:text-4xl font-bold mb-6"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="gradient-text">Listen to my podcast episode!</span>
+            </motion.h2>
+            
+            <motion.p 
+              className="text-gray-300 mb-8 text-lg leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              Check out this episode of "Entre Chaves" where I discuss Clean Code principles and best practices in software development.
+            </motion.p>
+            
+            <motion.div
+              className="glass p-6 rounded-2xl border border-white/10"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <iframe 
+                style={{borderRadius: '12px'}} 
+                src="https://open.spotify.com/embed/episode/4wJBFFVguRFfgh51uvJG7o?utm_source=generator&theme=0" 
+                width="100%" 
+                height="352" 
+                frameBorder="0" 
+                allowFullScreen={true}
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy"
+                className="w-full"
+              />
+            </motion.div>
           </motion.div>
         </div>
       </section>

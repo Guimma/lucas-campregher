@@ -49,33 +49,26 @@
   "career": {
     "title": "Jornada Profissional",
     "experiences": {
-      "senior": {
-        "title": "Engenheiro de Software Sênior",
-        "company": "Tech Innovation Corp",
-        "period": "2022 - Presente",
-        "description": "Liderando equipes de desenvolvimento em sistemas backend complexos e arquitetura cloud, focando em privacidade de dados e soluções escaláveis.",
-        "technologies": ["Java", "Spring Boot", "Azure", "Microsserviços"]
+      "devpro": {
+        "title": "Engenheiro de Software",
+        "company": "Dev.Pro",
+        "period": "Ago 2024 - Presente",
+        "description": "Trabalhando com equipe altamente técnica e sênior em produto global com impacto em milhões de usuários. Colaboração internacional com membros de diversos países, focando em desafios técnicos complexos, melhorias de performance e refinamento técnico de alto nível.",
+        "technologies": ["Java", "Spring Boot", "Microsserviços", "Escala Global"]
       },
-      "fullstack": {
-        "title": "Desenvolvedor Fullstack",
-        "company": "Digital Solutions Ltd",
-        "period": "2020 - 2022",
-        "description": "Desenvolvimento de aplicações web completas desde APIs backend até interfaces frontend responsivas, com foco na experiência do usuário.",
-        "technologies": ["TypeScript", "React", ".NET", "SQL"]
+      "dti": {
+        "title": "Squad Leader e Referência Técnica",
+        "company": "DTI Digital",
+        "period": "Jun 2019 - Ago 2024",
+        "description": "Liderança de equipes técnicas como Squad Leader e Referência Técnica, conduzindo liderança de chapter de segurança, co-apresentando podcast de desenvolvimento e participando do planejamento estratégico. Apoio em processos de contratação e mentoria de novos líderes.",
+        "technologies": ["Java", "C#", ".NET", "Angular", "Flutter", "AWS", "Azure"]
       },
-      "backend": {
-        "title": "Desenvolvedor Backend",
-        "company": "StartupTech",
-        "period": "2018 - 2020",
-        "description": "Construção de APIs robustas e soluções de banco de dados, implementação de boas práticas de segurança e processos de deploy automatizados.",
-        "technologies": ["Python", "PostgreSQL", "Docker", "AWS"]
-      },
-      "podcast": {
-        "title": "Co-apresentador - Podcast Entre Chaves",
-        "company": "Comunidade de Desenvolvedores",
-        "period": "2019 - 2021",
-        "description": "Co-apresentação de podcast semanal para a comunidade de desenvolvedores, discutindo tendências tecnológicas, dicas de carreira e insights da indústria.",
-        "technologies": ["Comunicação", "Criação de Conteúdo", "Construção de Comunidade"]
+      "anp": {
+        "title": "Estagiário de Desenvolvimento",
+        "company": "ANP - Agência Nacional do Petróleo",
+        "period": "Jan 2019 - Jun 2019",
+        "description": "Experiência inicial em desenvolvimento de software com foco em soluções de processamento de dados usando Visual Basic em Excel para aplicações da indústria petrolífera.",
+        "technologies": ["Visual Basic", "Excel", "Processamento de Dados"]
       }
     }
   },
