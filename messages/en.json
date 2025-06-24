@@ -2,6 +2,7 @@
   "navigation": {
     "name": "Lucas Campregher",
     "about": "About",
+    "career": "Career",
     "skills": "Skills", 
     "projects": "Projects",
     "contact": "Contact"
@@ -42,6 +43,39 @@
       "communication": {
         "title": "Communication",
         "description": "Speaker at events and co-host of 'Entre Chaves' podcast"
+      }
+    }
+  },
+  "career": {
+    "title": "Career Journey",
+    "experiences": {
+      "senior": {
+        "title": "Senior Software Engineer",
+        "company": "Tech Innovation Corp",
+        "period": "2022 - Present",
+        "description": "Leading development teams in complex backend systems and cloud architecture, focusing on data privacy and scalable solutions.",
+        "technologies": ["Java", "Spring Boot", "Azure", "Microservices"]
+      },
+      "fullstack": {
+        "title": "Fullstack Developer",
+        "company": "Digital Solutions Ltd",
+        "period": "2020 - 2022",
+        "description": "Developed complete web applications from backend APIs to responsive frontend interfaces, with focus on user experience.",
+        "technologies": ["TypeScript", "React", ".NET", "SQL"]
+      },
+      "backend": {
+        "title": "Backend Developer",
+        "company": "StartupTech",
+        "period": "2018 - 2020",
+        "description": "Built robust APIs and database solutions, implemented security best practices and automated deployment processes.",
+        "technologies": ["Python", "PostgreSQL", "Docker", "AWS"]
+      },
+      "podcast": {
+        "title": "Co-host - Entre Chaves Podcast",
+        "company": "Developer Community",
+        "period": "2019 - 2021",
+        "description": "Co-hosted a weekly podcast for the developer community, discussing technology trends, career tips, and industry insights.",
+        "technologies": ["Communication", "Content Creation", "Community Building"]
       }
     }
   },

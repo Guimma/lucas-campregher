@@ -14,7 +14,10 @@ import {
   ChevronDown,
   Users,
   Shield,
-  Mic
+  Mic,
+  MapPin,
+  Calendar,
+  Briefcase
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import LanguageToggle from '../../components/LanguageToggle';
@@ -60,6 +63,7 @@ export default function Home() {
             <div className="hidden md:flex space-x-8 items-center">
               {[
                 { key: 'about', section: 'about' },
+                { key: 'career', section: 'career' },
                 { key: 'skills', section: 'skills' },
                 { key: 'projects', section: 'projects' },
                 { key: 'contact', section: 'contact' }
@@ -277,6 +281,156 @@ export default function Home() {
                   </motion.div>
                 ))}
               </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Career Section */}
+      <section id="career" className="py-20 relative">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+              <span className="gradient-text">{t('career.title')}</span>
+            </h2>
+            
+            <div className="relative">
+              {/* Timeline Line */}
+              <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500 via-purple-500 to-blue-500 transform md:-translate-x-1/2"></div>
+              
+              {/* Timeline Items */}
+              <div className="space-y-12">
+                {[
+                  { key: 'senior', side: 'right', techs: ['Java', 'Spring Boot', 'Azure', 'Microservices'] },
+                  { key: 'fullstack', side: 'left', techs: ['TypeScript', 'React', '.NET', 'SQL'] },
+                  { key: 'backend', side: 'right', techs: ['Python', 'PostgreSQL', 'Docker', 'AWS'] },
+                  { key: 'podcast', side: 'left', techs: ['Communication', 'Content Creation', 'Community Building'] }
+                ].map((item, index) => (
+                  <motion.div
+                    key={item.key}
+                    className={`relative flex items-center ${
+                      item.side === 'left' ? 'md:flex-row-reverse' : ''
+                    }`}
+                    initial={{ opacity: 0, x: item.side === 'left' ? -50 : 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6, delay: index * 0.2 }}
+                  >
+                    {/* Timeline Dot */}
+                    <motion.div
+                      className={`absolute left-8 md:left-1/2 w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full transform md:-translate-x-1/2 z-10 ${
+                        item.side === 'left' ? 'md:translate-x-1/2' : 'md:-translate-x-1/2'
+                      }`}
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.2 + 0.3 }}
+                      whileHover={{ scale: 1.5, transition: { duration: 0.2 } }}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full animate-pulse"></div>
+                    </motion.div>
+
+                    {/* Content Card */}
+                    <motion.div
+                      className={`flex-1 ml-16 md:ml-0 ${
+                        item.side === 'left' 
+                          ? 'md:mr-8 md:text-right' 
+                          : 'md:ml-8'
+                      } max-w-lg ${
+                        item.side === 'left' ? 'md:ml-auto' : 'md:mr-auto'
+                      }`}
+                      whileHover={{ scale: 1.02, y: -5 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <div className="p-6 glass rounded-2xl hover:bg-white/10 transition-all duration-300 group">
+                        {/* Period */}
+                        <motion.div 
+                          className="flex items-center gap-2 text-blue-400 text-sm mb-2"
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.4, delay: index * 0.2 + 0.5 }}
+                        >
+                          <Calendar size={16} />
+                          <span>{t(`career.experiences.${item.key}.period`)}</span>
+                        </motion.div>
+
+                        {/* Title and Company */}
+                        <motion.h3 
+                          className="text-xl font-semibold mb-1 group-hover:text-blue-300 transition-colors"
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.4, delay: index * 0.2 + 0.6 }}
+                        >
+                          {t(`career.experiences.${item.key}.title`)}
+                        </motion.h3>
+                        
+                        <motion.div 
+                          className="flex items-center gap-2 text-gray-400 text-sm mb-3"
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.4, delay: index * 0.2 + 0.7 }}
+                        >
+                          <Briefcase size={16} />
+                          <span>{t(`career.experiences.${item.key}.company`)}</span>
+                        </motion.div>
+
+                        {/* Description */}
+                        <motion.p 
+                          className="text-gray-300 mb-4 leading-relaxed"
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.4, delay: index * 0.2 + 0.8 }}
+                        >
+                          {t(`career.experiences.${item.key}.description`)}
+                        </motion.p>
+
+                        {/* Technologies */}
+                        <motion.div 
+                          className={`flex flex-wrap gap-2 ${
+                            item.side === 'left' ? 'md:justify-end' : ''
+                          }`}
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.4, delay: index * 0.2 + 0.9 }}
+                        >
+                          {item.techs.map((tech: string, techIndex: number) => (
+                            <motion.span
+                              key={tech}
+                              className="px-3 py-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-300 rounded-full text-xs hover:from-blue-500/30 hover:to-purple-500/30 transition-all"
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              whileInView={{ opacity: 1, scale: 1 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.3, delay: index * 0.2 + 0.9 + techIndex * 0.1 }}
+                              whileHover={{ scale: 1.1, transition: { duration: 0.15 } }}
+                            >
+                              {tech}
+                            </motion.span>
+                          ))}
+                        </motion.div>
+                      </div>
+                    </motion.div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Animated Timeline Progress */}
+              <motion.div
+                className="absolute left-8 md:left-1/2 top-0 w-px bg-gradient-to-b from-transparent via-blue-400 to-transparent transform md:-translate-x-1/2"
+                initial={{ height: 0 }}
+                whileInView={{ height: "100%" }}
+                viewport={{ once: true }}
+                transition={{ duration: 2, ease: "easeInOut" }}
+              />
             </div>
           </motion.div>
         </div>

@@ -2,6 +2,7 @@
   "navigation": {
     "name": "Lucas Campregher",
     "about": "Sobre",
+    "career": "Carreira",
     "skills": "Habilidades", 
     "projects": "Projetos",
     "contact": "Contato"
@@ -42,6 +43,39 @@
       "communication": {
         "title": "Comunicação",
         "description": "Palestrante em eventos e co-apresentador do podcast 'Entre Chaves'"
+      }
+    }
+  },
+  "career": {
+    "title": "Jornada Profissional",
+    "experiences": {
+      "senior": {
+        "title": "Engenheiro de Software Sênior",
+        "company": "Tech Innovation Corp",
+        "period": "2022 - Presente",
+        "description": "Liderando equipes de desenvolvimento em sistemas backend complexos e arquitetura cloud, focando em privacidade de dados e soluções escaláveis.",
+        "technologies": ["Java", "Spring Boot", "Azure", "Microsserviços"]
+      },
+      "fullstack": {
+        "title": "Desenvolvedor Fullstack",
+        "company": "Digital Solutions Ltd",
+        "period": "2020 - 2022",
+        "description": "Desenvolvimento de aplicações web completas desde APIs backend até interfaces frontend responsivas, com foco na experiência do usuário.",
+        "technologies": ["TypeScript", "React", ".NET", "SQL"]
+      },
+      "backend": {
+        "title": "Desenvolvedor Backend",
+        "company": "StartupTech",
+        "period": "2018 - 2020",
+        "description": "Construção de APIs robustas e soluções de banco de dados, implementação de boas práticas de segurança e processos de deploy automatizados.",
+        "technologies": ["Python", "PostgreSQL", "Docker", "AWS"]
+      },
+      "podcast": {
+        "title": "Co-apresentador - Podcast Entre Chaves",
+        "company": "Comunidade de Desenvolvedores",
+        "period": "2019 - 2021",
+        "description": "Co-apresentação de podcast semanal para a comunidade de desenvolvedores, discutindo tendências tecnológicas, dicas de carreira e insights da indústria.",
+        "technologies": ["Comunicação", "Criação de Conteúdo", "Construção de Comunidade"]
       }
     }
   },
