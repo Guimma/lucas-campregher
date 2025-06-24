@@ -11,7 +11,10 @@ import {
   Github, 
   Linkedin, 
   ExternalLink,
-  ChevronDown
+  ChevronDown,
+  Users,
+  Shield,
+  Mic
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import LanguageToggle from '../../components/LanguageToggle';
@@ -232,7 +235,7 @@ export default function Home() {
                   {t('about.paragraph3')}
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  {['Node.js', 'Python', 'Java', 'AWS', 'Docker', 'PostgreSQL', 'React', 'TypeScript'].map((tech) => (
+                  {['Java', '.Net', 'C#', 'Azure', 'TypeScript', 'Python', 'Flutter', 'SQL', 'Spring Boot', 'AI'].map((tech) => (
                     <motion.span
                       key={tech}
                       className="px-4 py-2 glass rounded-full text-sm"
@@ -253,9 +256,11 @@ export default function Home() {
               >
                 {[
                   { icon: Code2, key: 'backend' },
-                  { icon: Palette, key: 'leadership' },
+                  { icon: Palette, key: 'frontend' },
+                  { icon: Users, key: 'leadership' },
                   { icon: Rocket, key: 'cloud' },
-                  { icon: Brain, key: 'privacy' }
+                  { icon: Shield, key: 'privacy' },
+                  { icon: Mic, key: 'communication' }
                 ].map((item, index) => (
                   <motion.div
                     key={index}

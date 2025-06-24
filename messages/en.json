@@ -15,13 +15,17 @@
   },
   "about": {
     "title": "About Me",
-    "paragraph1": "I'm a creative and communicative software engineer with over 6 years of market experience. I specialize in backend development and am passionate about data privacy and security. I constantly evolve and quickly adapt to new challenges in my professional journey.",
+    "paragraph1": "I'm a creative and communicative software engineer working since 2018. I specialize in backend development and am passionate about data privacy and security. I constantly evolve and quickly adapt to new challenges in my professional journey.",
     "paragraph2": "Throughout my career, I've worked with diverse technologies - from developing complex APIs to web and mobile frontend applications. I've also gained experience with DevOps and Cloud computing. As a technical leader, I focus on improving team deliveries and agile methodologies.",
-    "paragraph3": "Beyond my development work, I co-host \"Entre Chaves,\" a podcast for the developer community. I'm passionate about mentoring developers and have participated in team hiring and planning processes.",
+    "paragraph3": "Beyond my development work, I co-hosted \"Entre Chaves\", a podcast for the developer community. I'm passionate about mentoring developers and have participated in team hiring and planning processes.",
     "cards": {
       "backend": {
         "title": "Backend Development",
         "description": "API development of rich and complex domains"
+      },
+      "frontend": {
+        "title": "Frontend Development",
+        "description": "Web development with JavaScript frameworks and mobile apps with Flutter"
       },
       "leadership": {
         "title": "Technical Leadership", 
@@ -34,6 +38,10 @@
       "privacy": {
         "title": "Data Privacy",
         "description": "Enthusiast in data security and privacy solutions"
+      },
+      "communication": {
+        "title": "Communication",
+        "description": "Speaker at events and co-host of 'Entre Chaves' podcast"
       }
     }
   },

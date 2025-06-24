@@ -17,7 +17,7 @@ body {
 
 /* Animated background gradient */
 .animated-bg {
-  background: linear-gradient(135deg, #000000 0%, #1a1a2e 50%, #16213e 100%);
+  background: linear-gradient(135deg, #000000 0%, #0f0f0f 50%, #1a1a1a 100%);
   background-size: 400% 400%;
   animation: gradient-x 15s ease infinite;
 }
@@ -196,7 +196,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: #0a0a0a;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -223,7 +223,7 @@ body {
 
 /* Root variables */
 :root {
-  --background: 240 10% 3.9%;
+  --background: 0 0% 2%;
   --foreground: 0 0% 98%;
 }
 
@@ -241,7 +241,7 @@ body {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #000000;
     --foreground: #ededed;
   }
 }
