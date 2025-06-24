@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Code2, 
@@ -17,7 +17,8 @@ import {
   Mic,
   MapPin,
   Calendar,
-  Briefcase
+  Briefcase,
+  ChevronRight
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import LanguageToggle from '../../components/LanguageToggle';
@@ -39,6 +40,11 @@ const staggerContainer = {
 
 export default function Home() {
   const t = useTranslations();
+  const [expandedCard, setExpandedCard] = useState<string | null>(null);
+
+  const toggleCard = (key: string) => {
+    setExpandedCard(expandedCard === key ? null : key);
+  };
 
   return (
     <div className="min-h-screen animated-bg">
@@ -315,10 +321,58 @@ export default function Home() {
               {/* Timeline Items */}
               <div className="space-y-20">
                 {[
-                  { key: 'senior', techs: ['Java', 'Spring Boot', 'Azure', 'Microservices'] },
-                  { key: 'fullstack', techs: ['TypeScript', 'React', '.NET', 'SQL'] },
-                  { key: 'backend', techs: ['Python', 'PostgreSQL', 'Docker', 'AWS'] },
-                  { key: 'podcast', techs: ['Communication', 'Content Creation', 'Community Building'] }
+                  { 
+                    key: 'senior', 
+                    techs: ['Java', 'Spring Boot', 'Azure', 'Microservices'],
+                    clients: [
+                      { 
+                        name: 'TechCorp', 
+                        logo: '/client-logo-1.png',
+                        description: 'Led development of microservices architecture serving 2M+ users, implementing cloud-native solutions with 99.9% uptime.'
+                      },
+                      { 
+                        name: 'DataFlow', 
+                        logo: '/client-logo-2.png',
+                        description: 'Built real-time data processing pipelines handling 100K+ transactions/hour with automated monitoring and alerting.'
+                      },
+                      { 
+                        name: 'CloudVision', 
+                        logo: '/client-logo-3.png',
+                        description: 'Architected scalable cloud infrastructure reducing operational costs by 40% while improving performance metrics.'
+                      }
+                    ]
+                  },
+                  { 
+                    key: 'fullstack', 
+                    techs: ['TypeScript', 'React', '.NET', 'SQL'],
+                    clients: [
+                      { 
+                        name: 'StartupX', 
+                        logo: '/client-logo-4.png',
+                        description: 'Developed MVP from concept to launch in 6 months, building responsive web app with modern UI/UX principles.'
+                      },
+                      { 
+                        name: 'FinanceApp', 
+                        logo: '/client-logo-5.png',
+                        description: 'Created secure financial dashboard with real-time analytics, implementing PCI-DSS compliance standards.'
+                      }
+                    ]
+                  },
+                  { 
+                    key: 'backend', 
+                    techs: ['Python', 'PostgreSQL', 'Docker', 'AWS'],
+                    clients: [
+                      { 
+                        name: 'RetailCorp', 
+                        logo: '/client-logo-6.png',
+                        description: 'Optimized e-commerce backend APIs, improving response times by 60% and supporting Black Friday traffic spikes.'
+                      }
+                    ]
+                  },
+                  { 
+                    key: 'podcast', 
+                    techs: ['Communication', 'Content Creation', 'Community Building']
+                  }
                 ].map((item, index) => (
                   <motion.div
                     key={item.key}
@@ -370,7 +424,12 @@ export default function Home() {
                       transition={{ duration: 0.3, ease: "easeOut" }}
                     >
                       <div className="relative">
-                        <div className="p-8 glass rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-xl">
+                        <motion.div 
+                          className={`p-8 glass rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-xl ${item.clients ? 'cursor-pointer' : ''}`}
+                          onClick={() => item.clients && toggleCard(item.key)}
+                          whileHover={item.clients ? { scale: 1.01 } : {}}
+                          transition={{ duration: 0.2 }}
+                        >
                           
                           {/* Header with Logo Space and Period */}
                           <div className="flex items-start justify-between mb-6">
@@ -408,6 +467,11 @@ export default function Home() {
                               >
                                 <Briefcase size={16} />
                                 <span>{t(`career.experiences.${item.key}.company`)}</span>
+                                {item.clients && (
+                                  <span className="text-xs text-gray-500 ml-2">
+                                    ({item.clients.length} {item.clients.length === 1 ? 'cliente' : 'clientes'})
+                                  </span>
+                                )}
                               </motion.div>
                             </div>
 
@@ -437,36 +501,102 @@ export default function Home() {
                             {t(`career.experiences.${item.key}.description`)}
                           </motion.p>
 
-                          {/* Technologies */}
-                          <motion.div 
-                            className="flex flex-wrap gap-2"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.15 + 1.2 }}
-                          >
-                            {item.techs.map((tech: string, techIndex: number) => (
-                              <motion.span
-                                key={tech}
-                                className="px-3 py-1 glass rounded-full text-sm text-gray-300 border border-white/10 hover:border-white/20 hover:text-white transition-all duration-300 backdrop-blur-sm"
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
+                          {/* Technologies and Expand Button Row */}
+                          <div className="flex items-end justify-between">
+                            {/* Technologies */}
+                            <motion.div 
+                              className="flex flex-wrap gap-2 flex-1"
+                              initial={{ opacity: 0, y: 20 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.5, delay: index * 0.15 + 1.2 }}
+                            >
+                              {item.techs.map((tech: string, techIndex: number) => (
+                                <motion.span
+                                  key={tech}
+                                  className="px-3 py-1 glass rounded-full text-sm text-gray-300 border border-white/10 hover:border-white/20 hover:text-white transition-all duration-300 backdrop-blur-sm"
+                                  initial={{ opacity: 0, scale: 0.9 }}
+                                  whileInView={{ opacity: 1, scale: 1 }}
+                                  viewport={{ once: true }}
+                                  transition={{ 
+                                    duration: 0.3, 
+                                    delay: index * 0.15 + 1.2 + techIndex * 0.05
+                                  }}
+                                  whileHover={{ 
+                                    scale: 1.05,
+                                    y: -1,
+                                    transition: { duration: 0.2 } 
+                                  }}
+                                >
+                                  {tech}
+                                </motion.span>
+                              ))}
+                            </motion.div>
+
+                            {/* Expand Button - Bottom Right */}
+                            {item.clients && (
+                              <motion.button
+                                className="ml-4 p-3 hover:bg-white/10 rounded-lg transition-all duration-300 flex-shrink-0"
+                                whileHover={{ scale: 1.15 }}
+                                whileTap={{ scale: 0.9 }}
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
                                 viewport={{ once: true }}
-                                transition={{ 
-                                  duration: 0.3, 
-                                  delay: index * 0.15 + 1.2 + techIndex * 0.05
-                                }}
-                                whileHover={{ 
-                                  scale: 1.05,
-                                  y: -1,
-                                  transition: { duration: 0.2 } 
-                                }}
+                                transition={{ duration: 0.4, delay: index * 0.15 + 1.3 }}
                               >
-                                {tech}
-                              </motion.span>
-                            ))}
+                                <motion.div
+                                  animate={{ rotate: expandedCard === item.key ? 90 : 0 }}
+                                  transition={{ duration: 0.3, ease: "easeOut" }}
+                                >
+                                  <ChevronDown size={28} className="text-gray-300 hover:text-white transition-colors" />
+                                </motion.div>
+                              </motion.button>
+                            )}
+                          </div>
+
+                          {/* Expanded Clients Section */}
+                          <motion.div
+                            initial={false}
+                            animate={{ 
+                              height: expandedCard === item.key ? 'auto' : 0,
+                              opacity: expandedCard === item.key ? 1 : 0
+                            }}
+                            transition={{ duration: 0.4, ease: "easeInOut" }}
+                            style={{ overflow: 'hidden' }}
+                          >
+                            {item.clients && expandedCard === item.key && (
+                              <div className="mt-6 pt-6 border-t border-white/10">
+                                <h4 className="text-lg font-medium text-white mb-4 flex items-center gap-2">
+                                  <Users size={18} />
+                                  {t('navigation.name') === 'Lucas Campregher' ? 'Projetos e Clientes' : 'Projects & Clients'}
+                                </h4>
+                                
+                                <div className="space-y-4">
+                                  {item.clients.map((client, clientIndex) => (
+                                    <motion.div
+                                      key={client.name}
+                                      initial={{ opacity: 0, y: 20 }}
+                                      animate={{ opacity: 1, y: 0 }}
+                                      transition={{ duration: 0.3, delay: clientIndex * 0.1 }}
+                                      className="flex items-start gap-4 p-4 glass rounded-xl border border-white/5 hover:border-white/10 transition-all duration-300"
+                                    >
+                                      {/* Client Logo */}
+                                      <div className="w-12 h-12 glass rounded-lg flex items-center justify-center border border-white/10 flex-shrink-0">
+                                        <div className="w-8 h-8 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-md backdrop-blur-sm border border-white/10"></div>
+                                      </div>
+                                      
+                                      {/* Client Info */}
+                                      <div className="flex-1">
+                                        <h5 className="font-medium text-white mb-2">{client.name}</h5>
+                                        <p className="text-sm text-gray-300 leading-relaxed">{client.description}</p>
+                                      </div>
+                                    </motion.div>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
                           </motion.div>
-                        </div>
+                        </motion.div>
 
                         {/* Subtle Hover Glow */}
                         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
