@@ -15,12 +15,11 @@ import {
   Users,
   Shield,
   Mic,
-  MapPin,
   Calendar,
-  Briefcase,
-  ChevronRight
+  Briefcase
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import LanguageToggle from '../../components/LanguageToggle';
 
 // Animation variants
@@ -132,13 +131,19 @@ export default function Home() {
               variants={fadeInUp}
             >
               <div className="relative inline-block">
-                <motion.img
-                  src="/lucas-avatar.jpg"
-                  alt="Lucas Campregher"
-                  className="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto object-cover border-4 border-white/20 shadow-2xl"
+                <motion.div
+                  className="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto overflow-hidden border-4 border-white/20 shadow-2xl"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
-                />
+                >
+                  <Image
+                    src="/lucas-avatar.jpg"
+                    alt="Lucas Campregher"
+                    width={160}
+                    height={160}
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
                 <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500/20 to-purple-600/20"></div>
               </div>
             </motion.div>
@@ -494,7 +499,7 @@ export default function Home() {
                           className="block w-20 h-20 glass rounded-xl flex items-center justify-center border border-white/10 group-hover:border-white/20 hover:border-white/30 transition-all duration-300 overflow-hidden"
                         >
                           {/* Company Logo */}
-                          <img 
+                          <Image 
                             src={
                               item.key === 'devpro' ? '/devpro.png' :
                               item.key === 'dti' ? '/dti.png' :
@@ -502,6 +507,8 @@ export default function Home() {
                               '/dti.png'
                             }
                             alt={t(`career.experiences.${item.key}.company`)}
+                            width={64}
+                            height={64}
                             className="w-16 h-16 object-contain"
                           />
                         </a>
@@ -614,9 +621,11 @@ export default function Home() {
                                           rel="noopener noreferrer"
                                           className="block hover:scale-105 transition-transform duration-300"
                                         >
-                                          <img 
+                                          <Image 
                                             src={client.logo}
                                             alt={client.name}
+                                            width={80}
+                                            height={80}
                                             className="w-20 h-20 object-contain"
                                           />
                                         </a>
@@ -890,7 +899,7 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Check out this episode of "Entre Chaves" where I discuss Clean Code principles and best practices in software development.
+              Check out this episode of &ldquo;Entre Chaves&rdquo; where I discuss Clean Code principles and best practices in software development.
             </motion.p>
             
             <motion.div
