@@ -328,7 +328,7 @@ export default function Home() {
                 {[
                   { 
                     key: 'devpro', 
-                    techs: t.raw('career.experiences.devpro.technologies'),
+                    techs: ['Java', 'Spring Boot', 'Microservices', 'Global Scale'],
                     clients: [
                       { 
                         key: 'starbucks',
@@ -340,7 +340,7 @@ export default function Home() {
                   },
                   { 
                     key: 'dti', 
-                    techs: t.raw('career.experiences.dti.technologies'),
+                    techs: ['Java', 'C#', '.NET', 'Angular', 'Flutter', 'AWS', 'Azure'],
                     clients: [
                       { 
                         key: 'bancoInter',
@@ -382,7 +382,7 @@ export default function Home() {
                   },
                   { 
                     key: 'anp', 
-                    techs: t.raw('career.experiences.anp.technologies')
+                    techs: ['Visual Basic', 'Excel', 'Data Processing']
                   }
                 ].map((item, index) => (
                   <motion.div
