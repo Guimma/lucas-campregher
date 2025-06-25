@@ -152,7 +152,7 @@
         "repo": "https://github.com/Guimma/fantasy-web"
       },
       "cats": {
-        "title": "Christmas Cats 😺🎅",
+        "title": "Christmas Cats",
         "description": "Interactive holiday-themed web experience featuring playful animations and festive design elements, demonstrating creative frontend development skills.",
         "tags": ["HTML", "CSS", "JavaScript", "Fun", "Cats"],
         "site": "https://guimma.github.io/Christmas-Cats/",
@@ -203,6 +203,15 @@
     "readTime": "min read",
     "tags": "Tags",
     "posts": {
+      "privacyByDesign": {
+        "title": "Implementing Privacy by Design to Reimagine Privacy on Instagram",
+        "excerpt": "This academic work explores the implementation of Privacy by Design principles to reimagine privacy controls on Instagram, addressing the challenges of data protection in social media platforms.",
+        "readTime": "15",
+        "tags": ["Privacy by Design", "Instagram", "Academic", "Data Protection"],
+        "date": "2022-07",
+        "category": "Article",
+        "url": "/tcc.pdf"
+      },
       "aiAbstraction": {
         "title": "Abstraction and Technological Evolution: The Journey from Binary to Artificial Intelligence 💡🧠",
         "excerpt": "In the constantly evolving world of software development, we are always creating new layers of abstraction to facilitate developers' work in building systems. This journey begins with electric current that passes information through binary codes, and extends to machine languages, programming languages, frameworks, and finally, low code and no code platforms.",
@@ -247,15 +256,6 @@
         "date": "2021-09-16",
         "category": "Article",
         "url": "https://www.dtidigital.com.br/blog/o-dilema-das-redes/"
-      },
-      "privacyByDesign": {
-        "title": "Implementing Privacy by Design to Reimagine Privacy on Instagram",
-        "excerpt": "This academic work explores the implementation of Privacy by Design principles to reimagine privacy controls on Instagram, addressing the challenges of data protection in social media platforms.",
-        "readTime": "15",
-        "tags": ["Privacy by Design", "Instagram", "Academic", "Data Protection"],
-        "date": "2022-07",
-        "category": "Article",
-        "url": "/tcc.pdf"
       }
     }
   }

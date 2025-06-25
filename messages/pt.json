@@ -140,7 +140,7 @@
         "repo": "https://github.com/Guimma/fantasy-web"
       },
       "cats": {
-        "title": "Christmas Cats 😺🎅",
+        "title": "Christmas Cats",
         "description": "Experiência web interativa com tema natalino apresentando animações divertidas e elementos de design festivos, demonstrando habilidades criativas de frontend.",
         "tags": ["HTML", "CSS", "JavaScript", "Diversão", "Gatos"],
         "site": "https://guimma.github.io/Christmas-Cats/",
@@ -191,6 +191,15 @@
     "readTime": "min de leitura",
     "tags": "Tags",
     "posts": {
+      "privacyByDesign": {
+        "title": "Implementando Privacy by Design para Reimaginar a Privacidade no Instagram",
+        "excerpt": "Este trabalho acadêmico explora a implementação dos princípios de Privacy by Design para reimaginar os controles de privacidade no Instagram, abordando os desafios da proteção de dados em plataformas de redes sociais.",
+        "readTime": "15",
+        "tags": ["Privacy by Design", "Instagram", "Acadêmico", "Proteção de Dados"],
+        "date": "2022-07",
+        "category": "Artigo",
+        "url": "/tcc.pdf"
+      },
       "aiAbstraction": {
         "title": "Abstração e Evolução Tecnológica: A Caminhada do Binário à Inteligência Artificial 💡🧠",
         "excerpt": "No mundo em constante evolução do desenvolvimento de software, estamos sempre criando novas camadas de abstração para facilitar o trabalho dos desenvolvedores na construção de sistemas. Essa jornada começa com a corrente elétrica que passa informação através de códigos binários, e se estende até as linguagens de máquina, linguagens de programação, frameworks e, finalmente, plataformas de low code e no code.",
@@ -235,15 +244,6 @@
         "date": "2021-09-16",
         "category": "Artigo",
         "url": "https://www.dtidigital.com.br/blog/o-dilema-das-redes/"
-      },
-      "privacyByDesign": {
-        "title": "Implementando Privacy by Design para Reimaginar a Privacidade no Instagram",
-        "excerpt": "Este trabalho acadêmico explora a implementação dos princípios de Privacy by Design para reimaginar os controles de privacidade no Instagram, abordando os desafios da proteção de dados em plataformas de redes sociais.",
-        "readTime": "15",
-        "tags": ["Privacy by Design", "Instagram", "Acadêmico", "Proteção de Dados"],
-        "date": "2022-07",
-        "category": "Artigo",
-        "url": "/tcc.pdf"
       }
     }
   }

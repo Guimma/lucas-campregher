@@ -1152,7 +1152,7 @@ export default function Home() {
                     target={isPrivacyByDesign ? undefined : "_blank"}
                     rel={isPrivacyByDesign ? undefined : "noopener noreferrer"}
                     download={isPrivacyByDesign ? true : undefined}
-                    className="group glass rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300 cursor-pointer block"
+                    className="group glass rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300 cursor-pointer block flex flex-col h-full"
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -1160,7 +1160,7 @@ export default function Home() {
                     whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.2 } }}
                   >
                     {/* Blog post image/header */}
-                    <div className="h-48 relative overflow-hidden">
+                    <div className="h-48 relative overflow-hidden flex-shrink-0">
                       <Image
                         src={blogImages[key] || '/ai.jpeg'}
                         alt={postData.title}
@@ -1173,45 +1173,53 @@ export default function Home() {
                           <span className="px-3 py-1 bg-white/20 rounded-full text-xs font-medium backdrop-blur-sm">
                             {postData.category}
                           </span>
-                          <span className="px-2 py-1 bg-black/30 rounded text-xs backdrop-blur-sm">
-                            {postData.readTime} {t('blog.readTime')}
-                          </span>
+                          {postData.category !== 'Podcast' && (
+                            <span className="px-2 py-1 bg-black/30 rounded text-xs backdrop-blur-sm">
+                              {postData.readTime} {t('blog.readTime')}
+                            </span>
+                          )}
                         </div>
                       </div>
                     </div>
                     
                     {/* Blog post content */}
-                    <div className="p-6">
-                      <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-blue-300 transition-colors duration-300">
-                        {postData.title}
-                      </h3>
-                      <p className="text-gray-300 mb-4 leading-relaxed">
-                        {postData.excerpt}
-                      </p>
-                      
-                      {/* Tags */}
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {postData.tags.map((tag: string) => (
-                          <span key={tag} className="px-2 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs">
-                            {tag}
-                          </span>
-                        ))}
+                    <div className="p-6 flex flex-col flex-1 min-h-0">
+                      <div className="flex-1">
+                        <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-blue-300 transition-colors duration-300">
+                          {postData.title}
+                        </h3>
+                        <p className="text-gray-300 mb-4 leading-relaxed line-clamp-3 overflow-hidden">
+                          {postData.excerpt}
+                        </p>
+                        
+                        {/* Tags */}
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {postData.tags.map((tag: string) => (
+                            <span key={tag} className="px-2 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                       
-                      {/* Read more button */}
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm text-gray-400">
-                          {new Date(postData.date).toLocaleDateString(
-                            t('navigation.name').includes('Lucas') ? 'en-US' : 'pt-BR',
-                            { year: 'numeric', month: 'short', day: 'numeric' }
-                          )}
-                        </span>
-                        <motion.span
-                          className="text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all duration-200"
-                        >
-                          {t('blog.readMore')}
-                          <ExternalLink size={14} className="group-hover:translate-x-1 transition-transform duration-200" />
-                        </motion.span>
+                      {/* Bottom section with date and read more button */}
+                      <div className="mt-auto pt-4 border-t border-white/10">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-400">
+                            {new Date(postData.date).toLocaleDateString(
+                              t('navigation.name').includes('Lucas') ? 'en-US' : 'pt-BR',
+                              { year: 'numeric', month: 'short', day: 'numeric' }
+                            )}
+                          </span>
+                          <motion.button
+                            className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg text-sm font-medium hover:from-blue-600 hover:to-purple-700 transition-all duration-200 flex items-center gap-2 shadow-lg hover:shadow-xl"
+                            whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                            whileTap={{ scale: 0.95 }}
+                          >
+                            {t('blog.readMore')}
+                            <ExternalLink size={14} className="group-hover:translate-x-1 transition-transform duration-200" />
+                          </motion.button>
+                        </div>
                       </div>
                     </div>
                   </motion.a>
