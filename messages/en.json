@@ -5,6 +5,7 @@
     "career": "Career",
     "skills": "Skills", 
     "projects": "Projects",
+    "blog": "Blog",
     "contact": "Contact"
   },
   "hero": {
@@ -194,5 +195,62 @@
   "spoken": {
     "portuguese": "Portuguese",
     "english": "English"
+  },
+  "blog": {
+    "title": "Latest Insights",
+    "subtitle": "Thoughts on technology, development, and industry trends",
+    "readMore": "Read More",
+    "readTime": "min read",
+    "tags": "Tags",
+    "posts": {
+      "microservicesArchitecture": {
+        "title": "Building Scalable Microservices: Lessons from High-Traffic Applications",
+        "excerpt": "Insights from developing microservices architecture for applications serving millions of users, including performance optimization and cost reduction strategies.",
+        "readTime": "8",
+        "tags": ["Microservices", "Java", "Architecture", "Performance"],
+        "date": "2024-10-15",
+        "category": "Architecture"
+      },
+      "dataPrivacyGDPR": {
+        "title": "Data Privacy in Practice: Implementing LGPD and GDPR Compliance",
+        "excerpt": "A comprehensive guide to implementing data privacy solutions, covering technical approaches and real-world challenges in enterprise environments.",
+        "readTime": "12",
+        "tags": ["Privacy", "LGPD", "GDPR", "Security"],
+        "date": "2024-09-28",
+        "category": "Privacy"
+      },
+      "aiProductivity": {
+        "title": "AI-Powered Development: GitHub Copilot and Beyond",
+        "excerpt": "How AI tools are transforming software development workflows and practical tips for maximizing productivity with modern AI assistants.",
+        "readTime": "6",
+        "tags": ["AI", "GitHub Copilot", "Productivity", "Development"],
+        "date": "2024-09-10",
+        "category": "AI"
+      },
+      "techLeadership": {
+        "title": "From Developer to Tech Lead: Navigating Team Dynamics",
+        "excerpt": "Lessons learned from leading technical teams, including strategies for improving delivery, mentoring developers, and fostering collaboration.",
+        "readTime": "10",
+        "tags": ["Leadership", "Team Management", "Career"],
+        "date": "2024-08-22",
+        "category": "Leadership"
+      },
+      "flutterMobile": {
+        "title": "Flutter for Enterprise: Building Production-Ready Mobile Apps",
+        "excerpt": "Best practices for developing enterprise Flutter applications, covering architecture patterns, state management, and deployment strategies.",
+        "readTime": "9",
+        "tags": ["Flutter", "Mobile", "Enterprise", "Dart"],
+        "date": "2024-08-05",
+        "category": "Mobile"
+      },
+      "podcastExperience": {
+        "title": "Building a Developer Community: The Entre Chaves Podcast Journey",
+        "excerpt": "Reflections on co-hosting a developer podcast with over 100 episodes, community building, and the impact of tech content creation.",
+        "readTime": "7",
+        "tags": ["Podcast", "Community", "Content Creation"],
+        "date": "2024-07-18",
+        "category": "Community"
+      }
+    }
   }
 } 

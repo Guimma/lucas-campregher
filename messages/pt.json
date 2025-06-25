@@ -5,6 +5,7 @@
     "career": "Carreira",
     "skills": "Habilidades", 
     "projects": "Projetos",
+    "blog": "Blog",
     "contact": "Contato"
   },
   "hero": {
@@ -182,5 +183,62 @@
   "spoken": {
     "portuguese": "Português",
     "english": "Inglês"
+  },
+  "blog": {
+    "title": "Últimas Reflexões",
+    "subtitle": "Pensamentos sobre tecnologia, desenvolvimento e tendências da indústria",
+    "readMore": "Ler Mais",
+    "readTime": "min de leitura",
+    "tags": "Tags",
+    "posts": {
+      "microservicesArchitecture": {
+        "title": "Construindo Microsserviços Escaláveis: Lições de Aplicações de Alto Tráfego",
+        "excerpt": "Insights do desenvolvimento de arquitetura de microsserviços para aplicações que atendem milhões de usuários, incluindo estratégias de otimização de performance e redução de custos.",
+        "readTime": "8",
+        "tags": ["Microsserviços", "Java", "Arquitetura", "Performance"],
+        "date": "2024-10-15",
+        "category": "Arquitetura"
+      },
+      "dataPrivacyGDPR": {
+        "title": "Privacidade de Dados na Prática: Implementando Conformidade LGPD e GDPR",
+        "excerpt": "Um guia abrangente para implementar soluções de privacidade de dados, cobrindo abordagens técnicas e desafios do mundo real em ambientes empresariais.",
+        "readTime": "12",
+        "tags": ["Privacidade", "LGPD", "GDPR", "Segurança"],
+        "date": "2024-09-28",
+        "category": "Privacidade"
+      },
+      "aiProductivity": {
+        "title": "Desenvolvimento Potencializado por IA: GitHub Copilot e Além",
+        "excerpt": "Como ferramentas de IA estão transformando workflows de desenvolvimento de software e dicas práticas para maximizar produtividade com assistentes de IA modernos.",
+        "readTime": "6",
+        "tags": ["IA", "GitHub Copilot", "Produtividade", "Desenvolvimento"],
+        "date": "2024-09-10",
+        "category": "IA"
+      },
+      "techLeadership": {
+        "title": "De Desenvolvedor a Tech Lead: Navegando Dinâmicas de Equipe",
+        "excerpt": "Lições aprendidas liderando equipes técnicas, incluindo estratégias para melhorar entregas, mentorar desenvolvedores e promover colaboração.",
+        "readTime": "10",
+        "tags": ["Liderança", "Gestão de Equipe", "Carreira"],
+        "date": "2024-08-22",
+        "category": "Liderança"
+      },
+      "flutterMobile": {
+        "title": "Flutter para Empresas: Construindo Apps Mobile Prontos para Produção",
+        "excerpt": "Melhores práticas para desenvolver aplicações Flutter empresariais, cobrindo padrões de arquitetura, gerenciamento de estado e estratégias de deploy.",
+        "readTime": "9",
+        "tags": ["Flutter", "Mobile", "Empresarial", "Dart"],
+        "date": "2024-08-05",
+        "category": "Mobile"
+      },
+      "podcastExperience": {
+        "title": "Construindo uma Comunidade de Desenvolvedores: A Jornada do Podcast Entre Chaves",
+        "excerpt": "Reflexões sobre co-apresentar um podcast de desenvolvedores com mais de 100 episódios, construção de comunidade e o impacto da criação de conteúdo tech.",
+        "readTime": "7",
+        "tags": ["Podcast", "Comunidade", "Criação de Conteúdo"],
+        "date": "2024-07-18",
+        "category": "Comunidade"
+      }
+    }
   }
 } 
