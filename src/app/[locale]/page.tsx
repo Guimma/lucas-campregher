@@ -27,6 +27,7 @@ import {
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import LanguageToggle from '../../components/LanguageToggle';
+import PodcastCarousel from '../../components/PodcastCarousel';
 
 // Animation variants
 const fadeInUp = {
@@ -1114,6 +1115,41 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Podcast Showcase Section */}
+      <section className="py-20 relative">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <motion.h2 
+              className="text-3xl md:text-4xl font-bold mb-6"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="gradient-text">Listen to my podcast episodes!</span>
+            </motion.h2>
+            
+            <motion.p 
+              className="text-gray-300 mb-12 text-lg leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              Check out some episodes of &ldquo;Entre Chaves&rdquo; where I discuss various topics in software development, from Clean Code to Microservices.
+            </motion.p>
+            
+            <PodcastCarousel />
+          </motion.div>
+        </div>
+      </section>
+
       {/* Blog Section */}
       <section id="blog" className="py-20 relative">
         <div className="max-w-6xl mx-auto px-6">
@@ -1319,59 +1355,6 @@ export default function Home() {
                 </form>
               </motion.div>
             </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Podcast Showcase Section */}
-      <section className="py-20 relative">
-        <div className="max-w-4xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <motion.h2 
-              className="text-3xl md:text-4xl font-bold mb-6"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="gradient-text">Listen to my podcast episode!</span>
-            </motion.h2>
-            
-            <motion.p 
-              className="text-gray-300 mb-8 text-lg leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              Check out this episode of &ldquo;Entre Chaves&rdquo; where I discuss Clean Code principles and best practices in software development.
-            </motion.p>
-            
-            <motion.div
-              className="glass p-6 rounded-2xl border border-white/10"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <iframe 
-                style={{borderRadius: '12px'}} 
-                src="https://open.spotify.com/embed/episode/4wJBFFVguRFfgh51uvJG7o?utm_source=generator&theme=0" 
-                width="100%" 
-                height="352" 
-                frameBorder="0" 
-                allowFullScreen={true}
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                loading="lazy"
-                className="w-full"
-              />
-            </motion.div>
           </motion.div>
         </div>
       </section>
