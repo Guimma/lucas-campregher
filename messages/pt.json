@@ -163,5 +163,9 @@
         "degree": "Ensino Médio"
       }
     }
+  },
+  "spoken": {
+    "portuguese": "Português",
+    "english": "Inglês"
   }
 } 
