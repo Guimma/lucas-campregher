@@ -50,6 +50,7 @@ interface BlogPost {
   tags: string[];
   date: string;
   category: string;
+  url: string;
 }
 
 export default function Home() {
@@ -1129,24 +1130,29 @@ export default function Home() {
               {t('blog.subtitle')}
             </p>
             
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {Object.entries(t.raw('blog.posts')).map(([key, post], index) => {
                 // Map blog post keys to their respective images
                 const blogImages: { [key: string]: string } = {
-                  microservicesArchitecture: '/blog-microservices.jpg',
-                  dataPrivacyGDPR: '/blog-privacy.jpg', 
-                  aiProductivity: '/blog-ai.jpg',
-                  techLeadership: '/blog-leadership.jpg',
-                  flutterMobile: '/blog-flutter.jpg',
-                  podcastExperience: '/blog-podcast.jpg'
+                  aiAbstraction: '/ai.jpeg',
+                  enzimasPrivacy: '/enzimas.jpg',
+                  techshotPrivacy: '/privacidade.png',
+                  techshotWallE: '/caseWalle.png',
+                  socialDilemma: '/dilema.jpg',
+                  privacyByDesign: '/insta_privacy.png'
                 };
                 
                 const postData = post as BlogPost;
+                const isPrivacyByDesign = key === 'privacyByDesign';
                 
                 return (
-                  <motion.article
+                  <motion.a
                     key={key}
-                    className="group glass rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300 cursor-pointer"
+                    href={postData.url}
+                    target={isPrivacyByDesign ? undefined : "_blank"}
+                    rel={isPrivacyByDesign ? undefined : "noopener noreferrer"}
+                    download={isPrivacyByDesign ? true : undefined}
+                    className="group glass rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300 cursor-pointer block"
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -1154,66 +1160,61 @@ export default function Home() {
                     whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.2 } }}
                   >
                     {/* Blog post image/header */}
-                                         <div className="h-48 relative overflow-hidden">
-                       <Image
-                         src={blogImages[key] || '/blog-microservices.jpg'}
-                         alt={postData.title}
-                         fill
-                         className="object-cover group-hover:scale-105 transition-transform duration-300"
-                       />
-                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                       <div className="absolute bottom-4 left-4 right-4 z-10">
-                         <div className="flex items-center justify-between text-sm text-white mb-2">
-                           <span className="px-3 py-1 bg-white/20 rounded-full text-xs font-medium backdrop-blur-sm">
-                             {postData.category}
-                           </span>
-                           <span className="px-2 py-1 bg-black/30 rounded text-xs backdrop-blur-sm">
-                             {postData.readTime} {t('blog.readTime')}
-                           </span>
-                         </div>
-                       </div>
-                     </div>
-                     
-                     {/* Blog post content */}
-                     <div className="p-6">
-                       <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-blue-300 transition-colors duration-300 line-clamp-2">
-                         {postData.title}
-                       </h3>
-                       <p className="text-gray-300 mb-4 line-clamp-3 leading-relaxed">
-                         {postData.excerpt}
-                       </p>
-                       
-                       {/* Tags */}
-                       <div className="flex flex-wrap gap-2 mb-4">
-                         {postData.tags.slice(0, 3).map((tag: string) => (
-                           <span key={tag} className="px-2 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs">
-                             {tag}
-                           </span>
-                         ))}
-                         {postData.tags.length > 3 && (
-                           <span className="px-2 py-1 bg-gray-500/20 text-gray-400 rounded-full text-xs">
-                             +{postData.tags.length - 3}
-                           </span>
-                         )}
-                       </div>
-                       
-                       {/* Read more button */}
-                       <div className="flex items-center justify-between">
-                         <span className="text-sm text-gray-400">
-                           {new Date(postData.date).toLocaleDateString(
-                             t('navigation.name').includes('Lucas') ? 'en-US' : 'pt-BR',
-                             { year: 'numeric', month: 'short', day: 'numeric' }
-                           )}
-                         </span>
-                         <motion.span
-                           className="text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all duration-200"
-                         >
-                           {t('blog.readMore')}
-                           <ExternalLink size={14} className="group-hover:translate-x-1 transition-transform duration-200" />
-                         </motion.span>
-                       </div>
-                     </div>
-                  </motion.article>
+                    <div className="h-48 relative overflow-hidden">
+                      <Image
+                        src={blogImages[key] || '/ai.jpeg'}
+                        alt={postData.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                      <div className="absolute bottom-4 left-4 right-4 z-10">
+                        <div className="flex items-center justify-between text-sm text-white mb-2">
+                          <span className="px-3 py-1 bg-white/20 rounded-full text-xs font-medium backdrop-blur-sm">
+                            {postData.category}
+                          </span>
+                          <span className="px-2 py-1 bg-black/30 rounded text-xs backdrop-blur-sm">
+                            {postData.readTime} {t('blog.readTime')}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Blog post content */}
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-blue-300 transition-colors duration-300">
+                        {postData.title}
+                      </h3>
+                      <p className="text-gray-300 mb-4 leading-relaxed">
+                        {postData.excerpt}
+                      </p>
+                      
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {postData.tags.map((tag: string) => (
+                          <span key={tag} className="px-2 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      
+                      {/* Read more button */}
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-400">
+                          {new Date(postData.date).toLocaleDateString(
+                            t('navigation.name').includes('Lucas') ? 'en-US' : 'pt-BR',
+                            { year: 'numeric', month: 'short', day: 'numeric' }
+                          )}
+                        </span>
+                        <motion.span
+                          className="text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all duration-200"
+                        >
+                          {t('blog.readMore')}
+                          <ExternalLink size={14} className="group-hover:translate-x-1 transition-transform duration-200" />
+                        </motion.span>
+                      </div>
+                    </div>
+                  </motion.a>
                 );
               })}
             </div>

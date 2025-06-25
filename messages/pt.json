@@ -140,7 +140,7 @@
         "repo": "https://github.com/Guimma/fantasy-web"
       },
       "cats": {
-        "title": "Christmas Cats",
+        "title": "Christmas Cats 😺🎅",
         "description": "Experiência web interativa com tema natalino apresentando animações divertidas e elementos de design festivos, demonstrando habilidades criativas de frontend.",
         "tags": ["HTML", "CSS", "JavaScript", "Diversão", "Gatos"],
         "site": "https://guimma.github.io/Christmas-Cats/",
@@ -191,53 +191,59 @@
     "readTime": "min de leitura",
     "tags": "Tags",
     "posts": {
-      "microservicesArchitecture": {
-        "title": "Construindo Microsserviços Escaláveis: Lições de Aplicações de Alto Tráfego",
-        "excerpt": "Insights do desenvolvimento de arquitetura de microsserviços para aplicações que atendem milhões de usuários, incluindo estratégias de otimização de performance e redução de custos.",
+      "aiAbstraction": {
+        "title": "Abstração e Evolução Tecnológica: A Caminhada do Binário à Inteligência Artificial 💡🧠",
+        "excerpt": "No mundo em constante evolução do desenvolvimento de software, estamos sempre criando novas camadas de abstração para facilitar o trabalho dos desenvolvedores na construção de sistemas. Essa jornada começa com a corrente elétrica que passa informação através de códigos binários, e se estende até as linguagens de máquina, linguagens de programação, frameworks e, finalmente, plataformas de low code e no code.",
         "readTime": "8",
-        "tags": ["Microsserviços", "Java", "Arquitetura", "Performance"],
-        "date": "2024-10-15",
-        "category": "Arquitetura"
+        "tags": ["IA", "Tecnologia", "Abstração", "Desenvolvimento"],
+        "date": "2024-01",
+        "category": "Artigo",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7153898023868149761/?updateEntityUrn=urn%3Ali%3Afs_feedUpdate%3A%28V2%2Curn%3Ali%3Aactivity%3A7153898023868149761%29"
       },
-      "dataPrivacyGDPR": {
-        "title": "Privacidade de Dados na Prática: Implementando Conformidade LGPD e GDPR",
-        "excerpt": "Um guia abrangente para implementar soluções de privacidade de dados, cobrindo abordagens técnicas e desafios do mundo real em ambientes empresariais.",
-        "readTime": "12",
-        "tags": ["Privacidade", "LGPD", "GDPR", "Segurança"],
-        "date": "2024-09-28",
-        "category": "Privacidade"
+      "enzimasPrivacy": {
+        "title": "Enzimas #200 - Os riscos e desafios da falta de Privacidade Digital",
+        "excerpt": "Você que já assistiu o documentário \"O Dilema das Redes\", ficou intrigado com o poder que seus dados podem possuir nas mãos de terceiros? Para falar sobre a importância da privacidade e controle deles, convidamos Lucas Campregher, Desenvolvedor na dti digital, para falar sobre o tema tanto pela ótica da pessoa usuária, quanto de quem constrói a solução. Dá o Play!",
+        "readTime": "45",
+        "tags": ["Privacidade", "Podcast", "Direitos Digitais", "Proteção de Dados"],
+        "date": "2023-02",
+        "category": "Podcast",
+        "url": "https://osagilistas.com/podcast/enzimas-200-os-riscos-e-desafios-da-falta-de-privacidade-digital/"
       },
-      "aiProductivity": {
-        "title": "Desenvolvimento Potencializado por IA: GitHub Copilot e Além",
-        "excerpt": "Como ferramentas de IA estão transformando workflows de desenvolvimento de software e dicas práticas para maximizar produtividade com assistentes de IA modernos.",
-        "readTime": "6",
-        "tags": ["IA", "GitHub Copilot", "Produtividade", "Desenvolvimento"],
-        "date": "2024-09-10",
-        "category": "IA"
+      "techshotPrivacy": {
+        "title": "Privacidade de dados: Do indivíduo ao código",
+        "excerpt": "Nesse techshot, contemplaremos diversos conceitos acerca do universo da privacidade de dados! Falaremos sobre segurança cibernética e LGPD; além de demonstrar a aplicação da segurança na engenharia de software em casos reais!",
+        "readTime": "30",
+        "tags": ["Privacidade", "Cibersegurança", "LGPD", "Engenharia de Software"],
+        "date": "2023-02-02",
+        "category": "Techshot",
+        "url": "https://www.linkedin.com/events/techshot-privacidadededados-doi7024376972268953600"
       },
-      "techLeadership": {
-        "title": "De Desenvolvedor a Tech Lead: Navegando Dinâmicas de Equipe",
-        "excerpt": "Lições aprendidas liderando equipes técnicas, incluindo estratégias para melhorar entregas, mentorar desenvolvedores e promover colaboração.",
+      "techshotWallE": {
+        "title": "Case Wall-e: como melhoramos um sistema legado em 93%",
+        "excerpt": "Deixando de lado as partes teóricas e superficiais, nesse techshot iremos apresentar um case real de sucesso ao trabalhar com evolutivas em um sistema legado. Com base na análise de logs de performance e proposições técnicas de desenvolvimento, otimizamos a performance dos processos em 93%.",
+        "readTime": "35",
+        "tags": ["Sistemas Legados", "Performance", "Otimização", "Case Study"],
+        "date": "2022-09-13",
+        "category": "Techshot",
+        "url": "https://www.linkedin.com/events/techshot-casewall-e-comomelhora6972608932125028352"
+      },
+      "socialDilemma": {
+        "title": "O Dilema das redes sociais: Uma conversa necessária",
+        "excerpt": "As ideias de Harari evidenciam que a atual relação da sociedade com os fluxos de dados é o principal causador do problema da desinformação e dos maiores desafios enfrentados no mundo hoje, levando-nos a conceituar o dilema das redes sociais.",
         "readTime": "10",
-        "tags": ["Liderança", "Gestão de Equipe", "Carreira"],
-        "date": "2024-08-22",
-        "category": "Liderança"
+        "tags": ["Redes Sociais", "Privacidade", "Desinformação", "Ética Digital"],
+        "date": "2021-09-16",
+        "category": "Artigo",
+        "url": "https://www.dtidigital.com.br/blog/o-dilema-das-redes/"
       },
-      "flutterMobile": {
-        "title": "Flutter para Empresas: Construindo Apps Mobile Prontos para Produção",
-        "excerpt": "Melhores práticas para desenvolver aplicações Flutter empresariais, cobrindo padrões de arquitetura, gerenciamento de estado e estratégias de deploy.",
-        "readTime": "9",
-        "tags": ["Flutter", "Mobile", "Empresarial", "Dart"],
-        "date": "2024-08-05",
-        "category": "Mobile"
-      },
-      "podcastExperience": {
-        "title": "Construindo uma Comunidade de Desenvolvedores: A Jornada do Podcast Entre Chaves",
-        "excerpt": "Reflexões sobre co-apresentar um podcast de desenvolvedores com mais de 100 episódios, construção de comunidade e o impacto da criação de conteúdo tech.",
-        "readTime": "7",
-        "tags": ["Podcast", "Comunidade", "Criação de Conteúdo"],
-        "date": "2024-07-18",
-        "category": "Comunidade"
+      "privacyByDesign": {
+        "title": "Implementando Privacy by Design para Reimaginar a Privacidade no Instagram",
+        "excerpt": "Este trabalho acadêmico explora a implementação dos princípios de Privacy by Design para reimaginar os controles de privacidade no Instagram, abordando os desafios da proteção de dados em plataformas de redes sociais.",
+        "readTime": "15",
+        "tags": ["Privacy by Design", "Instagram", "Acadêmico", "Proteção de Dados"],
+        "date": "2022-07",
+        "category": "Artigo",
+        "url": "/tcc.pdf"
       }
     }
   }
