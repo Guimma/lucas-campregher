@@ -931,53 +931,173 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
               <span className="gradient-text">{t('projects.title')}</span>
             </h2>
-            
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  key: 'dataPrivacy',
-                  image: '/project-1.jpg',
-                  tech: ['Python', 'PostgreSQL', 'LGPD']
-                },
-                {
-                  key: 'microservices',
-                  image: '/project-2.png',
-                  tech: ['Node.js', 'Docker', 'AWS']
-                },
-                {
-                  key: 'analytics',
-                  image: '/project-3.jpg',
-                  tech: ['Java', 'Apache Kafka', 'Redis']
-                }
-              ].map((project, index) => (
-                <motion.div
-                  key={project.key}
-                  className="group glass rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-150"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.15 } }}
-                >
-                  <div className="h-48 bg-gradient-to-br from-blue-500/20 to-purple-600/20 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/40 to-purple-600/40 opacity-80"></div>
-                    <div className="absolute bottom-4 right-4">
-                      <ExternalLink className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
-                    </div>
+              {/* BetterBet */}
+              <motion.div
+                className="group glass rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-150 flex flex-col"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0 }}
+                whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.15 } }}
+              >
+                <div className="flex items-center justify-center h-48 bg-white dark:bg-gray-900">
+                  <Image src="/betterbet.svg" alt="BetterBet Logo" width={180} height={60} className="object-contain h-20" />
+                </div>
+                <div className="p-6 flex-1 flex flex-col">
+                  <h3 className="text-xl font-semibold mb-3">{t('projects.items.betterbet.title')}</h3>
+                  <p className="text-gray-300 mb-4">{t('projects.items.betterbet.description')}</p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {Array.isArray(t.raw && t.raw('projects.items.betterbet.tags')) ? t.raw('projects.items.betterbet.tags').map((tech: string) => (
+                      <span key={tech} className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">{tech}</span>
+                    )) : null}
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-3">{t(`projects.items.${project.key}.title`)}</h3>
-                    <p className="text-gray-300 mb-4">{t(`projects.items.${project.key}.description`)}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((tech) => (
-                        <span key={tech} className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                  <div className="flex justify-center gap-3 mt-auto">
+                    <motion.a 
+                      href="https://github.com/Guimma/betterbet" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="px-4 py-2 glass rounded-lg border border-white/20 hover:border-white/40 text-white text-sm font-medium flex items-center gap-2 transition-all duration-200"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Github size={16}/>View Code
+                    </motion.a>
                   </div>
-                </motion.div>
-              ))}
+                </div>
+              </motion.div>
+              {/* Glenio Campregher - Fotografia */}
+              <motion.div
+                className="group glass rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-150 flex flex-col"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.15 } }}
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <Image src="/glenio.png" alt="Glenio Campregher" fill className="object-cover" />
+                </div>
+                <div className="p-6 flex-1 flex flex-col">
+                  <h3 className="text-xl font-semibold mb-3">{t('projects.items.glenio.title')}</h3>
+                  <p className="text-gray-300 mb-4">{t('projects.items.glenio.description')}</p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {Array.isArray(t.raw && t.raw('projects.items.glenio.tags')) ? t.raw('projects.items.glenio.tags').map((tech: string) => (
+                      <span key={tech} className="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">{tech}</span>
+                    )) : null}
+                  </div>
+                  <div className="flex justify-center gap-3 mt-auto">
+                    <motion.a 
+                      href="https://guimma.github.io/vue-photosite/" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg text-sm font-medium flex items-center gap-2 hover:shadow-lg transition-all duration-200"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <ExternalLink size={16}/>Visit Site
+                    </motion.a>
+                    <motion.a 
+                      href="https://github.com/Guimma/vue-photosite" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="px-4 py-2 glass rounded-lg border border-white/20 hover:border-white/40 text-white text-sm font-medium flex items-center gap-2 transition-all duration-200"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Github size={16}/>View Code
+                    </motion.a>
+                  </div>
+                </div>
+              </motion.div>
+              {/* 433 Fantasy */}
+              <motion.div
+                className="group glass rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-150 flex flex-col"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.15 } }}
+              >
+                <div className="relative h-48 bg-black">
+                  <Image src="/433.jpg" alt="433 Fantasy" fill className="object-cover" />
+                </div>
+                <div className="p-6 flex-1 flex flex-col">
+                  <h3 className="text-xl font-semibold mb-3">{t('projects.items.433.title')}</h3>
+                  <p className="text-gray-300 mb-4">{t('projects.items.433.description')}</p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {Array.isArray(t.raw && t.raw('projects.items.433.tags')) ? t.raw('projects.items.433.tags').map((tech: string) => (
+                      <span key={tech} className="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">{tech}</span>
+                    )) : null}
+                  </div>
+                  <div className="flex justify-center gap-3 mt-auto">
+                    <motion.a 
+                      href="https://guimma.github.io/fantasy-web/#/home" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg text-sm font-medium flex items-center gap-2 hover:shadow-lg transition-all duration-200"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <ExternalLink size={16}/>Visit Site
+                    </motion.a>
+                    <motion.a 
+                      href="https://github.com/Guimma/fantasy-web" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="px-4 py-2 glass rounded-lg border border-white/20 hover:border-white/40 text-white text-sm font-medium flex items-center gap-2 transition-all duration-200"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Github size={16}/>View Code
+                    </motion.a>
+                  </div>
+                </div>
+              </motion.div>
+              {/* Christmas Cats */}
+              <motion.div
+                className="group glass rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-150 flex flex-col"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.15 } }}
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <Image src="/cats.png" alt="Christmas Cats" fill className="object-cover" />
+                </div>
+                <div className="p-6 flex-1 flex flex-col">
+                  <h3 className="text-xl font-semibold mb-3">{t('projects.items.cats.title')}</h3>
+                  <p className="text-gray-300 mb-4">{t('projects.items.cats.description')}</p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {Array.isArray(t.raw && t.raw('projects.items.cats.tags')) ? t.raw('projects.items.cats.tags').map((tech: string) => (
+                      <span key={tech} className="px-3 py-1 bg-pink-500/20 text-pink-400 rounded-full text-sm">{tech}</span>
+                    )) : null}
+                  </div>
+                  <div className="flex justify-center gap-3 mt-auto">
+                    <motion.a 
+                      href="https://guimma.github.io/Christmas-Cats/" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg text-sm font-medium flex items-center gap-2 hover:shadow-lg transition-all duration-200"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <ExternalLink size={16}/>Visit Site
+                    </motion.a>
+                    <motion.a 
+                      href="https://github.com/Guimma/Christmas-Cats" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="px-4 py-2 glass rounded-lg border border-white/20 hover:border-white/40 text-white text-sm font-medium flex items-center gap-2 transition-all duration-200"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Github size={16}/>View Code
+                    </motion.a>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>

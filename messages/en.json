@@ -129,6 +129,33 @@
       "analytics": {
         "title": "Real-time Analytics",
         "description": "High-performance analytics engine processing millions of events per day"
+      },
+      "betterbet": {
+        "title": "BetterBet",
+        "description": "Advanced sports betting intelligence platform leveraging machine learning algorithms and real-time data analysis to generate accurate predictions for professional bettors.",
+        "tags": ["Python", "AI", "Cursor", "Machine Learning", "Web Scraping", "Data Science"],
+        "repo": "https://github.com/Guimma/betterbet"
+      },
+      "glenio": {
+        "title": "Glenio Campregher - Photography",
+        "description": "Professional photography portfolio showcasing artistic work through a responsive Vue.js interface with Flickr API integration for dynamic content management.",
+        "tags": ["Vue.js"],
+        "site": "https://guimma.github.io/vue-photosite/",
+        "repo": "https://github.com/Guimma/vue-photosite"
+      },
+      "433": {
+        "title": "433 Fantasy",
+        "description": "Fantasy football platform for Brazilian Série A featuring real-time player statistics, team management, and competitive scoring system for enhanced user engagement.",
+        "tags": ["Angular", "TypeScript", "Game", "Football", "Web App"],
+        "site": "https://guimma.github.io/fantasy-web/#/home",
+        "repo": "https://github.com/Guimma/fantasy-web"
+      },
+      "cats": {
+        "title": "Christmas Cats",
+        "description": "Interactive holiday-themed web experience featuring playful animations and festive design elements, demonstrating creative frontend development skills.",
+        "tags": ["HTML", "CSS", "JavaScript", "Fun", "Cats"],
+        "site": "https://guimma.github.io/Christmas-Cats/",
+        "repo": "https://github.com/Guimma/Christmas-Cats"
       }
     }
   },

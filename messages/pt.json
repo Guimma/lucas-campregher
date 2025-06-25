@@ -118,17 +118,32 @@
   "projects": {
     "title": "Projetos em Destaque",
     "items": {
-      "dataPrivacy": {
-        "title": "Plataforma de Privacidade de Dados",
-        "description": "Plataforma de conformidade LGPD/GDPR para proteção de dados e gestão de direitos do usuário"
+      "betterbet": {
+        "title": "BetterBet",
+        "description": "Plataforma avançada de inteligência para apostas esportivas utilizando algoritmos de machine learning e análise de dados em tempo real para gerar previsões precisas.",
+        "tags": ["Python", "IA", "Cursor", "Machine Learning", "Web Scraping", "Data Science"],
+        "repo": "https://github.com/Guimma/betterbet"
       },
-      "microservices": {
-        "title": "Arquitetura de Microsserviços", 
-        "description": "Ecossistema escalável de microsserviços com orquestração de containers e CI/CD"
+      "glenio": {
+        "title": "Glenio Campregher - Fotografia",
+        "description": "Portfólio profissional de fotografia apresentando trabalhos artísticos através de interface responsiva Vue.js com integração da API do Flickr.",
+        "tags": ["Vue.js"],
+        "site": "https://guimma.github.io/vue-photosite/",
+        "repo": "https://github.com/Guimma/vue-photosite"
       },
-      "analytics": {
-        "title": "Analytics em Tempo Real",
-        "description": "Motor de analytics de alta performance processando milhões de eventos por dia"
+      "433": {
+        "title": "433 Fantasy",
+        "description": "Plataforma de fantasy football do Brasileirão Série A com estatísticas de jogadores em tempo real, gerenciamento de times e sistema competitivo de pontuação.",
+        "tags": ["Angular", "TypeScript", "Jogo", "Futebol", "Web App"],
+        "site": "https://guimma.github.io/fantasy-web/#/home",
+        "repo": "https://github.com/Guimma/fantasy-web"
+      },
+      "cats": {
+        "title": "Christmas Cats",
+        "description": "Experiência web interativa com tema natalino apresentando animações divertidas e elementos de design festivos, demonstrando habilidades criativas de frontend.",
+        "tags": ["HTML", "CSS", "JavaScript", "Diversão", "Gatos"],
+        "site": "https://guimma.github.io/Christmas-Cats/",
+        "repo": "https://github.com/Guimma/Christmas-Cats"
       }
     }
   },
