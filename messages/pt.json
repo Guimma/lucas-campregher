@@ -5,6 +5,7 @@
     "career": "Carreira",
     "skills": "Habilidades", 
     "projects": "Projetos",
+    "podcasts": "Podcasts",
     "blog": "Blog",
     "contact": "Contato"
   },
@@ -183,6 +184,10 @@
   "spoken": {
     "portuguese": "Português",
     "english": "Inglês"
+  },
+  "podcasts": {
+    "title": "Episódios de Podcast",
+    "description": "Episódios em destaque de podcasts que participei, compartilhando insights sobre desenvolvimento de software, tendências tecnológicas e melhores práticas da indústria."
   },
   "blog": {
     "title": "Últimas Reflexões",

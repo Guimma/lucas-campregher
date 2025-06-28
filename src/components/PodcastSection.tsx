@@ -2,12 +2,11 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mic, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Mic } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { PodcastEpisode } from '../types/podcast';
-import Carousel, { Slider, SliderContainer, SliderPrevButton, SliderNextButton, SliderDotButton } from '@/components/ui/carousel';
 
-interface PodcastCarouselProps {
+interface PodcastSectionProps {
   episodes: PodcastEpisode[];
 }
 
@@ -26,12 +25,12 @@ const staggerContainer = {
   }
 };
 
-export default function PodcastCarousel({ episodes }: PodcastCarouselProps) {
+export default function PodcastSection({ episodes }: PodcastSectionProps) {
   const t = useTranslations();
 
   return (
     <section id="podcasts" className="py-20 relative">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6">
         <motion.div
           variants={staggerContainer}
           initial="initial"
@@ -57,40 +56,14 @@ export default function PodcastCarousel({ episodes }: PodcastCarouselProps) {
             </p>
           </motion.div>
 
-          {/* Carousel */}
-          <motion.div variants={fadeInUp}>
-            <Carousel 
-              options={{ 
-                align: 'start',
-                slidesToScroll: 1,
-                breakpoints: {
-                  '(min-width: 768px)': { slidesToScroll: 2 },
-                  '(min-width: 1024px)': { slidesToScroll: 3 }
-                }
-              }}
-              className="relative"
-            >
-              <SliderContainer className="mb-8">
-                {episodes.map((episode, index) => (
-                  <Slider key={episode.id} className="flex-[0_0_90%] md:flex-[0_0_45%] lg:flex-[0_0_30%] mr-6">
-                    <PodcastCard episode={episode} index={index} />
-                  </Slider>
-                ))}
-              </SliderContainer>
-
-              {/* Navigation Controls */}
-              <div className="flex items-center justify-center gap-6">
-                <SliderPrevButton className="group flex items-center justify-center w-12 h-12 glass rounded-full hover:scale-110 transition-all duration-200 disabled:opacity-50 disabled:hover:scale-100">
-                  <ChevronLeft className="w-6 h-6 text-white group-hover:text-blue-400 transition-colors" />
-                </SliderPrevButton>
-
-                <SliderDotButton className="flex items-center gap-3" />
-
-                <SliderNextButton className="group flex items-center justify-center w-12 h-12 glass rounded-full hover:scale-110 transition-all duration-200 disabled:opacity-50 disabled:hover:scale-100">
-                  <ChevronRight className="w-6 h-6 text-white group-hover:text-blue-400 transition-colors" />
-                </SliderNextButton>
-              </div>
-            </Carousel>
+          {/* Episodes Grid */}
+          <motion.div 
+            variants={fadeInUp}
+            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
+          >
+            {episodes.map((episode, index) => (
+              <PodcastCard key={episode.id} episode={episode} index={index} />
+            ))}
           </motion.div>
         </motion.div>
       </div>
@@ -120,10 +93,10 @@ function PodcastCard({ episode, index }: PodcastCardProps) {
   return (
     <motion.div
       variants={cardVariants}
-      className="group relative h-full"
+      className="group relative"
     >
       <motion.div
-        className="glass rounded-2xl p-4 h-full transition-all duration-300 group-hover:scale-[1.02]"
+        className="glass rounded-2xl p-4 transition-all duration-300 group-hover:scale-[1.02]"
         whileHover={{ 
           boxShadow: "0 25px 50px -12px rgba(59, 130, 246, 0.25)" 
         }}

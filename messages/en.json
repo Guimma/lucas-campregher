@@ -5,6 +5,7 @@
     "career": "Career",
     "skills": "Skills", 
     "projects": "Projects",
+    "podcasts": "Podcasts",
     "blog": "Blog",
     "contact": "Contact"
   },
@@ -195,6 +196,10 @@
   "spoken": {
     "portuguese": "Portuguese",
     "english": "English"
+  },
+  "podcasts": {
+    "title": "Podcast Episodes",
+    "description": "Featured episodes from podcasts I've participated in, sharing insights on software development, technology trends, and industry best practices."
   },
   "blog": {
     "title": "Latest Insights",

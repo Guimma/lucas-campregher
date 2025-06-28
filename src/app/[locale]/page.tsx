@@ -22,12 +22,16 @@ import {
   Wrench,
   Cloud as CloudIcon,
   Sparkles,
-  Globe
+  Globe,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import LanguageToggle from '../../components/LanguageToggle';
-import PodcastCarousel from '../../components/PodcastCarousel';
+import PodcastSection from '../../components/PodcastSection';
+import Carousel, { Slider, SliderContainer, SliderPrevButton, SliderNextButton, SliderDotButton } from '@/components/ui/carousel';
+import { PodcastEpisode } from '../../types/podcast';
 
 // Animation variants
 const fadeInUp = {
@@ -62,6 +66,46 @@ export default function Home() {
     setExpandedCard(expandedCard === key ? null : key);
   };
 
+  // Exemplo de dados de podcasts
+  const podcastEpisodes: PodcastEpisode[] = [
+    {
+      id: "copilot-184",
+      embedUrl: "https://open.spotify.com/embed/episode/1jddVtYxTc0NHkQ60a0P2U?utm_source=generator&theme=0"
+    },
+    {
+      id: "ddd-181",
+      embedUrl: "https://open.spotify.com/embed/episode/2Bq6Of15RCYUrGT0VdyzrS?utm_source=generator&theme=0"
+    },
+    {
+      id: "clean-179",
+      embedUrl: "https://open.spotify.com/embed/episode/6Nj3KlF2z5V5n1I3pLpywE?utm_source=generator&theme=0"
+    },
+    {
+      id: "ops-177",
+      embedUrl: "https://open.spotify.com/embed/episode/1W9WTWZW2qZA5hUoAxz3Xv?utm_source=generator&theme=0"
+    },
+    {
+      id: "opentelemetry-171",
+      embedUrl: "https://open.spotify.com/embed/episode/7mszNxKgO6suP8DoWWvUSb?utm_source=generator&theme=0"
+    },
+    {
+      id: "microservices-167",
+      embedUrl: "https://open.spotify.com/embed/episode/4GPvd8VeSGSDuJquy6fNPm?utm_source=generator&theme=0"
+    },
+    {
+      id: "sre-164",
+      embedUrl: "https://open.spotify.com/embed/episode/6YqOGmqatuRRelTpBs8FyM?utm_source=generator&theme=0"
+    },
+    {
+      id: "chatbots-20",
+      embedUrl: "https://open.spotify.com/embed/episode/5qLKkWQULsPmNKMQjI98B9?utm_source=generator&theme=0"
+    },
+    {
+      id: "kafka-173",
+      embedUrl: "https://open.spotify.com/embed/episode/11l0xTs7300mAT875Vm5CM?utm_source=generator&theme=0"
+    }
+  ];
+
   return (
     <div className="min-h-screen animated-bg">
       {/* Navigation */}
@@ -88,6 +132,7 @@ export default function Home() {
                 { key: 'career', section: 'career' },
                 { key: 'skills', section: 'skills' },
                 { key: 'projects', section: 'projects' },
+                { key: 'podcasts', section: 'podcasts' },
                 { key: 'blog', section: 'blog' },
                 { key: 'contact', section: 'contact' }
               ].map((item) => (
@@ -1115,40 +1160,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Podcast Showcase Section */}
-      <section className="py-20 relative">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <motion.h2 
-              className="text-3xl md:text-4xl font-bold mb-6"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="gradient-text">Listen to my podcast episodes!</span>
-            </motion.h2>
-            
-            <motion.p 
-              className="text-gray-300 mb-12 text-lg leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              Check out some episodes of &ldquo;Entre Chaves&rdquo; where I discuss various topics in software development, from Clean Code to Microservices.
-            </motion.p>
-            
-            <PodcastCarousel />
-          </motion.div>
-        </div>
-      </section>
+      {/* Podcasts Section */}
+      <PodcastSection episodes={podcastEpisodes} />
 
       {/* Blog Section */}
       <section id="blog" className="py-20 relative">
