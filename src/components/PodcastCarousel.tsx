@@ -1,7 +1,14 @@
 "use client";
 
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { EmblaOptionsType } from 'embla-carousel';
+import Carousel, {
+  Slider,
+  SliderContainer,
+  SliderDotButton,
+  SliderNextButton,
+  SliderPrevButton,
+} from '@/components/ui/carousel';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface PodcastEpisode {
@@ -49,140 +56,47 @@ const podcastEpisodes: PodcastEpisode[] = [
 ];
 
 export default function PodcastCarousel() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0); // -1 for left, 1 for right
-
-  const nextSlide = () => {
-    setDirection(1);
-    setCurrentIndex((prevIndex) =>
-      prevIndex === podcastEpisodes.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const prevSlide = () => {
-    setDirection(-1);
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? podcastEpisodes.length - 1 : prevIndex - 1
-    );
-  };
-
-  const getEpisodeIndex = (offset: number) => {
-    const index = (currentIndex + offset + podcastEpisodes.length) % podcastEpisodes.length;
-    return index;
-  };
-
-  // Animation variants for fade
-  const fadeVariants = {
-    enter: { opacity: 0 },
-    center: { opacity: 1, transition: { duration: 0.4 } },
-    exit: { opacity: 0, transition: { duration: 0.4 } },
+  const OPTIONS: EmblaOptionsType = { 
+    loop: true,
+    align: 'center',
+    skipSnaps: false,
+    dragFree: false,
   };
 
   return (
-    <div className="relative w-full flex flex-col items-center">
-      {/* Carousel Container */}
-      <div className="relative flex items-center justify-center h-[420px] w-full">
-        {/* Previous Episode (Left) */}
-        <motion.div
-          className="absolute left-1/2 -translate-x-[calc(100%+60px)] w-[500px] h-[320px] opacity-30 scale-95 hidden md:block"
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 0.3, x: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="glass p-4 rounded-2xl border border-white/10 w-full h-full flex items-center justify-center">
-            <iframe 
-              style={{borderRadius: '16px'}} 
-              src={podcastEpisodes[getEpisodeIndex(-1)].embedUrl}
-              width="100%" 
-              height="100%" 
-              frameBorder="0" 
-              allowFullScreen={true}
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-              loading="lazy"
-            />
-          </div>
-        </motion.div>
-
-        {/* Current Episode (Center) with fade animation */}
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.div
-            key={currentIndex}
-            className="relative z-10 w-[700px] h-[400px]"
-            variants={fadeVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-          >
-            <div className="glass p-6 rounded-2xl border border-white/10 w-full h-full flex items-center justify-center">
-              <iframe 
-                style={{borderRadius: '18px'}} 
-                src={podcastEpisodes[currentIndex].embedUrl}
-                width="100%" 
-                height="100%" 
-                frameBorder="0" 
-                allowFullScreen={true}
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                loading="lazy"
-              />
-            </div>
-          </motion.div>
-        </AnimatePresence>
-
-        {/* Next Episode (Right) */}
-        <motion.div
-          className="absolute right-1/2 translate-x-[calc(100%+60px)] w-[500px] h-[320px] opacity-30 scale-95 hidden md:block"
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 0.3, x: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="glass p-4 rounded-2xl border border-white/10 w-full h-full flex items-center justify-center">
-            <iframe 
-              style={{borderRadius: '16px'}} 
-              src={podcastEpisodes[getEpisodeIndex(1)].embedUrl}
-              width="100%" 
-              height="100%" 
-              frameBorder="0" 
-              allowFullScreen={true}
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-              loading="lazy"
-            />
-          </div>
-        </motion.div>
-
-        {/* Navigation Arrows */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-4 md:left-32 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-black/40 hover:bg-black/60 transition-all border border-white/10 shadow-md z-20"
-          aria-label="Previous episode"
-        >
-          <ChevronLeft size={28} className="text-white" />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute right-4 md:right-32 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-black/40 hover:bg-black/60 transition-all border border-white/10 shadow-md z-20"
-          aria-label="Next episode"
-        >
-          <ChevronRight size={28} className="text-white" />
-        </button>
-      </div>
-
-      {/* Dots Indicator */}
-      <div className="flex justify-center mt-8 space-x-2">
-        {podcastEpisodes.map((_, index) => (
-          <motion.button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-200 ${
-              index === currentIndex 
-                ? 'bg-gradient-to-r from-blue-500 to-purple-600' 
-                : 'bg-white/30 hover:bg-white/50'
-            }`}
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.8 }}
-            aria-label={`Go to episode ${index + 1}`}
-          />
-        ))}
-      </div>
+    <div className='bg-transparent p-4'>
+      <Carousel options={OPTIONS}>
+        <SliderContainer>
+          {podcastEpisodes.map((episode) => (
+            <Slider key={episode.id} className='sm:w-[55%] w-[90%]'>
+              <div className='glass rounded-2xl border border-white/10 h-[420px] sm:h-[400px] 2xl:h-[450px] p-4'>
+                <iframe
+                  style={{ borderRadius: 18 }}
+                  src={episode.embedUrl}
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  allowFullScreen={true}
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy"
+                />
+              </div>
+            </Slider>
+          ))}
+        </SliderContainer>
+        
+        <SliderPrevButton className='absolute top-[50%] p-2 border-2 rounded-full left-4 bg-white/25 dark:bg-black/25 dark:border-white backdrop-blur-sm text-white disabled:opacity-20 hover:bg-white/35 dark:hover:bg-black/35 transition-all'>
+          <ChevronLeft className='w-8 h-8' />
+        </SliderPrevButton>
+        
+        <SliderNextButton className='absolute right-4 p-2 border-2 rounded-full top-[50%] bg-white/25 dark:bg-black/25 dark:border-white backdrop-blur-sm text-white disabled:opacity-20 hover:bg-white/35 dark:hover:bg-black/35 transition-all'>
+          <ChevronRight className='w-8 h-8' />
+        </SliderNextButton>
+        
+        <div className='flex justify-center py-4'>
+          <SliderDotButton />
+        </div>
+      </Carousel>
     </div>
   );
 } 
