@@ -457,19 +457,25 @@ export default function Home() {
             >
               <div className="relative inline-block">
                 <motion.div
-                  className="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto overflow-hidden border-4 border-white/20 shadow-2xl"
-                  whileHover={{ scale: 1.05 }}
+                  className="w-40 h-40 md:w-48 md:h-48 rounded-full mx-auto overflow-hidden border-4 border-white shadow-2xl"
+                  style={{
+                    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
+                  }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    y: -5,
+                    boxShadow: '0 35px 60px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3)'
+                  }}
                   transition={{ duration: 0.3 }}
                 >
                   <Image
-                    src="/lucas-avatar.png"
+                    src="/lucas-avatar.jpg"
                     alt="Lucas Campregher"
-                    width={160}
-                    height={160}
+                    width={192}
+                    height={192}
                     className="w-full h-full object-cover"
                   />
                 </motion.div>
-                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500/20 to-purple-600/20"></div>
               </div>
             </motion.div>
 
