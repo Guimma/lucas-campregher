@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     siteName: "Lucas Campregher Portfolio",
     images: [
       {
-        url: "/lucas-avatar.jpg",
+        url: "/lucas-avatar.png",
         width: 400,
         height: 400,
         alt: "Lucas Campregher - Software Engineer",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Lucas Campregher - Fullstack Software Engineer",
     description: "Experienced Software Engineer specializing in backend development and data privacy.",
-    images: ["/lucas-avatar.jpg"],
+    images: ["/lucas-avatar.png"],
   },
   robots: {
     index: true,

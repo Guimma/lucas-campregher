@@ -165,14 +165,30 @@
     "title": "Let's Create Something Amazing",
     "subtitle": "Ready to collaborate?",
     "description": "Ready to bring your ideas to life? Let's collaborate and build something extraordinary together.",
+    "info": {
+      "title": "Get in Touch",
+      "description": "I'm always open to discussing new opportunities, creative projects, or just having a great conversation about technology.",
+      "email": "lucas@campregher.com",
+      "phone": "+55 (31) 99696-4056",
+      "location": "Belo Horizonte, MG, Brazil",
+      "availability": "Available for freelance projects and full-time opportunities"
+    },
     "form": {
+      "title": "Send me a message",
       "name": "Name",
       "namePlaceholder": "Your name",
       "email": "Email",
       "emailPlaceholder": "your.email@example.com",
+      "subject": "Subject",
+      "subjectPlaceholder": "Project subject",
       "message": "Message",
       "messagePlaceholder": "Tell me about your project...",
-      "send": "Send Message"
+      "send": "Send Message",
+      "sendWhatsApp": "Send via WhatsApp",
+      "sendEmail": "Send via Email",
+      "fillAllFields": "Please fill all fields before sending.",
+      "successWhatsApp": "Message sent via WhatsApp!",
+      "successEmail": "Message sent via Email!"
     }
   },
   "footer": {

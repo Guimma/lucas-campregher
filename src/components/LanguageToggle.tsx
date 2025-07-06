@@ -42,7 +42,7 @@ export default function LanguageToggle() {
       <motion.button
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
-        className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-150 relative overflow-hidden"
+        className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-150 relative overflow-hidden rainbow-border"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         title={`Current: ${currentLanguage?.name}`}
@@ -81,7 +81,7 @@ export default function LanguageToggle() {
                 <motion.button
                   key={language.code}
                   onClick={() => changeLanguage(language.code)}
-                  className={`w-10 h-10 flex items-center justify-center rounded-xl transition-all duration-150 mb-2 last:mb-0 ${
+                  className={`w-10 h-10 flex items-center justify-center rounded-xl transition-all duration-150 mb-2 last:mb-0 rainbow-border ${
                     language.code === locale
                       ? 'bg-blue-500/20 ring-2 ring-blue-400/50'
                       : 'hover:bg-white/10'

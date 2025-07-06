@@ -153,14 +153,30 @@
     "title": "Vamos Criar Algo Incrível",
     "subtitle": "Pronto para colaborar?",
     "description": "Pronto para dar vida às suas ideias? Vamos colaborar e construir algo extraordinário juntos.",
+    "info": {
+      "title": "Entre em Contato",
+      "description": "Estou sempre aberto para discutir novas oportunidades, projetos criativos ou simplesmente ter uma ótima conversa sobre tecnologia.",
+      "email": "lucas@campregher.com",
+      "phone": "+55 (31) 99696-4056",
+      "location": "Belo Horizonte, MG, Brasil",
+      "availability": "Disponível para projetos freelance e oportunidades full-time"
+    },
     "form": {
+      "title": "Envie uma mensagem",
       "name": "Nome",
       "namePlaceholder": "Seu nome",
       "email": "Email",
       "emailPlaceholder": "seu.email@exemplo.com",
+      "subject": "Assunto",
+      "subjectPlaceholder": "Assunto do projeto",
       "message": "Mensagem",
       "messagePlaceholder": "Me conte sobre seu projeto...",
-      "send": "Enviar Mensagem"
+      "send": "Enviar Mensagem",
+      "sendWhatsApp": "Enviar via WhatsApp",
+      "sendEmail": "Enviar via Email",
+      "fillAllFields": "Por favor, preencha todos os campos antes de enviar.",
+      "successWhatsApp": "Mensagem enviada via WhatsApp!",
+      "successEmail": "Mensagem enviada via Email!"
     }
   },
   "footer": {

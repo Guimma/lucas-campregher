@@ -32,6 +32,7 @@ import LanguageToggle from '../../components/LanguageToggle';
 import PodcastSection from '../../components/PodcastSection';
 import Carousel, { Slider, SliderContainer, SliderPrevButton, SliderNextButton, SliderDotButton } from '@/components/ui/carousel';
 import { PodcastEpisode } from '../../types/podcast';
+import { useContactForm } from '@/hooks/useContactForm';
 
 // Animation variants
 const fadeInUp = {
@@ -61,6 +62,7 @@ interface BlogPost {
 export default function Home() {
   const t = useTranslations();
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
+  const { sendWhatsApp, sendEmail } = useContactForm();
 
   const toggleCard = (key: string) => {
     setExpandedCard(expandedCard === key ? null : key);
@@ -200,7 +202,7 @@ export default function Home() {
                   transition={{ duration: 0.3 }}
                 >
                   <Image
-                    src="/lucas-avatar.jpg"
+                    src="/lucas-avatar.png"
                     alt="Lucas Campregher"
                     width={160}
                     height={160}
@@ -232,15 +234,15 @@ export default function Home() {
             >
               <motion.a
                 href="#projects"
-                className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold hover:shadow-2xl transition-all duration-150"
-                whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(59, 130, 246, 0.5)" }}
+                className="px-8 py-4 rainbow-gradient text-white rounded-full font-semibold hover:shadow-2xl transition-all duration-150 rainbow-hover"
+                whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(139, 92, 246, 0.5)" }}
                 whileTap={{ scale: 0.95 }}
               >
                 {t('hero.viewWork')}
               </motion.a>
               <motion.a
                 href="#contact"
-                className="px-8 py-4 glass text-white rounded-full font-semibold hover:bg-white/20 transition-all duration-150"
+                className="px-8 py-4 glass text-white rounded-full font-semibold hover:bg-white/20 transition-all duration-150 rainbow-border"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -262,7 +264,7 @@ export default function Home() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 glass rounded-full hover:bg-white/20 transition-all duration-150"
+                  className="p-3 glass rounded-full hover:bg-white/20 transition-all duration-150 rainbow-border rainbow-text-hover"
                   whileHover={{ scale: 1.1, rotate: 5, transition: { duration: 0.15 } }}
                   whileTap={{ scale: 0.9 }}
                   title={item.label}
@@ -316,7 +318,7 @@ export default function Home() {
                   {['Java', '.Net', 'C#', 'Azure', 'TypeScript', 'Python', 'Flutter', 'SQL', 'Spring Boot', 'AI'].map((tech) => (
                     <motion.span
                       key={tech}
-                      className="px-4 py-2 glass rounded-full text-sm"
+                      className="px-4 py-2 glass rounded-full text-sm rainbow-border rainbow-text-hover"
                       whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.2)", transition: { duration: 0.15 } }}
                     >
                       {tech}
@@ -342,15 +344,15 @@ export default function Home() {
                 ].map((item, index) => (
                   <motion.div
                     key={index}
-                    className="p-6 glass rounded-2xl hover:bg-white/10 transition-all duration-150"
+                    className="p-6 glass rounded-2xl hover:bg-white/10 transition-all duration-150 rainbow-border"
                     whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.15 } }}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                   >
-                    <item.icon className="w-8 h-8 text-blue-400 mb-4" />
-                    <h3 className="font-semibold mb-2">{t(`about.cards.${item.key}.title`)}</h3>
+                    <item.icon className="w-8 h-8 text-blue-400 mb-4 rainbow-text-hover" />
+                    <h3 className="font-semibold mb-2 rainbow-text-hover">{t(`about.cards.${item.key}.title`)}</h3>
                     <p className="text-sm text-gray-400">{t(`about.cards.${item.key}.description`)}</p>
                   </motion.div>
                 ))}
@@ -1281,91 +1283,219 @@ export default function Home() {
 
       {/* Contact Section */}
       <section id="contact" className="py-20 relative">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-              <span className="gradient-text">{t('contact.title')}</span>
-            </h2>
+            {/* Section Header */}
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                <span className="gradient-text">{t('contact.title')}</span>
+              </h2>
+              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+                {t('contact.description')}
+              </p>
+            </div>
             
-            <div className="grid md:grid-cols-2 gap-12">
+            <div className="grid lg:grid-cols-3 gap-8">
+              {/* Contact Information */}
               <motion.div
+                className="lg:col-span-1"
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <h3 className="text-2xl font-semibold mb-6">{t('contact.subtitle')}</h3>
-                <p className="text-gray-300 mb-8 leading-relaxed">
-                  {t('contact.description')}
-                </p>
-                
-                <div className="space-y-6">
-                  {[
-                    { Icon: Mail, label: 'lucas@campregher.com', href: 'mailto:lucas@campregher.com' },
-                    { Icon: Linkedin, label: 'linkedin.com/in/lucas-campregher', href: 'https://www.linkedin.com/in/lucas-campregher/' },
-                    { Icon: Github, label: 'github.com/Guimma', href: 'https://github.com/Guimma' }
-                  ].map((contact, index) => (
+                <div className="glass p-8 rounded-2xl h-full">
+                  <h3 className="text-2xl font-semibold mb-4 gradient-text">{t('contact.info.title')}</h3>
+                  <p className="text-gray-300 mb-8 leading-relaxed">
+                    {t('contact.info.description')}
+                  </p>
+                  
+                  {/* Contact Details */}
+                  <div className="space-y-6">
+                    {/* Email */}
                     <motion.a
-                      key={index}
-                      href={contact.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center space-x-4 p-4 glass rounded-lg hover:bg-white/20 transition-all duration-150"
-                      whileHover={{ scale: 1.02, x: 10, transition: { duration: 0.15 } }}
+                      href="mailto:lucas@campregher.com"
+                      className="flex items-center space-x-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-150 group"
+                      whileHover={{ scale: 1.02, x: 5, transition: { duration: 0.15 } }}
                     >
-                      <contact.Icon className="w-6 h-6 text-blue-400" />
-                      <span className="text-gray-300">{contact.label}</span>
+                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-lg flex items-center justify-center group-hover:from-blue-500/30 group-hover:to-blue-600/30 transition-all duration-150">
+                        <Mail className="w-6 h-6 text-blue-400" />
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-400 font-medium">Email</p>
+                        <p className="text-white font-medium">{t('contact.info.email')}</p>
+                      </div>
                     </motion.a>
-                  ))}
+
+                    {/* Phone */}
+                    <motion.a
+                      href="tel:+5531996964056"
+                      className="flex items-center space-x-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-150 group"
+                      whileHover={{ scale: 1.02, x: 5, transition: { duration: 0.15 } }}
+                    >
+                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-lg flex items-center justify-center group-hover:from-green-500/30 group-hover:to-green-600/30 transition-all duration-150">
+                        <svg className="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-400 font-medium">Phone</p>
+                        <p className="text-white font-medium">{t('contact.info.phone')}</p>
+                      </div>
+                    </motion.a>
+
+                    {/* Location */}
+                    <motion.div
+                      className="flex items-center space-x-4 p-4 bg-white/5 rounded-xl"
+                    >
+                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-500/20 to-purple-600/20 rounded-lg flex items-center justify-center">
+                        <svg className="w-6 h-6 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-400 font-medium">Location</p>
+                        <p className="text-white font-medium">{t('contact.info.location')}</p>
+                      </div>
+                    </motion.div>
+                  </div>
+
+                  {/* Social Links */}
+                  <div className="mt-8 pt-8 border-t border-white/10">
+                    <p className="text-sm text-gray-400 font-medium mb-4">Follow me</p>
+                    <div className="flex space-x-4">
+                      {[
+                        { Icon: Linkedin, href: 'https://www.linkedin.com/in/lucas-campregher/', color: 'text-blue-400 hover:text-blue-300' },
+                        { Icon: Github, href: 'https://github.com/Guimma', color: 'text-gray-400 hover:text-white' }
+                      ].map((social, index) => (
+                        <motion.a
+                          key={index}
+                          href={social.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center ${social.color} transition-all duration-150 hover:bg-white/10 rainbow-border rainbow-text-hover`}
+                          whileHover={{ scale: 1.1, transition: { duration: 0.15 } }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <social.Icon className="w-5 h-5" />
+                        </motion.a>
+                      ))}
+                      <motion.a
+                        href="https://api.whatsapp.com/send?phone=5531996964056"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-green-400 hover:text-green-300 transition-all duration-150 hover:bg-white/10 rainbow-border rainbow-text-hover"
+                        whileHover={{ scale: 1.1, transition: { duration: 0.15 } }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.787z"/>
+                        </svg>
+                      </motion.a>
+                    </div>
+                  </div>
+
+                  {/* Availability Status */}
+                  <div className="mt-6 p-4 bg-gradient-to-r from-green-500/10 to-blue-500/10 rounded-xl border border-green-500/20">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                      <p className="text-sm text-green-300 font-medium">{t('contact.info.availability')}</p>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
 
+              {/* Contact Form */}
               <motion.div
-                className="glass p-8 rounded-2xl"
+                className="lg:col-span-2"
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <form className="space-y-6">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">{t('contact.form.name')}</label>
-                    <input
-                      type="text"
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors"
-                      placeholder={t('contact.form.namePlaceholder')}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">{t('contact.form.email')}</label>
-                    <input
-                      type="email"
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors"
-                      placeholder={t('contact.form.emailPlaceholder')}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">{t('contact.form.message')}</label>
-                    <textarea
-                      rows={4}
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors resize-none"
-                      placeholder={t('contact.form.messagePlaceholder')}
-                    ></textarea>
-                  </div>
-                  <motion.button
-                    type="submit"
-                    className="w-full px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-semibold hover:shadow-2xl transition-all duration-150"
-                    whileHover={{ scale: 1.02, boxShadow: "0 25px 50px -12px rgba(59, 130, 246, 0.5)", transition: { duration: 0.15 } }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    {t('contact.form.send')}
-                  </motion.button>
-                </form>
+                <div className="glass p-8 rounded-2xl h-full">
+                  <h3 className="text-2xl font-semibold mb-6 gradient-text">{t('contact.form.title')}</h3>
+                  
+                  <form id="contact-form" className="space-y-6">
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-medium mb-3 text-gray-300">{t('contact.form.name')}</label>
+                        <input
+                          type="text"
+                          name="fullname"
+                          className="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-150 text-white placeholder-gray-400"
+                          placeholder={t('contact.form.namePlaceholder')}
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium mb-3 text-gray-300">{t('contact.form.email')}</label>
+                        <input
+                          type="email"
+                          name="email"
+                          className="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-150 text-white placeholder-gray-400"
+                          placeholder={t('contact.form.emailPlaceholder')}
+                          required
+                        />
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium mb-3 text-gray-300">{t('contact.form.subject')}</label>
+                      <input
+                        type="text"
+                        name="subject"
+                        className="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-150 text-white placeholder-gray-400"
+                        placeholder={t('contact.form.subjectPlaceholder')}
+                        required
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium mb-3 text-gray-300">{t('contact.form.message')}</label>
+                      <textarea
+                        rows={6}
+                        name="message"
+                        className="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-150 resize-none text-white placeholder-gray-400"
+                        placeholder={t('contact.form.messagePlaceholder')}
+                        required
+                      ></textarea>
+                    </div>
+                    
+                    <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                      <motion.button
+                        type="button"
+                        onClick={sendWhatsApp}
+                        className="flex-1 px-6 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-semibold hover:shadow-2xl transition-all duration-150 flex items-center justify-center gap-3 hover:from-green-600 hover:to-green-700 rainbow-hover"
+                        whileHover={{ scale: 1.02, boxShadow: "0 25px 50px -12px rgba(34, 197, 94, 0.5)", transition: { duration: 0.15 } }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.787z"/>
+                        </svg>
+                        {t('contact.form.sendWhatsApp')}
+                      </motion.button>
+                      
+                      <motion.button
+                        type="button"
+                        onClick={sendEmail}
+                        className="flex-1 px-6 py-4 rainbow-gradient text-white rounded-xl font-semibold hover:shadow-2xl transition-all duration-150 flex items-center justify-center gap-3 rainbow-hover"
+                        whileHover={{ scale: 1.02, boxShadow: "0 25px 50px -12px rgba(139, 92, 246, 0.5)", transition: { duration: 0.15 } }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                        </svg>
+                        {t('contact.form.sendEmail')}
+                      </motion.button>
+                    </div>
+                  </form>
+                </div>
               </motion.div>
             </div>
           </motion.div>
@@ -1394,7 +1524,7 @@ function SkillBar({ name, value }: { name: string; value: number }) {
       </div>
       <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
         <motion.div
-          className="h-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full shadow-lg"
+          className="h-3 rainbow-gradient rounded-full shadow-lg"
           initial={{ width: 0 }}
           whileInView={{ width: `${value}%` }}
           viewport={{ once: true }}
