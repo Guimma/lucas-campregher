@@ -563,9 +563,15 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-              <span className="gradient-text">{t('about.title')}</span>
-            </h2>
+            <motion.h2 
+              className="text-4xl md:text-5xl font-bold text-center mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="text-white">{t('about.title')}</span>
+            </motion.h2>
             
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <motion.div
@@ -574,21 +580,29 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+                <p className="text-lg text-gray-200 mb-6 leading-relaxed">
                   {t('about.paragraph1')}
                 </p>
-                <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+                <p className="text-lg text-gray-200 mb-6 leading-relaxed">
                   {t('about.paragraph2')}
                 </p>
-                <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+                <p className="text-lg text-gray-200 mb-8 leading-relaxed">
                   {t('about.paragraph3')}
                 </p>
-                <div className="flex flex-wrap gap-4">
-                  {['Java', '.Net', 'C#', 'Azure', 'TypeScript', 'Python', 'Flutter', 'SQL', 'Spring Boot', 'AI'].map((tech) => (
+                <div className="flex flex-wrap gap-3">
+                  {['Java', '.Net', 'C#', 'Azure', 'TypeScript', 'Python', 'Flutter', 'SQL', 'Spring Boot', 'AI'].map((tech, index) => (
                     <motion.span
                       key={tech}
-                      className="px-4 py-2 glass rounded-full text-sm"
-                      whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.2)", transition: { duration: 0.15 } }}
+                      className="px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm text-white font-medium hover:bg-white hover:text-black transition-all duration-300 shadow-lg"
+                      whileHover={{ 
+                        scale: 1.05,
+                        y: -2,
+                        transition: { duration: 0.2 } 
+                      }}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: index * 0.05 }}
                     >
                       {tech}
                     </motion.span>
@@ -613,16 +627,21 @@ export default function Home() {
                 ].map((item, index) => (
                   <motion.div
                     key={index}
-                    className="p-6 glass rounded-2xl hover:bg-white/10 transition-all duration-150"
-                    whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.15 } }}
+                    className="p-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl hover:bg-white/15 hover:border-white/30 transition-all duration-300 shadow-lg"
+                    whileHover={{ 
+                      scale: 1.05, 
+                      y: -8,
+                      boxShadow: "0 20px 40px rgba(255, 255, 255, 0.1)",
+                      transition: { duration: 0.3 } 
+                    }}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                   >
-                    <item.icon className="w-8 h-8 text-blue-400 mb-4" />
-                    <h3 className="font-semibold mb-2">{t(`about.cards.${item.key}.title`)}</h3>
-                    <p className="text-sm text-gray-400">{t(`about.cards.${item.key}.description`)}</p>
+                    <item.icon className="w-8 h-8 text-white mb-4" />
+                    <h3 className="font-semibold mb-2 text-white">{t(`about.cards.${item.key}.title`)}</h3>
+                    <p className="text-sm text-gray-300">{t(`about.cards.${item.key}.description`)}</p>
                   </motion.div>
                 ))}
               </motion.div>
