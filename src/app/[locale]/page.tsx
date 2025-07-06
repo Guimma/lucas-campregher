@@ -225,7 +225,7 @@ export default function Home() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        <div className="flex items-center bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-2 shadow-2xl gap-1">
+        <div className="flex items-center bg-white/15 backdrop-blur-lg border border-white/25 rounded-2xl p-2 shadow-2xl gap-1">
           {[
             { key: 'about', section: 'about', icon: HomeIcon },
             { key: 'career', section: 'career', icon: Briefcase },
@@ -590,7 +590,7 @@ export default function Home() {
                   {['Java', '.Net', 'C#', 'Azure', 'TypeScript', 'Python', 'Flutter', 'SQL', 'Spring Boot', 'AI'].map((tech, index) => (
                     <motion.span
                       key={tech}
-                      className="px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm text-white font-medium hover:bg-white hover:text-black transition-all duration-300 shadow-lg"
+                      className="px-4 py-2 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full text-sm text-white font-medium hover:bg-white hover:text-black transition-all duration-300 shadow-lg"
                       whileHover={{ 
                         scale: 1.05,
                         y: -2,
@@ -624,7 +624,7 @@ export default function Home() {
                 ].map((item, index) => (
                   <motion.div
                     key={index}
-                    className="p-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl hover:bg-white/15 hover:border-white/30 transition-all duration-300 shadow-lg"
+                    className="p-6 bg-white/15 backdrop-blur-lg border border-white/25 rounded-2xl hover:bg-white/20 hover:border-white/35 transition-all duration-300 shadow-lg"
                     whileHover={{ 
                       scale: 1.05, 
                       y: -8,
@@ -749,7 +749,7 @@ export default function Home() {
                   >
                     {/* Timeline Node */}
                     <motion.div
-                      className="absolute left-6 md:left-8 w-3 h-3 bg-white/40 backdrop-blur-sm rounded-full transform -translate-x-1/2 z-10 border border-white/30"
+                      className="absolute left-6 md:left-8 w-3 h-3 bg-white/50 backdrop-blur-sm rounded-full transform -translate-x-1/2 z-10 border border-white/35"
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true }}
@@ -786,7 +786,7 @@ export default function Home() {
                     >
                       <div className="relative">
                         <motion.div 
-                          className={`p-8 glass rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-xl ${item.clients ? 'cursor-pointer' : ''}`}
+                          className={`p-8 glass rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-lg ${item.clients ? 'cursor-pointer' : ''}`}
                           onClick={() => item.clients && toggleCard(item.key)}
                           whileHover={item.clients ? { scale: 1.01 } : {}}
                           transition={{ duration: 0.2 }}
@@ -1076,7 +1076,7 @@ export default function Home() {
                     </motion.div>
                     {/* Card de educação */}
                     <motion.div
-                      className="ml-16 flex-1 group p-8 glass rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-xl"
+                      className="ml-16 flex-1 group p-8 glass rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-lg"
                       whileHover={{ y: -5 }}
                       transition={{ duration: 0.3, ease: 'easeOut' }}
                     >
@@ -1138,7 +1138,7 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-10">
               {/* Programming Languages */}
               <motion.div
-                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-xl group"
+                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-lg group"
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
@@ -1159,7 +1159,7 @@ export default function Home() {
               </motion.div>
               {/* Frameworks & Dev Tools */}
               <motion.div
-                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-xl group"
+                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-lg group"
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
@@ -1185,7 +1185,7 @@ export default function Home() {
               </motion.div>
               {/* Cloud & DevOps */}
               <motion.div
-                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-xl group"
+                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-lg group"
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
@@ -1206,7 +1206,7 @@ export default function Home() {
               </motion.div>
               {/* Software & Solution Skills */}
               <motion.div
-                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-xl group"
+                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-lg group"
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
@@ -1225,7 +1225,7 @@ export default function Home() {
               </motion.div>
               {/* AI & Productivity */}
               <motion.div
-                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-xl md:col-span-1 group"
+                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-lg md:col-span-1 group"
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
@@ -1243,7 +1243,7 @@ export default function Home() {
               </motion.div>
               {/* Spoken Languages */}
               <motion.div
-                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-xl md:col-span-1 group"
+                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-lg md:col-span-1 group"
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
