@@ -159,7 +159,7 @@ export default function Home() {
               variants={fadeInUp}
             >
               <span className="text-white">{t('hero.greeting')}</span>
-              <span className="creative-text">{t('hero.name')}</span>
+              <span className="text-white">{t('hero.name')}</span>
             </motion.h1>
             
             <motion.p 
