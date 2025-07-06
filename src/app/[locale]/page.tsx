@@ -244,7 +244,7 @@ export default function Home() {
                 key={item.key}
                 href={`#${item.section}`}
                 className={`relative p-3 rounded-xl transition-all duration-300 group ${
-                  isActive ? 'bg-blue-500 shadow-lg shadow-blue-500/30' : 'hover:bg-white/10'
+                  isActive ? 'bg-white shadow-lg shadow-white/30' : 'hover:bg-white/10'
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -253,7 +253,7 @@ export default function Home() {
                 <item.icon 
                   size={18} 
                   className={`transition-colors duration-300 ${
-                    isActive ? 'text-white' : 'text-gray-300 group-hover:text-white'
+                    isActive ? 'text-black' : 'text-gray-300 group-hover:text-white'
                   }`} 
                 />
               </motion.a>
@@ -301,7 +301,7 @@ export default function Home() {
                         key={item.key}
                         href={`#${item.section}`}
                         className={`flex flex-col items-center p-3 rounded-xl transition-all duration-300 ${
-                          isActive ? 'bg-blue-500/20' : 'hover:bg-white/10'
+                          isActive ? 'bg-white/90' : 'hover:bg-white/10'
                         }`}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
@@ -310,11 +310,11 @@ export default function Home() {
                         <item.icon 
                           size={20} 
                           className={`transition-colors duration-300 mb-1 ${
-                            isActive ? 'text-blue-400' : 'text-gray-400'
+                            isActive ? 'text-black' : 'text-gray-400'
                           }`} 
                         />
                         <span className={`text-xs ${
-                          isActive ? 'text-blue-400' : 'text-gray-400'
+                          isActive ? 'text-black' : 'text-gray-400'
                         }`}>
                           {t(`navigation.${item.key}`)}
                         </span>
@@ -482,7 +482,7 @@ export default function Home() {
             </motion.h1>
             
             <motion.p 
-              className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto"
+              className="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto"
               variants={fadeInUp}
             >
               {t('hero.description')}
@@ -494,8 +494,11 @@ export default function Home() {
             >
               <motion.a
                 href="#projects"
-                className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold hover:shadow-2xl transition-all duration-150"
-                whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(139, 92, 246, 0.5)" }}
+                className="px-8 py-4 bg-white text-black rounded-full font-semibold shadow-lg shadow-white/30 border border-white/20"
+                whileHover={{ 
+                  scale: 1.05,
+                  transition: { duration: 0.2 }
+                }}
                 whileTap={{ scale: 0.95 }}
               >
                 {t('hero.viewWork')}
@@ -1688,7 +1691,7 @@ export default function Home() {
                         <input
                           type="text"
                           name="fullname"
-                          className="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-150 text-white placeholder-gray-400"
+                          className="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-teal-400 focus:bg-white/10 transition-all duration-150 text-white placeholder-gray-400"
                           placeholder={t('contact.form.namePlaceholder')}
                           required
                         />
@@ -1698,7 +1701,7 @@ export default function Home() {
                         <input
                           type="email"
                           name="email"
-                          className="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-150 text-white placeholder-gray-400"
+                          className="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-teal-400 focus:bg-white/10 transition-all duration-150 text-white placeholder-gray-400"
                           placeholder={t('contact.form.emailPlaceholder')}
                           required
                         />
@@ -1710,7 +1713,7 @@ export default function Home() {
                       <input
                         type="text"
                         name="subject"
-                        className="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-150 text-white placeholder-gray-400"
+                        className="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-teal-400 focus:bg-white/10 transition-all duration-150 text-white placeholder-gray-400"
                         placeholder={t('contact.form.subjectPlaceholder')}
                         required
                       />
@@ -1721,7 +1724,7 @@ export default function Home() {
                       <textarea
                         rows={6}
                         name="message"
-                        className="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-150 resize-none text-white placeholder-gray-400"
+                        className="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-teal-400 focus:bg-white/10 transition-all duration-150 resize-none text-white placeholder-gray-400"
                         placeholder={t('contact.form.messagePlaceholder')}
                         required
                       ></textarea>
