@@ -151,7 +151,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen animated-bg">
+    <div className="min-h-screen">
       {/* Navigation */}
       <motion.nav 
         className="fixed top-4 w-full z-50 h-16 flex items-center"
@@ -329,29 +329,115 @@ export default function Home() {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        {/* Floating Elements */}
+      <section className="min-h-screen flex items-center justify-center relative overflow-hidden enhanced-animated-bg">
+        {/* Enhanced Floating Elements with Multiple Colors */}
         <div className="absolute inset-0 overflow-hidden">
+          {/* Purple Light - Top Left */}
           <motion.div
-            className="absolute top-20 left-20 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl"
+            className="absolute top-20 left-20 w-72 h-72 rounded-full blur-3xl"
+            style={{ background: 'radial-gradient(circle, rgba(84, 13, 110, 0.4) 0%, rgba(84, 13, 110, 0.1) 50%, transparent 100%)' }}
             animate={{
-              y: [-20, 20, -20],
-              x: [-10, 10, -10],
+              y: [-15, 15, -15],
+              x: [-8, 8, -8],
+              scale: [1, 1.05, 1],
             }}
             transition={{
-              duration: 6,
+              duration: 25,
               repeat: Infinity,
               ease: "easeInOut"
             }}
           />
+          
+          {/* Pink/Red Light - Top Right */}
           <motion.div
-            className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"
+            className="absolute top-32 right-24 w-80 h-80 rounded-full blur-3xl"
+            style={{ background: 'radial-gradient(circle, rgba(238, 66, 102, 0.3) 0%, rgba(238, 66, 102, 0.1) 50%, transparent 100%)' }}
             animate={{
-              y: [20, -20, 20],
-              x: [10, -10, 10],
+              y: [12, -12, 12],
+              x: [6, -6, 6],
+              scale: [1, 1.08, 1],
             }}
             transition={{
-              duration: 8,
+              duration: 25,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          {/* Yellow Light - Center */}
+          <motion.div
+            className="absolute top-1/2 left-1/2 w-60 h-60 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"
+            style={{ background: 'radial-gradient(circle, rgba(255, 210, 63, 0.2) 0%, rgba(255, 210, 63, 0.05) 50%, transparent 100%)' }}
+            animate={{
+              y: [-18, 18, -18],
+              x: [-10, 10, -10],
+              scale: [1, 0.95, 1],
+            }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          {/* Teal Light - Bottom Left */}
+          <motion.div
+            className="absolute bottom-24 left-32 w-96 h-96 rounded-full blur-3xl"
+            style={{ background: 'radial-gradient(circle, rgba(59, 206, 172, 0.25) 0%, rgba(59, 206, 172, 0.08) 50%, transparent 100%)' }}
+            animate={{
+              y: [16, -16, 16],
+              x: [8, -8, 8],
+              scale: [1, 1.06, 1],
+            }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          {/* Green Light - Bottom Right */}
+          <motion.div
+            className="absolute bottom-16 right-16 w-64 h-64 rounded-full blur-3xl"
+            style={{ background: 'radial-gradient(circle, rgba(14, 173, 105, 0.3) 0%, rgba(14, 173, 105, 0.1) 50%, transparent 100%)' }}
+            animate={{
+              y: [-14, 14, -14],
+              x: [-12, 12, -12],
+              scale: [1, 1.1, 1],
+            }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          {/* Additional Subtle Lights */}
+          <motion.div
+            className="absolute top-1/4 left-1/4 w-40 h-40 rounded-full blur-2xl"
+            style={{ background: 'radial-gradient(circle, rgba(84, 13, 110, 0.15) 0%, transparent 70%)' }}
+            animate={{
+              y: [8, -8, 8],
+              x: [4, -4, 4],
+              opacity: [0.3, 0.6, 0.3],
+            }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          <motion.div
+            className="absolute bottom-1/3 right-1/3 w-48 h-48 rounded-full blur-2xl"
+            style={{ background: 'radial-gradient(circle, rgba(238, 66, 102, 0.12) 0%, transparent 70%)' }}
+            animate={{
+              y: [-10, 10, -10],
+              x: [5, -5, 5],
+              opacity: [0.2, 0.5, 0.2],
+            }}
+            transition={{
+              duration: 25,
               repeat: Infinity,
               ease: "easeInOut"
             }}

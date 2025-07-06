@@ -15,7 +15,84 @@ body {
   z-index: 1;
 }
 
-/* Animated background gradient */
+/* Enhanced animated background with multiple colors and grain */
+.enhanced-animated-bg {
+  position: relative;
+  background: radial-gradient(circle at 20% 30%, #540D6E 0%, transparent 60%),
+              radial-gradient(circle at 80% 20%, #EE4266 0%, transparent 60%),
+              radial-gradient(circle at 60% 70%, #FFD23F 0%, transparent 60%),
+              radial-gradient(circle at 30% 80%, #3BCEAC 0%, transparent 60%),
+              radial-gradient(circle at 90% 60%, #0EAD69 0%, transparent 60%),
+              linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
+  background-size: 200% 200%;
+  animation: enhanced-gradient-flow 40s ease-in-out infinite;
+  overflow: hidden;
+}
+
+.enhanced-animated-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+  animation: grain-movement 0.8s steps(8) infinite;
+  pointer-events: none;
+}
+
+.enhanced-animated-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255,255,255,0.01) 2px,
+      rgba(255,255,255,0.01) 4px
+    );
+  pointer-events: none;
+}
+
+/* Animation keyframes */
+@keyframes enhanced-gradient-flow {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+@keyframes grain-movement {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  12.5% { transform: translate(-1px, -1px) rotate(45deg); }
+  25% { transform: translate(1px, -1px) rotate(90deg); }
+  37.5% { transform: translate(1px, 1px) rotate(135deg); }
+  50% { transform: translate(-1px, 1px) rotate(180deg); }
+  62.5% { transform: translate(-1px, -1px) rotate(225deg); }
+  75% { transform: translate(1px, -1px) rotate(270deg); }
+  87.5% { transform: translate(1px, 1px) rotate(315deg); }
+  100% { transform: translate(0, 0) rotate(360deg); }
+}
+
+/* Original animated background (mantido para compatibilidade) */
 .animated-bg {
   background: linear-gradient(135deg, #000000 0%, #0f0f0f 50%, #1a1a1a 100%);
   background-size: 400% 400%;
