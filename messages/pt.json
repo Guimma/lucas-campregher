@@ -5,6 +5,8 @@
     "career": "Carreira",
     "skills": "Habilidades", 
     "projects": "Projetos",
+    "podcasts": "Podcasts",
+    "blog": "Blog",
     "contact": "Contato"
   },
   "hero": {
@@ -118,17 +120,32 @@
   "projects": {
     "title": "Projetos em Destaque",
     "items": {
-      "dataPrivacy": {
-        "title": "Plataforma de Privacidade de Dados",
-        "description": "Plataforma de conformidade LGPD/GDPR para proteção de dados e gestão de direitos do usuário"
+      "betterbet": {
+        "title": "BetterBet",
+        "description": "Plataforma avançada de inteligência para apostas esportivas utilizando algoritmos de machine learning e análise de dados em tempo real para gerar previsões precisas.",
+        "tags": ["Python", "IA", "Cursor", "Machine Learning", "Web Scraping", "Data Science"],
+        "repo": "https://github.com/Guimma/betterbet"
       },
-      "microservices": {
-        "title": "Arquitetura de Microsserviços", 
-        "description": "Ecossistema escalável de microsserviços com orquestração de containers e CI/CD"
+      "glenio": {
+        "title": "Glenio Campregher - Fotografia",
+        "description": "Portfólio profissional de fotografia apresentando trabalhos artísticos através de interface responsiva Vue.js com integração da API do Flickr.",
+        "tags": ["Vue.js"],
+        "site": "https://guimma.github.io/vue-photosite/",
+        "repo": "https://github.com/Guimma/vue-photosite"
       },
-      "analytics": {
-        "title": "Analytics em Tempo Real",
-        "description": "Motor de analytics de alta performance processando milhões de eventos por dia"
+      "433": {
+        "title": "433 Fantasy",
+        "description": "Plataforma de fantasy football do Brasileirão Série A com estatísticas de jogadores em tempo real, gerenciamento de times e sistema competitivo de pontuação.",
+        "tags": ["Angular", "TypeScript", "Jogo", "Futebol", "Web App"],
+        "site": "https://guimma.github.io/fantasy-web/#/home",
+        "repo": "https://github.com/Guimma/fantasy-web"
+      },
+      "cats": {
+        "title": "Christmas Cats",
+        "description": "Experiência web interativa com tema natalino apresentando animações divertidas e elementos de design festivos, demonstrando habilidades criativas de frontend.",
+        "tags": ["HTML", "CSS", "JavaScript", "Diversão", "Gatos"],
+        "site": "https://guimma.github.io/Christmas-Cats/",
+        "repo": "https://github.com/Guimma/Christmas-Cats"
       }
     }
   },
@@ -136,14 +153,30 @@
     "title": "Vamos Criar Algo Incrível",
     "subtitle": "Pronto para colaborar?",
     "description": "Pronto para dar vida às suas ideias? Vamos colaborar e construir algo extraordinário juntos.",
+    "info": {
+      "title": "Entre em Contato",
+      "description": "Estou sempre aberto para discutir novas oportunidades, projetos criativos ou simplesmente ter uma ótima conversa sobre tecnologia.",
+      "email": "lucas@campregher.com",
+      "phone": "+55 (31) 99696-4056",
+      "location": "Belo Horizonte, MG, Brasil",
+      "availability": "Disponível para projetos freelance e oportunidades full-time"
+    },
     "form": {
+      "title": "Envie uma mensagem",
       "name": "Nome",
       "namePlaceholder": "Seu nome",
       "email": "Email",
       "emailPlaceholder": "seu.email@exemplo.com",
+      "subject": "Assunto",
+      "subjectPlaceholder": "Assunto do projeto",
       "message": "Mensagem",
       "messagePlaceholder": "Me conte sobre seu projeto...",
-      "send": "Enviar Mensagem"
+      "send": "Enviar Mensagem",
+      "sendWhatsApp": "Enviar via WhatsApp",
+      "sendEmail": "Enviar via Email",
+      "fillAllFields": "Por favor, preencha todos os campos antes de enviar.",
+      "successWhatsApp": "Mensagem enviada via WhatsApp!",
+      "successEmail": "Mensagem enviada via Email!"
     }
   },
   "footer": {
@@ -161,6 +194,77 @@
         "name": "Colégio Magnum Agostiniano",
         "period": "12/2017",
         "degree": "Ensino Médio"
+      }
+    }
+  },
+  "spoken": {
+    "portuguese": "Português",
+    "english": "Inglês"
+  },
+  "podcasts": {
+    "title": "Episódios de Podcast",
+    "description": "Episódios em destaque de podcasts que participei, compartilhando insights sobre desenvolvimento de software, tendências tecnológicas e melhores práticas da indústria."
+  },
+  "blog": {
+    "title": "Últimas Reflexões",
+    "subtitle": "Pensamentos sobre tecnologia, desenvolvimento e tendências da indústria",
+    "readMore": "Ler Mais",
+    "readTime": "min de leitura",
+    "tags": "Tags",
+    "posts": {
+      "privacyByDesign": {
+        "title": "Implementando Privacy by Design para Reimaginar a Privacidade no Instagram",
+        "excerpt": "Este trabalho acadêmico explora a implementação dos princípios de Privacy by Design para reimaginar os controles de privacidade no Instagram, abordando os desafios da proteção de dados em plataformas de redes sociais.",
+        "readTime": "15",
+        "tags": ["Privacy by Design", "Instagram", "Acadêmico", "Proteção de Dados"],
+        "date": "2022-07",
+        "category": "Artigo",
+        "url": "/tcc.pdf"
+      },
+      "aiAbstraction": {
+        "title": "Abstração e Evolução Tecnológica: A Caminhada do Binário à Inteligência Artificial 💡🧠",
+        "excerpt": "No mundo em constante evolução do desenvolvimento de software, estamos sempre criando novas camadas de abstração para facilitar o trabalho dos desenvolvedores na construção de sistemas. Essa jornada começa com a corrente elétrica que passa informação através de códigos binários, e se estende até as linguagens de máquina, linguagens de programação, frameworks e, finalmente, plataformas de low code e no code.",
+        "readTime": "8",
+        "tags": ["IA", "Tecnologia", "Abstração", "Desenvolvimento"],
+        "date": "2024-01",
+        "category": "Artigo",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7153898023868149761/?updateEntityUrn=urn%3Ali%3Afs_feedUpdate%3A%28V2%2Curn%3Ali%3Aactivity%3A7153898023868149761%29"
+      },
+      "enzimasPrivacy": {
+        "title": "Enzimas #200 - Os riscos e desafios da falta de Privacidade Digital",
+        "excerpt": "Você que já assistiu o documentário \"O Dilema das Redes\", ficou intrigado com o poder que seus dados podem possuir nas mãos de terceiros? Para falar sobre a importância da privacidade e controle deles, convidamos Lucas Campregher, Desenvolvedor na dti digital, para falar sobre o tema tanto pela ótica da pessoa usuária, quanto de quem constrói a solução. Dá o Play!",
+        "readTime": "45",
+        "tags": ["Privacidade", "Podcast", "Direitos Digitais", "Proteção de Dados"],
+        "date": "2023-02",
+        "category": "Podcast",
+        "url": "https://osagilistas.com/podcast/enzimas-200-os-riscos-e-desafios-da-falta-de-privacidade-digital/"
+      },
+      "techshotPrivacy": {
+        "title": "Privacidade de dados: Do indivíduo ao código",
+        "excerpt": "Nesse techshot, contemplaremos diversos conceitos acerca do universo da privacidade de dados! Falaremos sobre segurança cibernética e LGPD; além de demonstrar a aplicação da segurança na engenharia de software em casos reais!",
+        "readTime": "30",
+        "tags": ["Privacidade", "Cibersegurança", "LGPD", "Engenharia de Software"],
+        "date": "2023-02-02",
+        "category": "Techshot",
+        "url": "https://www.linkedin.com/events/techshot-privacidadededados-doi7024376972268953600"
+      },
+      "techshotWallE": {
+        "title": "Case Wall-e: como melhoramos um sistema legado em 93%",
+        "excerpt": "Deixando de lado as partes teóricas e superficiais, nesse techshot iremos apresentar um case real de sucesso ao trabalhar com evolutivas em um sistema legado. Com base na análise de logs de performance e proposições técnicas de desenvolvimento, otimizamos a performance dos processos em 93%.",
+        "readTime": "35",
+        "tags": ["Sistemas Legados", "Performance", "Otimização", "Case Study"],
+        "date": "2022-09-13",
+        "category": "Techshot",
+        "url": "https://www.linkedin.com/events/techshot-casewall-e-comomelhora6972608932125028352"
+      },
+      "socialDilemma": {
+        "title": "O Dilema das redes sociais: Uma conversa necessária",
+        "excerpt": "As ideias de Harari evidenciam que a atual relação da sociedade com os fluxos de dados é o principal causador do problema da desinformação e dos maiores desafios enfrentados no mundo hoje, levando-nos a conceituar o dilema das redes sociais.",
+        "readTime": "10",
+        "tags": ["Redes Sociais", "Privacidade", "Desinformação", "Ética Digital"],
+        "date": "2021-09-16",
+        "category": "Artigo",
+        "url": "https://www.dtidigital.com.br/blog/o-dilema-das-redes/"
       }
     }
   }

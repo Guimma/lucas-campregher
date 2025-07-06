@@ -5,6 +5,8 @@
     "career": "Career",
     "skills": "Skills", 
     "projects": "Projects",
+    "podcasts": "Podcasts",
+    "blog": "Blog",
     "contact": "Contact"
   },
   "hero": {
@@ -129,6 +131,33 @@
       "analytics": {
         "title": "Real-time Analytics",
         "description": "High-performance analytics engine processing millions of events per day"
+      },
+      "betterbet": {
+        "title": "BetterBet",
+        "description": "Advanced sports betting intelligence platform leveraging machine learning algorithms and real-time data analysis to generate accurate predictions for professional bettors.",
+        "tags": ["Python", "AI", "Cursor", "Machine Learning", "Web Scraping", "Data Science"],
+        "repo": "https://github.com/Guimma/betterbet"
+      },
+      "glenio": {
+        "title": "Glenio Campregher - Photography",
+        "description": "Professional photography portfolio showcasing artistic work through a responsive Vue.js interface with Flickr API integration for dynamic content management.",
+        "tags": ["Vue.js"],
+        "site": "https://guimma.github.io/vue-photosite/",
+        "repo": "https://github.com/Guimma/vue-photosite"
+      },
+      "433": {
+        "title": "433 Fantasy",
+        "description": "Fantasy football platform for Brazilian Série A featuring real-time player statistics, team management, and competitive scoring system for enhanced user engagement.",
+        "tags": ["Angular", "TypeScript", "Game", "Football", "Web App"],
+        "site": "https://guimma.github.io/fantasy-web/#/home",
+        "repo": "https://github.com/Guimma/fantasy-web"
+      },
+      "cats": {
+        "title": "Christmas Cats",
+        "description": "Interactive holiday-themed web experience featuring playful animations and festive design elements, demonstrating creative frontend development skills.",
+        "tags": ["HTML", "CSS", "JavaScript", "Fun", "Cats"],
+        "site": "https://guimma.github.io/Christmas-Cats/",
+        "repo": "https://github.com/Guimma/Christmas-Cats"
       }
     }
   },
@@ -136,14 +165,30 @@
     "title": "Let's Create Something Amazing",
     "subtitle": "Ready to collaborate?",
     "description": "Ready to bring your ideas to life? Let's collaborate and build something extraordinary together.",
+    "info": {
+      "title": "Get in Touch",
+      "description": "I'm always open to discussing new opportunities, creative projects, or just having a great conversation about technology.",
+      "email": "lucas@campregher.com",
+      "phone": "+55 (31) 99696-4056",
+      "location": "Belo Horizonte, MG, Brazil",
+      "availability": "Available for freelance projects and full-time opportunities"
+    },
     "form": {
+      "title": "Send me a message",
       "name": "Name",
       "namePlaceholder": "Your name",
       "email": "Email",
       "emailPlaceholder": "your.email@example.com",
+      "subject": "Subject",
+      "subjectPlaceholder": "Project subject",
       "message": "Message",
       "messagePlaceholder": "Tell me about your project...",
-      "send": "Send Message"
+      "send": "Send Message",
+      "sendWhatsApp": "Send via WhatsApp",
+      "sendEmail": "Send via Email",
+      "fillAllFields": "Please fill all fields before sending.",
+      "successWhatsApp": "Message sent via WhatsApp!",
+      "successEmail": "Message sent via Email!"
     }
   },
   "footer": {
@@ -167,5 +212,72 @@
   "spoken": {
     "portuguese": "Portuguese",
     "english": "English"
+  },
+  "podcasts": {
+    "title": "Podcast Episodes",
+    "description": "Featured episodes from podcasts I've participated in, sharing insights on software development, technology trends, and industry best practices."
+  },
+  "blog": {
+    "title": "Latest Insights",
+    "subtitle": "Thoughts on technology, development, and industry trends",
+    "readMore": "Read More",
+    "readTime": "min read",
+    "tags": "Tags",
+    "posts": {
+      "privacyByDesign": {
+        "title": "Implementing Privacy by Design to Reimagine Privacy on Instagram",
+        "excerpt": "This academic work explores the implementation of Privacy by Design principles to reimagine privacy controls on Instagram, addressing the challenges of data protection in social media platforms.",
+        "readTime": "15",
+        "tags": ["Privacy by Design", "Instagram", "Academic", "Data Protection"],
+        "date": "2022-07",
+        "category": "Article",
+        "url": "/tcc.pdf"
+      },
+      "aiAbstraction": {
+        "title": "Abstraction and Technological Evolution: The Journey from Binary to Artificial Intelligence 💡🧠",
+        "excerpt": "In the constantly evolving world of software development, we are always creating new layers of abstraction to facilitate developers' work in building systems. This journey begins with electric current that passes information through binary codes, and extends to machine languages, programming languages, frameworks, and finally, low code and no code platforms.",
+        "readTime": "8",
+        "tags": ["AI", "Technology", "Abstraction", "Development"],
+        "date": "2024-01",
+        "category": "Article",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7153898023868149761/?updateEntityUrn=urn%3Ali%3Afs_feedUpdate%3A%28V2%2Curn%3Ali%3Aactivity%3A7153898023868149761%29"
+      },
+      "enzimasPrivacy": {
+        "title": "Enzimas #200 - The risks and challenges of lack of Digital Privacy",
+        "excerpt": "Have you watched the documentary 'The Social Dilemma' and been intrigued by the power your data can have in the hands of third parties? To talk about the importance of privacy and control of your data, we invited Lucas Campregher, Developer at dti digital, to discuss the topic both from the user's perspective and from those who build the solution. Press Play!",
+        "readTime": "45",
+        "tags": ["Privacy", "Podcast", "Digital Rights", "Data Protection"],
+        "date": "2023-02",
+        "category": "Podcast",
+        "url": "https://osagilistas.com/podcast/enzimas-200-os-riscos-e-desafios-da-falta-de-privacidade-digital/"
+      },
+      "techshotPrivacy": {
+        "title": "Data Privacy: From individual to code",
+        "excerpt": "In this techshot, we will contemplate various concepts about the universe of data privacy! We will talk about cybersecurity and LGPD; in addition to demonstrating the application of security in software engineering in real cases!",
+        "readTime": "30",
+        "tags": ["Privacy", "Cybersecurity", "LGPD", "Software Engineering"],
+        "date": "2023-02-02",
+        "category": "Techshot",
+        "url": "https://www.linkedin.com/events/techshot-privacidadededados-doi7024376972268953600"
+      },
+      "techshotWallE": {
+        "title": "Wall-e Case: how we improved a legacy system by 93%",
+        "excerpt": "Leaving aside the theoretical and superficial parts, in this techshot we will present a real success case when working with evolutions in a legacy system. Based on performance log analysis and technical development proposals, we optimized process performance by 93%.",
+        "readTime": "35",
+        "tags": ["Legacy Systems", "Performance", "Optimization", "Case Study"],
+        "date": "2022-09-13",
+        "category": "Techshot",
+        "url": "https://www.linkedin.com/events/techshot-casewall-e-comomelhora6972608932125028352"
+      },
+      "socialDilemma": {
+        "title": "The Social Dilemma: A necessary conversation",
+        "excerpt": "Harari's ideas show that society's current relationship with data flows is the main cause of the disinformation problem and the biggest challenges faced in the world today, leading us to conceptualize the social media dilemma.",
+        "readTime": "10",
+        "tags": ["Social Media", "Privacy", "Disinformation", "Digital Ethics"],
+        "date": "2021-09-16",
+        "category": "Article",
+        "url": "https://www.dtidigital.com.br/blog/o-dilema-das-redes/"
+      }
+    }
   }
 } 

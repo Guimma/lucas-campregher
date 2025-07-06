@@ -76,9 +76,9 @@ const CustomCursor: React.FC = () => {
         className="fixed top-0 left-0 pointer-events-none z-[10005]"
         style={{
           background: `radial-gradient(circle 100px at ${mousePosition.x}px ${mousePosition.y}px, 
-            rgba(147, 51, 234, 0.08) 0%, 
-            rgba(59, 130, 246, 0.05) 30%, 
-            rgba(147, 51, 234, 0.03) 60%, 
+            rgba(255, 255, 255, 0.08) 0%, 
+            rgba(59, 206, 172, 0.05) 30%, 
+            rgba(255, 255, 255, 0.03) 60%, 
             transparent 100%)`,
           width: '100vw',
           height: '100vh',
@@ -114,7 +114,7 @@ const CustomCursor: React.FC = () => {
               ease: "easeOut"
             }}
           >
-            <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur-[1px]" />
+            <div className="w-2 h-2 bg-gradient-to-r from-white to-teal-400 rounded-full blur-[1px]" />
           </motion.div>
         );
       })}
@@ -134,12 +134,12 @@ const CustomCursor: React.FC = () => {
           mass: 0.3,
         }}
       >
-        <div className="w-12 h-12 bg-gradient-to-r from-blue-500/30 to-purple-600/30 rounded-full blur-lg animate-pulse" />
+        <div className="w-12 h-12 bg-gradient-to-r from-white/30 to-teal-400/30 rounded-full blur-lg animate-pulse" />
       </motion.div>
 
       {/* Main cursor dot - removed the border ring */}
       <motion.div
-        className="fixed top-0 left-0 w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full pointer-events-none z-[10009]"
+        className="fixed top-0 left-0 w-3 h-3 bg-gradient-to-r from-white to-teal-400 rounded-full pointer-events-none z-[10009]"
         animate={{
           x: mousePosition.x - 6,
           y: mousePosition.y - 6,
@@ -152,7 +152,7 @@ const CustomCursor: React.FC = () => {
           mass: 0.2,
         }}
         style={{
-          boxShadow: `0 0 20px rgba(147, 51, 234, ${isHovering ? 0.8 : 0.5})`,
+          boxShadow: `0 0 20px rgba(255, 255, 255, ${isHovering ? 0.8 : 0.5})`,
           border: 'none',
           outline: 'none',
         }}
