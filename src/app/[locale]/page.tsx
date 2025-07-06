@@ -65,17 +65,24 @@ export default function Home() {
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
   const [activeSection, setActiveSection] = useState<string>('about');
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const [isAtTop, setIsAtTop] = useState<boolean>(true);
   const { sendWhatsApp, sendEmail } = useContactForm();
 
   const toggleCard = (key: string) => {
     setExpandedCard(expandedCard === key ? null : key);
   };
 
-  // Effect para detectar seção ativa baseado no scroll
+  // Effect para detectar seção ativa e posição do scroll
   React.useEffect(() => {
     const handleScroll = () => {
+      const scrollY = window.scrollY;
+      
+      // Detectar se está no topo (com margem de 100px)
+      setIsAtTop(scrollY < 100);
+      
+      // Detectar seção ativa
       const sections = ['about', 'career', 'skills', 'projects', 'podcasts', 'blog', 'contact'];
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      const scrollPosition = scrollY + window.innerHeight / 2;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = document.getElementById(sections[i]);
@@ -147,32 +154,51 @@ export default function Home() {
     <div className="min-h-screen animated-bg">
       {/* Navigation */}
       <motion.nav 
-        className="fixed top-0 w-full z-50 py-6"
+        className="fixed top-4 w-full z-50 h-16 flex items-center"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex justify-between items-center">
-            {/* Logo + Nome à esquerda */}
-            <motion.div 
-              className="flex items-center space-x-3"
-              whileHover={{ scale: 1.02 }}
-            >
-              <div className="flex items-center justify-center w-8 h-8">
+        <div className="max-w-6xl mx-auto px-6 w-full">
+          <div className="flex justify-between items-center h-full">
+            {/* Logo + Nome à esquerda - visível apenas no topo */}
+            <AnimatePresence>
+              {isAtTop && (
+                <motion.div 
+                  className="flex items-center space-x-3"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
+                  whileHover={{ scale: 1.02 }}
+                >
+              <div className="flex items-center justify-center w-10 h-10">
                 <Image
                   src="/mbm.png"
                   alt="MBM Logo"
-                  width={32}
-                  height={32}
-                  className="w-8 h-8 object-contain"
+                  width={40}
+                  height={40}
+                  className="w-10 h-10 object-contain"
                 />
               </div>
               <span className="text-lg font-bold text-white uppercase tracking-wide">{t('navigation.name')}</span>
-            </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
-            {/* Opções à direita */}
-            <div className="flex items-center space-x-3">
+            {/* Spacer quando logo não está visível */}
+            {!isAtTop && <div></div>}
+
+            {/* Opções à direita - visível apenas no topo */}
+            <AnimatePresence>
+              {isAtTop && (
+                <motion.div 
+                  className="flex items-center space-x-3"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
+                >
               <LanguageToggle />
               
               {/* Menu mobile */}
@@ -188,19 +214,21 @@ export default function Home() {
                   </svg>
                 </motion.button>
               </div>
-            </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </motion.nav>
 
       {/* Navegação central com glassmorfismo - posicionada absolutamente no centro */}
       <motion.div 
-        className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 hidden md:block"
+        className="fixed top-12 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 hidden md:block"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        <div className="flex items-center bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-2 shadow-2xl">
+        <div className="flex items-center bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-2 shadow-2xl gap-1">
           {[
             { key: 'about', section: 'about', icon: HomeIcon },
             { key: 'career', section: 'career', icon: Briefcase },
@@ -248,14 +276,14 @@ export default function Home() {
               onClick={() => setMobileMenuOpen(false)}
             />
             
-            {/* Menu Content */}
-            <motion.div
-              className="fixed top-20 left-0 right-0 z-40 md:hidden"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-            >
+                      {/* Menu Content */}
+          <motion.div
+            className="fixed top-20 left-0 right-0 z-40 md:hidden"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+          >
               <div className="glass m-4 rounded-2xl p-4 border border-white/10 mobile-menu">
                               <div className="grid grid-cols-4 gap-4">
                 {[
