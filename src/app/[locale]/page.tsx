@@ -23,15 +23,12 @@ import {
   Cloud as CloudIcon,
   Sparkles,
   Globe,
-  ChevronLeft,
-  ChevronRight,
   Home as HomeIcon
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import LanguageToggle from '../../components/LanguageToggle';
 import PodcastSection from '../../components/PodcastSection';
-import Carousel, { Slider, SliderContainer, SliderPrevButton, SliderNextButton, SliderDotButton } from '@/components/ui/carousel';
 import { PodcastEpisode } from '../../types/podcast';
 import { useContactForm } from '@/hooks/useContactForm';
 
