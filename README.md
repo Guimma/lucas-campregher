@@ -34,3 +34,24 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## CustomVideoBackground Component
+
+A reusable component to display a video as a visually harmonious background with rounded corners. The video loops forward and backward infinitely.
+
+**Props:**
+- `src` (string): Path to the video file (should be placed in the public directory for static serving).
+- `className` (string, optional): Additional Tailwind or custom classes.
+- `children` (ReactNode, optional): Content to overlay on the video.
+
+**Example Usage:**
+```tsx
+<CustomVideoBackground
+  src="/171942-846113545_small.mp4"
+  className="w-[90vw] max-w-3xl min-w-[320px] opacity-90"
+>
+  {/* Overlay content here if needed */}
+</CustomVideoBackground>
+```
+
+This component is used in the landing page hero section to provide a dynamic, elegant background behind the main presentation and buttons.

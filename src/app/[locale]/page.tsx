@@ -33,6 +33,7 @@ import PodcastSection from '../../components/PodcastSection';
 import Carousel, { Slider, SliderContainer, SliderPrevButton, SliderNextButton, SliderDotButton } from '@/components/ui/carousel';
 import { PodcastEpisode } from '../../types/podcast';
 import { useContactForm } from '@/hooks/useContactForm';
+import CustomVideoBackground from '../../components/CustomVideoBackground';
 
 // Animation variants
 const fadeInUp = {
@@ -156,8 +157,15 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute left-1/2 top-24 -translate-x-1/2 z-0 pointer-events-none w-full flex justify-center">
+          <CustomVideoBackground
+            src="/171942-846113545_small.mp4"
+            className="w-[90vw] max-w-3xl min-w-[320px] opacity-90"
+          />
+        </div>
         {/* Floating Elements */}
-        <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden z-10">
           <motion.div
             className="absolute top-20 left-20 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl"
             animate={{
@@ -184,7 +192,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
+        <div className="max-w-6xl mx-auto px-6 text-center relative z-20">
           <motion.div
             variants={staggerContainer}
             initial="initial"
