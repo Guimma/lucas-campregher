@@ -234,7 +234,7 @@ export default function Home() {
             >
               <motion.a
                 href="#projects"
-                className="px-8 py-4 rainbow-gradient text-white rounded-full font-semibold hover:shadow-2xl transition-all duration-150 rainbow-hover"
+                className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold hover:shadow-2xl transition-all duration-150"
                 whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(139, 92, 246, 0.5)" }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -242,7 +242,7 @@ export default function Home() {
               </motion.a>
               <motion.a
                 href="#contact"
-                className="px-8 py-4 glass text-white rounded-full font-semibold hover:bg-white/20 transition-all duration-150 rainbow-border"
+                className="px-8 py-4 glass text-white rounded-full font-semibold hover:bg-white/20 transition-all duration-150"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -264,7 +264,7 @@ export default function Home() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 glass rounded-full hover:bg-white/20 transition-all duration-150 rainbow-border rainbow-text-hover"
+                  className="p-3 glass rounded-full hover:bg-white/20 transition-all duration-150"
                   whileHover={{ scale: 1.1, rotate: 5, transition: { duration: 0.15 } }}
                   whileTap={{ scale: 0.9 }}
                   title={item.label}
@@ -318,7 +318,7 @@ export default function Home() {
                   {['Java', '.Net', 'C#', 'Azure', 'TypeScript', 'Python', 'Flutter', 'SQL', 'Spring Boot', 'AI'].map((tech) => (
                     <motion.span
                       key={tech}
-                      className="px-4 py-2 glass rounded-full text-sm rainbow-border rainbow-text-hover"
+                      className="px-4 py-2 glass rounded-full text-sm"
                       whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.2)", transition: { duration: 0.15 } }}
                     >
                       {tech}
@@ -344,15 +344,15 @@ export default function Home() {
                 ].map((item, index) => (
                   <motion.div
                     key={index}
-                    className="p-6 glass rounded-2xl hover:bg-white/10 transition-all duration-150 rainbow-border"
+                    className="p-6 glass rounded-2xl hover:bg-white/10 transition-all duration-150"
                     whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.15 } }}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                   >
-                    <item.icon className="w-8 h-8 text-blue-400 mb-4 rainbow-text-hover" />
-                    <h3 className="font-semibold mb-2 rainbow-text-hover">{t(`about.cards.${item.key}.title`)}</h3>
+                    <item.icon className="w-8 h-8 text-blue-400 mb-4" />
+                    <h3 className="font-semibold mb-2">{t(`about.cards.${item.key}.title`)}</h3>
                     <p className="text-sm text-gray-400">{t(`about.cards.${item.key}.description`)}</p>
                   </motion.div>
                 ))}
@@ -1378,7 +1378,7 @@ export default function Home() {
                           href={social.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center ${social.color} transition-all duration-150 hover:bg-white/10 rainbow-border rainbow-text-hover`}
+                          className={`w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center ${social.color} transition-all duration-150 hover:bg-white/10`}
                           whileHover={{ scale: 1.1, transition: { duration: 0.15 } }}
                           whileTap={{ scale: 0.95 }}
                         >
@@ -1389,7 +1389,7 @@ export default function Home() {
                         href="https://api.whatsapp.com/send?phone=5531996964056"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-green-400 hover:text-green-300 transition-all duration-150 hover:bg-white/10 rainbow-border rainbow-text-hover"
+                        className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-green-400 hover:text-green-300 transition-all duration-150 hover:bg-white/10"
                         whileHover={{ scale: 1.1, transition: { duration: 0.15 } }}
                         whileTap={{ scale: 0.95 }}
                       >
@@ -1471,7 +1471,7 @@ export default function Home() {
                       <motion.button
                         type="button"
                         onClick={sendWhatsApp}
-                        className="flex-1 px-6 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-semibold hover:shadow-2xl transition-all duration-150 flex items-center justify-center gap-3 hover:from-green-600 hover:to-green-700 rainbow-hover"
+                        className="flex-1 px-6 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-semibold hover:shadow-2xl transition-all duration-150 flex items-center justify-center gap-3 hover:from-green-600 hover:to-green-700"
                         whileHover={{ scale: 1.02, boxShadow: "0 25px 50px -12px rgba(34, 197, 94, 0.5)", transition: { duration: 0.15 } }}
                         whileTap={{ scale: 0.98 }}
                       >
@@ -1484,7 +1484,7 @@ export default function Home() {
                       <motion.button
                         type="button"
                         onClick={sendEmail}
-                        className="flex-1 px-6 py-4 rainbow-gradient text-white rounded-xl font-semibold hover:shadow-2xl transition-all duration-150 flex items-center justify-center gap-3 rainbow-hover"
+                        className="flex-1 px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold hover:shadow-2xl transition-all duration-150 flex items-center justify-center gap-3"
                         whileHover={{ scale: 1.02, boxShadow: "0 25px 50px -12px rgba(139, 92, 246, 0.5)", transition: { duration: 0.15 } }}
                         whileTap={{ scale: 0.98 }}
                       >
@@ -1524,7 +1524,7 @@ function SkillBar({ name, value }: { name: string; value: number }) {
       </div>
       <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
         <motion.div
-          className="h-3 rainbow-gradient rounded-full shadow-lg"
+          className="h-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full shadow-lg"
           initial={{ width: 0 }}
           whileInView={{ width: `${value}%` }}
           viewport={{ once: true }}
