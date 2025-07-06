@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Code2, 
   Palette, 
@@ -24,7 +24,8 @@ import {
   Sparkles,
   Globe,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Home as HomeIcon
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
@@ -62,11 +63,45 @@ interface BlogPost {
 export default function Home() {
   const t = useTranslations();
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
+  const [activeSection, setActiveSection] = useState<string>('about');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const { sendWhatsApp, sendEmail } = useContactForm();
 
   const toggleCard = (key: string) => {
     setExpandedCard(expandedCard === key ? null : key);
   };
+
+  // Effect para detectar seção ativa baseado no scroll
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['about', 'career', 'skills', 'projects', 'podcasts', 'blog', 'contact'];
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i]);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial call
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Effect para fechar menu mobile quando clicar fora
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (mobileMenuOpen && !(event.target as Element).closest('.mobile-menu')) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [mobileMenuOpen]);
 
   // Exemplo de dados de podcasts
   const podcastEpisodes: PodcastEpisode[] = [
@@ -112,47 +147,158 @@ export default function Home() {
     <div className="min-h-screen animated-bg">
       {/* Navigation */}
       <motion.nav 
-        className="fixed top-0 w-full z-50 glass nav-glass"
+        className="fixed top-0 w-full z-50 py-6"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="max-w-6xl mx-auto px-6 py-4">
-          <div className="flex justify-between items-center relative z-10">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex justify-between items-center">
+            {/* Logo + Nome à esquerda */}
             <motion.div 
               className="flex items-center space-x-3"
               whileHover={{ scale: 1.02 }}
             >
-              <div className="flex items-center justify-center w-8 h-8 bg-gradient-to-br from-blue-500/20 to-purple-600/20 backdrop-blur-sm border border-white/20 rounded-lg shadow-lg">
-                <span className="text-sm font-bold text-white font-mono">&lt;/&gt;</span>
+              <div className="flex items-center justify-center w-8 h-8">
+                <Image
+                  src="/mbm.png"
+                  alt="MBM Logo"
+                  width={32}
+                  height={32}
+                  className="w-8 h-8 object-contain"
+                />
               </div>
-              <span className="text-lg font-medium text-white">{t('navigation.name')}</span>
+              <span className="text-lg font-bold text-white uppercase tracking-wide">{t('navigation.name')}</span>
             </motion.div>
-            <div className="hidden md:flex space-x-8 items-center">
-              {[
-                { key: 'about', section: 'about' },
-                { key: 'career', section: 'career' },
-                { key: 'skills', section: 'skills' },
-                { key: 'projects', section: 'projects' },
-                { key: 'podcasts', section: 'podcasts' },
-                { key: 'blog', section: 'blog' },
-                { key: 'contact', section: 'contact' }
-              ].map((item) => (
-                <motion.a
-                  key={item.key}
-                  href={`#${item.section}`}
-                  className="relative text-gray-300 hover:text-white transition-all duration-150 nav-link"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {t(`navigation.${item.key}`)}
-                </motion.a>
-              ))}
+
+            {/* Opções à direita */}
+            <div className="flex items-center space-x-3">
               <LanguageToggle />
+              
+              {/* Menu mobile */}
+              <div className="md:hidden">
+                <motion.button
+                  className="p-2 rounded-full hover:bg-white/10 transition-all duration-300 mobile-menu"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                >
+                  <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                </motion.button>
+              </div>
             </div>
           </div>
         </div>
       </motion.nav>
+
+      {/* Navegação central com glassmorfismo - posicionada absolutamente no centro */}
+      <motion.div 
+        className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 hidden md:block"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
+        <div className="flex items-center bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-2 shadow-2xl">
+          {[
+            { key: 'about', section: 'about', icon: HomeIcon },
+            { key: 'career', section: 'career', icon: Briefcase },
+            { key: 'skills', section: 'skills', icon: Wrench },
+            { key: 'projects', section: 'projects', icon: Rocket },
+            { key: 'podcasts', section: 'podcasts', icon: Mic },
+            { key: 'blog', section: 'blog', icon: Sparkles },
+            { key: 'contact', section: 'contact', icon: Mail }
+          ].map((item) => {
+            const isActive = activeSection === item.section;
+            return (
+              <motion.a
+                key={item.key}
+                href={`#${item.section}`}
+                className={`relative p-3 rounded-xl transition-all duration-300 group ${
+                  isActive ? 'bg-blue-500 shadow-lg shadow-blue-500/30' : 'hover:bg-white/10'
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                title={t(`navigation.${item.key}`)}
+              >
+                <item.icon 
+                  size={18} 
+                  className={`transition-colors duration-300 ${
+                    isActive ? 'text-white' : 'text-gray-300 group-hover:text-white'
+                  }`} 
+                />
+              </motion.a>
+            );
+          })}
+        </div>
+      </motion.div>
+
+      {/* Menu Mobile */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              className="fixed inset-0 bg-black/50 z-30 md:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={() => setMobileMenuOpen(false)}
+            />
+            
+            {/* Menu Content */}
+            <motion.div
+              className="fixed top-20 left-0 right-0 z-40 md:hidden"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="glass m-4 rounded-2xl p-4 border border-white/10 mobile-menu">
+                              <div className="grid grid-cols-4 gap-4">
+                {[
+                  { key: 'about', section: 'about', icon: HomeIcon },
+                  { key: 'career', section: 'career', icon: Briefcase },
+                  { key: 'skills', section: 'skills', icon: Wrench },
+                  { key: 'projects', section: 'projects', icon: Rocket },
+                  { key: 'podcasts', section: 'podcasts', icon: Mic },
+                  { key: 'blog', section: 'blog', icon: Sparkles },
+                  { key: 'contact', section: 'contact', icon: Mail }
+                ].map((item) => {
+                    const isActive = activeSection === item.section;
+                    return (
+                      <motion.a
+                        key={item.key}
+                        href={`#${item.section}`}
+                        className={`flex flex-col items-center p-3 rounded-xl transition-all duration-300 ${
+                          isActive ? 'bg-blue-500/20' : 'hover:bg-white/10'
+                        }`}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        <item.icon 
+                          size={20} 
+                          className={`transition-colors duration-300 mb-1 ${
+                            isActive ? 'text-blue-400' : 'text-gray-400'
+                          }`} 
+                        />
+                        <span className={`text-xs ${
+                          isActive ? 'text-blue-400' : 'text-gray-400'
+                        }`}>
+                          {t(`navigation.${item.key}`)}
+                        </span>
+                      </motion.a>
+                    );
+                  })}
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
 
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
