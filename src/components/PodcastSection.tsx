@@ -29,7 +29,7 @@ export default function PodcastSection({ episodes }: PodcastSectionProps) {
   const t = useTranslations();
 
   return (
-    <section id="podcasts" className="py-20 relative">
+    <section id="podcasts" className="py-20 relative" style={{ backgroundColor: '#0A0A0A' }}>
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           variants={staggerContainer}
@@ -49,7 +49,7 @@ export default function PodcastSection({ episodes }: PodcastSectionProps) {
               </motion.div>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="creative-text">{t('podcasts.title')}</span>
+              <span className="gradient-text">{t('podcasts.title')}</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               {t('podcasts.description')}

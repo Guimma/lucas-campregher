@@ -2,7 +2,7 @@
 
 /* Base styles for dark theme */
 body {
-  background: #000000;
+  background: #0A0A0A;
   color: #ffffff;
   font-family: var(--font-inter), Inter, system-ui, sans-serif;
   overflow-x: hidden;
@@ -23,7 +23,7 @@ body {
               radial-gradient(circle at 60% 70%, rgba(255, 210, 63, 0.3) 0%, rgba(255, 210, 63, 0.1) 40%, transparent 70%),
               radial-gradient(circle at 30% 80%, rgba(59, 206, 172, 0.4) 0%, rgba(59, 206, 172, 0.1) 40%, transparent 70%),
               radial-gradient(circle at 90% 60%, rgba(14, 173, 105, 0.4) 0%, rgba(14, 173, 105, 0.1) 40%, transparent 70%),
-              linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
+              linear-gradient(135deg, #0A0A0A 0%, #0a0a0a 100%);
   background-size: 150% 150%;
   animation: enhanced-gradient-flow 40s ease-in-out infinite;
   overflow: hidden;
@@ -94,7 +94,7 @@ body {
 
 /* Original animated background (mantido para compatibilidade) */
 .animated-bg {
-  background: linear-gradient(135deg, #000000 0%, #0f0f0f 50%, #1a1a1a 100%);
+  background: linear-gradient(135deg, #0A0A0A 0%, #0f0f0f 50%, #1a1a1a 100%);
   background-size: 400% 400%;
   animation: gradient-x 15s ease infinite;
 }
@@ -180,12 +180,12 @@ body {
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    rgba(0, 0, 0, 0.05) 15%,
-    rgba(0, 0, 0, 0.1) 25%,
-    rgba(0, 0, 0, 0.3) 50%,
-    rgba(0, 0, 0, 0.6) 75%,
-    rgba(0, 0, 0, 0.9) 90%,
-    #000000 100%
+    rgba(10, 10, 10, 0.05) 15%,
+    rgba(10, 10, 10, 0.1) 25%,
+    rgba(10, 10, 10, 0.3) 50%,
+    rgba(10, 10, 10, 0.6) 75%,
+    rgba(10, 10, 10, 0.9) 90%,
+    #0A0A0A 100%
   );
   position: relative;
   /* Remove any extra padding/margin */
@@ -454,7 +454,7 @@ input:focus, textarea:focus {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #000000;
+    --background: #0A0A0A;
     --foreground: #ededed;
   }
 }

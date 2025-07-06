@@ -551,11 +551,13 @@ export default function Home() {
         </motion.div>
         
         {/* Smooth transition gradient to About section */}
-        <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-b from-transparent via-black/30 via-black/60 to-black pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-80 pointer-events-none" style={{
+          background: 'linear-gradient(to bottom, transparent, rgba(10, 10, 10, 0.2), rgba(10, 10, 10, 0.5), rgba(10, 10, 10, 0.8), #0A0A0A)'
+        }} />
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 relative bg-black">
+      <section id="about" className="py-20 relative" style={{ backgroundColor: '#0A0A0A' }}>
         
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
@@ -652,7 +654,7 @@ export default function Home() {
       </section>
 
       {/* Career Section */}
-      <section id="career" className="py-20 relative">
+      <section id="career" className="py-20 relative" style={{ backgroundColor: '#0A0A0A' }}>
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0 }}
@@ -660,6 +662,15 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
+            <div className="flex items-center justify-center mb-6">
+              <motion.div
+                className="flex items-center justify-center w-16 h-16 glass rounded-full"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Briefcase className="w-8 h-8 text-blue-400" />
+              </motion.div>
+            </div>
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
               <span className="gradient-text">{t('career.title')}</span>
             </h2>
@@ -1128,7 +1139,7 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 relative">
+      <section id="skills" className="py-20 relative" style={{ backgroundColor: '#0A0A0A' }}>
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0 }}
@@ -1136,6 +1147,15 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
+            <div className="flex items-center justify-center mb-6">
+              <motion.div
+                className="flex items-center justify-center w-16 h-16 glass rounded-full"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Wrench className="w-8 h-8 text-blue-400" />
+              </motion.div>
+            </div>
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
               <span className="gradient-text">{t('skills.title')}</span>
             </h2>
@@ -1268,7 +1288,7 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 relative">
+      <section id="projects" className="py-20 relative" style={{ backgroundColor: '#0A0A0A' }}>
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0 }}
@@ -1276,6 +1296,15 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
+            <div className="flex items-center justify-center mb-6">
+              <motion.div
+                className="flex items-center justify-center w-16 h-16 glass rounded-full"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Rocket className="w-8 h-8 text-blue-400" />
+              </motion.div>
+            </div>
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
               <span className="gradient-text">{t('projects.title')}</span>
             </h2>
@@ -1455,7 +1484,7 @@ export default function Home() {
       <PodcastSection episodes={podcastEpisodes} />
 
       {/* Blog Section */}
-      <section id="blog" className="py-20 relative">
+      <section id="blog" className="py-20 relative" style={{ backgroundColor: '#0A0A0A' }}>
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0 }}
@@ -1463,6 +1492,15 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
+            <div className="flex items-center justify-center mb-6">
+              <motion.div
+                className="flex items-center justify-center w-16 h-16 glass rounded-full"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Sparkles className="w-8 h-8 text-blue-400" />
+              </motion.div>
+            </div>
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
               <span className="gradient-text">{t('blog.title')}</span>
             </h2>
@@ -1571,7 +1609,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 relative">
+      <section id="contact" className="py-20 relative" style={{ backgroundColor: '#0A0A0A' }}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0 }}
@@ -1581,6 +1619,15 @@ export default function Home() {
           >
             {/* Section Header */}
             <div className="text-center mb-16">
+              <div className="flex items-center justify-center mb-6">
+                <motion.div
+                  className="flex items-center justify-center w-16 h-16 glass rounded-full"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Mail className="w-8 h-8 text-blue-400" />
+                </motion.div>
+              </div>
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
                 <span className="gradient-text">{t('contact.title')}</span>
               </h2>
