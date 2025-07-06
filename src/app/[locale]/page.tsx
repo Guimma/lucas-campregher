@@ -543,16 +543,20 @@ export default function Home() {
         </div>
 
         <motion.div 
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-24 left-1/2 transform -translate-x-1/2 z-20"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <ChevronDown size={32} className="text-gray-400" />
+          <ChevronDown size={32} className="text-gray-300/70" />
         </motion.div>
+        
+        {/* Smooth transition gradient to About section */}
+        <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-b from-transparent via-black/30 via-black/60 to-black pointer-events-none" />
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 relative">
+      <section id="about" className="py-20 relative bg-black">
+        
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0 }}

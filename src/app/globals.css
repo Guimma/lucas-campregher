@@ -193,6 +193,8 @@ body {
   padding: 0;
 }
 
+
+
 .section-transition::before {
   content: '';
   position: absolute;
