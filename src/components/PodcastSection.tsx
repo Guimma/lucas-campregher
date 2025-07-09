@@ -40,13 +40,16 @@ export default function PodcastSection({ episodes }: PodcastSectionProps) {
           {/* Section Header */}
           <motion.div variants={fadeInUp} className="text-center mb-16">
             <div className="flex items-center justify-center mb-6">
-              <motion.div
-                className="flex items-center justify-center w-16 h-16 glass rounded-full"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Mic className="w-8 h-8 text-blue-400" />
-              </motion.div>
+              <div className="section-icon-container">
+                <div className="section-icon-glow"></div>
+                <motion.div
+                  className="flex items-center justify-center w-16 h-16 glass rounded-full"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Mic className="w-8 h-8 text-blue-400" />
+                </motion.div>
+              </div>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               <span className="gradient-text">{t('podcasts.title')}</span>

@@ -132,6 +132,49 @@ body {
   pointer-events: none;
 }
 
+/* Section icon glow gradient background */
+.section-icon-glow {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%);
+  width: 96px !important;
+  height: 96px !important;
+  background: conic-gradient(
+    from 0deg at center,
+    rgba(84, 13, 110, 0.6) 0deg,
+    rgba(238, 66, 102, 0.5) 72deg,
+    rgba(255, 210, 63, 0.4) 144deg,
+    rgba(59, 206, 172, 0.4) 216deg,
+    rgba(14, 173, 105, 0.3) 288deg,
+    rgba(84, 13, 110, 0.6) 360deg
+  ) !important;
+  border-radius: 50% !important;
+  filter: blur(16px) !important;
+  opacity: 0.9 !important;
+  z-index: 0 !important;
+  animation: pulse-glow 4s ease-in-out infinite !important;
+  pointer-events: none !important;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+}
+
+/* Section icon container with glow */
+.section-icon-container {
+  position: relative !important;
+  display: inline-flex !important;
+  z-index: 10 !important;
+}
+
 /* Modern About Section Styles */
 .about-card {
   background: linear-gradient(

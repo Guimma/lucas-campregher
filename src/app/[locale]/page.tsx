@@ -29,6 +29,7 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import LanguageToggle from '../../components/LanguageToggle';
 import PodcastSection from '../../components/PodcastSection';
+import SectionIcon from '../../components/SectionIcon';
 import { PodcastEpisode } from '../../types/podcast';
 import { useContactForm } from '@/hooks/useContactForm';
 
@@ -654,17 +655,9 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="flex items-center justify-center mb-6">
-              <motion.div
-                className="flex items-center justify-center w-16 h-16 glass rounded-full"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Briefcase className="w-8 h-8 text-blue-400" />
-              </motion.div>
-            </div>
+            <SectionIcon Icon={Briefcase} />
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-              <span className="gradient-text">{t('career.title')}</span>
+              <span className="text-white">{t('career.title')}</span>
             </h2>
             
             <div className="relative max-w-4xl mx-auto">
@@ -1031,6 +1024,18 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
+            <div className="flex items-center justify-center mb-6">
+              <div className="section-icon-container">
+                <div className="section-icon-glow"></div>
+                <motion.div
+                  className="flex items-center justify-center w-16 h-16 glass rounded-full"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <GraduationCap className="w-8 h-8 text-blue-400" />
+                </motion.div>
+              </div>
+            </div>
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
               <span className="gradient-text">{t('education.title')}</span>
             </h2>
@@ -1140,13 +1145,16 @@ export default function Home() {
             transition={{ duration: 0.8 }}
           >
             <div className="flex items-center justify-center mb-6">
-              <motion.div
-                className="flex items-center justify-center w-16 h-16 glass rounded-full"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Wrench className="w-8 h-8 text-blue-400" />
-              </motion.div>
+              <div className="section-icon-container">
+                <div className="section-icon-glow"></div>
+                <motion.div
+                  className="flex items-center justify-center w-16 h-16 glass rounded-full"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Wrench className="w-8 h-8 text-blue-400" />
+                </motion.div>
+              </div>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
               <span className="gradient-text">{t('skills.title')}</span>
@@ -1289,13 +1297,16 @@ export default function Home() {
             transition={{ duration: 0.8 }}
           >
             <div className="flex items-center justify-center mb-6">
-              <motion.div
-                className="flex items-center justify-center w-16 h-16 glass rounded-full"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Rocket className="w-8 h-8 text-blue-400" />
-              </motion.div>
+              <div className="section-icon-container">
+                <div className="section-icon-glow"></div>
+                <motion.div
+                  className="flex items-center justify-center w-16 h-16 glass rounded-full"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Rocket className="w-8 h-8 text-blue-400" />
+                </motion.div>
+              </div>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
               <span className="gradient-text">{t('projects.title')}</span>
@@ -1485,13 +1496,16 @@ export default function Home() {
             transition={{ duration: 0.8 }}
           >
             <div className="flex items-center justify-center mb-6">
-              <motion.div
-                className="flex items-center justify-center w-16 h-16 glass rounded-full"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Sparkles className="w-8 h-8 text-blue-400" />
-              </motion.div>
+              <div className="section-icon-container">
+                <div className="section-icon-glow"></div>
+                <motion.div
+                  className="flex items-center justify-center w-16 h-16 glass rounded-full"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Sparkles className="w-8 h-8 text-blue-400" />
+                </motion.div>
+              </div>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
               <span className="gradient-text">{t('blog.title')}</span>
@@ -1612,13 +1626,16 @@ export default function Home() {
             {/* Section Header */}
             <div className="text-center mb-16">
               <div className="flex items-center justify-center mb-6">
-                <motion.div
-                  className="flex items-center justify-center w-16 h-16 glass rounded-full"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <Mail className="w-8 h-8 text-blue-400" />
-                </motion.div>
+                <div className="section-icon-container">
+                  <div className="section-icon-glow"></div>
+                  <motion.div
+                    className="flex items-center justify-center w-16 h-16 glass rounded-full"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Mail className="w-8 h-8 text-blue-400" />
+                  </motion.div>
+                </div>
               </div>
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
                 <span className="gradient-text">{t('contact.title')}</span>
