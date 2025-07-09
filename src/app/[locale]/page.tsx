@@ -597,11 +597,6 @@ export default function Home() {
                     <motion.span
                       key={tech}
                       className="px-4 py-2 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full text-sm text-white font-medium hover:bg-white hover:text-black transition-all duration-300 shadow-lg"
-                      whileHover={{ 
-                        scale: 1.05,
-                        y: -2,
-                        transition: { duration: 0.2 } 
-                      }}
                       initial={{ opacity: 0, y: 10 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
@@ -630,11 +625,8 @@ export default function Home() {
                 ].map((item, index) => (
                   <motion.div
                     key={index}
-                    className="p-6 bg-white/15 backdrop-blur-sm border border-white/25 rounded-2xl hover:bg-white/20 hover:border-white/35 transition-all duration-300 shadow-lg"
+                    className="about-card-gradient"
                     whileHover={{ 
-                      scale: 1.05, 
-                      y: -8,
-                      boxShadow: "0 20px 40px rgba(255, 255, 255, 0.1)",
                       transition: { duration: 0.3 } 
                     }}
                     initial={{ opacity: 0, y: 20 }}
@@ -642,7 +634,7 @@ export default function Home() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                   >
-                    <item.icon className="w-8 h-8 text-white mb-4" />
+                    <item.icon className="w-8 h-8 about-card-icon mb-4" />
                     <h3 className="font-semibold mb-2 text-white">{t(`about.cards.${item.key}.title`)}</h3>
                     <p className="text-sm text-gray-300">{t(`about.cards.${item.key}.description`)}</p>
                   </motion.div>

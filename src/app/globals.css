@@ -193,8 +193,6 @@ body {
   padding: 0;
 }
 
-
-
 .section-transition::before {
   content: '';
   position: absolute;
@@ -457,4 +455,91 @@ input:focus, textarea:focus {
     --background: #0A0A0A;
     --foreground: #ededed;
   }
+}
+
+/* About Me cards with gradient border effect */
+.about-card-gradient {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  backdrop-filter: blur(12px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.about-card-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(84, 13, 110, 0.8) 0%,
+    rgba(238, 66, 102, 0.8) 25%,
+    rgba(255, 210, 63, 0.8) 50%,
+    rgba(59, 206, 172, 0.8) 75%,
+    rgba(14, 173, 105, 0.8) 100%
+  );
+  border-radius: inherit;
+  padding: 1px;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask-composite: xor;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.about-card-gradient:hover::before {
+  opacity: 1;
+}
+
+.about-card-gradient:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(84, 13, 110, 0.2),
+    0 0 20px rgba(238, 66, 102, 0.2),
+    0 0 15px rgba(59, 206, 172, 0.2);
+}
+
+/* Gradient icons for About Me cards */
+.about-card-icon {
+  background: linear-gradient(
+    135deg,
+    rgba(84, 13, 110, 1) 0%,
+    rgba(238, 66, 102, 1) 25%,
+    rgba(255, 210, 63, 1) 50%,
+    rgba(59, 206, 172, 1) 75%,
+    rgba(14, 173, 105, 1) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  transition: all 0.3s ease;
+}
+
+.about-card-icon:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(84, 13, 110, 1) 0%,
+    rgba(238, 66, 102, 1) 20%,
+    rgba(255, 210, 63, 1) 40%,
+    rgba(59, 206, 172, 1) 60%,
+    rgba(14, 173, 105, 1) 80%,
+    rgba(84, 13, 110, 1) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: brightness(1.2) saturate(1.3);
 }
