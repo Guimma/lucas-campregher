@@ -634,7 +634,7 @@ export default function Home() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                   >
-                    <item.icon className="w-8 h-8 about-card-icon mb-4" />
+                    <item.icon className="w-8 h-8 text-white mb-4" />
                     <h3 className="font-semibold mb-2 text-white">{t(`about.cards.${item.key}.title`)}</h3>
                     <p className="text-sm text-gray-300">{t(`about.cards.${item.key}.description`)}</p>
                   </motion.div>

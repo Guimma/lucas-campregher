@@ -512,34 +512,4 @@ input:focus, textarea:focus {
     0 0 15px rgba(59, 206, 172, 0.2);
 }
 
-/* Gradient icons for About Me cards */
-.about-card-icon {
-  background: linear-gradient(
-    135deg,
-    rgba(84, 13, 110, 1) 0%,
-    rgba(238, 66, 102, 1) 25%,
-    rgba(255, 210, 63, 1) 50%,
-    rgba(59, 206, 172, 1) 75%,
-    rgba(14, 173, 105, 1) 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  transition: all 0.3s ease;
-}
 
-.about-card-icon:hover {
-  background: linear-gradient(
-    135deg,
-    rgba(84, 13, 110, 1) 0%,
-    rgba(238, 66, 102, 1) 20%,
-    rgba(255, 210, 63, 1) 40%,
-    rgba(59, 206, 172, 1) 60%,
-    rgba(14, 173, 105, 1) 80%,
-    rgba(84, 13, 110, 1) 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  filter: brightness(1.2) saturate(1.3);
-}
