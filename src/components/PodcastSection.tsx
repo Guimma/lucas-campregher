@@ -43,16 +43,14 @@ export default function PodcastSection({ episodes }: PodcastSectionProps) {
               <div className="section-icon-container">
                 <div className="section-icon-glow"></div>
                 <motion.div
-                  className="flex items-center justify-center w-16 h-16 glass rounded-full"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
+                  className="flex items-center justify-center w-16 h-16 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full shadow-2xl relative z-10"
                 >
-                  <Mic className="w-8 h-8 text-blue-400" />
+                  <Mic className="w-8 h-8 text-white" />
                 </motion.div>
               </div>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="gradient-text">{t('podcasts.title')}</span>
+              <span className="text-white">{t('podcasts.title')}</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               {t('podcasts.description')}

@@ -1028,16 +1028,14 @@ export default function Home() {
               <div className="section-icon-container">
                 <div className="section-icon-glow"></div>
                 <motion.div
-                  className="flex items-center justify-center w-16 h-16 glass rounded-full"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
+                  className="flex items-center justify-center w-16 h-16 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full shadow-2xl relative z-10"
                 >
-                  <GraduationCap className="w-8 h-8 text-blue-400" />
+                  <GraduationCap className="w-8 h-8 text-white" />
                 </motion.div>
               </div>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-              <span className="gradient-text">{t('education.title')}</span>
+              <span className="text-white">{t('education.title')}</span>
             </h2>
             <div className="relative max-w-4xl mx-auto">
               {/* Linha vertical igual carreira */}
@@ -1148,16 +1146,14 @@ export default function Home() {
               <div className="section-icon-container">
                 <div className="section-icon-glow"></div>
                 <motion.div
-                  className="flex items-center justify-center w-16 h-16 glass rounded-full"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
+                  className="flex items-center justify-center w-16 h-16 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full shadow-2xl relative z-10"
                 >
-                  <Wrench className="w-8 h-8 text-blue-400" />
+                  <Wrench className="w-8 h-8 text-white" />
                 </motion.div>
               </div>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-              <span className="gradient-text">{t('skills.title')}</span>
+              <span className="text-white">{t('skills.title')}</span>
             </h2>
             <div className="grid md:grid-cols-2 gap-10">
               {/* Programming Languages */}
@@ -1300,16 +1296,14 @@ export default function Home() {
               <div className="section-icon-container">
                 <div className="section-icon-glow"></div>
                 <motion.div
-                  className="flex items-center justify-center w-16 h-16 glass rounded-full"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
+                  className="flex items-center justify-center w-16 h-16 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full shadow-2xl relative z-10"
                 >
-                  <Rocket className="w-8 h-8 text-blue-400" />
+                  <Rocket className="w-8 h-8 text-white" />
                 </motion.div>
               </div>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-              <span className="gradient-text">{t('projects.title')}</span>
+              <span className="text-white">{t('projects.title')}</span>
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* BetterBet */}
@@ -1499,16 +1493,14 @@ export default function Home() {
               <div className="section-icon-container">
                 <div className="section-icon-glow"></div>
                 <motion.div
-                  className="flex items-center justify-center w-16 h-16 glass rounded-full"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
+                  className="flex items-center justify-center w-16 h-16 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full shadow-2xl relative z-10"
                 >
-                  <Sparkles className="w-8 h-8 text-blue-400" />
+                  <Sparkles className="w-8 h-8 text-white" />
                 </motion.div>
               </div>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-              <span className="gradient-text">{t('blog.title')}</span>
+              <span className="text-white">{t('blog.title')}</span>
             </h2>
             <p className="text-xl text-gray-300 text-center mb-16 max-w-3xl mx-auto">
               {t('blog.subtitle')}
@@ -1625,20 +1617,18 @@ export default function Home() {
           >
             {/* Section Header */}
             <div className="text-center mb-16">
-              <div className="flex items-center justify-center mb-6">
-                <div className="section-icon-container">
-                  <div className="section-icon-glow"></div>
-                  <motion.div
-                    className="flex items-center justify-center w-16 h-16 glass rounded-full"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <Mail className="w-8 h-8 text-blue-400" />
-                  </motion.div>
+                              <div className="flex items-center justify-center mb-6">
+                  <div className="section-icon-container">
+                    <div className="section-icon-glow"></div>
+                    <motion.div
+                      className="flex items-center justify-center w-16 h-16 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full shadow-2xl relative z-10"
+                    >
+                      <Mail className="w-8 h-8 text-white" />
+                    </motion.div>
+                  </div>
                 </div>
-              </div>
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                <span className="gradient-text">{t('contact.title')}</span>
+                <span className="text-white">{t('contact.title')}</span>
               </h2>
               <p className="text-xl text-gray-300 max-w-2xl mx-auto">
                 {t('contact.description')}
@@ -1655,7 +1645,7 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
               >
                 <div className="glass p-8 rounded-2xl h-full">
-                  <h3 className="text-2xl font-semibold mb-4 gradient-text">{t('contact.info.title')}</h3>
+                  <h3 className="text-2xl font-semibold mb-4 text-white">{t('contact.info.title')}</h3>
                   <p className="text-gray-300 mb-8 leading-relaxed">
                     {t('contact.info.description')}
                   </p>
@@ -1764,7 +1754,7 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
               >
                 <div className="glass p-8 rounded-2xl h-full">
-                  <h3 className="text-2xl font-semibold mb-6 gradient-text">{t('contact.form.title')}</h3>
+                  <h3 className="text-2xl font-semibold mb-6 text-white">{t('contact.form.title')}</h3>
                   
                   <form id="contact-form" className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
