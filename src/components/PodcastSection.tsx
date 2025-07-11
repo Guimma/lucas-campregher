@@ -29,7 +29,7 @@ export default function PodcastSection({ episodes }: PodcastSectionProps) {
   const t = useTranslations();
 
   return (
-    <section id="podcasts" className="py-20 relative" style={{ backgroundColor: '#0A0A0A' }}>
+    <section id="podcasts" className="py-20 relative" style={{ backgroundColor: '#000000' }}>
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           variants={staggerContainer}

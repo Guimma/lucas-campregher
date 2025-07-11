@@ -50,6 +50,7 @@
   },
   "career": {
     "title": "Career Journey",
+    "description": "A comprehensive overview of my professional journey, from internship to technical leadership, showcasing growth through diverse projects and technologies across multiple industries.",
     "experiences": {
       "devpro": {
         "title": "Software Engineer",
@@ -108,6 +109,7 @@
   },
   "skills": {
     "title": "Skills",
+    "description": "A comprehensive breakdown of my technical expertise, from programming languages and frameworks to cloud technologies and soft skills developed throughout my career.",
     "areas": {
       "languages": "Programming Languages",
       "frameworks": "Frameworks & Development Tools",
@@ -119,6 +121,7 @@
   },
   "projects": {
     "title": "Featured Projects",
+    "description": "A showcase of selected projects that demonstrate my technical skills, creativity, and passion for solving real-world problems through innovative software solutions.",
     "items": {
       "dataPrivacy": {
         "title": "Data Privacy Platform",
@@ -196,6 +199,7 @@
   },
   "education": {
     "title": "Education",
+    "description": "My educational foundation in Computer Science, providing the theoretical knowledge and analytical thinking skills that support my professional development.",
     "items": {
       "puc": {
         "name": "Pontifícia Universidade Católica de Minas Gerais",
