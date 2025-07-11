@@ -23,7 +23,8 @@ import {
   Cloud as CloudIcon,
   Sparkles,
   Globe,
-  Home as HomeIcon
+  Home as HomeIcon,
+  MapPin
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
@@ -807,7 +808,7 @@ export default function Home() {
                               viewport={{ once: true }}
                               transition={{ duration: 0.4, delay: index * 0.05 + 0.8 }}
                             >
-                              <Calendar size={12} className="inline mr-1" />
+                              <Calendar size={16} className="inline mr-1" />
                               {formatCareerPeriod(t(`career.experiences.${item.key}.period`))}
                             </motion.div>
                           </div>
@@ -842,7 +843,7 @@ export default function Home() {
                                   width={120}
                                   height={120}
                                   className={
-                                    (item.key === 'devpro' || item.key === 'anp') 
+                                    (item.key === 'devpro' || item.key === 'anp' || item.key === 'dti') 
                                       ? 'w-46 h-24 object-contain company-logo-white' 
                                       : 'w-24 h-24 object-contain'
                                   }
@@ -933,7 +934,7 @@ export default function Home() {
                                     alt={client.name}
                                     width={36}
                                     height={36}
-                                    className={`w-9 h-9 object-contain ${(client.logo === '/landor.png' || client.logo === '/anp.png') ? 'company-logo-white' : ''}`}
+                                    className={`w-9 h-9 object-contain ${(client.logo === '/landor.png' ) ? 'company-logo-white' : ''}`}
                                   />
                                 </motion.div>
                               ))}
@@ -1050,7 +1051,7 @@ export default function Home() {
       </section>
 
       {/* Education Section (Timeline) */}
-      <section id="education" className="py-20 relative">
+      <section id="education" className="py-20 relative" style={{ backgroundColor: '#000000' }}>
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0 }}
@@ -1074,17 +1075,21 @@ export default function Home() {
             <p className="text-xl text-gray-300 text-center mb-16 max-w-3xl mx-auto">
               {t('education.description')}
             </p>
-            <div className="relative max-w-4xl mx-auto">
-              {/* Linha vertical igual carreira */}
+            
+            <div className="relative max-w-4xl mx-auto pr-[104px] md:pr-[112px]">
+              {/* Enhanced Timeline Line - same as career */}
               <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
+              
+              {/* Progressive Timeline Fill with rainbow gradient - same as career */}
               <motion.div
-                className="absolute left-6 md:left-8 top-0 w-px bg-gradient-to-b from-blue-500/60 via-purple-500/60 to-transparent"
+                className="absolute left-6 md:left-8 top-0 w-px career-timeline-line"
                 initial={{ height: 0 }}
-                whileInView={{ height: '100%' }}
+                whileInView={{ height: "100%" }}
                 viewport={{ once: true }}
-                transition={{ duration: 2, ease: 'easeOut' }}
+                transition={{ duration: 2, ease: "easeOut" }}
               />
-              {/* Itens da timeline */}
+              
+              {/* Timeline Items */}
               <div className="space-y-20">
                 {[
                   {
@@ -1107,58 +1112,85 @@ export default function Home() {
                     className="relative flex items-start"
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: '-100px' }}
-                    transition={{ duration: 0.6, delay: index * 0.15, ease: 'easeOut' }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ 
+                      duration: 0.3,
+                      delay: index * 0.05,
+                      ease: "easeOut"
+                    }}
                   >
-                    {/* Bolinha com ícone */}
+                    {/* Enhanced Timeline Node - same as career */}
                     <motion.div
-                      className="absolute left-2 md:left-4 w-8 h-8 bg-gradient-to-br from-blue-500/80 to-purple-600/80 rounded-full border-2 border-white flex items-center justify-center shadow-lg z-10"
+                      className="absolute left-6 md:left-8 career-timeline-node transform -translate-x-1/2 z-10"
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: index * 0.15 + 0.3, type: 'spring', stiffness: 300 }}
-                      whileHover={{ scale: 1.2, backgroundColor: 'rgba(255,255,255,0.6)', transition: { duration: 0.2 } }}
-                    >
-                      <edu.icon className="w-5 h-5 text-white" />
-                    </motion.div>
-                    {/* Card de educação */}
+                      transition={{ 
+                        duration: 0.4, 
+                        delay: index * 0.05 + 0.3,
+                        type: "spring",
+                        stiffness: 300
+                      }}
+                      whileHover={{ 
+                        scale: 1.2,
+                        transition: { duration: 0.2 }
+                      }}
+                    />
+
+                    {/* Education Card - simplified version of career card */}
                     <motion.div
-                      className="ml-16 flex-1 group p-8 glass rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm"
-                      whileHover={{ y: -5 }}
-                      transition={{ duration: 0.3, ease: 'easeOut' }}
+                      className="ml-20 flex-1 group"
                     >
-                      <div className="flex-1">
-                        {/* Grau (título) */}
-                        <motion.h3
-                          className="text-2xl font-semibold text-white mb-2 group-hover:text-blue-300 transition-colors duration-300"
-                          initial={{ opacity: 0, y: 20 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.5, delay: index * 0.15 + 0.9 }}
-                        >
-                          {edu.degree}
-                        </motion.h3>
-                        {/* Nome da instituição com ícone */}
-                        <motion.div
-                          className="flex items-center gap-2 text-lg text-blue-300 font-medium mb-2"
-                          initial={{ opacity: 0, y: 10 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.4, delay: index * 0.15 + 1.0 }}
-                        >
-                          <edu.icon className="w-5 h-5 text-blue-400" />
-                          <span>{edu.institution}</span>
-                        </motion.div>
-                        {/* Período com ícone Calendar, igual carreira */}
-                        <motion.div
-                          className="flex items-center justify-center gap-2 text-gray-400 mb-2"
-                          initial={{ opacity: 0 }}
-                          whileInView={{ opacity: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.4, delay: index * 0.15 + 1.05 }}
-                        >
-                          <Calendar size={16} />
-                          <span>{t(`career.experiences.${edu.key}.period`)}</span>
+                      <div className="relative">
+                        <motion.div className="career-card">
+                          
+                          {/* Topbar com badge de data no topo esquerdo */}
+                          <div className="flex items-start w-full mb-2">
+                            <motion.div 
+                              className="career-period-badge"
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              whileInView={{ opacity: 1, scale: 1 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.4, delay: index * 0.05 + 0.8 }}
+                            >
+                                                             <Calendar size={16} className="inline mr-1" />
+                               {formatCareerPeriod(edu.period)}
+                            </motion.div>
+                          </div>
+
+                          {/* Education Icon and Institution */}
+                          <div className="career-header w-full">
+                            <motion.div 
+                              className="career-logo-container"
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              whileInView={{ opacity: 1, scale: 1 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.2, delay: index * 0.05 + 0.9 }}
+                            >
+                              <div className="career-logo bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6">
+                                <edu.icon className="w-16 h-16 text-white" />
+                              </div>
+                            </motion.div>
+                            <motion.h3 
+                              className="text-3xl font-bold text-white mb-2 text-center"
+                              initial={{ opacity: 0, y: 20 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.2, delay: index * 0.05 + 1.0 }}
+                            >
+                              {edu.degree}
+                            </motion.h3>
+                            <motion.div 
+                              className="flex items-center justify-center gap-2 text-xl text-gray-300 mb-4"
+                              initial={{ opacity: 0 }}
+                              whileInView={{ opacity: 1 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.2, delay: index * 0.05 + 1.1 }}
+                            >
+                              <MapPin size={18} />
+                              <span>{edu.institution}</span>
+                            </motion.div>
+                          </div>
                         </motion.div>
                       </div>
                     </motion.div>
