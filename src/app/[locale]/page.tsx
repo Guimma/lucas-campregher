@@ -70,6 +70,38 @@ export default function Home() {
     setExpandedCard(expandedCard === key ? null : key);
   };
 
+  // Smooth scroll function with easing
+  const smoothScrollTo = (elementId: string) => {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+
+    const targetPosition = element.offsetTop;
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    const duration = 2000; // 2 seconds
+    let start: number | null = null;
+
+    // Easing function (ease-in-out cubic)
+    const easeInOutCubic = (t: number): number => {
+      return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+    };
+
+    const animation = (currentTime: number) => {
+      if (start === null) start = currentTime;
+      const timeElapsed = currentTime - start;
+      const progress = Math.min(timeElapsed / duration, 1);
+      const easeProgress = easeInOutCubic(progress);
+      
+      window.scrollTo(0, startPosition + distance * easeProgress);
+      
+      if (progress < 1) {
+        requestAnimationFrame(animation);
+      }
+    };
+
+    requestAnimationFrame(animation);
+  };
+
   // Effect para detectar seção ativa e posição do scroll
   React.useEffect(() => {
     const handleScroll = () => {
@@ -238,9 +270,12 @@ export default function Home() {
           ].map((item) => {
             const isActive = activeSection === item.section;
             return (
-              <motion.a
+              <motion.button
                 key={item.key}
-                href={`#${item.section}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  smoothScrollTo(item.section);
+                }}
                 className={`relative p-3 rounded-xl transition-all duration-300 group ${
                   isActive ? 'bg-white shadow-lg shadow-white/30' : 'hover:bg-white/10'
                 }`}
@@ -254,7 +289,7 @@ export default function Home() {
                     isActive ? 'text-black' : 'text-gray-300 group-hover:text-white'
                   }`} 
                 />
-              </motion.a>
+              </motion.button>
             );
           })}
         </div>
@@ -295,15 +330,18 @@ export default function Home() {
                 ].map((item) => {
                     const isActive = activeSection === item.section;
                     return (
-                      <motion.a
+                      <motion.button
                         key={item.key}
-                        href={`#${item.section}`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          smoothScrollTo(item.section);
+                          setMobileMenuOpen(false);
+                        }}
                         className={`flex flex-col items-center p-3 rounded-xl transition-all duration-300 ${
                           isActive ? 'bg-white/90' : 'hover:bg-white/10'
                         }`}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        onClick={() => setMobileMenuOpen(false)}
                       >
                         <item.icon 
                           size={20} 
@@ -316,7 +354,7 @@ export default function Home() {
                         }`}>
                           {t(`navigation.${item.key}`)}
                         </span>
-                      </motion.a>
+                      </motion.button>
                     );
                   })}
                 </div>
@@ -496,9 +534,9 @@ export default function Home() {
               className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
               variants={fadeInUp}
             >
-              <motion.a
-                href="#projects"
-                className="px-8 py-4 bg-white text-black rounded-full font-semibold shadow-lg shadow-white/30 border border-white/20"
+              <motion.button
+                onClick={() => smoothScrollTo('projects')}
+                className="px-8 py-4 bg-white text-black rounded-full font-semibold shadow-lg shadow-white/30"
                 whileHover={{ 
                   scale: 1.05,
                   transition: { duration: 0.2 }
@@ -506,15 +544,15 @@ export default function Home() {
                 whileTap={{ scale: 0.95 }}
               >
                 {t('hero.viewWork')}
-              </motion.a>
-              <motion.a
-                href="#contact"
+              </motion.button>
+              <motion.button
+                onClick={() => smoothScrollTo('contact')}
                 className="px-8 py-4 glass text-white rounded-full font-semibold hover:bg-white/20 transition-all duration-150"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 {t('hero.getInTouch')}
-              </motion.a>
+              </motion.button>
             </motion.div>
 
             <motion.div 
