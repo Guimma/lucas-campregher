@@ -225,7 +225,7 @@ export default function Home() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        <div className="flex items-center bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-2 shadow-2xl gap-1">
+        <div className="flex items-center bg-white/15 backdrop-blur-sm border border-white/25 rounded-2xl p-2 shadow-2xl gap-1">
           {[
             { key: 'about', section: 'about', icon: HomeIcon },
             { key: 'career', section: 'career', icon: Briefcase },
@@ -543,16 +543,22 @@ export default function Home() {
         </div>
 
         <motion.div 
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-24 left-1/2 transform -translate-x-1/2 z-20"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <ChevronDown size={32} className="text-gray-400" />
+          <ChevronDown size={32} className="text-gray-300/70" />
         </motion.div>
+        
+        {/* Smooth transition gradient to About section */}
+        <div className="absolute bottom-0 left-0 right-0 h-80 pointer-events-none" style={{
+          background: 'linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8), #000000)'
+        }} />
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 relative">
+      <section id="about" className="py-20 relative" style={{ backgroundColor: '#000000' }}>
+        
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0 }}
@@ -590,12 +596,7 @@ export default function Home() {
                   {['Java', '.Net', 'C#', 'Azure', 'TypeScript', 'Python', 'Flutter', 'SQL', 'Spring Boot', 'AI'].map((tech, index) => (
                     <motion.span
                       key={tech}
-                      className="px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm text-white font-medium hover:bg-white hover:text-black transition-all duration-300 shadow-lg"
-                      whileHover={{ 
-                        scale: 1.05,
-                        y: -2,
-                        transition: { duration: 0.2 } 
-                      }}
+                      className="about-tech-tag"
                       initial={{ opacity: 0, y: 10 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
@@ -624,11 +625,8 @@ export default function Home() {
                 ].map((item, index) => (
                   <motion.div
                     key={index}
-                    className="p-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl hover:bg-white/15 hover:border-white/30 transition-all duration-300 shadow-lg"
+                    className="about-card-gradient"
                     whileHover={{ 
-                      scale: 1.05, 
-                      y: -8,
-                      boxShadow: "0 20px 40px rgba(255, 255, 255, 0.1)",
                       transition: { duration: 0.3 } 
                     }}
                     initial={{ opacity: 0, y: 20 }}
@@ -648,7 +646,7 @@ export default function Home() {
       </section>
 
       {/* Career Section */}
-      <section id="career" className="py-20 relative">
+      <section id="career" className="py-20 relative" style={{ backgroundColor: '#000000' }}>
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0 }}
@@ -656,17 +654,30 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-              <span className="gradient-text">{t('career.title')}</span>
+            <div className="flex items-center justify-center mb-6">
+              <div className="section-icon-container">
+                <div className="section-icon-glow"></div>
+                <motion.div
+                  className="flex items-center justify-center w-16 h-16 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full shadow-2xl relative z-10"
+                >
+                  <Briefcase className="w-8 h-8 text-white" />
+                </motion.div>
+              </div>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
+              <span className="text-white">{t('career.title')}</span>
             </h2>
+            <p className="text-xl text-gray-300 text-center mb-16 max-w-3xl mx-auto">
+              {t('career.description')}
+            </p>
             
-            <div className="relative max-w-4xl mx-auto">
-              {/* Minimalist Timeline Line */}
+            <div className="relative max-w-4xl mx-auto pr-[104px] md:pr-[112px]">
+              {/* Enhanced Timeline Line */}
               <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
               
-              {/* Progressive Timeline Fill with gradient to transparent */}
+              {/* Progressive Timeline Fill with rainbow gradient */}
               <motion.div
-                className="absolute left-6 md:left-8 top-0 w-px bg-gradient-to-b from-blue-500/60 via-purple-500/60 to-transparent"
+                className="absolute left-6 md:left-8 top-0 w-px career-timeline-line"
                 initial={{ height: 0 }}
                 whileInView={{ height: "100%" }}
                 viewport={{ once: true }}
@@ -732,7 +743,15 @@ export default function Home() {
                   },
                   { 
                     key: 'anp', 
-                    techs: ['Visual Basic', 'Excel', 'Data Processing']
+                    techs: ['Visual Basic', 'Excel', 'Data Processing'],
+                    clients: [
+                      { 
+                        key: 'anp',
+                        name: t('career.experiences.anp.clients.anp.name'), 
+                        logo: '/anp.png',
+                        description: t('career.experiences.anp.clients.anp.description')
+                      }
+                    ]
                   }
                 ].map((item, index) => (
                   <motion.div
@@ -742,228 +761,248 @@ export default function Home() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ 
-                      duration: 0.6, 
-                      delay: index * 0.15,
+                      duration: 0.3,
+                      delay: index * 0.05,
                       ease: "easeOut"
                     }}
                   >
-                    {/* Timeline Node */}
+                    {/* Enhanced Timeline Node */}
                     <motion.div
-                      className="absolute left-6 md:left-8 w-3 h-3 bg-white/40 backdrop-blur-sm rounded-full transform -translate-x-1/2 z-10 border border-white/30"
+                      className="absolute left-6 md:left-8 career-timeline-node transform -translate-x-1/2 z-10"
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ 
                         duration: 0.4, 
-                        delay: index * 0.15 + 0.3,
+                        delay: index * 0.05 + 0.3,
                         type: "spring",
                         stiffness: 300
                       }}
                       whileHover={{ 
-                        scale: 1.3,
-                        backgroundColor: "rgba(255, 255, 255, 0.6)",
+                        scale: 1.2,
                         transition: { duration: 0.2 }
                       }}
                     />
 
-                    {/* Connection Line */}
-                    <motion.div
-                      className="absolute left-9 md:left-11 top-1.5 w-8 h-px bg-white/20"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: "2rem" }}
-                      viewport={{ once: true }}
-                      transition={{ 
-                        duration: 0.4, 
-                        delay: index * 0.15 + 0.6
-                      }}
-                    />
 
-                    {/* Content Card */}
+
+                    {/* Redesigned Content Card */}
                     <motion.div
-                      className="ml-20 flex-1 group"
-                      whileHover={{ y: -5 }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      className={`ml-20 flex-1 group ${
+                        expandedCard && expandedCard !== item.key ? 'opacity-50' : 'opacity-100'
+                      }`}
                     >
                       <div className="relative">
                         <motion.div 
-                          className={`p-8 glass rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-xl ${item.clients ? 'cursor-pointer' : ''}`}
+                          className={`career-card ${item.clients ? 'cursor-pointer' : ''}`}
                           onClick={() => item.clients && toggleCard(item.key)}
-                          whileHover={item.clients ? { scale: 1.01 } : {}}
-                          transition={{ duration: 0.2 }}
                         >
                           
-                          {/* Header with Logo Space and Period */}
-                          <div className="flex items-start justify-between mb-6">
-                            <div className="flex-1">
-                              {/* Period */}
-                              <motion.div 
-                                className="inline-flex items-center gap-2 px-3 py-1 glass rounded-full text-sm text-gray-300 mb-3 border border-white/10"
-                                initial={{ opacity: 0 }}
-                                whileInView={{ opacity: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.4, delay: index * 0.15 + 0.8 }}
-                              >
-                                <Calendar size={14} />
-                                <span>{t(`career.experiences.${item.key}.period`)}</span>
-                              </motion.div>
-
-                              {/* Title */}
-                              <motion.h3 
-                                className="text-2xl font-semibold text-white mb-2 group-hover:text-blue-300 transition-colors duration-300"
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: index * 0.15 + 0.9 }}
-                              >
-                                {t(`career.experiences.${item.key}.title`)}
-                              </motion.h3>
-                              
-                              {/* Company */}
-                              <motion.div 
-                                className="flex items-center gap-2 text-gray-400 mb-4"
-                                initial={{ opacity: 0 }}
-                                whileInView={{ opacity: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.4, delay: index * 0.15 + 1.0 }}
-                              >
-                                <Briefcase size={16} />
-                                <span>{t(`career.experiences.${item.key}.company`)}</span>
-                                {item.clients && (
-                                  <span className="text-xs text-gray-500 ml-2">
-                                    ({item.clients.length} {item.clients.length === 1 ? 'client' : 'clients'})
-                                  </span>
-                                )}
-                              </motion.div>
-                            </div>
-
-                            {/* Company Logo Container */}
+                          {/* Topbar com badge de data no topo esquerdo */}
+                          <div className="flex items-start w-full mb-2">
                             <motion.div 
-                              className="ml-6"
+                              className="career-period-badge"
                               initial={{ opacity: 0, scale: 0.8 }}
                               whileInView={{ opacity: 1, scale: 1 }}
                               viewport={{ once: true }}
-                              transition={{ duration: 0.5, delay: index * 0.15 + 0.7 }}
+                              transition={{ duration: 0.4, delay: index * 0.05 + 0.8 }}
                             >
-                                                      <a 
-                          href={
-                            item.key === 'devpro' ? 'https://dev.pro/' :
-                            item.key === 'dti' ? 'https://www.dtidigital.com.br/' :
-                            item.key === 'anp' ? 'https://www.gov.br/anp/pt-br' : 
-                            'https://www.dtidigital.com.br/'
-                          }
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block w-20 h-20 glass rounded-xl flex items-center justify-center border border-white/10 group-hover:border-white/20 hover:border-white/30 transition-all duration-300 overflow-hidden"
-                        >
-                          {/* Company Logo */}
-                          <Image 
-                            src={
-                              item.key === 'devpro' ? '/devpro.png' :
-                              item.key === 'dti' ? '/dti.png' :
-                              item.key === 'anp' ? '/anp.png' : 
-                              '/dti.png'
-                            }
-                            alt={t(`career.experiences.${item.key}.company`)}
-                            width={64}
-                            height={64}
-                            className="w-16 h-16 object-contain"
-                          />
-                        </a>
+                              <Calendar size={12} className="inline mr-1" />
+                              {formatCareerPeriod(t(`career.experiences.${item.key}.period`))}
+                            </motion.div>
+                          </div>
+                          {/* Logo, nome, cargo, etc. */}
+                          <div className="career-header w-full">
+                            <motion.div 
+                              className="career-logo-container"
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              whileInView={{ opacity: 1, scale: 1 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.2, delay: index * 0.05 + 0.9 }}
+                            >
+                              <a 
+                                href={
+                                  item.key === 'devpro' ? 'https://dev.pro/' :
+                                  item.key === 'dti' ? 'https://www.dtidigital.com.br/' :
+                                  item.key === 'anp' ? 'https://www.gov.br/anp/pt-br' : 
+                                  'https://www.dtidigital.com.br/'
+                                }
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="career-logo"
+                              >
+                                <Image 
+                                  src={
+                                    item.key === 'devpro' ? '/devpro.png' :
+                                    item.key === 'dti' ? '/dti.png' :
+                                    item.key === 'anp' ? '/anp.png' : 
+                                    '/dti.png'
+                                  }
+                                  alt={t(`career.experiences.${item.key}.company`)}
+                                  width={120}
+                                  height={120}
+                                  className={
+                                    (item.key === 'devpro' || item.key === 'anp') 
+                                      ? 'w-46 h-24 object-contain company-logo-white' 
+                                      : 'w-24 h-24 object-contain'
+                                  }
+                                />
+                              </a>
+                            </motion.div>
+                            <motion.h3 
+                              className="text-3xl font-bold text-white mb-2 text-center"
+                              initial={{ opacity: 0, y: 20 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.2, delay: index * 0.05 + 1.0 }}
+                            >
+                              {t(`career.experiences.${item.key}.company`)}
+                            </motion.h3>
+                            <motion.div 
+                              className="flex items-center justify-center gap-2 text-xl text-gray-300 mb-1"
+                              initial={{ opacity: 0 }}
+                              whileInView={{ opacity: 1 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.2, delay: index * 0.05 + 1.1 }}
+                            >
+                              <Briefcase size={18} />
+                              <span>{t(`career.experiences.${item.key}.title`)}</span>
                             </motion.div>
                           </div>
 
                           {/* Description */}
                           <motion.p 
-                            className="text-gray-300 leading-relaxed mb-6 text-base"
+                            className="text-gray-300 leading-relaxed mb-4 text-base flex-shrink-0 text-center"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.15 + 1.1 }}
+                            transition={{ duration: 0.2, delay: index * 0.05 + 1.1 }}
                           >
                             {t(`career.experiences.${item.key}.description`)}
                           </motion.p>
 
-                          {/* Technologies and Expand Button Row */}
-                          <div className="flex items-end justify-between">
-                            {/* Technologies */}
+                          {/* Technologies Section */}
+                          <motion.div 
+                            className="flex flex-wrap gap-3 justify-center mb-4 flex-shrink-0"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.2, delay: index * 0.05 + 1.3 }}
+                          >
+                            {item.techs.map((tech: string, techIndex: number) => (
+                              <motion.span
+                                key={tech}
+                                className="tech-tag-glow"
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ 
+                                  duration: 0.2, 
+                                  delay: index * 0.05 + 1.3 + techIndex * 0.05
+                                }}
+                              >
+                                {tech}
+                              </motion.span>
+                            ))}
+                          </motion.div>
+
+                          {/* Client Logos Section */}
+                          {item.clients && (
                             <motion.div 
-                              className="flex flex-wrap gap-2 flex-1"
+                              className="flex flex-wrap gap-3 justify-center mb-6 flex-shrink-0"
                               initial={{ opacity: 0, y: 20 }}
                               whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true }}
-                              transition={{ duration: 0.5, delay: index * 0.15 + 1.2 }}
+                              transition={{ duration: 0.2, delay: index * 0.05 + 1.4 }}
                             >
-                              {item.techs.map((tech: string, techIndex: number) => (
-                                <motion.span
-                                  key={tech}
-                                  className="px-3 py-1 glass rounded-full text-sm text-gray-300 border border-white/10 hover:border-white/20 hover:text-white transition-all duration-300 backdrop-blur-sm"
+                              {item.clients.slice(0, 4).map((client, clientIndex) => (
+                                <motion.div
+                                  key={client.name}
+                                  className="client-preview-item client-logo-bg-glass"
                                   initial={{ opacity: 0, scale: 0.9 }}
                                   whileInView={{ opacity: 1, scale: 1 }}
                                   viewport={{ once: true }}
                                   transition={{ 
-                                    duration: 0.3, 
-                                    delay: index * 0.15 + 1.2 + techIndex * 0.05
+                                    duration: 0.2, 
+                                    delay: index * 0.05 + 1.4 + clientIndex * 0.05
                                   }}
-                                  whileHover={{ 
-                                    scale: 1.05,
-                                    y: -1,
-                                    transition: { duration: 0.2 } 
-                                  }}
+                                  title={client.name}
                                 >
-                                  {tech}
-                                </motion.span>
-                              ))}
-                            </motion.div>
-
-                            {/* Expand Button - Bottom Right */}
-                            {item.clients && (
-                              <motion.button
-                                className="ml-4 p-3 hover:bg-white/10 rounded-lg transition-all duration-300 flex-shrink-0"
-                                whileHover={{ scale: 1.15 }}
-                                whileTap={{ scale: 0.9 }}
-                                initial={{ opacity: 0 }}
-                                whileInView={{ opacity: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.4, delay: index * 0.15 + 1.3 }}
-                              >
-                                <motion.div
-                                  animate={{ rotate: expandedCard === item.key ? 90 : 0 }}
-                                  transition={{ duration: 0.3, ease: "easeOut" }}
-                                >
-                                  <ChevronDown size={28} className="text-gray-300 hover:text-white transition-colors" />
+                                  <Image 
+                                    src={client.logo}
+                                    alt={client.name}
+                                    width={36}
+                                    height={36}
+                                    className={`w-9 h-9 object-contain ${(client.logo === '/landor.png' || client.logo === '/anp.png') ? 'company-logo-white' : ''}`}
+                                  />
                                 </motion.div>
-                              </motion.button>
-                            )}
-                          </div>
+                              ))}
+                              {item.clients.length > 4 && (
+                                <motion.div
+                                  className="client-preview-item bg-white/5"
+                                  initial={{ opacity: 0, scale: 0.9 }}
+                                  whileInView={{ opacity: 1, scale: 1 }}
+                                  viewport={{ once: true }}
+                                  transition={{ 
+                                    duration: 0.2, 
+                                    delay: index * 0.05 + 1.4 + 4 * 0.05
+                                  }}
+                                >
+                                  <span className="text-xs font-medium text-white">
+                                    +{item.clients.length - 4}
+                                  </span>
+                                </motion.div>
+                              )}
+                            </motion.div>
+                          )}
+
+                          {/* Expand Arrow */}
+                          <motion.div
+                            className="flex justify-center"
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.2, delay: index * 0.05 + 1.5 }}
+                          >
+                            <motion.button
+                              className="p-4 rounded-xl hover:bg-white/15 transition-all duration-300 flex items-center justify-center"
+                              onClick={() => item.clients && toggleCard(item.key)}
+                              whileHover={{ scale: 1.1, backgroundColor: "rgba(255, 255, 255, 0.15)" }}
+                              whileTap={{ scale: 0.95 }}
+                              disabled={!item.clients}
+                            >
+                              <motion.div
+                                animate={{ rotate: expandedCard === item.key ? 180 : 0 }}
+                                transition={{ duration: 0.3, ease: "easeOut" }}
+                              >
+                                <ChevronDown size={20} className="text-gray-400 hover:text-white transition-colors duration-300" />
+                              </motion.div>
+                            </motion.button>
+                          </motion.div>
 
                           {/* Expanded Clients Section */}
-                          <motion.div
-                            initial={false}
-                            animate={{ 
-                              height: expandedCard === item.key ? 'auto' : 0,
-                              opacity: expandedCard === item.key ? 1 : 0
-                            }}
-                            transition={{ duration: 0.4, ease: "easeInOut" }}
-                            style={{ overflow: 'hidden' }}
-                          >
+                          <AnimatePresence initial={false}>
                             {item.clients && expandedCard === item.key && (
-                              <div className="mt-6 pt-6 border-t border-white/10">
-                                <h4 className="text-lg font-medium text-white mb-4 flex items-center gap-2">
-                                  <Users size={18} />
-                                  {t('navigation.name') === 'Lucas Campregher' ? 'Projetos e Clientes' : 'Projects & Clients'}
-                                </h4>
-                                
-                                <div className="space-y-4">
+                              <motion.div
+                                key="expanded-clients"
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: 'auto', opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.2, ease: 'easeInOut' }}
+                                style={{ overflow: 'hidden' }}
+                              >
+                                <div className="space-y-5 mt-2">
                                   {item.clients.map((client, clientIndex) => (
                                     <motion.div
                                       key={client.name}
                                       initial={{ opacity: 0, y: 20 }}
                                       animate={{ opacity: 1, y: 0 }}
-                                      transition={{ duration: 0.3, delay: clientIndex * 0.1 }}
-                                      className="flex items-center gap-6 p-6 glass rounded-xl border border-white/5 hover:border-white/10 transition-all duration-300"
+                                      transition={{ duration: 0.2, delay: clientIndex * 0.1 }}
+                                      className="flex flex-row items-center gap-6 w-full bg-transparent border-none shadow-none min-h-0"
+                                      style={{ minHeight: 'unset', boxShadow: 'none', background: 'none' }}
                                     >
                                       {/* Client Logo */}
-                                      <div className="flex items-center justify-center w-24 h-24 flex-shrink-0">
+                                      <div className="flex items-center justify-center w-16 h-16 flex-shrink-0">
                                         <a 
                                           href={
                                             client.logo === '/sbux.png' ? 'https://www.starbucks.com.br/' :
@@ -981,30 +1020,25 @@ export default function Home() {
                                           <Image 
                                             src={client.logo}
                                             alt={client.name}
-                                            width={80}
-                                            height={80}
-                                            className="w-20 h-20 object-contain"
+                                            width={56}
+                                            height={56}
+                                            className={`w-14 h-14 object-contain ${(client.logo === '/landor.png' || client.logo === '/anp.png') ? 'company-logo-white' : ''}`}
                                           />
                                         </a>
                                       </div>
                                       
                                       {/* Client Info */}
-                                      <div className="flex-1">
-                                        <h5 className="font-medium text-white mb-2">{client.name}</h5>
-                                        <p className="text-sm text-gray-300 leading-relaxed">{client.description}</p>
-                                        
-
+                                      <div className="flex-1 min-w-0 flex flex-col justify-center">
+                                        <h5 className="font-semibold text-white mb-1 text-base text-left">{client.name}</h5>
+                                        <p className="text-sm text-gray-300 leading-relaxed text-left m-0">{client.description}</p>
                                       </div>
                                     </motion.div>
                                   ))}
                                 </div>
-                              </div>
+                              </motion.div>
                             )}
-                          </motion.div>
+                          </AnimatePresence>
                         </motion.div>
-
-                        {/* Subtle Hover Glow */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                       </div>
                     </motion.div>
                   </motion.div>
@@ -1024,9 +1058,22 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-              <span className="gradient-text">{t('education.title')}</span>
+            <div className="flex items-center justify-center mb-6">
+              <div className="section-icon-container">
+                <div className="section-icon-glow"></div>
+                <motion.div
+                  className="flex items-center justify-center w-16 h-16 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full shadow-2xl relative z-10"
+                >
+                  <GraduationCap className="w-8 h-8 text-white" />
+                </motion.div>
+              </div>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
+              <span className="text-white">{t('education.title')}</span>
             </h2>
+            <p className="text-xl text-gray-300 text-center mb-16 max-w-3xl mx-auto">
+              {t('education.description')}
+            </p>
             <div className="relative max-w-4xl mx-auto">
               {/* Linha vertical igual carreira */}
               <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
@@ -1076,7 +1123,7 @@ export default function Home() {
                     </motion.div>
                     {/* Card de educação */}
                     <motion.div
-                      className="ml-16 flex-1 group p-8 glass rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-xl"
+                      className="ml-16 flex-1 group p-8 glass rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm"
                       whileHover={{ y: -5 }}
                       transition={{ duration: 0.3, ease: 'easeOut' }}
                     >
@@ -1104,14 +1151,14 @@ export default function Home() {
                         </motion.div>
                         {/* Período com ícone Calendar, igual carreira */}
                         <motion.div
-                          className="flex items-center gap-2 text-gray-400 mb-2"
+                          className="flex items-center justify-center gap-2 text-gray-400 mb-2"
                           initial={{ opacity: 0 }}
                           whileInView={{ opacity: 1 }}
                           viewport={{ once: true }}
-                          transition={{ duration: 0.4, delay: index * 0.15 + 1.1 }}
+                          transition={{ duration: 0.4, delay: index * 0.15 + 1.05 }}
                         >
                           <Calendar size={16} />
-                          <span>{edu.period}</span>
+                          <span>{t(`career.experiences.${edu.key}.period`)}</span>
                         </motion.div>
                       </div>
                     </motion.div>
@@ -1124,7 +1171,7 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 relative">
+      <section id="skills" className="py-20 relative" style={{ backgroundColor: '#000000' }}>
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0 }}
@@ -1132,13 +1179,26 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-              <span className="gradient-text">{t('skills.title')}</span>
+            <div className="flex items-center justify-center mb-6">
+              <div className="section-icon-container">
+                <div className="section-icon-glow"></div>
+                <motion.div
+                  className="flex items-center justify-center w-16 h-16 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full shadow-2xl relative z-10"
+                >
+                  <Wrench className="w-8 h-8 text-white" />
+                </motion.div>
+              </div>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
+              <span className="text-white">{t('skills.title')}</span>
             </h2>
+            <p className="text-xl text-gray-300 text-center mb-16 max-w-3xl mx-auto">
+              {t('skills.description')}
+            </p>
             <div className="grid md:grid-cols-2 gap-10">
               {/* Programming Languages */}
               <motion.div
-                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-xl group"
+                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-sm group"
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
@@ -1159,7 +1219,7 @@ export default function Home() {
               </motion.div>
               {/* Frameworks & Dev Tools */}
               <motion.div
-                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-xl group"
+                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-sm group"
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
@@ -1185,7 +1245,7 @@ export default function Home() {
               </motion.div>
               {/* Cloud & DevOps */}
               <motion.div
-                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-xl group"
+                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-sm group"
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
@@ -1206,7 +1266,7 @@ export default function Home() {
               </motion.div>
               {/* Software & Solution Skills */}
               <motion.div
-                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-xl group"
+                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-sm group"
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
@@ -1225,7 +1285,7 @@ export default function Home() {
               </motion.div>
               {/* AI & Productivity */}
               <motion.div
-                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-xl md:col-span-1 group"
+                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-sm md:col-span-1 group"
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
@@ -1243,7 +1303,7 @@ export default function Home() {
               </motion.div>
               {/* Spoken Languages */}
               <motion.div
-                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-xl md:col-span-1 group"
+                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-sm md:col-span-1 group"
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
@@ -1264,7 +1324,7 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 relative">
+      <section id="projects" className="py-20 relative" style={{ backgroundColor: '#000000' }}>
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0 }}
@@ -1272,9 +1332,22 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-              <span className="gradient-text">{t('projects.title')}</span>
+            <div className="flex items-center justify-center mb-6">
+              <div className="section-icon-container">
+                <div className="section-icon-glow"></div>
+                <motion.div
+                  className="flex items-center justify-center w-16 h-16 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full shadow-2xl relative z-10"
+                >
+                  <Rocket className="w-8 h-8 text-white" />
+                </motion.div>
+              </div>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
+              <span className="text-white">{t('projects.title')}</span>
             </h2>
+            <p className="text-xl text-gray-300 text-center mb-16 max-w-3xl mx-auto">
+              {t('projects.description')}
+            </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* BetterBet */}
               <motion.div
@@ -1451,7 +1524,7 @@ export default function Home() {
       <PodcastSection episodes={podcastEpisodes} />
 
       {/* Blog Section */}
-      <section id="blog" className="py-20 relative">
+      <section id="blog" className="py-20 relative" style={{ backgroundColor: '#000000' }}>
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0 }}
@@ -1459,8 +1532,18 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
+            <div className="flex items-center justify-center mb-6">
+              <div className="section-icon-container">
+                <div className="section-icon-glow"></div>
+                <motion.div
+                  className="flex items-center justify-center w-16 h-16 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full shadow-2xl relative z-10"
+                >
+                  <Sparkles className="w-8 h-8 text-white" />
+                </motion.div>
+              </div>
+            </div>
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-              <span className="gradient-text">{t('blog.title')}</span>
+              <span className="text-white">{t('blog.title')}</span>
             </h2>
             <p className="text-xl text-gray-300 text-center mb-16 max-w-3xl mx-auto">
               {t('blog.subtitle')}
@@ -1567,7 +1650,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 relative">
+      <section id="contact" className="py-20 relative" style={{ backgroundColor: '#000000' }}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0 }}
@@ -1577,8 +1660,18 @@ export default function Home() {
           >
             {/* Section Header */}
             <div className="text-center mb-16">
+                              <div className="flex items-center justify-center mb-6">
+                  <div className="section-icon-container">
+                    <div className="section-icon-glow"></div>
+                    <motion.div
+                      className="flex items-center justify-center w-16 h-16 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full shadow-2xl relative z-10"
+                    >
+                      <Mail className="w-8 h-8 text-white" />
+                    </motion.div>
+                  </div>
+                </div>
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                <span className="gradient-text">{t('contact.title')}</span>
+                <span className="text-white">{t('contact.title')}</span>
               </h2>
               <p className="text-xl text-gray-300 max-w-2xl mx-auto">
                 {t('contact.description')}
@@ -1595,7 +1688,7 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
               >
                 <div className="glass p-8 rounded-2xl h-full">
-                  <h3 className="text-2xl font-semibold mb-4 gradient-text">{t('contact.info.title')}</h3>
+                  <h3 className="text-2xl font-semibold mb-4 text-white">{t('contact.info.title')}</h3>
                   <p className="text-gray-300 mb-8 leading-relaxed">
                     {t('contact.info.description')}
                   </p>
@@ -1704,7 +1797,7 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
               >
                 <div className="glass p-8 rounded-2xl h-full">
-                  <h3 className="text-2xl font-semibold mb-6 gradient-text">{t('contact.form.title')}</h3>
+                  <h3 className="text-2xl font-semibold mb-6 text-white">{t('contact.form.title')}</h3>
                   
                   <form id="contact-form" className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
@@ -1819,3 +1912,13 @@ function SkillBar({ name, value }: { name: string; value: number }) {
     </div>
   );
 } 
+
+// Adicionar função utilitária no topo do componente:
+function formatCareerPeriod(period: string) {
+  // Exemplo: 'Jan 2019 - Aug 2024' => '01/2019 - 08/2024'
+  const monthMap: Record<string, string> = {
+    Jan: '01', Feb: '02', Mar: '03', Apr: '04', May: '05', Jun: '06',
+    Jul: '07', Aug: '08', Sep: '09', Oct: '10', Nov: '11', Dec: '12'
+  };
+  return period.replace(/([A-Za-z]{3}) (\d{4})/g, (_, m, y) => `${monthMap[m]}/${y}`);
+}

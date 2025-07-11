@@ -50,6 +50,7 @@
   },
   "career": {
     "title": "Jornada Profissional",
+    "description": "Uma visão abrangente da minha trajetória profissional, desde estágio até liderança técnica, demonstrando crescimento através de projetos diversos e tecnologias em múltiplas indústrias.",
     "experiences": {
       "devpro": {
         "title": "Engenheiro de Software",
@@ -102,12 +103,19 @@
         "company": "ANP - Agência Nacional do Petróleo",
         "period": "Jan 2019 - Jun 2019",
         "description": "Experiência inicial em desenvolvimento de software com foco em soluções de processamento de dados usando Visual Basic em Excel para aplicações da indústria petrolífera.",
-        "technologies": ["Visual Basic", "Excel", "Processamento de Dados"]
+        "technologies": ["Visual Basic", "Excel", "Processamento de Dados"],
+        "clients": {
+          "anp": {
+            "name": "ANP - Agência Nacional do Petróleo",
+            "description": "Extração e cruzamento de milhões de dados, criando programas em Visual Basics para análises do time da Agência nacional de petróleo brasileira."
+          }
+        }
       }
     }
   },
   "skills": {
     "title": "Habilidades",
+    "description": "Um detalhamento abrangente da minha expertise técnica, desde linguagens de programação e frameworks até tecnologias cloud e soft skills desenvolvidas ao longo da carreira.",
     "areas": {
       "languages": "Linguagens de Programação",
       "frameworks": "Frameworks e Ferramentas",
@@ -119,6 +127,7 @@
   },
   "projects": {
     "title": "Projetos em Destaque",
+    "description": "Uma seleção de projetos que demonstram minhas habilidades técnicas, criatividade e paixão por resolver problemas do mundo real através de soluções de software inovadoras.",
     "items": {
       "betterbet": {
         "title": "BetterBet",
@@ -184,6 +193,7 @@
   },
   "education": {
     "title": "Educação",
+    "description": "Minha base educacional em Ciência da Computação, fornecendo o conhecimento teórico e habilidades de pensamento analítico que sustentam meu desenvolvimento profissional.",
     "items": {
       "puc": {
         "name": "Pontifícia Universidade Católica de Minas Gerais",

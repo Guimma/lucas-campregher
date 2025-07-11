@@ -29,7 +29,7 @@ export default function PodcastSection({ episodes }: PodcastSectionProps) {
   const t = useTranslations();
 
   return (
-    <section id="podcasts" className="py-20 relative">
+    <section id="podcasts" className="py-20 relative" style={{ backgroundColor: '#000000' }}>
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           variants={staggerContainer}
@@ -40,16 +40,17 @@ export default function PodcastSection({ episodes }: PodcastSectionProps) {
           {/* Section Header */}
           <motion.div variants={fadeInUp} className="text-center mb-16">
             <div className="flex items-center justify-center mb-6">
-              <motion.div
-                className="flex items-center justify-center w-16 h-16 glass rounded-full"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Mic className="w-8 h-8 text-blue-400" />
-              </motion.div>
+              <div className="section-icon-container">
+                <div className="section-icon-glow"></div>
+                <motion.div
+                  className="flex items-center justify-center w-16 h-16 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full shadow-2xl relative z-10"
+                >
+                  <Mic className="w-8 h-8 text-white" />
+                </motion.div>
+              </div>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="creative-text">{t('podcasts.title')}</span>
+              <span className="text-white">{t('podcasts.title')}</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               {t('podcasts.description')}

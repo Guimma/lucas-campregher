@@ -23,7 +23,7 @@ body {
               radial-gradient(circle at 60% 70%, rgba(255, 210, 63, 0.3) 0%, rgba(255, 210, 63, 0.1) 40%, transparent 70%),
               radial-gradient(circle at 30% 80%, rgba(59, 206, 172, 0.4) 0%, rgba(59, 206, 172, 0.1) 40%, transparent 70%),
               radial-gradient(circle at 90% 60%, rgba(14, 173, 105, 0.4) 0%, rgba(14, 173, 105, 0.1) 40%, transparent 70%),
-              linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
+              linear-gradient(135deg, #000000 0%, #000000 100%);
   background-size: 150% 150%;
   animation: enhanced-gradient-flow 40s ease-in-out infinite;
   overflow: hidden;
@@ -94,7 +94,7 @@ body {
 
 /* Original animated background (mantido para compatibilidade) */
 .animated-bg {
-  background: linear-gradient(135deg, #000000 0%, #0f0f0f 50%, #1a1a1a 100%);
+  background: linear-gradient(135deg, #000000 0%, #000000 50%, #000000 100%);
   background-size: 400% 400%;
   animation: gradient-x 15s ease infinite;
 }
@@ -103,15 +103,15 @@ body {
 .glass {
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.05) 100%
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.08) 100%
   );
-  backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    0 0 0 1px rgba(255, 255, 255, 0.05);
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
   position: relative;
 }
 
@@ -132,18 +132,61 @@ body {
   pointer-events: none;
 }
 
+/* Section icon glow gradient background */
+.section-icon-glow {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%);
+  width: 96px !important;
+  height: 96px !important;
+  background: conic-gradient(
+    from 0deg at center,
+    rgba(84, 13, 110, 0.6) 0deg,
+    rgba(238, 66, 102, 0.5) 72deg,
+    rgba(255, 210, 63, 0.4) 144deg,
+    rgba(59, 206, 172, 0.4) 216deg,
+    rgba(14, 173, 105, 0.3) 288deg,
+    rgba(84, 13, 110, 0.6) 360deg
+  ) !important;
+  border-radius: 50% !important;
+  filter: blur(16px) !important;
+  opacity: 0.9 !important;
+  z-index: 0 !important;
+  animation: pulse-glow 4s ease-in-out infinite !important;
+  pointer-events: none !important;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.0);
+  }
+}
+
+/* Section icon container with glow */
+.section-icon-container {
+  position: relative !important;
+  display: inline-flex !important;
+  z-index: 10 !important;
+}
+
 /* Modern About Section Styles */
 .about-card {
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.05) 100%
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.08) 100%
   );
-  backdrop-filter: blur(20px) saturate(120%);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
   transition: all 0.3s ease;
 }
 
@@ -160,11 +203,11 @@ body {
 .tech-pill {
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.05) 100%
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.08) 100%
   );
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -271,16 +314,16 @@ body {
 .nav-glass {
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.15) 0%,
-    rgba(255, 255, 255, 0.05) 50%,
-    rgba(255, 255, 255, 0.1) 100%
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.12) 100%
   );
-  backdrop-filter: blur(25px) saturate(200%);
-  -webkit-backdrop-filter: blur(25px) saturate(200%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.4),
-    0 1px 0 rgba(255, 255, 255, 0.1);
+    0 1px 0 rgba(255, 255, 255, 0.15);
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
@@ -392,7 +435,7 @@ input:focus, textarea:focus {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -434,7 +477,7 @@ input:focus, textarea:focus {
 
 /* Root variables */
 :root {
-  --background: 0 0% 2%;
+  --background: 0 0% 0%;
   --foreground: 0 0% 98%;
 }
 
@@ -456,3 +499,305 @@ input:focus, textarea:focus {
     --foreground: #ededed;
   }
 }
+
+/* About Me cards with gradient border effect */
+.about-card-gradient {
+  position: relative;
+  background: #0a0a0a;
+  backdrop-filter: blur(12px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.about-card-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(84, 13, 110, 0.8) 0%,
+    rgba(238, 66, 102, 0.8) 25%,
+    rgba(255, 210, 63, 0.8) 50%,
+    rgba(59, 206, 172, 0.8) 75%,
+    rgba(14, 173, 105, 0.8) 100%
+  );
+  border-radius: inherit;
+  padding: 1px;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask-composite: xor;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.about-card-gradient:hover::before {
+  opacity: 1;
+}
+
+.about-card-gradient:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(84, 13, 110, 0.2),
+    0 0 20px rgba(238, 66, 102, 0.2),
+    0 0 15px rgba(59, 206, 172, 0.2);
+}
+
+/* Career Journey Cards */
+
+.career-card {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  backdrop-filter: blur(8px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1.5rem;
+  padding: 3rem 2rem 4rem 2rem;
+  margin: 0;
+  min-height: 550px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 0 0 1px rgba(102, 102, 102, 0.3);
+}
+
+/* Career Card Header with Central Logo */
+.career-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.career-logo-container {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.career-logo {
+  width: 140px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border-radius: 1rem;
+}
+
+.career-logo:hover {
+  transform: scale(1.1);
+}
+
+.career-period-badge {
+  background: #141414;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  padding: 0.4rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+/* Timeline Enhancements */
+.career-timeline-node {
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(
+    135deg,
+    rgba(84, 13, 110, 0.8) 0%,
+    rgba(238, 66, 102, 0.8) 25%,
+    rgba(255, 210, 63, 0.8) 50%,
+    rgba(59, 206, 172, 0.8) 75%,
+    rgba(14, 173, 105, 0.8) 100%
+  );
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 20px rgba(84, 13, 110, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 20;
+}
+
+.career-timeline-node::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.9;
+}
+
+.career-timeline-line {
+  background: linear-gradient(
+    to bottom,
+    rgba(84, 13, 110, 0.6) 0%,
+    rgba(238, 66, 102, 0.5) 25%,
+    rgba(255, 210, 63, 0.4) 50%,
+    rgba(59, 206, 172, 0.4) 75%,
+    rgba(14, 173, 105, 0.3) 100%
+  );
+}
+
+/* Technology Tags */
+.tech-tag {
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.15) 0%,
+    rgba(147, 51, 234, 0.15) 100%
+  );
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 0.75rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(147, 197, 253, 0.95);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
+}
+
+/* Client Tags - Distinguished styling */
+.client-tag {
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.15) 0%,
+    rgba(147, 51, 234, 0.15) 100%
+  );
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 0.75rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(147, 197, 253, 0.95);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
+}
+
+/* Client Preview Grid */
+.clients-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 50px;
+}
+
+.client-preview-item {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.expand-clients-btn {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 0.75rem;
+  padding: 0.5rem 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.875rem;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
+
+/* About Me Tech Tags */
+.about-tech-tag {
+  background: #141414 !important;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Company Logos - White Filter */
+.company-logo-white {
+  filter: brightness(0) invert(1);
+}
+
+.about-tech-tag:hover {
+  background: white !important;
+  color: black !important;
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.tech-tag-glow {
+  position: relative;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 0.75rem;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  overflow: visible;
+  z-index: 1;
+  backdrop-filter: blur(8px) saturate(140%);
+  box-shadow: 0 2px 8px rgba(255,255,255,0.08);
+}
+
+.client-logo-bg-glass {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 0.75rem;
+  backdrop-filter: blur(8px) saturate(140%);
+  box-shadow: 0 2px 8px rgba(255,255,255,0.08);
+}
+
+
