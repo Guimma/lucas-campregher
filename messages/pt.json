@@ -136,7 +136,7 @@
         "repo": "https://github.com/Guimma/betterbet"
       },
       "glenio": {
-        "title": "Glenio Campregher - Fotografia",
+        "title": "Glenio Campregher Portifólio de Fotografia",
         "description": "Portfólio profissional de fotografia apresentando trabalhos artísticos através de interface responsiva Vue.js com integração da API do Flickr.",
         "tags": ["Vue.js"],
         "site": "https://guimma.github.io/vue-photosite/",
@@ -150,7 +150,7 @@
         "repo": "https://github.com/Guimma/fantasy-web"
       },
       "cats": {
-        "title": "Christmas Cats",
+        "title": "Christmas Cats 😺🎅",
         "description": "Experiência web interativa com tema natalino apresentando animações divertidas e elementos de design festivos, demonstrando habilidades criativas de frontend.",
         "tags": ["HTML", "CSS", "JavaScript", "Diversão", "Gatos"],
         "site": "https://guimma.github.io/Christmas-Cats/",

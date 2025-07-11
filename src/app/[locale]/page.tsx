@@ -1387,30 +1387,38 @@ export default function Home() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* BetterBet */}
               <motion.div
-                className="group glass rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-150 flex flex-col"
-                initial={{ opacity: 0, y: 50 }}
+                className="project-card group"
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0 }}
-                whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.15 } }}
+                transition={{ duration: 0.4, delay: 0 }}
+                whileHover={{
+                  y: -12,
+                  scale: 1.02,
+                  transition: { 
+                    duration: 0.15,
+                    ease: "easeOut"
+                  }
+                }}
+                whileTap={{ scale: 0.98 }}
               >
-                <div className="flex items-center justify-center h-48 bg-white dark:bg-gray-900">
+                <div className="project-card-image flex items-center justify-center bg-white dark:bg-gray-900">
                   <Image src="/betterbet.svg" alt="BetterBet Logo" width={180} height={60} className="object-contain h-20" />
                 </div>
-                <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-xl font-semibold mb-3">{t('projects.items.betterbet.title')}</h3>
-                  <p className="text-gray-300 mb-4">{t('projects.items.betterbet.description')}</p>
-                  <div className="flex flex-wrap gap-2 mb-6">
+                <div className="project-card-content">
+                  <h3 className="project-card-title">{t('projects.items.betterbet.title')}</h3>
+                  <p className="project-card-description">{t('projects.items.betterbet.description')}</p>
+                  <div className="project-card-tags">
                     {Array.isArray(t.raw && t.raw('projects.items.betterbet.tags')) ? t.raw('projects.items.betterbet.tags').map((tech: string) => (
-                      <span key={tech} className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">{tech}</span>
+                      <span key={tech} className="project-card-tag">{tech}</span>
                     )) : null}
                   </div>
-                  <div className="flex justify-center gap-3 mt-auto">
+                  <div className="project-card-actions">
                     <motion.a 
                       href="https://github.com/Guimma/betterbet" 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="px-4 py-2 glass rounded-lg border border-white/20 hover:border-white/40 text-white text-sm font-medium flex items-center gap-2 transition-all duration-200"
+                      className="project-card-button-secondary"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -1421,30 +1429,48 @@ export default function Home() {
               </motion.div>
               {/* Glenio Campregher - Fotografia */}
               <motion.div
-                className="group glass rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-150 flex flex-col"
-                initial={{ opacity: 0, y: 50 }}
+                className="project-card group"
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.15 } }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+                whileHover={{
+                  y: -12,
+                  scale: 1.02,
+                  transition: { 
+                    duration: 0.15,
+                    ease: "easeOut"
+                  }
+                }}
+                whileTap={{ scale: 0.98 }}
               >
-                <div className="relative h-48 overflow-hidden">
+                <div className="project-card-image">
                   <Image src="/glenio.png" alt="Glenio Campregher" fill className="object-cover" />
+                  <motion.a 
+                    href="https://guimma.github.io/vue-photosite/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="project-card-redirect-icon"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <ExternalLink size={18} />
+                  </motion.a>
                 </div>
-                <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-xl font-semibold mb-3">{t('projects.items.glenio.title')}</h3>
-                  <p className="text-gray-300 mb-4">{t('projects.items.glenio.description')}</p>
-                  <div className="flex flex-wrap gap-2 mb-6">
+                <div className="project-card-content">
+                  <h3 className="project-card-title">{t('projects.items.glenio.title')}</h3>
+                  <p className="project-card-description">{t('projects.items.glenio.description')}</p>
+                  <div className="project-card-tags">
                     {Array.isArray(t.raw && t.raw('projects.items.glenio.tags')) ? t.raw('projects.items.glenio.tags').map((tech: string) => (
-                      <span key={tech} className="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">{tech}</span>
+                      <span key={tech} className="project-card-tag">{tech}</span>
                     )) : null}
                   </div>
-                  <div className="flex justify-center gap-3 mt-auto">
+                  <div className="project-card-actions">
                     <motion.a 
                       href="https://guimma.github.io/vue-photosite/" 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg text-sm font-medium flex items-center gap-2 hover:shadow-lg transition-all duration-200"
+                      className="project-card-button-primary"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -1454,7 +1480,7 @@ export default function Home() {
                       href="https://github.com/Guimma/vue-photosite" 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="px-4 py-2 glass rounded-lg border border-white/20 hover:border-white/40 text-white text-sm font-medium flex items-center gap-2 transition-all duration-200"
+                      className="project-card-button-secondary"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -1465,30 +1491,48 @@ export default function Home() {
               </motion.div>
               {/* 433 Fantasy */}
               <motion.div
-                className="group glass rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-150 flex flex-col"
-                initial={{ opacity: 0, y: 50 }}
+                className="project-card group"
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.15 } }}
+                transition={{ duration: 0.4, delay: 0.2 }}
+                whileHover={{
+                  y: -12,
+                  scale: 1.02,
+                  transition: { 
+                    duration: 0.15,
+                    ease: "easeOut"
+                  }
+                }}
+                whileTap={{ scale: 0.98 }}
               >
-                <div className="relative h-48 bg-black">
+                <div className="project-card-image bg-black">
                   <Image src="/433.jpg" alt="433 Fantasy" fill className="object-cover" />
+                  <motion.a 
+                    href="https://guimma.github.io/fantasy-web/#/home" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="project-card-redirect-icon"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <ExternalLink size={18} />
+                  </motion.a>
                 </div>
-                <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-xl font-semibold mb-3">{t('projects.items.433.title')}</h3>
-                  <p className="text-gray-300 mb-4">{t('projects.items.433.description')}</p>
-                  <div className="flex flex-wrap gap-2 mb-6">
+                <div className="project-card-content">
+                  <h3 className="project-card-title">{t('projects.items.433.title')}</h3>
+                  <p className="project-card-description">{t('projects.items.433.description')}</p>
+                  <div className="project-card-tags">
                     {Array.isArray(t.raw && t.raw('projects.items.433.tags')) ? t.raw('projects.items.433.tags').map((tech: string) => (
-                      <span key={tech} className="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">{tech}</span>
+                      <span key={tech} className="project-card-tag">{tech}</span>
                     )) : null}
                   </div>
-                  <div className="flex justify-center gap-3 mt-auto">
+                  <div className="project-card-actions">
                     <motion.a 
                       href="https://guimma.github.io/fantasy-web/#/home" 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg text-sm font-medium flex items-center gap-2 hover:shadow-lg transition-all duration-200"
+                      className="project-card-button-primary"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -1498,7 +1542,7 @@ export default function Home() {
                       href="https://github.com/Guimma/fantasy-web" 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="px-4 py-2 glass rounded-lg border border-white/20 hover:border-white/40 text-white text-sm font-medium flex items-center gap-2 transition-all duration-200"
+                      className="project-card-button-secondary"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -1509,30 +1553,48 @@ export default function Home() {
               </motion.div>
               {/* Christmas Cats */}
               <motion.div
-                className="group glass rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-150 flex flex-col"
-                initial={{ opacity: 0, y: 50 }}
+                className="project-card group"
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.15 } }}
+                transition={{ duration: 0.4, delay: 0.3 }}
+                whileHover={{
+                  y: -12,
+                  scale: 1.02,
+                  transition: { 
+                    duration: 0.15,
+                    ease: "easeOut"
+                  }
+                }}
+                whileTap={{ scale: 0.98 }}
               >
-                <div className="relative h-48 overflow-hidden">
+                <div className="project-card-image">
                   <Image src="/cats.png" alt="Christmas Cats" fill className="object-cover" />
+                  <motion.a 
+                    href="https://guimma.github.io/Christmas-Cats/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="project-card-redirect-icon"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <ExternalLink size={18} />
+                  </motion.a>
                 </div>
-                <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-xl font-semibold mb-3">{t('projects.items.cats.title')}</h3>
-                  <p className="text-gray-300 mb-4">{t('projects.items.cats.description')}</p>
-                  <div className="flex flex-wrap gap-2 mb-6">
+                <div className="project-card-content">
+                  <h3 className="project-card-title">{t('projects.items.cats.title')}</h3>
+                  <p className="project-card-description">{t('projects.items.cats.description')}</p>
+                  <div className="project-card-tags">
                     {Array.isArray(t.raw && t.raw('projects.items.cats.tags')) ? t.raw('projects.items.cats.tags').map((tech: string) => (
-                      <span key={tech} className="px-3 py-1 bg-pink-500/20 text-pink-400 rounded-full text-sm">{tech}</span>
+                      <span key={tech} className="project-card-tag">{tech}</span>
                     )) : null}
                   </div>
-                  <div className="flex justify-center gap-3 mt-auto">
+                  <div className="project-card-actions">
                     <motion.a 
                       href="https://guimma.github.io/Christmas-Cats/" 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg text-sm font-medium flex items-center gap-2 hover:shadow-lg transition-all duration-200"
+                      className="project-card-button-primary"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -1542,7 +1604,7 @@ export default function Home() {
                       href="https://github.com/Guimma/Christmas-Cats" 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="px-4 py-2 glass rounded-lg border border-white/20 hover:border-white/40 text-white text-sm font-medium flex items-center gap-2 transition-all duration-200"
+                      className="project-card-button-secondary"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
