@@ -24,7 +24,8 @@ import {
   Sparkles,
   Globe,
   Home as HomeIcon,
-  MapPin
+  MapPin,
+  Building2
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
@@ -809,7 +810,7 @@ export default function Home() {
                               transition={{ duration: 0.4, delay: index * 0.05 + 0.8 }}
                             >
                               <Calendar size={16} className="inline mr-1" />
-                              {formatCareerPeriod(t(`career.experiences.${item.key}.period`))}
+                              {t(`career.experiences.${item.key}.period`)}
                             </motion.div>
                           </div>
                           {/* Logo, nome, cargo, etc. */}
@@ -1142,7 +1143,7 @@ export default function Home() {
                       className="ml-20 flex-1 group"
                     >
                       <div className="relative">
-                        <motion.div className="career-card">
+                        <motion.div className="education-card">
                           
                           {/* Topbar com badge de data no topo esquerdo */}
                           <div className="flex items-start w-full mb-2">
@@ -1154,7 +1155,7 @@ export default function Home() {
                               transition={{ duration: 0.4, delay: index * 0.05 + 0.8 }}
                             >
                                                              <Calendar size={16} className="inline mr-1" />
-                               {formatCareerPeriod(edu.period)}
+                               {edu.period}
                             </motion.div>
                           </div>
 
@@ -1167,12 +1168,12 @@ export default function Home() {
                               viewport={{ once: true }}
                               transition={{ duration: 0.2, delay: index * 0.05 + 0.9 }}
                             >
-                              <div className="career-logo bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6">
-                                <edu.icon className="w-16 h-16 text-white" />
+                              <div className="career-logo bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-3">
+                                <edu.icon className="w-10 h-10 text-white" />
                               </div>
                             </motion.div>
                             <motion.h3 
-                              className="text-3xl font-bold text-white mb-2 text-center"
+                              className="text-2xl font-bold text-white mb-1 text-center"
                               initial={{ opacity: 0, y: 20 }}
                               whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true }}
@@ -1181,13 +1182,13 @@ export default function Home() {
                               {edu.degree}
                             </motion.h3>
                             <motion.div 
-                              className="flex items-center justify-center gap-2 text-xl text-gray-300 mb-4"
+                              className="flex items-center justify-center gap-2 text-lg text-gray-300 mb-2"
                               initial={{ opacity: 0 }}
                               whileInView={{ opacity: 1 }}
                               viewport={{ once: true }}
                               transition={{ duration: 0.2, delay: index * 0.05 + 1.1 }}
                             >
-                              <MapPin size={18} />
+                              <Building2 size={16} />
                               <span>{edu.institution}</span>
                             </motion.div>
                           </div>
