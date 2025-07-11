@@ -49,8 +49,8 @@
     }
   },
   "career": {
-    "title": "Jornada Profissional",
-    "description": "Uma visão abrangente da minha trajetória profissional, desde estágio até liderança técnica, demonstrando crescimento através de projetos diversos e tecnologias em múltiplas indústrias.",
+    "title": "Carreira",
+    "description": "Conheça um pouco da minha trajetória profissional, e dos projetos em que trabalhei",
     "experiences": {
       "devpro": {
         "title": "Engenheiro de Software",
@@ -115,7 +115,7 @@
   },
   "skills": {
     "title": "Habilidades",
-    "description": "Um detalhamento abrangente da minha expertise técnica, desde linguagens de programação e frameworks até tecnologias cloud e soft skills desenvolvidas ao longo da carreira.",
+    "description": "Minha principal stack de tecnologias",
     "areas": {
       "languages": "Linguagens de Programação",
       "frameworks": "Frameworks e Ferramentas",
@@ -127,7 +127,7 @@
   },
   "projects": {
     "title": "Projetos em Destaque",
-    "description": "Uma seleção de projetos que demonstram minhas habilidades técnicas, criatividade e paixão por resolver problemas do mundo real através de soluções de software inovadoras.",
+    "description": "Alguns projetos pessoais que desenvolvi para resolver problemas reais",
     "items": {
       "betterbet": {
         "title": "BetterBet",
@@ -193,7 +193,7 @@
   },
   "education": {
     "title": "Educação",
-    "description": "Minha base educacional em Ciência da Computação, fornecendo o conhecimento teórico e habilidades de pensamento analítico que sustentam meu desenvolvimento profissional.",
+    "description": "Minha formação acadêmica que me preparou para os desafios do mundo tech",
     "items": {
       "puc": {
         "name": "Pontifícia Universidade Católica de Minas Gerais",
@@ -213,7 +213,7 @@
   },
   "podcasts": {
     "title": "Episódios de Podcast",
-    "description": "Episódios em destaque de podcasts que participei, compartilhando insights sobre desenvolvimento de software, tendências tecnológicas e melhores práticas da indústria."
+    "description": "Conversas sobre tecnologia e desenvolvimento que participei como convidado"
   },
   "blog": {
     "title": "Últimas Reflexões",

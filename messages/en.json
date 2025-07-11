@@ -49,8 +49,8 @@
     }
   },
   "career": {
-    "title": "Career Journey",
-    "description": "A comprehensive overview of my professional journey, from internship to technical leadership, showcasing growth through diverse projects and technologies across multiple industries.",
+    "title": "Career",
+    "description": "Learn about my professional journey and the projects I've worked on",
     "experiences": {
       "devpro": {
         "title": "Software Engineer",
@@ -115,7 +115,7 @@
   },
   "skills": {
     "title": "Skills",
-    "description": "A comprehensive breakdown of my technical expertise, from programming languages and frameworks to cloud technologies and soft skills developed throughout my career.",
+    "description": "My main tech stack",
     "areas": {
       "languages": "Programming Languages",
       "frameworks": "Frameworks & Development Tools",
@@ -127,7 +127,7 @@
   },
   "projects": {
     "title": "Featured Projects",
-    "description": "A showcase of selected projects that demonstrate my technical skills, creativity, and passion for solving real-world problems through innovative software solutions.",
+    "description": "Some personal projects I've built to solve real-world problems",
     "items": {
       "dataPrivacy": {
         "title": "Data Privacy Platform",
@@ -205,7 +205,7 @@
   },
   "education": {
     "title": "Education",
-    "description": "My educational foundation in Computer Science, providing the theoretical knowledge and analytical thinking skills that support my professional development.",
+    "description": "My academic background that prepared me for the challenges of the tech world",
     "items": {
       "puc": {
         "name": "Pontifícia Universidade Católica de Minas Gerais",
@@ -225,7 +225,7 @@
   },
   "podcasts": {
     "title": "Podcast Episodes",
-    "description": "Featured episodes from podcasts I've participated in, sharing insights on software development, technology trends, and industry best practices."
+    "description": "Tech and development conversations I've joined as a guest"
   },
   "blog": {
     "title": "Latest Insights",
