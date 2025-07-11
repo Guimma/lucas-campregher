@@ -115,7 +115,7 @@
   },
   "skills": {
     "title": "Skills",
-    "description": "My main tech stack",
+    "description": "My main tech stack ⚡",
     "areas": {
       "languages": "Programming Languages",
       "frameworks": "Frameworks & Development Tools",
@@ -205,7 +205,7 @@
   },
   "education": {
     "title": "Education",
-    "description": "My academic background that prepared me for the challenges of the tech world",
+    "description": "Academic foundation that supports my technical and professional expertise",
     "items": {
       "puc": {
         "name": "Pontifícia Universidade Católica de Minas Gerais",

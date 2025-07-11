@@ -635,7 +635,6 @@ input:focus, textarea:focus {
     rgba(59, 206, 172, 0.8) 75%,
     rgba(14, 173, 105, 0.8) 100%
   );
-  border: 2px solid rgba(255, 255, 255, 0.6);
   border-radius: 50%;
   box-shadow: 
     0 0 20px rgba(84, 13, 110, 0.4),

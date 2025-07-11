@@ -543,7 +543,10 @@ export default function Home() {
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {t('hero.viewWork')}
+                <div className="flex items-center gap-2">
+                  <Rocket size={20} />
+                  {t('hero.viewWork')}
+                </div>
               </motion.button>
               <motion.button
                 onClick={() => smoothScrollTo('contact')}

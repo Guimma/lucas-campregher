@@ -115,7 +115,7 @@
   },
   "skills": {
     "title": "Habilidades",
-    "description": "Minha principal stack de tecnologias",
+    "description": "Minha principal stack de tecnologias ⚡",
     "areas": {
       "languages": "Linguagens de Programação",
       "frameworks": "Frameworks e Ferramentas",
@@ -193,7 +193,7 @@
   },
   "education": {
     "title": "Educação",
-    "description": "Minha formação acadêmica que me preparou para os desafios do mundo tech",
+    "description": "Base acadêmica que fundamenta minha expertise técnica e profissional",
     "items": {
       "puc": {
         "name": "Pontifícia Universidade Católica de Minas Gerais",
