@@ -197,13 +197,13 @@
     "items": {
       "puc": {
         "name": "Pontifícia Universidade Católica de Minas Gerais",
-        "period": "01/2018 — 12/2022",
+        "period": "Jan 2018 — Dez 2022",
         "degree": "Bacharelado em Ciência da Computação"
       },
       "magnum": {
         "name": "Colégio Magnum Agostiniano",
-        "period": "12/2017",
-        "degree": "Ensino Médio"
+        "period": "Dez 2017",
+        "degree": "Ensino Médio Completo"
       }
     }
   },
