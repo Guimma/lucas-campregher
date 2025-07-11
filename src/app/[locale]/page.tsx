@@ -1384,10 +1384,10 @@ export default function Home() {
             <p className="text-xl text-gray-300 text-center mb-16 max-w-3xl mx-auto">
               {t('projects.description')}
             </p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
               {/* BetterBet */}
               <motion.div
-                className="project-card group"
+                className="project-card-wrapper group"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -1402,6 +1402,7 @@ export default function Home() {
                 }}
                 whileTap={{ scale: 0.98 }}
               >
+                <div className="project-card">
                 <div className="project-card-image flex items-center justify-center bg-white dark:bg-gray-900">
                   <Image src="/betterbet.svg" alt="BetterBet Logo" width={180} height={60} className="object-contain h-20" />
                 </div>
@@ -1410,7 +1411,7 @@ export default function Home() {
                   <p className="project-card-description">{t('projects.items.betterbet.description')}</p>
                   <div className="project-card-tags">
                     {Array.isArray(t.raw && t.raw('projects.items.betterbet.tags')) ? t.raw('projects.items.betterbet.tags').map((tech: string) => (
-                      <span key={tech} className="project-card-tag">{tech}</span>
+                      <span key={tech} className="project-card-tag betterbet-tag">{tech}</span>
                     )) : null}
                   </div>
                   <div className="project-card-actions">
@@ -1426,10 +1427,11 @@ export default function Home() {
                     </motion.a>
                   </div>
                 </div>
+              </div>
               </motion.div>
               {/* Glenio Campregher - Fotografia */}
               <motion.div
-                className="project-card group"
+                className="project-card-wrapper group"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -1444,6 +1446,7 @@ export default function Home() {
                 }}
                 whileTap={{ scale: 0.98 }}
               >
+                <div className="project-card">
                 <div className="project-card-image">
                   <Image src="/glenio.png" alt="Glenio Campregher" fill className="object-cover" />
                   <motion.a 
@@ -1462,7 +1465,7 @@ export default function Home() {
                   <p className="project-card-description">{t('projects.items.glenio.description')}</p>
                   <div className="project-card-tags">
                     {Array.isArray(t.raw && t.raw('projects.items.glenio.tags')) ? t.raw('projects.items.glenio.tags').map((tech: string) => (
-                      <span key={tech} className="project-card-tag">{tech}</span>
+                      <span key={tech} className="project-card-tag glenio-tag">{tech}</span>
                     )) : null}
                   </div>
                   <div className="project-card-actions">
@@ -1488,10 +1491,11 @@ export default function Home() {
                     </motion.a>
                   </div>
                 </div>
+              </div>
               </motion.div>
               {/* 433 Fantasy */}
               <motion.div
-                className="project-card group"
+                className="project-card-wrapper group"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -1506,6 +1510,7 @@ export default function Home() {
                 }}
                 whileTap={{ scale: 0.98 }}
               >
+                <div className="project-card">
                 <div className="project-card-image bg-black">
                   <Image src="/433.jpg" alt="433 Fantasy" fill className="object-cover" />
                   <motion.a 
@@ -1524,7 +1529,7 @@ export default function Home() {
                   <p className="project-card-description">{t('projects.items.433.description')}</p>
                   <div className="project-card-tags">
                     {Array.isArray(t.raw && t.raw('projects.items.433.tags')) ? t.raw('projects.items.433.tags').map((tech: string) => (
-                      <span key={tech} className="project-card-tag">{tech}</span>
+                      <span key={tech} className="project-card-tag fantasy-tag">{tech}</span>
                     )) : null}
                   </div>
                   <div className="project-card-actions">
@@ -1550,10 +1555,11 @@ export default function Home() {
                     </motion.a>
                   </div>
                 </div>
+              </div>
               </motion.div>
               {/* Christmas Cats */}
               <motion.div
-                className="project-card group"
+                className="project-card-wrapper group"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -1568,6 +1574,7 @@ export default function Home() {
                 }}
                 whileTap={{ scale: 0.98 }}
               >
+                <div className="project-card">
                 <div className="project-card-image">
                   <Image src="/cats.png" alt="Christmas Cats" fill className="object-cover" />
                   <motion.a 
@@ -1586,7 +1593,7 @@ export default function Home() {
                   <p className="project-card-description">{t('projects.items.cats.description')}</p>
                   <div className="project-card-tags">
                     {Array.isArray(t.raw && t.raw('projects.items.cats.tags')) ? t.raw('projects.items.cats.tags').map((tech: string) => (
-                      <span key={tech} className="project-card-tag">{tech}</span>
+                      <span key={tech} className="project-card-tag cats-tag">{tech}</span>
                     )) : null}
                   </div>
                   <div className="project-card-actions">
@@ -1612,6 +1619,7 @@ export default function Home() {
                     </motion.a>
                   </div>
                 </div>
+              </div>
               </motion.div>
             </div>
           </motion.div>

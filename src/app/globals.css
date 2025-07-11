@@ -1029,6 +1029,11 @@ section .rounded-full[class*="w-16"] {
 }
 
 /* Project Cards */
+.project-card-wrapper {
+  position: relative;
+  height: 100%;
+}
+
 .project-card {
   position: relative;
   background: linear-gradient(
@@ -1048,35 +1053,26 @@ section .rounded-full[class*="w-16"] {
   height: 100%;
   display: flex;
   flex-direction: column;
+  z-index: 2;
 }
 
-.project-card::before {
+.project-card-wrapper::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(84, 13, 110, 0.4) 0%,
-    rgba(238, 66, 102, 0.4) 25%,
-    rgba(255, 210, 63, 0.4) 50%,
-    rgba(59, 206, 172, 0.4) 75%,
-    rgba(14, 173, 105, 0.4) 100%
-  );
-  border-radius: inherit;
-  padding: 1px;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: xor;
-  -webkit-mask-composite: xor;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2.5rem;
   opacity: 0;
   transition: opacity 0.15s ease;
   pointer-events: none;
+  filter: blur(20px);
+  z-index: 1;
 }
 
-.project-card:hover::before {
+.project-card-wrapper:hover::before {
   opacity: 1;
 }
 
@@ -1084,9 +1080,7 @@ section .rounded-full[class*="w-16"] {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 
     0 20px 40px rgba(0, 0, 0, 0.5),
-    0 0 30px rgba(84, 13, 110, 0.15),
-    0 0 20px rgba(238, 66, 102, 0.15),
-    0 0 15px rgba(59, 206, 172, 0.15);
+    0 12px 25px rgba(0, 0, 0, 0.3);
 }
 
 .project-card-image {
@@ -1143,6 +1137,35 @@ section .rounded-full[class*="w-16"] {
   z-index: 1;
   backdrop-filter: blur(8px) saturate(140%);
   box-shadow: 0 2px 8px rgba(255,255,255,0.08);
+}
+
+/* Project-specific tag colors */
+.betterbet-tag {
+  background: rgba(84, 13, 110, 0.2);
+  color: #B794F6;
+  border: 1px solid rgba(84, 13, 110, 0.4);
+  box-shadow: 0 2px 8px rgba(84, 13, 110, 0.15);
+}
+
+.glenio-tag {
+  background: rgba(59, 206, 172, 0.2);
+  color: #81E6D9;
+  border: 1px solid rgba(59, 206, 172, 0.4);
+  box-shadow: 0 2px 8px rgba(59, 206, 172, 0.15);
+}
+
+.fantasy-tag {
+  background: rgba(255, 210, 63, 0.2);
+  color: #F6E05E;
+  border: 1px solid rgba(255, 210, 63, 0.4);
+  box-shadow: 0 2px 8px rgba(255, 210, 63, 0.15);
+}
+
+.cats-tag {
+  background: rgba(238, 66, 102, 0.2);
+  color: #FC8181;
+  border: 1px solid rgba(238, 66, 102, 0.4);
+  box-shadow: 0 2px 8px rgba(238, 66, 102, 0.15);
 }
 
 .project-card-actions {
