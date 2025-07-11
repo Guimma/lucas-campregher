@@ -875,7 +875,7 @@ section .rounded-full[class*="w-16"] {
   border-radius: 1.5rem;
   padding: 2rem;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.15s ease;
   box-shadow: 
     0 4px 16px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.05),
@@ -905,7 +905,7 @@ section .rounded-full[class*="w-16"] {
   mask-composite: xor;
   -webkit-mask-composite: xor;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.15s ease;
   pointer-events: none;
 }
 
@@ -934,7 +934,7 @@ section .rounded-full[class*="w-16"] {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  transition: all 0.3s ease;
+  transition: all 0.15s ease;
 }
 
 .skills-card:hover .skills-card-icon {
@@ -944,7 +944,7 @@ section .rounded-full[class*="w-16"] {
 
 .skills-card-title {
   color: white;
-  transition: all 0.3s ease;
+  transition: all 0.15s ease;
 }
 
 /* Enhanced Skill Bar */
