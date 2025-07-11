@@ -762,8 +762,8 @@ export default function Home() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ 
-                      duration: 0.6, 
-                      delay: index * 0.15,
+                      duration: 0.3,
+                      delay: index * 0.05,
                       ease: "easeOut"
                     }}
                   >
@@ -775,7 +775,7 @@ export default function Home() {
                       viewport={{ once: true }}
                       transition={{ 
                         duration: 0.4, 
-                        delay: index * 0.15 + 0.3,
+                        delay: index * 0.05 + 0.3,
                         type: "spring",
                         stiffness: 300
                       }}
@@ -806,7 +806,7 @@ export default function Home() {
                               initial={{ opacity: 0, scale: 0.8 }}
                               whileInView={{ opacity: 1, scale: 1 }}
                               viewport={{ once: true }}
-                              transition={{ duration: 0.4, delay: index * 0.15 + 0.8 }}
+                              transition={{ duration: 0.4, delay: index * 0.05 + 0.8 }}
                             >
                               <Calendar size={12} className="inline mr-1" />
                               {formatCareerPeriod(t(`career.experiences.${item.key}.period`))}
@@ -819,7 +819,7 @@ export default function Home() {
                               initial={{ opacity: 0, scale: 0.8 }}
                               whileInView={{ opacity: 1, scale: 1 }}
                               viewport={{ once: true }}
-                              transition={{ duration: 0.5, delay: index * 0.15 + 0.9 }}
+                              transition={{ duration: 0.2, delay: index * 0.05 + 0.9 }}
                             >
                               <a 
                                 href={
@@ -855,7 +855,7 @@ export default function Home() {
                               initial={{ opacity: 0, y: 20 }}
                               whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true }}
-                              transition={{ duration: 0.5, delay: index * 0.15 + 1.0 }}
+                              transition={{ duration: 0.2, delay: index * 0.05 + 1.0 }}
                             >
                               {t(`career.experiences.${item.key}.company`)}
                             </motion.h3>
@@ -864,7 +864,7 @@ export default function Home() {
                               initial={{ opacity: 0 }}
                               whileInView={{ opacity: 1 }}
                               viewport={{ once: true }}
-                              transition={{ duration: 0.4, delay: index * 0.15 + 1.1 }}
+                              transition={{ duration: 0.2, delay: index * 0.05 + 1.1 }}
                             >
                               <Briefcase size={18} />
                               <span>{t(`career.experiences.${item.key}.title`)}</span>
@@ -877,7 +877,7 @@ export default function Home() {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.15 + 1.1 }}
+                            transition={{ duration: 0.2, delay: index * 0.05 + 1.1 }}
                           >
                             {t(`career.experiences.${item.key}.description`)}
                           </motion.p>
@@ -888,7 +888,7 @@ export default function Home() {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.15 + 1.3 }}
+                            transition={{ duration: 0.2, delay: index * 0.05 + 1.3 }}
                           >
                             {item.techs.map((tech: string, techIndex: number) => (
                               <motion.span
@@ -898,27 +898,13 @@ export default function Home() {
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ 
-                                  duration: 0.3, 
-                                  delay: index * 0.15 + 1.3 + techIndex * 0.05
+                                  duration: 0.2, 
+                                  delay: index * 0.05 + 1.3 + techIndex * 0.05
                                 }}
                               >
                                 {tech}
                               </motion.span>
                             ))}
-                            {item.techs.length > 6 && (
-                              <motion.span
-                                className="tech-tag opacity-70"
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 0.7, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ 
-                                  duration: 0.3, 
-                                  delay: index * 0.15 + 1.3 + 6 * 0.05
-                                }}
-                              >
-                                +{item.techs.length - 6} mais
-                              </motion.span>
-                            )}
                           </motion.div>
 
                           {/* Client Logos Section */}
@@ -928,7 +914,7 @@ export default function Home() {
                               initial={{ opacity: 0, y: 20 }}
                               whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true }}
-                              transition={{ duration: 0.5, delay: index * 0.15 + 1.4 }}
+                              transition={{ duration: 0.2, delay: index * 0.05 + 1.4 }}
                             >
                               {item.clients.slice(0, 4).map((client, clientIndex) => (
                                 <motion.div
@@ -938,8 +924,8 @@ export default function Home() {
                                   whileInView={{ opacity: 1, scale: 1 }}
                                   viewport={{ once: true }}
                                   transition={{ 
-                                    duration: 0.3, 
-                                    delay: index * 0.15 + 1.4 + clientIndex * 0.05
+                                    duration: 0.2, 
+                                    delay: index * 0.05 + 1.4 + clientIndex * 0.05
                                   }}
                                   title={client.name}
                                 >
@@ -959,8 +945,8 @@ export default function Home() {
                                   whileInView={{ opacity: 1, scale: 1 }}
                                   viewport={{ once: true }}
                                   transition={{ 
-                                    duration: 0.3, 
-                                    delay: index * 0.15 + 1.4 + 4 * 0.05
+                                    duration: 0.2, 
+                                    delay: index * 0.05 + 1.4 + 4 * 0.05
                                   }}
                                 >
                                   <span className="text-xs font-medium text-white">
@@ -977,7 +963,7 @@ export default function Home() {
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.15 + 1.5 }}
+                            transition={{ duration: 0.2, delay: index * 0.05 + 1.5 }}
                           >
                             <motion.button
                               className="p-4 rounded-xl hover:bg-white/15 transition-all duration-300 flex items-center justify-center"
@@ -1003,7 +989,7 @@ export default function Home() {
                                 initial={{ height: 0, opacity: 0 }}
                                 animate={{ height: 'auto', opacity: 1 }}
                                 exit={{ height: 0, opacity: 0 }}
-                                transition={{ duration: 0.4, ease: 'easeInOut' }}
+                                transition={{ duration: 0.2, ease: 'easeInOut' }}
                                 style={{ overflow: 'hidden' }}
                               >
                                 <div className="space-y-5">
@@ -1012,7 +998,7 @@ export default function Home() {
                                       key={client.name}
                                       initial={{ opacity: 0, y: 20 }}
                                       animate={{ opacity: 1, y: 0 }}
-                                      transition={{ duration: 0.3, delay: clientIndex * 0.1 }}
+                                      transition={{ duration: 0.2, delay: clientIndex * 0.1 }}
                                       className="flex flex-row items-center gap-6 px-5 py-4 w-full bg-transparent border-none shadow-none min-h-0"
                                       style={{ minHeight: 'unset', boxShadow: 'none', background: 'none' }}
                                     >
