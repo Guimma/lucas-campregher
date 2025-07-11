@@ -1269,42 +1269,25 @@ export default function Home() {
               {t('skills.description')}
             </p>
             <div className="grid md:grid-cols-2 gap-8">
-              {/* Programming Languages */}
-              <motion.div
-                className="skills-card group"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-              >
-                <h3 className="text-xl font-semibold mb-6 skills-card-title flex items-center gap-3">
-                  <Code2 className="w-7 h-7 skills-card-icon" />
-                  {t('skills.areas.languages')}
-                </h3>
-                {[
+              <SkillCard
+                title={t('skills.areas.languages')}
+                icon={Code2}
+                delay={0.1}
+                skills={[
                   { name: 'Java', value: 100 },
                   { name: 'C#', value: 100 },
                   { name: 'Javascript', value: 90 },
                   { name: 'Python', value: 85 },
                   { name: 'Dart', value: 70 },
                   { name: 'SQL', value: 85 },
-                ].map(skill => (
-                  <SkillBar key={skill.name} name={skill.name} value={skill.value} />
-                ))}
-              </motion.div>
-              {/* Frameworks & Dev Tools */}
-              <motion.div
-                className="skills-card group"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                <h3 className="text-xl font-semibold mb-6 skills-card-title flex items-center gap-3">
-                  <Wrench className="w-7 h-7 skills-card-icon" />
-                  {t('skills.areas.frameworks')}
-                </h3>
-                {[
+                ]}
+              />
+              
+              <SkillCard
+                title={t('skills.areas.frameworks')}
+                icon={Wrench}
+                delay={0.2}
+                skills={[
                   { name: 'Spring Boot', value: 100 },
                   { name: 'Micronaut', value: 90 },
                   { name: '.NET', value: 100 },
@@ -1316,93 +1299,57 @@ export default function Home() {
                   { name: 'Event Streaming', value: 80 },
                   { name: 'Logs & Monitoring', value: 90 },
                   { name: 'AI', value: 90 },
-                ].map(skill => (
-                  <SkillBar key={skill.name} name={skill.name} value={skill.value} />
-                ))}
-              </motion.div>
-              {/* Cloud & DevOps */}
-              <motion.div
-                className="skills-card group"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              >
-                <h3 className="text-xl font-semibold mb-6 skills-card-title flex items-center gap-3">
-                  <CloudIcon className="w-7 h-7 skills-card-icon" />
-                  {t('skills.areas.cloud')}
-                </h3>
-                {[
+                ]}
+              />
+
+              <SkillCard
+                title={t('skills.areas.cloud')}
+                icon={CloudIcon}
+                delay={0.3}
+                skills={[
                   { name: 'Azure Cloud', value: 80 },
                   { name: 'AWS Cloud', value: 70 },
                   { name: 'Cloud', value: 80 },
                   { name: 'Devops', value: 75 },
                   { name: 'Agile', value: 95 },
                   { name: 'Cost-Effective Thinking', value: 85 },
-                ].map(skill => (
-                  <SkillBar key={skill.name} name={skill.name} value={skill.value} />
-                ))}
-              </motion.div>
-              {/* Software & Solution Skills */}
-              <motion.div
-                className="skills-card group"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              >
-                <h3 className="text-xl font-semibold mb-6 skills-card-title flex items-center gap-3">
-                  <Brain className="w-7 h-7 skills-card-icon" />
-                  {t('skills.areas.software')}
-                </h3>
-                {[
+                ]}
+              />
+
+              <SkillCard
+                title={t('skills.areas.software')}
+                icon={Brain}
+                delay={0.4}
+                skills={[
                   { name: 'Software Architecture', value: 80 },
                   { name: 'Clean Code & Design Patterns', value: 90 },
                   { name: 'Creativity & Innovation', value: 100 },
                   { name: 'Communication', value: 100 },
-                ].map(skill => (
-                  <SkillBar key={skill.name} name={skill.name} value={skill.value} />
-                ))}
-              </motion.div>
-              {/* AI & Productivity */}
-              <motion.div
-                className="skills-card group md:col-span-1"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-              >
-                <h3 className="text-xl font-semibold mb-6 skills-card-title flex items-center gap-3">
-                  <Sparkles className="w-7 h-7 skills-card-icon" />
-                  {t('skills.areas.ai')}
-                </h3>
-                {[
+                ]}
+              />
+
+              <SkillCard
+                title={t('skills.areas.ai')}
+                icon={Sparkles}
+                delay={0.5}
+                className="md:col-span-1"
+                skills={[
                   { name: 'Cursor', value: 90 },
                   { name: 'Copilot', value: 80 },
                   { name: 'Data Privacy', value: 90 },
-                ].map(skill => (
-                  <SkillBar key={skill.name} name={skill.name} value={skill.value} />
-                ))}
-              </motion.div>
-              {/* Spoken Languages */}
-              <motion.div
-                className="skills-card group md:col-span-1"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-              >
-                <h3 className="text-xl font-semibold mb-6 skills-card-title flex items-center gap-3">
-                  <Globe className="w-7 h-7 skills-card-icon" />
-                  {t('skills.areas.spokenTitle')}
-                </h3>
-                {[
+                ]}
+              />
+
+              <SkillCard
+                title={t('skills.areas.spokenTitle')}
+                icon={Globe}
+                delay={0.6}
+                className="md:col-span-1"
+                skills={[
                   { name: t('spoken.portuguese'), value: 100 },
                   { name: t('spoken.english'), value: 100 },
-                ].map(skill => (
-                  <SkillBar key={skill.name} name={skill.name} value={skill.value} />
-                ))}
-              </motion.div>
+                ]}
+              />
             </div>
           </motion.div>
         </div>
@@ -1974,6 +1921,44 @@ export default function Home() {
         </div>
       </footer>
     </div>
+  );
+}
+
+// Reusable SkillCard component
+interface SkillCardProps {
+  title: string;
+  icon: React.ComponentType<{ className?: string }>;
+  skills: Array<{ name: string; value: number }>;
+  delay: number;
+  className?: string;
+}
+
+function SkillCard({ title, icon: Icon, skills, delay, className = "" }: SkillCardProps) {
+  return (
+    <motion.div
+      className={`skills-card group ${className}`}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay }}
+      whileHover={{
+        y: -12,
+        scale: 1.02,
+        transition: { 
+          duration: 0.3,
+          ease: "easeOut"
+        }
+      }}
+      whileTap={{ scale: 0.98 }}
+    >
+      <h3 className="text-xl font-semibold mb-6 skills-card-title flex items-center gap-3">
+        <Icon className="w-7 h-7 skills-card-icon" />
+        {title}
+      </h3>
+      {skills.map(skill => (
+        <SkillBar key={skill.name} name={skill.name} value={skill.value} />
+      ))}
+    </motion.div>
   );
 }
 
