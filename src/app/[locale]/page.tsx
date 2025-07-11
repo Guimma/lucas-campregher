@@ -799,21 +799,21 @@ export default function Home() {
                           onClick={() => item.clients && toggleCard(item.key)}
                         >
                           
-                          {/* Period Badge - Top Left */}
-                          <motion.div 
-                            className="absolute top-4 left-4 career-period-badge"
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.4, delay: index * 0.15 + 0.8 }}
-                          >
-                            <Calendar size={12} className="inline mr-1" />
-                            {t(`career.experiences.${item.key}.period`)}
-                          </motion.div>
-
-                          {/* Redesigned Header with Central Logo */}
-                          <div className="career-header">
-                            {/* Company Logo */}
+                          {/* Topbar com badge de data no topo esquerdo */}
+                          <div className="flex items-start w-full mb-2">
+                            <motion.div 
+                              className="career-period-badge"
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              whileInView={{ opacity: 1, scale: 1 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.4, delay: index * 0.15 + 0.8 }}
+                            >
+                              <Calendar size={12} className="inline mr-1" />
+                              {formatCareerPeriod(t(`career.experiences.${item.key}.period`))}
+                            </motion.div>
+                          </div>
+                          {/* Logo, nome, cargo, etc. */}
+                          <div className="career-header w-full">
                             <motion.div 
                               className="career-logo-container"
                               initial={{ opacity: 0, scale: 0.8 }}
@@ -843,17 +843,15 @@ export default function Home() {
                                   width={120}
                                   height={120}
                                   className={
-                                    item.key === 'devpro' || item.key === 'anp' 
-                                      ? "w-46 h-24 object-contain company-logo-white" 
-                                      : "w-24 h-24 object-contain company-logo-white"
+                                    (item.key === 'devpro' || item.key === 'anp') 
+                                      ? 'w-46 h-24 object-contain company-logo-white' 
+                                      : 'w-24 h-24 object-contain'
                                   }
                                 />
                               </a>
                             </motion.div>
-
-                            {/* Company Name as Main Title */}
                             <motion.h3 
-                              className="text-3xl font-bold text-white mb-2"
+                              className="text-3xl font-bold text-white mb-2 text-center"
                               initial={{ opacity: 0, y: 20 }}
                               whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true }}
@@ -861,8 +859,6 @@ export default function Home() {
                             >
                               {t(`career.experiences.${item.key}.company`)}
                             </motion.h3>
-                            
-                            {/* Job Title as Subtitle */}
                             <motion.div 
                               className="flex items-center justify-center gap-2 text-xl text-gray-300 mb-1"
                               initial={{ opacity: 0 }}
@@ -873,9 +869,6 @@ export default function Home() {
                               <Briefcase size={18} />
                               <span>{t(`career.experiences.${item.key}.title`)}</span>
                             </motion.div>
-
-                            {/* Client Count */}
-
                           </div>
 
                           {/* Description */}
@@ -897,10 +890,10 @@ export default function Home() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.15 + 1.3 }}
                           >
-                            {item.techs.slice(0, 6).map((tech: string, techIndex: number) => (
+                            {item.techs.map((tech: string, techIndex: number) => (
                               <motion.span
                                 key={tech}
-                                className="tech-tag"
+                                className="tech-tag-glow"
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
@@ -908,7 +901,6 @@ export default function Home() {
                                   duration: 0.3, 
                                   delay: index * 0.15 + 1.3 + techIndex * 0.05
                                 }}
-
                               >
                                 {tech}
                               </motion.span>
@@ -941,7 +933,7 @@ export default function Home() {
                               {item.clients.slice(0, 4).map((client, clientIndex) => (
                                 <motion.div
                                   key={client.name}
-                                  className="client-preview-item"
+                                  className="client-preview-item client-logo-bg-glass"
                                   initial={{ opacity: 0, scale: 0.9 }}
                                   whileInView={{ opacity: 1, scale: 1 }}
                                   viewport={{ once: true }}
@@ -956,7 +948,7 @@ export default function Home() {
                                     alt={client.name}
                                     width={36}
                                     height={36}
-                                    className={`w-9 h-9 object-contain ${client.logo === '/landor.png' ? 'company-logo-white' : ''}`}
+                                    className={`w-9 h-9 object-contain ${(client.logo === '/landor.png' || client.logo === '/anp.png') ? 'company-logo-white' : ''}`}
                                   />
                                 </motion.div>
                               ))}
@@ -980,54 +972,52 @@ export default function Home() {
                           )}
 
                           {/* Expand Arrow */}
-                          {item.clients && (
-                            <motion.div
-                              className="flex justify-center mt-auto"
-                              initial={{ opacity: 0 }}
-                              whileInView={{ opacity: 1 }}
-                              viewport={{ once: true }}
-                              transition={{ duration: 0.5, delay: index * 0.15 + 1.5 }}
+                          <motion.div
+                            className="flex justify-center"
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: index * 0.15 + 1.5 }}
+                          >
+                            <motion.button
+                              className="p-4 rounded-xl hover:bg-white/15 transition-all duration-300 flex items-center justify-center"
+                              onClick={() => item.clients && toggleCard(item.key)}
+                              whileHover={{ scale: 1.1, backgroundColor: "rgba(255, 255, 255, 0.15)" }}
+                              whileTap={{ scale: 0.95 }}
+                              disabled={!item.clients}
                             >
-                              <motion.button
-                                className="p-4 rounded-full hover:bg-white/15 transition-all duration-300 flex items-center justify-center"
-                                onClick={() => toggleCard(item.key)}
-                                whileHover={{ scale: 1.1, backgroundColor: "rgba(255, 255, 255, 0.15)" }}
-                                whileTap={{ scale: 0.95 }}
+                              <motion.div
+                                animate={{ rotate: expandedCard === item.key ? 180 : 0 }}
+                                transition={{ duration: 0.3, ease: "easeOut" }}
                               >
-                                <motion.div
-                                  animate={{ rotate: expandedCard === item.key ? 180 : 0 }}
-                                  transition={{ duration: 0.3, ease: "easeOut" }}
-                                >
-                                  <ChevronDown size={20} className="text-gray-400 hover:text-white transition-colors duration-300" />
-                                </motion.div>
-                              </motion.button>
-                            </motion.div>
-                          )}
+                                <ChevronDown size={20} className="text-gray-400 hover:text-white transition-colors duration-300" />
+                              </motion.div>
+                            </motion.button>
+                          </motion.div>
 
                           {/* Expanded Clients Section */}
-                          <motion.div
-                            initial={false}
-                            animate={{ 
-                              height: expandedCard === item.key ? 'auto' : 0,
-                              opacity: expandedCard === item.key ? 1 : 0
-                            }}
-                            transition={{ duration: 0.4, ease: "easeInOut" }}
-                            style={{ overflow: 'hidden' }}
-                          >
+                          <AnimatePresence initial={false}>
                             {item.clients && expandedCard === item.key && (
-                              <div className="mt-4 pt-4">
-                                <div className="space-y-2">
+                              <motion.div
+                                key="expanded-clients"
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: 'auto', opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.4, ease: 'easeInOut' }}
+                                style={{ overflow: 'hidden' }}
+                              >
+                                <div className="space-y-5">
                                   {item.clients.map((client, clientIndex) => (
                                     <motion.div
                                       key={client.name}
                                       initial={{ opacity: 0, y: 20 }}
                                       animate={{ opacity: 1, y: 0 }}
                                       transition={{ duration: 0.3, delay: clientIndex * 0.1 }}
-                                      className="flex flex-row items-center gap-4 px-3 py-2 w-full bg-transparent border-none shadow-none min-h-0"
+                                      className="flex flex-row items-center gap-6 px-5 py-4 w-full bg-transparent border-none shadow-none min-h-0"
                                       style={{ minHeight: 'unset', boxShadow: 'none', background: 'none' }}
                                     >
                                       {/* Client Logo */}
-                                      <div className="flex items-center justify-center w-12 h-12 flex-shrink-0">
+                                      <div className="flex items-center justify-center w-16 h-16 flex-shrink-0">
                                         <a 
                                           href={
                                             client.logo === '/sbux.png' ? 'https://www.starbucks.com.br/' :
@@ -1045,24 +1035,24 @@ export default function Home() {
                                           <Image 
                                             src={client.logo}
                                             alt={client.name}
-                                            width={48}
-                                            height={48}
-                                            className={`w-10 h-10 object-contain ${client.logo === '/landor.png' ? 'company-logo-white' : ''}`}
+                                            width={56}
+                                            height={56}
+                                            className={`w-14 h-14 object-contain ${(client.logo === '/landor.png' || client.logo === '/anp.png') ? 'company-logo-white' : ''}`}
                                           />
                                         </a>
                                       </div>
                                       
                                       {/* Client Info */}
                                       <div className="flex-1 min-w-0 flex flex-col justify-center">
-                                        <h5 className="font-semibold text-white mb-0.5 text-sm text-left">{client.name}</h5>
-                                        <p className="text-xs text-gray-300 leading-relaxed text-left line-clamp-2 m-0">{client.description}</p>
+                                        <h5 className="font-semibold text-white mb-1 text-base text-left">{client.name}</h5>
+                                        <p className="text-sm text-gray-300 leading-relaxed text-left m-0">{client.description}</p>
                                       </div>
                                     </motion.div>
                                   ))}
                                 </div>
-                              </div>
+                              </motion.div>
                             )}
-                          </motion.div>
+                          </AnimatePresence>
                         </motion.div>
                       </div>
                     </motion.div>
@@ -1176,14 +1166,14 @@ export default function Home() {
                         </motion.div>
                         {/* Período com ícone Calendar, igual carreira */}
                         <motion.div
-                          className="flex items-center gap-2 text-gray-400 mb-2"
+                          className="flex items-center justify-center gap-2 text-gray-400 mb-2"
                           initial={{ opacity: 0 }}
                           whileInView={{ opacity: 1 }}
                           viewport={{ once: true }}
-                          transition={{ duration: 0.4, delay: index * 0.15 + 1.1 }}
+                          transition={{ duration: 0.4, delay: index * 0.15 + 1.05 }}
                         >
                           <Calendar size={16} />
-                          <span>{edu.period}</span>
+                          <span>{t(`career.experiences.${edu.key}.period`)}</span>
                         </motion.div>
                       </div>
                     </motion.div>
@@ -1937,3 +1927,13 @@ function SkillBar({ name, value }: { name: string; value: number }) {
     </div>
   );
 } 
+
+// Adicionar função utilitária no topo do componente:
+function formatCareerPeriod(period: string) {
+  // Exemplo: 'Jan 2019 - Aug 2024' => '01/2019 - 08/2024'
+  const monthMap: Record<string, string> = {
+    Jan: '01', Feb: '02', Mar: '03', Apr: '04', May: '05', Jun: '06',
+    Jul: '07', Aug: '08', Sep: '09', Oct: '10', Nov: '11', Dec: '12'
+  };
+  return period.replace(/([A-Za-z]{3}) (\d{4})/g, (_, m, y) => `${monthMap[m]}/${y}`);
+}

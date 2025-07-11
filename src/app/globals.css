@@ -610,9 +610,9 @@ input:focus, textarea:focus {
   background: #141414;
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 0.75rem;
-  padding: 0.25rem 0.75rem;
-  font-size: 0.75rem;
+  border-radius: 1rem;
+  padding: 0.4rem 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
   color: white;
   white-space: nowrap;
@@ -750,8 +750,6 @@ input:focus, textarea:focus {
   overflow: hidden;
 }
 
-
-
 /* About Me Tech Tags */
 .about-tech-tag {
   background: #141414 !important;
@@ -777,6 +775,29 @@ input:focus, textarea:focus {
   border-color: rgba(255, 255, 255, 0.4);
   transform: translateY(-1px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.tech-tag-glow {
+  position: relative;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 0.75rem;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  overflow: visible;
+  z-index: 1;
+  backdrop-filter: blur(8px) saturate(140%);
+  box-shadow: 0 2px 8px rgba(255,255,255,0.08);
+}
+
+.client-logo-bg-glass {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 0.75rem;
+  backdrop-filter: blur(8px) saturate(140%);
+  box-shadow: 0 2px 8px rgba(255,255,255,0.08);
 }
 
 
