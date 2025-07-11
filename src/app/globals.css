@@ -552,58 +552,27 @@ input:focus, textarea:focus {
 }
 
 /* Career Journey Cards */
+
 .career-card {
   position: relative;
-  background: #0a0a0a;
-  backdrop-filter: blur(12px) saturate(140%);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  backdrop-filter: blur(8px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 1.5rem;
   padding: 3rem 2rem 4rem 2rem;
   margin: 0;
   min-height: 550px;
-  transition: all 0.4s ease;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-}
-
-.career-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(84, 13, 110, 0.8) 0%,
-    rgba(238, 66, 102, 0.8) 25%,
-    rgba(255, 210, 63, 0.8) 50%,
-    rgba(59, 206, 172, 0.8) 75%,
-    rgba(14, 173, 105, 0.8) 100%
-  );
-  border-radius: inherit;
-  padding: 1px;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: xor;
-  -webkit-mask-composite: xor;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-}
-
-.career-card:hover::before {
-  opacity: 1;
-}
-
-.career-card:hover {
-  transform: scale(1.02);
   box-shadow: 
-    0 25px 50px rgba(0, 0, 0, 0.6),
-    0 0 40px rgba(84, 13, 110, 0.3),
-    0 0 30px rgba(238, 66, 102, 0.2),
-    0 0 20px rgba(59, 206, 172, 0.2);
+    0 4px 16px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 0 0 1px rgba(102, 102, 102, 0.3);
 }
 
 /* Career Card Header with Central Logo */
@@ -638,12 +607,7 @@ input:focus, textarea:focus {
 }
 
 .career-period-badge {
-  background: linear-gradient(
-    135deg,
-    rgba(84, 13, 110, 0.9) 0%,
-    rgba(238, 66, 102, 0.9) 50%,
-    rgba(255, 210, 63, 0.9) 100%
-  );
+  background: #141414;
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 0.75rem;
@@ -703,47 +667,40 @@ input:focus, textarea:focus {
 
 /* Technology Tags */
 .tech-tag {
-  background: #0a0a0a;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.15) 0%,
+    rgba(147, 51, 234, 0.15) 100%
+  );
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(59, 130, 246, 0.3);
   border-radius: 0.75rem;
   padding: 0.4rem 0.8rem;
   font-size: 0.8rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.9);
-  transition: all 0.3s ease;
+  color: rgba(147, 197, 253, 0.95);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
 }
 
-.tech-tag::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+/* Client Tags - Distinguished styling */
+.client-tag {
   background: linear-gradient(
     135deg,
-    rgba(84, 13, 110, 0.6) 0%,
-    rgba(238, 66, 102, 0.5) 25%,
-    rgba(255, 210, 63, 0.4) 50%,
-    rgba(59, 206, 172, 0.4) 75%,
-    rgba(14, 173, 105, 0.3) 100%
+    rgba(59, 130, 246, 0.15) 0%,
+    rgba(147, 51, 234, 0.15) 100%
   );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-.tech-tag:hover::before {
-  opacity: 1;
-}
-
-.tech-tag:hover {
-  transform: scale(1.05);
-  border-color: rgba(255, 255, 255, 0.4);
-  color: white;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 0.75rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(147, 197, 253, 0.95);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
 }
 
 /* Client Preview Grid */
@@ -759,100 +716,59 @@ input:focus, textarea:focus {
 }
 
 .client-preview-item {
-  width: 40px;
-  height: 40px;
-  background: #0a0a0a;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
   border-radius: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
 }
 
-.client-preview-item:hover {
-  transform: scale(1.1);
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
 .expand-clients-btn {
-  background: #0a0a0a;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
   border-radius: 0.75rem;
   padding: 0.5rem 1rem;
   color: rgba(255, 255, 255, 0.9);
   font-size: 0.875rem;
   font-weight: 500;
-  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
 }
 
-.expand-clients-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(84, 13, 110, 0.4) 0%,
-    rgba(238, 66, 102, 0.3) 50%,
-    rgba(59, 206, 172, 0.3) 100%
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
 
-.expand-clients-btn:hover::before {
-  opacity: 1;
-}
-
-.expand-clients-btn:hover {
-  border-color: rgba(255, 255, 255, 0.3);
-  color: white;
-}
-
-/* Animation for breathing effect on expandable cards */
-@keyframes career-breathe {
-  0%, 100% {
-    box-shadow: 
-      0 8px 32px rgba(0, 0, 0, 0.3),
-      0 0 20px rgba(84, 13, 110, 0.1);
-  }
-  50% {
-    box-shadow: 
-      0 12px 40px rgba(0, 0, 0, 0.4),
-      0 0 30px rgba(84, 13, 110, 0.2);
-  }
-}
-
-.career-card-expandable {
-  animation: career-breathe 3s ease-in-out infinite;
-}
-
-.career-card-expandable:hover {
-  animation: none;
-}
 
 /* About Me Tech Tags */
 .about-tech-tag {
-  background: #0a0a0a !important;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: #141414 !important;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
   border-radius: 9999px;
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
   font-weight: 500;
   color: white;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Company Logos - White Filter */
+.company-logo-white {
+  filter: brightness(0) invert(1);
 }
 
 .about-tech-tag:hover {

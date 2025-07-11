@@ -672,7 +672,7 @@ export default function Home() {
               {t('career.description')}
             </p>
             
-            <div className="relative max-w-4xl mx-auto">
+            <div className="relative max-w-4xl mx-auto pr-[104px] md:pr-[112px]">
               {/* Enhanced Timeline Line */}
               <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
               
@@ -744,7 +744,15 @@ export default function Home() {
                   },
                   { 
                     key: 'anp', 
-                    techs: ['Visual Basic', 'Excel', 'Data Processing']
+                    techs: ['Visual Basic', 'Excel', 'Data Processing'],
+                    clients: [
+                      { 
+                        key: 'anp',
+                        name: t('career.experiences.anp.clients.anp.name'), 
+                        logo: '/anp.png',
+                        description: t('career.experiences.anp.clients.anp.description')
+                      }
+                    ]
                   }
                 ].map((item, index) => (
                   <motion.div
@@ -781,18 +789,14 @@ export default function Home() {
 
                     {/* Redesigned Content Card */}
                     <motion.div
-                      className={`ml-20 flex-1 group transition-opacity duration-500 ${
+                      className={`ml-20 flex-1 group ${
                         expandedCard && expandedCard !== item.key ? 'opacity-50' : 'opacity-100'
                       }`}
                     >
                       <div className="relative">
                         <motion.div 
-                          className={`career-card ${item.clients ? 'career-card-expandable cursor-pointer' : ''} ${
-                            expandedCard === item.key ? 'scale-105' : ''
-                          }`}
+                          className={`career-card ${item.clients ? 'cursor-pointer' : ''}`}
                           onClick={() => item.clients && toggleCard(item.key)}
-                          whileHover={item.clients ? { scale: expandedCard === item.key ? 1.05 : 1.01 } : {}}
-                          transition={{ duration: 0.3 }}
                         >
                           
                           {/* Period Badge - Top Left */}
@@ -840,8 +844,8 @@ export default function Home() {
                                   height={120}
                                   className={
                                     item.key === 'devpro' || item.key === 'anp' 
-                                      ? "w-46 h-24 object-contain" 
-                                      : "w-24 h-24 object-contain"
+                                      ? "w-46 h-24 object-contain company-logo-white" 
+                                      : "w-24 h-24 object-contain company-logo-white"
                                   }
                                 />
                               </a>
@@ -871,22 +875,12 @@ export default function Home() {
                             </motion.div>
 
                             {/* Client Count */}
-                            {item.clients && (
-                              <motion.div
-                                className="text-sm text-gray-400 mt-2"
-                                initial={{ opacity: 0 }}
-                                whileInView={{ opacity: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.4, delay: index * 0.15 + 1.2 }}
-                              >
-                                {item.clients.length} {item.clients.length === 1 ? 'projeto' : 'projetos'} • {item.clients.length} {item.clients.length === 1 ? 'cliente' : 'clientes'}
-                              </motion.div>
-                            )}
+
                           </div>
 
                           {/* Description */}
                           <motion.p 
-                            className="text-gray-300 leading-relaxed mb-4 text-base flex-shrink-0"
+                            className="text-gray-300 leading-relaxed mb-4 text-base flex-shrink-0 text-center"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -914,10 +908,7 @@ export default function Home() {
                                   duration: 0.3, 
                                   delay: index * 0.15 + 1.3 + techIndex * 0.05
                                 }}
-                                whileHover={{ 
-                                  scale: 1.05,
-                                  transition: { duration: 0.2 } 
-                                }}
+
                               >
                                 {tech}
                               </motion.span>
@@ -938,81 +929,78 @@ export default function Home() {
                             )}
                           </motion.div>
 
-                          {/* Clients Preview and Expand Section */}
+                          {/* Client Logos Section */}
                           {item.clients && (
-                            <motion.div
-                              className="border-t border-white/10 pt-6 mt-auto"
-                              initial={{ opacity: 0 }}
-                              whileInView={{ opacity: 1 }}
+                            <motion.div 
+                              className="flex flex-wrap gap-3 justify-center mb-6 flex-shrink-0"
+                              initial={{ opacity: 0, y: 20 }}
+                              whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true }}
                               transition={{ duration: 0.5, delay: index * 0.15 + 1.4 }}
                             >
-                              <div className="flex items-center justify-between mb-4">
-                                <h4 className="text-sm font-semibold text-white">
-                                  Projetos & Clientes
-                                </h4>
-                                
-                                {/* Expand Button */}
-                                <motion.button
-                                  className="expand-clients-btn flex items-center gap-2"
-                                  whileHover={{ scale: 1.05 }}
-                                  whileTap={{ scale: 0.95 }}
-                                  onClick={() => toggleCard(item.key)}
-                                >
-                                  <span className="relative z-10">
-                                    {expandedCard === item.key ? 'Ocultar' : 'Ver todos'}
-                                  </span>
-                                  <motion.div
-                                    animate={{ rotate: expandedCard === item.key ? 180 : 0 }}
-                                    transition={{ duration: 0.3, ease: "easeOut" }}
-                                    className="relative z-10"
-                                  >
-                                    <ChevronDown size={16} />
-                                  </motion.div>
-                                </motion.button>
-                              </div>
-
-                              {/* Clients Preview */}
-                              {expandedCard !== item.key && (
+                              {item.clients.slice(0, 4).map((client, clientIndex) => (
                                 <motion.div
-                                  className="clients-preview"
-                                  initial={{ opacity: 0 }}
-                                  animate={{ opacity: 1 }}
-                                  exit={{ opacity: 0 }}
-                                  transition={{ duration: 0.3 }}
+                                  key={client.name}
+                                  className="client-preview-item"
+                                  initial={{ opacity: 0, scale: 0.9 }}
+                                  whileInView={{ opacity: 1, scale: 1 }}
+                                  viewport={{ once: true }}
+                                  transition={{ 
+                                    duration: 0.3, 
+                                    delay: index * 0.15 + 1.4 + clientIndex * 0.05
+                                  }}
+                                  title={client.name}
                                 >
-                                  {item.clients.slice(0, 4).map((client, clientIndex) => (
-                                    <motion.div
-                                      key={client.name}
-                                      className="client-preview-item"
-                                      initial={{ opacity: 0, scale: 0.9 }}
-                                      animate={{ opacity: 1, scale: 1 }}
-                                      transition={{ duration: 0.3, delay: clientIndex * 0.05 }}
-                                      title={client.name}
-                                    >
-                                      <Image 
-                                        src={client.logo}
-                                        alt={client.name}
-                                        width={24}
-                                        height={24}
-                                        className="w-6 h-6 object-contain"
-                                      />
-                                    </motion.div>
-                                  ))}
-                                  {item.clients.length > 4 && (
-                                    <motion.div
-                                      className="client-preview-item bg-white/5"
-                                      initial={{ opacity: 0, scale: 0.9 }}
-                                      animate={{ opacity: 1, scale: 1 }}
-                                      transition={{ duration: 0.3, delay: 4 * 0.05 }}
-                                    >
-                                      <span className="text-xs font-medium text-white">
-                                        +{item.clients.length - 4}
-                                      </span>
-                                    </motion.div>
-                                  )}
+                                  <Image 
+                                    src={client.logo}
+                                    alt={client.name}
+                                    width={36}
+                                    height={36}
+                                    className={`w-9 h-9 object-contain ${client.logo === '/landor.png' ? 'company-logo-white' : ''}`}
+                                  />
+                                </motion.div>
+                              ))}
+                              {item.clients.length > 4 && (
+                                <motion.div
+                                  className="client-preview-item bg-white/5"
+                                  initial={{ opacity: 0, scale: 0.9 }}
+                                  whileInView={{ opacity: 1, scale: 1 }}
+                                  viewport={{ once: true }}
+                                  transition={{ 
+                                    duration: 0.3, 
+                                    delay: index * 0.15 + 1.4 + 4 * 0.05
+                                  }}
+                                >
+                                  <span className="text-xs font-medium text-white">
+                                    +{item.clients.length - 4}
+                                  </span>
                                 </motion.div>
                               )}
+                            </motion.div>
+                          )}
+
+                          {/* Expand Arrow */}
+                          {item.clients && (
+                            <motion.div
+                              className="flex justify-center mt-auto"
+                              initial={{ opacity: 0 }}
+                              whileInView={{ opacity: 1 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.5, delay: index * 0.15 + 1.5 }}
+                            >
+                              <motion.button
+                                className="p-4 rounded-full hover:bg-white/15 transition-all duration-300 flex items-center justify-center"
+                                onClick={() => toggleCard(item.key)}
+                                whileHover={{ scale: 1.1, backgroundColor: "rgba(255, 255, 255, 0.15)" }}
+                                whileTap={{ scale: 0.95 }}
+                              >
+                                <motion.div
+                                  animate={{ rotate: expandedCard === item.key ? 180 : 0 }}
+                                  transition={{ duration: 0.3, ease: "easeOut" }}
+                                >
+                                  <ChevronDown size={20} className="text-gray-400 hover:text-white transition-colors duration-300" />
+                                </motion.div>
+                              </motion.button>
                             </motion.div>
                           )}
 
@@ -1027,18 +1015,19 @@ export default function Home() {
                             style={{ overflow: 'hidden' }}
                           >
                             {item.clients && expandedCard === item.key && (
-                              <div className="mt-6 pt-6">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                              <div className="mt-4 pt-4">
+                                <div className="space-y-2">
                                   {item.clients.map((client, clientIndex) => (
                                     <motion.div
                                       key={client.name}
                                       initial={{ opacity: 0, y: 20 }}
                                       animate={{ opacity: 1, y: 0 }}
                                       transition={{ duration: 0.3, delay: clientIndex * 0.1 }}
-                                      className="flex items-center gap-4 p-4 career-card border-none backdrop-blur-sm hover:transform hover:scale-[1.02] transition-all duration-300"
+                                      className="flex flex-row items-center gap-4 px-3 py-2 w-full bg-transparent border-none shadow-none min-h-0"
+                                      style={{ minHeight: 'unset', boxShadow: 'none', background: 'none' }}
                                     >
                                       {/* Client Logo */}
-                                      <div className="flex items-center justify-center w-16 h-16 flex-shrink-0">
+                                      <div className="flex items-center justify-center w-12 h-12 flex-shrink-0">
                                         <a 
                                           href={
                                             client.logo === '/sbux.png' ? 'https://www.starbucks.com.br/' :
@@ -1058,15 +1047,15 @@ export default function Home() {
                                             alt={client.name}
                                             width={48}
                                             height={48}
-                                            className="w-12 h-12 object-contain"
+                                            className={`w-10 h-10 object-contain ${client.logo === '/landor.png' ? 'company-logo-white' : ''}`}
                                           />
                                         </a>
                                       </div>
                                       
                                       {/* Client Info */}
-                                      <div className="flex-1 min-w-0">
-                                        <h5 className="font-semibold text-white mb-1 text-sm">{client.name}</h5>
-                                        <p className="text-xs text-gray-300 leading-relaxed line-clamp-2">{client.description}</p>
+                                      <div className="flex-1 min-w-0 flex flex-col justify-center">
+                                        <h5 className="font-semibold text-white mb-0.5 text-sm text-left">{client.name}</h5>
+                                        <p className="text-xs text-gray-300 leading-relaxed text-left line-clamp-2 m-0">{client.description}</p>
                                       </div>
                                     </motion.div>
                                   ))}
