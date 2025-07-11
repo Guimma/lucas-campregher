@@ -226,7 +226,7 @@ export default function Home() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        <div className="flex items-center bg-white/15 backdrop-blur-sm border border-white/25 rounded-2xl p-2 shadow-2xl gap-1">
+        <div className="flex items-center bg-white/15 backdrop-blur-sm rounded-2xl p-2 shadow-2xl gap-1">
           {[
             { key: 'about', section: 'about', icon: HomeIcon },
             { key: 'career', section: 'career', icon: Briefcase },
@@ -455,7 +455,7 @@ export default function Home() {
             >
               <div className="relative inline-block">
                 <motion.div
-                  className="w-40 h-40 md:w-48 md:h-48 rounded-full mx-auto overflow-hidden border-4 border-white shadow-2xl"
+                  className="w-40 h-40 md:w-48 md:h-48 rounded-full mx-auto overflow-hidden shadow-2xl"
                   style={{
                     boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
                   }}

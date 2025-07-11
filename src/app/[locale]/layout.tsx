@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display, JetBrains_Mono } from "next/font/google";
 import "../globals.css";
-import CustomCursor from "../../components/CustomCursor";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
@@ -89,7 +88,6 @@ export default async function LocaleLayout({
   return (
     <div className={`${inter.variable} ${playfair.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
       <NextIntlClientProvider messages={messages} locale={locale}>
-        <CustomCursor />
         {children}
       </NextIntlClientProvider>
     </div>

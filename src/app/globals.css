@@ -826,4 +826,41 @@ input:focus, textarea:focus {
     0 0 0 1px rgba(102, 102, 102, 0.3);
 }
 
+/* Specific border/outline removal for clean UI elements */
+
+/* 1. Navigation menu items - all navigation elements */
+nav a,
+nav button,
+.mobile-menu a,
+.mobile-menu button,
+.glass a,
+.glass button {
+  border: none !important;
+  outline: none !important;
+}
+
+/* 2. Hero section buttons - hero buttons by href and content */
+a[href="#projects"],
+a[href="#contact"],
+section a.rounded-full {
+  border: none !important;
+  outline: none !important;
+}
+
+/* 3. Section icons - all section header icons */
+.section-icon-container div,
+.section-icon-container *,
+section .rounded-full[class*="w-16"] {
+  border: none !important;
+  outline: none !important;
+}
+
+/* 4. Education card icons - icons inside education cards */
+.education-card div[class*="rounded"],
+.education-card div[class*="w-10"],
+.education-card svg {
+  border: none !important;
+  outline: none !important;
+}
+
 
