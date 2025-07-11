@@ -1268,15 +1268,17 @@ export default function Home() {
             <p className="text-xl text-gray-300 text-center mb-16 max-w-3xl mx-auto">
               {t('skills.description')}
             </p>
-            <div className="grid md:grid-cols-2 gap-10">
+            <div className="grid md:grid-cols-2 gap-8">
               {/* Programming Languages */}
               <motion.div
-                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-sm group"
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.3, ease: 'easeOut' }}
+                className="skills-card group"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
               >
-                <h3 className="text-xl font-semibold mb-6 text-white group-hover:text-blue-300 flex items-center gap-2 transition-colors duration-300">
-                  <Code2 className="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
+                <h3 className="text-xl font-semibold mb-6 skills-card-title flex items-center gap-3">
+                  <Code2 className="w-7 h-7 skills-card-icon" />
                   {t('skills.areas.languages')}
                 </h3>
                 {[
@@ -1292,12 +1294,14 @@ export default function Home() {
               </motion.div>
               {/* Frameworks & Dev Tools */}
               <motion.div
-                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-sm group"
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.3, ease: 'easeOut' }}
+                className="skills-card group"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
               >
-                <h3 className="text-xl font-semibold mb-6 text-white group-hover:text-blue-300 flex items-center gap-2 transition-colors duration-300">
-                  <Wrench className="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
+                <h3 className="text-xl font-semibold mb-6 skills-card-title flex items-center gap-3">
+                  <Wrench className="w-7 h-7 skills-card-icon" />
                   {t('skills.areas.frameworks')}
                 </h3>
                 {[
@@ -1318,12 +1322,14 @@ export default function Home() {
               </motion.div>
               {/* Cloud & DevOps */}
               <motion.div
-                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-sm group"
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.3, ease: 'easeOut' }}
+                className="skills-card group"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
               >
-                <h3 className="text-xl font-semibold mb-6 text-white group-hover:text-blue-300 flex items-center gap-2 transition-colors duration-300">
-                  <CloudIcon className="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
+                <h3 className="text-xl font-semibold mb-6 skills-card-title flex items-center gap-3">
+                  <CloudIcon className="w-7 h-7 skills-card-icon" />
                   {t('skills.areas.cloud')}
                 </h3>
                 {[
@@ -1339,12 +1345,14 @@ export default function Home() {
               </motion.div>
               {/* Software & Solution Skills */}
               <motion.div
-                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-sm group"
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.3, ease: 'easeOut' }}
+                className="skills-card group"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
               >
-                <h3 className="text-xl font-semibold mb-6 text-white group-hover:text-blue-300 flex items-center gap-2 transition-colors duration-300">
-                  <Brain className="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
+                <h3 className="text-xl font-semibold mb-6 skills-card-title flex items-center gap-3">
+                  <Brain className="w-7 h-7 skills-card-icon" />
                   {t('skills.areas.software')}
                 </h3>
                 {[
@@ -1358,12 +1366,14 @@ export default function Home() {
               </motion.div>
               {/* AI & Productivity */}
               <motion.div
-                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-sm md:col-span-1 group"
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.3, ease: 'easeOut' }}
+                className="skills-card group md:col-span-1"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 }}
               >
-                <h3 className="text-xl font-semibold mb-6 text-white group-hover:text-blue-300 flex items-center gap-2 transition-colors duration-300">
-                  <Sparkles className="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
+                <h3 className="text-xl font-semibold mb-6 skills-card-title flex items-center gap-3">
+                  <Sparkles className="w-7 h-7 skills-card-icon" />
                   {t('skills.areas.ai')}
                 </h3>
                 {[
@@ -1376,12 +1386,14 @@ export default function Home() {
               </motion.div>
               {/* Spoken Languages */}
               <motion.div
-                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-sm md:col-span-1 group"
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.3, ease: 'easeOut' }}
+                className="skills-card group md:col-span-1"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.6 }}
               >
-                <h3 className="text-xl font-semibold mb-6 text-white group-hover:text-blue-300 flex items-center gap-2 transition-colors duration-300">
-                  <Globe className="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
+                <h3 className="text-xl font-semibold mb-6 skills-card-title flex items-center gap-3">
+                  <Globe className="w-7 h-7 skills-card-icon" />
                   {t('skills.areas.spokenTitle')}
                 </h3>
                 {[
@@ -1965,21 +1977,21 @@ export default function Home() {
   );
 }
 
-// SkillBar component
+// Enhanced SkillBar component
 function SkillBar({ name, value }: { name: string; value: number }) {
   return (
-    <div className="mb-4">
-      <div className="flex justify-between items-center mb-1">
-        <span className="text-gray-200 font-medium">{name}</span>
-        <span className="text-gray-400 font-mono text-sm">{value}%</span>
+    <div className="skill-bar-container">
+      <div className="skill-bar-header">
+        <span className="skill-bar-name">{name}</span>
+        <span className="skill-bar-value">{value}%</span>
       </div>
-      <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
+      <div className="skill-bar-track">
         <motion.div
-          className="h-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full shadow-lg"
+          className="skill-bar-fill"
           initial={{ width: 0 }}
           whileInView={{ width: `${value}%` }}
           viewport={{ once: true }}
-          transition={{ duration: 1.2, ease: 'easeOut' }}
+          transition={{ duration: 1.5, ease: 'easeOut', delay: 0.2 }}
         />
       </div>
     </div>
