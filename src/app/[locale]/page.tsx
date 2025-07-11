@@ -24,7 +24,6 @@ import {
   Sparkles,
   Globe,
   Home as HomeIcon,
-  MapPin,
   Building2
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
@@ -1946,12 +1945,3 @@ function SkillBar({ name, value }: { name: string; value: number }) {
   );
 } 
 
-// Adicionar função utilitária no topo do componente:
-function formatCareerPeriod(period: string) {
-  // Exemplo: 'Jan 2019 - Aug 2024' => '01/2019 - 08/2024'
-  const monthMap: Record<string, string> = {
-    Jan: '01', Feb: '02', Mar: '03', Apr: '04', May: '05', Jun: '06',
-    Jul: '07', Aug: '08', Sep: '09', Oct: '10', Nov: '11', Dec: '12'
-  };
-  return period.replace(/([A-Za-z]{3}) (\d{4})/g, (_, m, y) => `${monthMap[m]}/${y}`);
-}
