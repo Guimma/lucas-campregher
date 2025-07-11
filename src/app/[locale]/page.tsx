@@ -1268,88 +1268,92 @@ export default function Home() {
             <p className="text-xl text-gray-300 text-center mb-16 max-w-3xl mx-auto">
               {t('skills.description')}
             </p>
-            <div className="grid md:grid-cols-2 gap-8">
-              <SkillCard
-                title={t('skills.areas.languages')}
-                icon={Code2}
-                delay={0.1}
-                skills={[
-                  { name: 'Java', value: 100 },
-                  { name: 'C#', value: 100 },
-                  { name: 'Javascript', value: 90 },
-                  { name: 'Python', value: 85 },
-                  { name: 'Dart', value: 70 },
-                  { name: 'SQL', value: 85 },
-                ]}
-              />
-              
-              <SkillCard
-                title={t('skills.areas.frameworks')}
-                icon={Wrench}
-                delay={0.2}
-                skills={[
-                  { name: 'Spring Boot', value: 100 },
-                  { name: 'Micronaut', value: 90 },
-                  { name: '.NET', value: 100 },
-                  { name: 'Flutter', value: 70 },
-                  { name: 'Angular', value: 80 },
-                  { name: 'Vue', value: 70 },
-                  { name: 'Next.js', value: 60 },
-                  { name: 'NoSQL', value: 80 },
-                  { name: 'Event Streaming', value: 80 },
-                  { name: 'Logs & Monitoring', value: 90 },
-                  { name: 'AI', value: 90 },
-                ]}
-              />
+            <div className="flex flex-col md:flex-row gap-8">
+              {/* Coluna Esquerda */}
+              <div className="flex-1 flex flex-col gap-8">
+                <SkillCard
+                  title={t('skills.areas.languages')}
+                  icon={Code2}
+                  delay={0.1}
+                  skills={[
+                    { name: 'Java', value: 100 },
+                    { name: 'C#', value: 100 },
+                    { name: 'Javascript', value: 90 },
+                    { name: 'Python', value: 85 },
+                    { name: 'Dart', value: 70 },
+                    { name: 'SQL', value: 85 },
+                  ]}
+                />
 
-              <SkillCard
-                title={t('skills.areas.cloud')}
-                icon={CloudIcon}
-                delay={0.3}
-                skills={[
-                  { name: 'Azure Cloud', value: 80 },
-                  { name: 'AWS Cloud', value: 70 },
-                  { name: 'Cloud', value: 80 },
-                  { name: 'Devops', value: 75 },
-                  { name: 'Agile', value: 95 },
-                  { name: 'Cost-Effective Thinking', value: 85 },
-                ]}
-              />
+                <SkillCard
+                  title={t('skills.areas.cloud')}
+                  icon={CloudIcon}
+                  delay={0.3}
+                  skills={[
+                    { name: 'Azure Cloud', value: 80 },
+                    { name: 'AWS Cloud', value: 70 },
+                    { name: 'Cloud', value: 80 },
+                    { name: 'Devops', value: 75 },
+                    { name: 'Agile', value: 95 },
+                    { name: 'Cost-Effective Thinking', value: 85 },
+                  ]}
+                />
 
-              <SkillCard
-                title={t('skills.areas.software')}
-                icon={Brain}
-                delay={0.4}
-                skills={[
-                  { name: 'Software Architecture', value: 80 },
-                  { name: 'Clean Code & Design Patterns', value: 90 },
-                  { name: 'Creativity & Innovation', value: 100 },
-                  { name: 'Communication', value: 100 },
-                ]}
-              />
+                <SkillCard
+                  title={t('skills.areas.ai')}
+                  icon={Sparkles}
+                  delay={0.5}
+                  skills={[
+                    { name: 'Cursor', value: 90 },
+                    { name: 'Copilot', value: 80 },
+                    { name: 'Data Privacy', value: 90 },
+                  ]}
+                />
+              </div>
 
-              <SkillCard
-                title={t('skills.areas.ai')}
-                icon={Sparkles}
-                delay={0.5}
-                className="md:col-span-1"
-                skills={[
-                  { name: 'Cursor', value: 90 },
-                  { name: 'Copilot', value: 80 },
-                  { name: 'Data Privacy', value: 90 },
-                ]}
-              />
+              {/* Coluna Direita */}
+              <div className="flex-1 flex flex-col gap-8">
+                <SkillCard
+                  title={t('skills.areas.frameworks')}
+                  icon={Wrench}
+                  delay={0.2}
+                  skills={[
+                    { name: 'Spring Boot', value: 100 },
+                    { name: 'Micronaut', value: 90 },
+                    { name: '.NET', value: 100 },
+                    { name: 'Flutter', value: 70 },
+                    { name: 'Angular', value: 80 },
+                    { name: 'Vue', value: 70 },
+                    { name: 'Next.js', value: 60 },
+                    { name: 'NoSQL', value: 80 },
+                    { name: 'Event Streaming', value: 80 },
+                    { name: 'Logs & Monitoring', value: 90 },
+                    { name: 'AI', value: 90 },
+                  ]}
+                />
 
-              <SkillCard
-                title={t('skills.areas.spokenTitle')}
-                icon={Globe}
-                delay={0.6}
-                className="md:col-span-1"
-                skills={[
-                  { name: t('spoken.portuguese'), value: 100 },
-                  { name: t('spoken.english'), value: 100 },
-                ]}
-              />
+                <SkillCard
+                  title={t('skills.areas.software')}
+                  icon={Brain}
+                  delay={0.4}
+                  skills={[
+                    { name: 'Software Architecture', value: 80 },
+                    { name: 'Clean Code & Design Patterns', value: 90 },
+                    { name: 'Creativity & Innovation', value: 100 },
+                    { name: 'Communication', value: 100 },
+                  ]}
+                />
+
+                <SkillCard
+                  title={t('skills.areas.spokenTitle')}
+                  icon={Globe}
+                  delay={0.6}
+                  skills={[
+                    { name: t('spoken.portuguese'), value: 100 },
+                    { name: t('spoken.english'), value: 100 },
+                  ]}
+                />
+              </div>
             </div>
           </motion.div>
         </div>
