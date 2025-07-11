@@ -992,14 +992,14 @@ export default function Home() {
                                 transition={{ duration: 0.2, ease: 'easeInOut' }}
                                 style={{ overflow: 'hidden' }}
                               >
-                                <div className="space-y-5">
+                                <div className="space-y-5 mt-2">
                                   {item.clients.map((client, clientIndex) => (
                                     <motion.div
                                       key={client.name}
                                       initial={{ opacity: 0, y: 20 }}
                                       animate={{ opacity: 1, y: 0 }}
                                       transition={{ duration: 0.2, delay: clientIndex * 0.1 }}
-                                      className="flex flex-row items-center gap-6 px-5 py-4 w-full bg-transparent border-none shadow-none min-h-0"
+                                      className="flex flex-row items-center gap-6 w-full bg-transparent border-none shadow-none min-h-0"
                                       style={{ minHeight: 'unset', boxShadow: 'none', background: 'none' }}
                                     >
                                       {/* Client Logo */}
