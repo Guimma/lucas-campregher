@@ -1638,8 +1638,16 @@ export default function Home() {
                 }
               }}
             >
-              {/* Background particles */}
+              {/* Background particles - Enhanced starfield */}
               <div className="github-cta-particles">
+                <div className="github-cta-particle"></div>
+                <div className="github-cta-particle"></div>
+                <div className="github-cta-particle"></div>
+                <div className="github-cta-particle"></div>
+                <div className="github-cta-particle"></div>
+                <div className="github-cta-particle"></div>
+                <div className="github-cta-particle"></div>
+                <div className="github-cta-particle"></div>
                 <div className="github-cta-particle"></div>
                 <div className="github-cta-particle"></div>
                 <div className="github-cta-particle"></div>
