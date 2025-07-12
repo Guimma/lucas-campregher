@@ -230,7 +230,9 @@
   },
   "podcasts": {
     "title": "Podcast Episodes",
-    "description": "Tech and development conversations I've joined as a guest"
+    "description": "Tech and development conversations I've joined as a guest",
+    "listenOnSpotify": "Listen on Spotify",
+    "swipeToNavigate": "Swipe to navigate"
   },
   "blog": {
     "title": "Latest Insights",

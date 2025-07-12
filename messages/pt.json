@@ -218,7 +218,9 @@
   },
   "podcasts": {
     "title": "Episódios de Podcast",
-    "description": "Conversas sobre tecnologia e desenvolvimento que participei como convidado"
+    "description": "Conversas sobre tecnologia e desenvolvimento que participei como convidado",
+    "listenOnSpotify": "Ouvir no Spotify",
+    "swipeToNavigate": "Deslize para navegar"
   },
   "blog": {
     "title": "Últimas Reflexões",

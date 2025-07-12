@@ -1333,8 +1333,6 @@ section .rounded-full[class*="w-16"] {
     0 12px 25px rgba(0, 0, 0, 0.3);
 }
 
-
-
 .github-cta-icon {
   width: 4rem;
   height: 4rem;
@@ -1674,6 +1672,134 @@ section .rounded-full[class*="w-16"] {
   .github-cta-button {
     padding: 0.75rem 1.25rem;
     font-size: 0.9rem;
+  }
+}
+
+/* Podcast Carousel Styles */
+.podcast-carousel-container {
+  position: relative;
+  overflow: visible;
+}
+
+.podcast-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center center;
+}
+
+.podcast-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.podcast-navigation-dot {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.podcast-navigation-dot:hover {
+  transform: scale(1.5);
+}
+
+.podcast-navigation-dot.active {
+  background: linear-gradient(
+    135deg,
+    rgba(84, 13, 110, 0.8) 0%,
+    rgba(238, 66, 102, 0.8) 25%,
+    rgba(255, 210, 63, 0.8) 50%,
+    rgba(59, 206, 172, 0.8) 75%,
+    rgba(14, 173, 105, 0.8) 100%
+  );
+  box-shadow: 0 0 10px rgba(84, 13, 110, 0.5);
+}
+
+/* Podcast Card Image Effects */
+.podcast-image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.podcast-image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+  z-index: 1;
+}
+
+.podcast-card:hover .podcast-image-container::before {
+  transform: translateX(100%);
+}
+
+/* Podcast Button Enhancements */
+.podcast-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.podcast-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.podcast-button:hover::before {
+  left: 100%;
+}
+
+/* Mobile Responsive Adjustments for Podcast Carousel */
+@media (max-width: 768px) {
+  .podcast-carousel-container {
+    padding: 0 1rem;
+  }
+  
+  .podcast-card {
+    margin-bottom: 1rem;
+  }
+  
+  .podcast-navigation-buttons {
+    display: none;
+  }
+  
+  .podcast-dots-container {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .podcast-card {
+    margin-bottom: 0.5rem;
+  }
+  
+  .podcast-card-content {
+    padding: 1rem;
+  }
+  
+  .podcast-card-title {
+    font-size: 1.125rem;
+    line-height: 1.3;
   }
 }
 

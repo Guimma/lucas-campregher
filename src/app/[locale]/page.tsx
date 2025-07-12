@@ -30,7 +30,6 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import LanguageToggle from '../../components/LanguageToggle';
 import PodcastSection from '../../components/PodcastSection';
-import { PodcastEpisode } from '../../types/podcast';
 import { useContactForm } from '@/hooks/useContactForm';
 
 // Animation variants
@@ -140,45 +139,8 @@ export default function Home() {
     return () => document.removeEventListener('click', handleClickOutside);
   }, [mobileMenuOpen]);
 
-  // Exemplo de dados de podcasts
-  const podcastEpisodes: PodcastEpisode[] = [
-    {
-      id: "copilot-184",
-      embedUrl: "https://open.spotify.com/embed/episode/1jddVtYxTc0NHkQ60a0P2U?utm_source=generator&theme=0"
-    },
-    {
-      id: "ddd-181",
-      embedUrl: "https://open.spotify.com/embed/episode/2Bq6Of15RCYUrGT0VdyzrS?utm_source=generator&theme=0"
-    },
-    {
-      id: "clean-179",
-      embedUrl: "https://open.spotify.com/embed/episode/6Nj3KlF2z5V5n1I3pLpywE?utm_source=generator&theme=0"
-    },
-    {
-      id: "ops-177",
-      embedUrl: "https://open.spotify.com/embed/episode/1W9WTWZW2qZA5hUoAxz3Xv?utm_source=generator&theme=0"
-    },
-    {
-      id: "opentelemetry-171",
-      embedUrl: "https://open.spotify.com/embed/episode/7mszNxKgO6suP8DoWWvUSb?utm_source=generator&theme=0"
-    },
-    {
-      id: "microservices-167",
-      embedUrl: "https://open.spotify.com/embed/episode/4GPvd8VeSGSDuJquy6fNPm?utm_source=generator&theme=0"
-    },
-    {
-      id: "sre-164",
-      embedUrl: "https://open.spotify.com/embed/episode/6YqOGmqatuRRelTpBs8FyM?utm_source=generator&theme=0"
-    },
-    {
-      id: "chatbots-20",
-      embedUrl: "https://open.spotify.com/embed/episode/5qLKkWQULsPmNKMQjI98B9?utm_source=generator&theme=0"
-    },
-    {
-      id: "kafka-173",
-      embedUrl: "https://open.spotify.com/embed/episode/11l0xTs7300mAT875Vm5CM?utm_source=generator&theme=0"
-    }
-  ];
+
+    
 
   return (
     <div className="min-h-screen">
@@ -1690,7 +1652,7 @@ export default function Home() {
       </section>
 
       {/* Podcasts Section */}
-      <PodcastSection episodes={podcastEpisodes} />
+      <PodcastSection />
 
       {/* Blog Section */}
       <section id="blog" className="py-20 relative" style={{ backgroundColor: '#000000' }}>
