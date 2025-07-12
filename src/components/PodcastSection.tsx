@@ -9,7 +9,7 @@ interface PodcastEpisode {
   title: string;
   image: string;
   url: string;
-  category: string;
+  podcastName: string;
 }
 
 const podcastEpisodes: PodcastEpisode[] = [
@@ -17,67 +17,67 @@ const podcastEpisodes: PodcastEpisode[] = [
     title: 'Como fazer testes unitários em minutos com o TestMaster – Entre Chaves #185',
     image: '/testmaster.png',
     url: 'https://www.dtidigital.com.br/entrechaves/como-fazer-testes-unitarios-em-minutos-com-o-testmaster-entre-chaves-185',
-    category: 'Podcast'
+    podcastName: 'Entre Chaves'
   },
   {
     title: 'Dicas práticas para aumentar a produtividade usando o GitHub Copilot – Entre Chaves #184',
     image: '/ec.png',
     url: 'https://www.dtidigital.com.br/entrechaves/dicas-praticas-para-aumentar-a-produtividade-usando-o-github-copilot-entre-chaves-184',
-    category: 'Podcast'
+    podcastName: 'Entre Chaves'
   },
   {
     title: 'Estratégias de DDD para tornar a arquitetura mais limpa – Entre Chaves #181',
     image: '/ddd.png',
     url: 'https://www.dtidigital.com.br/entrechaves/estrategias-de-ddd-para-tornar-a-arquitetura-mais-limpa-entre-chaves-181',
-    category: 'Podcast'
+    podcastName: 'Entre Chaves'
   },
   {
     title: 'Clean Architecture: dos livros à prática – Entre Chaves #179',
     image: '/clean.png',
     url: 'https://www.dtidigital.com.br/entrechaves/clean-architecture-dos-livros-a-pratica-entre-chaves-179',
-    category: 'Podcast'
+    podcastName: 'Entre Chaves'
   },
   {
     title: 'O papel da operação na eficiência dos times de desenvolvimento – Entre Chaves #177',
     image: '/ops.png',
     url: 'https://www.dtidigital.com.br/entrechaves/o-papel-da-operacao-na-eficiencia-dos-times-de-desenvolvimento-entre-chaves-177',
-    category: 'Podcast'
+    podcastName: 'Entre Chaves'
   },
   {
     title: 'OpenTelemetry: uma revolução na observabilidade – Entre Chaves #171',
     image: '/open.png',
     url: 'https://www.dtidigital.com.br/entrechaves/opentelemetry-uma-revolucao-na-observabilidade-entre-chaves-171',
-    category: 'Podcast'
+    podcastName: 'Entre Chaves'
   },
   {
     title: 'Building Microservices: dos livros à prática – Entre Chaves #167',
     image: '/ms.png',
     url: 'https://www.dtidigital.com.br/entrechaves/building-microservices-dos-livros-a-pratica-entre-chaves-167',
-    category: 'Podcast'
+    podcastName: 'Entre Chaves'
   },
   {
     title: 'SRE: técnicas para aumentar a confiabilidade da sua aplicação – Entre Chaves #164',
     image: '/sre.png',
     url: 'https://www.dtidigital.com.br/entrechaves/sre-tecnicas-para-aumentar-a-confiabilidade-da-sua-aplicacao-entre-chaves-164',
-    category: 'Podcast'
+    podcastName: 'Entre Chaves'
   },
   {
     title: 'GPT em Chatbots: uma revolução na comunicação inteligente – Entre Cases #20',
     image: '/chatbots.png',
     url: 'https://www.dtidigital.com.br/entrechaves/gpt-em-chatbots-uma-revolucao-na-comunicacao-inteligente-entre-cases-20',
-    category: 'Podcast'
+    podcastName: 'Entre Cases'
   },
   {
     title: 'Apache Kafka: um olhar profundo sobre a tecnologia de streaming – Entre Chaves #173',
     image: '/kafka.png',
     url: 'https://www.dtidigital.com.br/entrechaves/apache-kafka-um-olhar-profundo-sobre-a-tecnologia-de-streaming-entre-chaves-173',
-    category: 'Podcast'
+    podcastName: 'Entre Chaves'
   },
   {
     title: 'Ouça mais episódios do Entre Chaves!',
     image: '/ec.jpg',
     url: 'https://www.dtidigital.com.br/entrechaves',
-    category: 'Podcast'
+    podcastName: 'Entre Chaves'
   }
 ];
 
@@ -106,7 +106,13 @@ export default function PodcastSection() {
         </div>
 
         {/* Carousel Container */}
-        <div className="w-full overflow-hidden">
+        <div className="w-full overflow-hidden relative">
+          {/* Left fade gradient */}
+          <div className="absolute top-0 left-0 w-16 md:w-24 h-full bg-gradient-to-r from-black via-black/80 to-transparent z-10 pointer-events-none"></div>
+          
+          {/* Right fade gradient */}
+          <div className="absolute top-0 right-0 w-16 md:w-24 h-full bg-gradient-to-l from-black via-black/80 to-transparent z-10 pointer-events-none"></div>
+          
           <motion.div
             ref={carousel}
             drag="x"
@@ -120,7 +126,7 @@ export default function PodcastSection() {
             {podcastEpisodes.map((episode, index) => (
               <motion.div 
                 key={index}
-                className="min-w-[20rem] md:min-w-[24rem] min-h-[28rem] md:min-h-[32rem] p-2 md:p-3"
+                className="min-w-[20rem] md:min-w-[24rem] min-h-[32rem] md:min-h-[36rem] p-2 md:p-3"
                 whileHover={{ y: -8, transition: { duration: 0.2 } }}
               >
                 <div className="glass rounded-2xl overflow-hidden h-full flex flex-col shadow-lg hover:shadow-2xl transition-all duration-300">
@@ -151,10 +157,10 @@ export default function PodcastSection() {
                                       {/* Content */}
                     <div className="p-4 md:p-6 flex-1 flex flex-col">
                       <div className="mb-2">
-                        <span className="text-sm text-gray-400 font-medium">{episode.category}</span>
+                        <span className="text-sm text-gray-400 font-medium">{episode.podcastName}</span>
                       </div>
                       
-                      <h3 className="text-lg md:text-xl font-bold text-white mb-4 line-clamp-2 leading-tight flex-1">
+                      <h3 className="text-lg md:text-xl font-bold text-white mb-4 leading-tight flex-1">
                         {episode.title}
                       </h3>
 
