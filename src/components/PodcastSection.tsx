@@ -16,67 +16,61 @@ const podcastEpisodes: PodcastEpisode[] = [
   {
     title: 'Como fazer testes unitários em minutos com o TestMaster – Entre Chaves #185',
     image: '/testmaster.png',
-    url: 'https://www.dtidigital.com.br/entrechaves/como-fazer-testes-unitarios-em-minutos-com-o-testmaster-entre-chaves-185',
+    url: 'https://open.spotify.com/episode/74ig7MrzEMKDH20IRQkBwm?si=d5dcdf2bd575459a',
     podcastName: 'Entre Chaves'
   },
   {
     title: 'Dicas práticas para aumentar a produtividade usando o GitHub Copilot – Entre Chaves #184',
     image: '/ec.png',
-    url: 'https://www.dtidigital.com.br/entrechaves/dicas-praticas-para-aumentar-a-produtividade-usando-o-github-copilot-entre-chaves-184',
+    url: 'https://open.spotify.com/episode/1jddVtYxTc0NHkQ60a0P2U?si=ab0c3389afc94940',
     podcastName: 'Entre Chaves'
   },
   {
     title: 'Estratégias de DDD para tornar a arquitetura mais limpa – Entre Chaves #181',
     image: '/ddd.png',
-    url: 'https://www.dtidigital.com.br/entrechaves/estrategias-de-ddd-para-tornar-a-arquitetura-mais-limpa-entre-chaves-181',
+    url: 'https://open.spotify.com/episode/2Bq6Of15RCYUrGT0VdyzrS?si=f376b5cbc9254759',
     podcastName: 'Entre Chaves'
   },
   {
     title: 'Clean Architecture: dos livros à prática – Entre Chaves #179',
     image: '/clean.png',
-    url: 'https://www.dtidigital.com.br/entrechaves/clean-architecture-dos-livros-a-pratica-entre-chaves-179',
+    url: 'https://open.spotify.com/episode/6Nj3KlF2z5V5n1I3pLpywE?si=c21ee2cff1fb447b',
     podcastName: 'Entre Chaves'
   },
   {
     title: 'O papel da operação na eficiência dos times de desenvolvimento – Entre Chaves #177',
     image: '/ops.png',
-    url: 'https://www.dtidigital.com.br/entrechaves/o-papel-da-operacao-na-eficiencia-dos-times-de-desenvolvimento-entre-chaves-177',
+    url: 'https://open.spotify.com/episode/1W9WTWZW2qZA5hUoAxz3Xv?si=8b1ee5af9f5d4526',
     podcastName: 'Entre Chaves'
   },
   {
     title: 'OpenTelemetry: uma revolução na observabilidade – Entre Chaves #171',
     image: '/open.png',
-    url: 'https://www.dtidigital.com.br/entrechaves/opentelemetry-uma-revolucao-na-observabilidade-entre-chaves-171',
+    url: 'https://open.spotify.com/episode/7mszNxKgO6suP8DoWWvUSb?si=9eecf888b02a45b4',
     podcastName: 'Entre Chaves'
   },
   {
     title: 'Building Microservices: dos livros à prática – Entre Chaves #167',
     image: '/ms.png',
-    url: 'https://www.dtidigital.com.br/entrechaves/building-microservices-dos-livros-a-pratica-entre-chaves-167',
+    url: 'https://open.spotify.com/episode/4GPvd8VeSGSDuJquy6fNPm?si=71724bffd0884b1a',
     podcastName: 'Entre Chaves'
   },
   {
     title: 'SRE: técnicas para aumentar a confiabilidade da sua aplicação – Entre Chaves #164',
     image: '/sre.png',
-    url: 'https://www.dtidigital.com.br/entrechaves/sre-tecnicas-para-aumentar-a-confiabilidade-da-sua-aplicacao-entre-chaves-164',
+    url: 'https://open.spotify.com/episode/6YqOGmqatuRRelTpBs8FyM?si=6b7596212aee4320',
     podcastName: 'Entre Chaves'
   },
   {
     title: 'GPT em Chatbots: uma revolução na comunicação inteligente – Entre Cases #20',
     image: '/chatbots.png',
-    url: 'https://www.dtidigital.com.br/entrechaves/gpt-em-chatbots-uma-revolucao-na-comunicacao-inteligente-entre-cases-20',
+    url: 'https://open.spotify.com/episode/5qLKkWQULsPmNKMQjI98B9?si=1308baa69a174a9d',
     podcastName: 'Entre Cases'
   },
   {
     title: 'Apache Kafka: um olhar profundo sobre a tecnologia de streaming – Entre Chaves #173',
     image: '/kafka.png',
-    url: 'https://www.dtidigital.com.br/entrechaves/apache-kafka-um-olhar-profundo-sobre-a-tecnologia-de-streaming-entre-chaves-173',
-    podcastName: 'Entre Chaves'
-  },
-  {
-    title: 'Ouça mais episódios do Entre Chaves!',
-    image: '/ec.jpg',
-    url: 'https://www.dtidigital.com.br/entrechaves',
+    url: 'https://open.spotify.com/episode/11l0xTs7300mAT875Vm5CM?si=12b7f28cd16145cb',
     podcastName: 'Entre Chaves'
   }
 ];
@@ -140,15 +134,19 @@ export default function PodcastSection() {
                     
                     {/* Play Button Overlay */}
                     <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px] flex items-center justify-center opacity-0 hover:opacity-100 transition-all duration-300">
-                      <motion.div
+                      <motion.a
+                        href={episode.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                         className="w-16 h-16 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center shadow-lg"
+                        onClick={(e) => e.stopPropagation()} // Prevent drag when clicking play button
                       >
                         <svg className="w-8 h-8 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M8 5v14l11-7z"/>
                         </svg>
-                      </motion.div>
+                      </motion.a>
                     </div>
 
 
