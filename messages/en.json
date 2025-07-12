@@ -128,6 +128,11 @@
   "projects": {
     "title": "Featured Projects",
     "description": "Some personal projects I've built to solve real-world problems",
+    "githubCta": {
+      "title": "Explore More Projects",
+      "description": "Discover additional projects, experiments, and open-source contributions",
+      "button": "View All on GitHub"
+    },
     "items": {
       "dataPrivacy": {
         "title": "Data Privacy Platform",

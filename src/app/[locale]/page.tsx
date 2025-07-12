@@ -1622,6 +1622,61 @@ export default function Home() {
               </div>
               </motion.div>
             </div>
+
+            {/* GitHub Call-to-Action */}
+            <motion.div
+              className="github-cta-container"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              whileHover={{
+                y: -8,
+                transition: { 
+                  duration: 0.3,
+                  ease: "easeOut"
+                }
+              }}
+            >
+              {/* Background particles */}
+              <div className="github-cta-particles">
+                <div className="github-cta-particle"></div>
+                <div className="github-cta-particle"></div>
+                <div className="github-cta-particle"></div>
+                <div className="github-cta-particle"></div>
+              </div>
+
+              <motion.div 
+                className="github-cta-icon"
+                whileHover={{ 
+                  scale: 1.1, 
+                  rotate: 5,
+                  transition: { duration: 0.3 }
+                }}
+              >
+                <Github className="w-8 h-8 text-white" />
+              </motion.div>
+
+              <h3 className="github-cta-title">{t('projects.githubCta.title')}</h3>
+              <p className="github-cta-description">{t('projects.githubCta.description')}</p>
+
+              <motion.a
+                href="https://github.com/Guimma"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="github-cta-button"
+                whileHover={{ 
+                  scale: 1.05,
+                  y: -3,
+                  transition: { duration: 0.2 }
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Github size={20} />
+                {t('projects.githubCta.button')}
+                <ExternalLink size={16} />
+              </motion.a>
+            </motion.div>
           </motion.div>
         </div>
       </section>
