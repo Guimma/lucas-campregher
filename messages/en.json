@@ -127,7 +127,7 @@
   },
   "projects": {
     "title": "Featured Projects",
-    "description": "Some personal projects I've built to solve real-world problems",
+    "description": "Here are some of my personal projects, experiments, studies, and entrepreneurial initiatives",
     "githubCta": {
       "title": "Explore More Projects",
       "description": "Discover additional projects, experiments, and open-source contributions",
@@ -148,7 +148,7 @@
       },
       "betterbet": {
         "title": "BetterBet",
-        "description": "Advanced sports betting intelligence platform leveraging machine learning algorithms and real-time data analysis to generate accurate predictions for professional bettors.",
+        "description": "Advanced sports betting intelligence platform using machine learning algorithms and real-time data analysis to generate accurate predictions. This is my main personal project alongside my regular work.",
         "tags": ["Python", "AI", "Cursor", "Machine Learning", "Web Scraping", "Data Science"],
         "repo": "https://github.com/Guimma/betterbet"
       },

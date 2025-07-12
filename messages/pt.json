@@ -127,7 +127,7 @@
   },
   "projects": {
     "title": "Projetos em Destaque",
-    "description": "Alguns projetos pessoais que desenvolvi para resolver problemas reais",
+    "description": "Aqui estão alguns dos meus projetos pessoais, experimentações, estudos e iniciativas empreendedoras",
     "githubCta": {
       "title": "Explore Mais Projetos",
       "description": "Descubra projetos adicionais, experimentos e contribuições open-source",
@@ -136,7 +136,7 @@
     "items": {
       "betterbet": {
         "title": "BetterBet",
-        "description": "Plataforma avançada de inteligência para apostas esportivas utilizando algoritmos de machine learning e análise de dados em tempo real para gerar previsões precisas.",
+        "description": "Plataforma avançada de inteligência para apostas esportivas utilizando algoritmos de machine learning e análise de dados em tempo real para gerar previsões precisas. Este é meu principal projeto pessoal além do meu trabalho regular.",
         "tags": ["Python", "IA", "Cursor", "Machine Learning", "Web Scraping", "Data Science"],
         "repo": "https://github.com/Guimma/betterbet"
       },

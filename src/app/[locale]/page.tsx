@@ -1470,16 +1470,6 @@ export default function Home() {
                   </div>
                   <div className="project-card-actions">
                     <motion.a 
-                      href="https://guimma.github.io/vue-photosite/" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="project-card-button-primary"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <ExternalLink size={16}/>Visit Site
-                    </motion.a>
-                    <motion.a 
                       href="https://github.com/Guimma/vue-photosite" 
                       target="_blank" 
                       rel="noopener noreferrer" 
@@ -1488,6 +1478,16 @@ export default function Home() {
                       whileTap={{ scale: 0.95 }}
                     >
                       <Github size={16}/>View Code
+                    </motion.a>
+                    <motion.a 
+                      href="https://guimma.github.io/vue-photosite/" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="project-card-button-primary"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <ExternalLink size={16}/>Visit Site
                     </motion.a>
                   </div>
                 </div>
@@ -1534,16 +1534,6 @@ export default function Home() {
                   </div>
                   <div className="project-card-actions">
                     <motion.a 
-                      href="https://guimma.github.io/fantasy-web/#/home" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="project-card-button-primary"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <ExternalLink size={16}/>Visit Site
-                    </motion.a>
-                    <motion.a 
                       href="https://github.com/Guimma/fantasy-web" 
                       target="_blank" 
                       rel="noopener noreferrer" 
@@ -1552,6 +1542,16 @@ export default function Home() {
                       whileTap={{ scale: 0.95 }}
                     >
                       <Github size={16}/>View Code
+                    </motion.a>
+                    <motion.a 
+                      href="https://guimma.github.io/fantasy-web/#/home" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="project-card-button-primary"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <ExternalLink size={16}/>Visit Site
                     </motion.a>
                   </div>
                 </div>
@@ -1598,16 +1598,6 @@ export default function Home() {
                   </div>
                   <div className="project-card-actions">
                     <motion.a 
-                      href="https://guimma.github.io/Christmas-Cats/" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="project-card-button-primary"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <ExternalLink size={16}/>Visit Site
-                    </motion.a>
-                    <motion.a 
                       href="https://github.com/Guimma/Christmas-Cats" 
                       target="_blank" 
                       rel="noopener noreferrer" 
@@ -1616,6 +1606,16 @@ export default function Home() {
                       whileTap={{ scale: 0.95 }}
                     >
                       <Github size={16}/>View Code
+                    </motion.a>
+                    <motion.a 
+                      href="https://guimma.github.io/Christmas-Cats/" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="project-card-button-primary"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <ExternalLink size={16}/>Visit Site
                     </motion.a>
                   </div>
                 </div>
