@@ -1035,6 +1035,8 @@ section .rounded-full[class*="w-16"] {
 }
 
 .project-card {
+  /* Ensure card content stays above the glow effect */
+  z-index: 2;
   position: relative;
   background: linear-gradient(
     135deg,
@@ -1053,7 +1055,6 @@ section .rounded-full[class*="w-16"] {
   height: 100%;
   display: flex;
   flex-direction: column;
-  z-index: 2;
 }
 
 .project-card-wrapper::before {
@@ -1091,12 +1092,21 @@ section .rounded-full[class*="w-16"] {
 }
 
 .project-card-content {
+  background: #0a0a0a;
+  /* Ensure content stays above the glow effect */
+  z-index: 2;
+  position: relative;
   padding: 1.5rem;
   flex: 1;
   display: flex;
   flex-direction: column;
   text-align: center;
   align-items: center;
+}
+
+.project-card-content:hover,
+.project-card:hover .project-card-content {
+  background: #0a0a0a;
 }
 
 .project-card-title {

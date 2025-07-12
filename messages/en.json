@@ -150,7 +150,7 @@
       "glenio": {
         "title": "Glenio Campregher Photography Portfolio",
         "description": "Professional photography portfolio showcasing artistic work through a responsive Vue.js interface with Flickr API integration for dynamic content management.",
-        "tags": ["Vue.js"],
+        "tags": ["Vue.js", "Photography", "Portfolio", "Flickr API", "Gallery"],
         "site": "https://guimma.github.io/vue-photosite/",
         "repo": "https://github.com/Guimma/vue-photosite"
       },
