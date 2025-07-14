@@ -220,7 +220,15 @@
     "title": "Episódios de Podcast",
     "description": "Conversas sobre tecnologia e desenvolvimento que participei como convidado",
     "listenOnSpotify": "Ouvir no Spotify",
-    "swipeToNavigate": "Deslize para navegar"
+    "swipeToNavigate": "Deslize para navegar",
+    "stats": {
+      "episodes": "+100",
+      "episodesLabel": "episódios como host",
+      "appearances": "+20.000",
+      "appearancesLabel": "streamings",
+      "reach": "+1000",
+      "reachLabel": "desenvolvedores impactados"
+    }
   },
   "blog": {
     "title": "Últimas Reflexões",

@@ -232,7 +232,15 @@
     "title": "Podcast Episodes",
     "description": "Tech and development conversations I've joined as a guest",
     "listenOnSpotify": "Listen on Spotify",
-    "swipeToNavigate": "Swipe to navigate"
+    "swipeToNavigate": "Swipe to navigate",
+    "stats": {
+      "episodes": "+100",
+      "episodesLabel": "episodes as host",
+      "appearances": "+20,000",
+      "appearancesLabel": "streamings",
+      "reach": "+1,000",
+      "reachLabel": "developers impacted"
+    }
   },
   "blog": {
     "title": "Latest Insights",

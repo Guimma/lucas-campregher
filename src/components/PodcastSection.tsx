@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { SiSpotify } from 'react-icons/si';
-import { Mic } from 'lucide-react';
+import { Mic, Play, Users, TrendingUp } from 'lucide-react';
 
 interface PodcastEpisode {
   title: string;
@@ -106,6 +106,57 @@ const podcastEpisodes: PodcastEpisode[] = [
   }
 ];
 
+// Animated Counter Component
+const AnimatedCounter = ({ value, duration = 2 }: { value: string; duration?: number }) => {
+  const [count, setCount] = useState(0);
+  const countRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(countRef, { once: true, margin: "-100px" });
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    // Extract number from value string (e.g., "+100" -> 100, "+20.000" -> 20000)
+    const numberMatch = value.match(/[\d.,]+/);
+    if (!numberMatch) return;
+
+    const targetNumber = parseInt(numberMatch[0].replace(/[.,]/g, ''));
+    let startTime: number;
+
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / (duration * 1000), 1);
+      
+      // Easing function for smooth animation
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      const currentCount = Math.floor(easeOutQuart * targetNumber);
+      
+      setCount(currentCount);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [isInView, value, duration]);
+
+  // Format the count based on original value format
+  const formatCount = (num: number) => {
+    if (value.includes('.')) {
+      return num.toLocaleString('pt-BR');
+    }
+    return num.toString();
+  };
+
+  const prefix = value.match(/^\+/) ? '+' : '';
+  
+  return (
+    <div ref={countRef} className="tabular-nums">
+      {prefix}{formatCount(count)}
+    </div>
+  );
+};
+
 export default function PodcastSection() {
   const t = useTranslations('podcasts');
   const [width, setWidth] = useState(0);
@@ -135,9 +186,115 @@ export default function PodcastSection() {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             {t('title')}
             </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            {t('description')}
-          </p>
+          
+          {/* Impact Statistics */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-7xl mx-auto">
+            {/* Episodes as Host */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="group relative"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition-all duration-500"></div>
+              <div className="relative bg-white/8 backdrop-blur-md border border-white/15 rounded-3xl p-8 md:p-10 shadow-2xl transform group-hover:scale-105 group-hover:bg-white/12 transition-all duration-500 podcast-stats-card stats-card-hover-effect">
+                {/* Icon */}
+                <div className="mb-6">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-2xl transition-all duration-300 stats-icon-glow stats-icon-purple">
+                    <Play className="w-8 h-8 md:w-10 md:h-10 text-white" />
+                  </div>
+                </div>
+                
+                {/* Counter */}
+                <div className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-3 leading-none stats-number">
+                  <AnimatedCounter value={t('stats.episodes')} duration={2.5} />
+                </div>
+                
+                {/* Label */}
+                <p className="text-gray-300 text-lg md:text-xl font-medium leading-relaxed">
+                  {t('stats.episodesLabel')}
+                </p>
+                
+                {/* Decorative Elements */}
+                <div className="absolute top-4 right-4 w-2 h-2 bg-purple-400 rounded-full animate-pulse stats-particle"></div>
+                <div className="absolute bottom-4 left-4 w-1 h-1 bg-pink-400 rounded-full animate-pulse delay-1000 stats-particle"></div>
+                <div className="absolute top-1/2 left-2 w-1 h-1 bg-purple-300 rounded-full animate-pulse delay-500 stats-particle"></div>
+              </div>
+            </motion.div>
+
+            {/* Streamings */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="group relative"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-500 rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition-all duration-500"></div>
+              <div className="relative bg-white/8 backdrop-blur-md border border-white/15 rounded-3xl p-8 md:p-10 shadow-2xl transform group-hover:scale-105 group-hover:bg-white/12 transition-all duration-500 podcast-stats-card stats-card-hover-effect">
+                {/* Icon */}
+                <div className="mb-6">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-2xl transition-all duration-300 stats-icon-glow stats-icon-blue">
+                    <TrendingUp className="w-8 h-8 md:w-10 md:h-10 text-white" />
+                  </div>
+                </div>
+                
+                {/* Counter */}
+                <div className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-3 leading-none stats-number">
+                  <AnimatedCounter value={t('stats.appearances')} duration={3} />
+                </div>
+                
+                {/* Label */}
+                <p className="text-gray-300 text-lg md:text-xl font-medium leading-relaxed">
+                  {t('stats.appearancesLabel')}
+                </p>
+                
+                {/* Decorative Elements */}
+                <div className="absolute top-4 right-4 w-2 h-2 bg-blue-400 rounded-full animate-pulse delay-500 stats-particle"></div>
+                <div className="absolute bottom-4 left-4 w-1 h-1 bg-cyan-400 rounded-full animate-pulse delay-1500 stats-particle"></div>
+                <div className="absolute top-1/2 left-2 w-1 h-1 bg-blue-300 rounded-full animate-pulse delay-700 stats-particle"></div>
+              </div>
+            </motion.div>
+
+            {/* Developers Impacted */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="group relative"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition-all duration-500"></div>
+              <div className="relative bg-white/8 backdrop-blur-md border border-white/15 rounded-3xl p-8 md:p-10 shadow-2xl transform group-hover:scale-105 group-hover:bg-white/12 transition-all duration-500 podcast-stats-card stats-card-hover-effect">
+                {/* Icon */}
+                <div className="mb-6">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-2xl transition-all duration-300 stats-icon-glow stats-icon-orange">
+                    <Users className="w-8 h-8 md:w-10 md:h-10 text-white" />
+                  </div>
+                </div>
+                
+                {/* Counter */}
+                <div className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-3 leading-none stats-number">
+                  <AnimatedCounter value={t('stats.reach')} duration={2.8} />
+                </div>
+                
+                {/* Label */}
+                <p className="text-gray-300 text-lg md:text-xl font-medium leading-relaxed">
+                  {t('stats.reachLabel')}
+                </p>
+                
+                {/* Decorative Elements */}
+                <div className="absolute top-4 right-4 w-2 h-2 bg-yellow-400 rounded-full animate-pulse delay-700 stats-particle"></div>
+                <div className="absolute bottom-4 left-4 w-1 h-1 bg-orange-400 rounded-full animate-pulse delay-1200 stats-particle"></div>
+                <div className="absolute top-1/2 left-2 w-1 h-1 bg-yellow-300 rounded-full animate-pulse delay-900 stats-particle"></div>
+              </div>
+            </motion.div>
+          </div>
+          
+          {/* Decorative divider */}
+          <div className="mt-20 mb-12 flex items-center justify-center">
+            <div className="w-16 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+            <div className="mx-4 w-2 h-2 bg-white/40 rounded-full"></div>
+            <div className="w-16 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+          </div>
         </div>
 
         {/* Carousel Container */}

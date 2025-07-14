@@ -1817,4 +1817,129 @@ section .rounded-full[class*="w-16"] {
   left: 100%;
 }
 
+/* Podcast Statistics Enhanced Styling */
+.podcast-stats-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.podcast-stats-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.podcast-stats-card:hover::before {
+  left: 100%;
+}
+
+/* Enhanced number styling with gradient text */
+.stats-number {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #f0f0f0 25%,
+    #ffffff 50%,
+    #e0e0e0 75%,
+    #ffffff 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+/* Improved hover effects for stats cards */
+.stats-card-hover-effect {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.stats-card-hover-effect:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Floating particles animation */
+@keyframes float-stats {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(180deg);
+  }
+}
+
+.stats-particle {
+  animation: float-stats 3s ease-in-out infinite;
+}
+
+/* Gradient border animation */
+@keyframes gradient-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.stats-gradient-border {
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 70%
+  );
+  background-size: 200% 200%;
+  animation: gradient-border 3s ease infinite;
+}
+
+/* Enhanced icon glow */
+.stats-icon-glow {
+  position: relative;
+}
+
+.stats-icon-glow::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.stats-icon-glow:hover::before {
+  opacity: 0.3;
+}
+
+.stats-icon-purple::before {
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.4) 0%, transparent 70%);
+}
+
+.stats-icon-blue::before {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 70%);
+}
+
+.stats-icon-orange::before {
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.4) 0%, transparent 70%);
+}
+
 
