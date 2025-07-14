@@ -164,37 +164,36 @@ export default function PodcastSection() {
                 className="min-w-[20rem] md:min-w-[24rem] min-h-[32rem] md:min-h-[36rem] p-2 md:p-3"
                 whileHover={{ y: -8, transition: { duration: 0.2 } }}
               >
-                <div className="glass rounded-2xl overflow-hidden h-full flex flex-col shadow-lg hover:shadow-2xl transition-all duration-300">
-                  {/* Image Container */}
-                  <div className="relative aspect-square overflow-hidden flex-shrink-0">
-                    <img
-                      src={episode.image}
-                      alt={episode.title}
-                      className="w-full h-full object-contain pointer-events-none transition-transform duration-500 hover:scale-105"
-                    />
-                    
-                    {/* Play Button Overlay */}
-                    <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px] flex items-center justify-center opacity-0 hover:opacity-100 transition-all duration-300">
-                      <motion.a
-                        href={episode.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="w-16 h-16 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center shadow-lg"
-                        onClick={(e) => e.stopPropagation()} // Prevent drag when clicking play button
-                      >
-                        <svg className="w-8 h-8 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z"/>
-                        </svg>
-                      </motion.a>
+                <div className="podcast-card-wrapper h-full">
+                  <div className="podcast-card rounded-2xl overflow-hidden h-full flex flex-col">
+                    {/* Image Container */}
+                    <div className="relative aspect-square overflow-hidden flex-shrink-0">
+                      <img
+                        src={episode.image}
+                        alt={episode.title}
+                        className="w-full h-full object-contain pointer-events-none transition-transform duration-500 hover:scale-105"
+                      />
+                      
+                      {/* Play Button Overlay */}
+                      <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px] flex items-center justify-center opacity-0 hover:opacity-100 transition-all duration-300">
+                        <motion.a
+                          href={episode.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="w-16 h-16 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center shadow-lg"
+                          onClick={(e) => e.stopPropagation()} // Prevent drag when clicking play button
+                        >
+                          <svg className="w-8 h-8 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                          </svg>
+                        </motion.a>
+                      </div>
                     </div>
 
-
-                  </div>
-
-                                      {/* Content */}
-                    <div className="p-4 md:p-6 flex-1 flex flex-col">
+                    {/* Content */}
+                    <div className="podcast-card-content p-4 md:p-6 flex-1 flex flex-col">
                       <div className="mb-2">
                         <span className="text-sm text-gray-400 font-medium">{episode.podcastName}</span>
                       </div>
@@ -208,7 +207,7 @@ export default function PodcastSection() {
                         href={episode.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="podcast-button inline-flex items-center gap-3 w-full justify-center px-4 md:px-6 py-3 bg-[#1DB954] hover:bg-[#1ed760] text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl text-sm md:text-base mt-auto"
+                        className="podcast-listen-button inline-flex items-center gap-3 w-full justify-center px-4 md:px-6 py-3 bg-[#1DB954] hover:bg-[#1ed760] text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl text-sm md:text-base mt-auto"
                         whileHover={{ y: -2, scale: 1.05 }}
                         whileTap={{ scale: 0.98 }}
                         onClick={(e) => e.stopPropagation()} // Prevent drag when clicking button
@@ -217,6 +216,7 @@ export default function PodcastSection() {
                         {t('listenOnSpotify')}
                       </motion.a>
                     </div>
+                  </div>
                 </div>
               </motion.div>
             ))}
