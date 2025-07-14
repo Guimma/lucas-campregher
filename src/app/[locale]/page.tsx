@@ -1607,20 +1607,21 @@ export default function Home() {
             </motion.div>
 
             {/* GitHub Call-to-Action */}
-            <motion.div
-              className="github-cta-container"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              whileHover={{
-                y: -8,
-                transition: { 
-                  duration: 0.3,
-                  ease: "easeOut"
-                }
-              }}
-            >
+            <div className="max-w-4xl mx-auto mt-16">
+              <motion.div
+                className="github-cta-container max-w-lg mx-auto"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                whileHover={{
+                  y: -8,
+                  transition: { 
+                    duration: 0.3,
+                    ease: "easeOut"
+                  }
+                }}
+              >
               {/* Background particles - Enhanced starfield */}
               <div className="github-cta-particles">
                 <div className="github-cta-particle"></div>
@@ -1668,6 +1669,7 @@ export default function Home() {
                 <ExternalLink size={16} />
               </motion.a>
             </motion.div>
+            </div>
           </motion.div>
         </div>
       </section>
