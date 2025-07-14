@@ -2214,15 +2214,14 @@ section .rounded-full[class*="w-16"] {
 .cv-download-card {
   @apply inline-block rounded-xl p-4 min-w-[200px] relative;
   background: linear-gradient(135deg, 
-    rgba(139, 92, 246, 0.1) 0%, 
-    rgba(99, 102, 241, 0.1) 25%, 
-    rgba(59, 130, 246, 0.1) 50%, 
-    rgba(14, 165, 233, 0.1) 75%, 
-    rgba(6, 182, 212, 0.1) 100%);
+    rgba(84, 13, 110, 0.12) 0%, 
+    rgba(238, 66, 102, 0.08) 35%, 
+    rgba(59, 206, 172, 0.1) 70%, 
+    rgba(14, 173, 105, 0.12) 100%);
   backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 
-    0 8px 32px -8px rgba(139, 92, 246, 0.2),
+    0 8px 32px -8px rgba(84, 13, 110, 0.2),
     0 0 0 1px rgba(255, 255, 255, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
@@ -2230,14 +2229,13 @@ section .rounded-full[class*="w-16"] {
 
 .cv-download-card:hover {
   background: linear-gradient(135deg, 
-    rgba(139, 92, 246, 0.15) 0%, 
-    rgba(99, 102, 241, 0.15) 25%, 
-    rgba(59, 130, 246, 0.15) 50%, 
-    rgba(14, 165, 233, 0.15) 75%, 
-    rgba(6, 182, 212, 0.15) 100%);
+    rgba(84, 13, 110, 0.18) 0%, 
+    rgba(238, 66, 102, 0.12) 35%, 
+    rgba(59, 206, 172, 0.15) 70%, 
+    rgba(14, 173, 105, 0.18) 100%);
   border-color: rgba(255, 255, 255, 0.2);
   box-shadow: 
-    0 12px 40px -8px rgba(139, 92, 246, 0.3),
+    0 12px 40px -8px rgba(84, 13, 110, 0.3),
     0 0 0 1px rgba(255, 255, 255, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
   transform: translateY(-3px);
@@ -2256,7 +2254,7 @@ section .rounded-full[class*="w-16"] {
 
 .cv-download-icon {
   @apply text-white;
-  filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.4));
+  filter: drop-shadow(0 0 8px rgba(84, 13, 110, 0.4));
 }
 
 .cv-chevron {
@@ -2271,9 +2269,10 @@ section .rounded-full[class*="w-16"] {
   @apply w-full h-px my-3;
   background: linear-gradient(90deg, 
     transparent 0%, 
-    rgba(139, 92, 246, 0.3) 20%, 
-    rgba(59, 130, 246, 0.3) 50%, 
-    rgba(6, 182, 212, 0.3) 80%, 
+    rgba(84, 13, 110, 0.3) 20%, 
+    rgba(238, 66, 102, 0.2) 40%, 
+    rgba(59, 206, 172, 0.3) 60%, 
+    rgba(14, 173, 105, 0.3) 80%, 
     transparent 100%);
 }
 
@@ -2291,10 +2290,10 @@ section .rounded-full[class*="w-16"] {
 
 .cv-download-option:hover {
   background: linear-gradient(135deg, 
-    rgba(139, 92, 246, 0.1) 0%, 
-    rgba(59, 130, 246, 0.1) 100%);
+    rgba(84, 13, 110, 0.1) 0%, 
+    rgba(59, 206, 172, 0.1) 100%);
   border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 12px -4px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 4px 12px -4px rgba(84, 13, 110, 0.3);
   transform: translateX(3px);
 }
 
