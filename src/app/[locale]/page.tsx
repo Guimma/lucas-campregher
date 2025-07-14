@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Code2, 
@@ -47,6 +47,37 @@ const staggerContainer = {
   }
 };
 
+// Navigation items (moved outside component for performance)
+const navigationItems = [
+  { key: 'about', section: 'about', icon: HomeIcon },
+  { key: 'career', section: 'career', icon: Briefcase },
+  { key: 'skills', section: 'skills', icon: Wrench },
+  { key: 'projects', section: 'projects', icon: Rocket },
+  { key: 'podcasts', section: 'podcasts', icon: Mic },
+  { key: 'blog', section: 'blog', icon: Sparkles },
+  { key: 'contact', section: 'contact', icon: Mail }
+];
+
+// About section cards (moved outside component for performance)
+const aboutCards = [
+  { icon: Code2, key: 'backend' },
+  { icon: Palette, key: 'frontend' },
+  { icon: Users, key: 'leadership' },
+  { icon: Rocket, key: 'cloud' },
+  { icon: Shield, key: 'privacy' },
+  { icon: Mic, key: 'communication' }
+];
+
+// Social links (moved outside component for performance)
+const socialLinks = [
+  { Icon: Github, href: "https://github.com/Guimma", label: "GitHub" },
+  { Icon: Linkedin, href: "https://www.linkedin.com/in/lucas-campregher/", label: "LinkedIn" },
+  { Icon: Mail, href: "mailto:lucas@campregher.com", label: "Email" }
+];
+
+// Tech skills (moved outside component for performance)
+const techSkills = ['Java', '.Net', 'C#', 'Azure', 'TypeScript', 'Python', 'Flutter', 'SQL', 'Spring Boot', 'AI'];
+
 interface BlogPost {
   title: string;
   excerpt: string;
@@ -70,7 +101,7 @@ export default function Home() {
   };
 
   // Smooth scroll function with easing
-  const smoothScrollTo = (elementId: string) => {
+  const smoothScrollTo = useCallback((elementId: string) => {
     const element = document.getElementById(elementId);
     if (!element) return;
 
@@ -99,45 +130,56 @@ export default function Home() {
     };
 
     requestAnimationFrame(animation);
-  };
+  }, []);
 
   // Effect para detectar seção ativa e posição do scroll
   React.useEffect(() => {
+    let ticking = false;
+    
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      
-      // Detectar se está no topo (com margem de 100px)
-      setIsAtTop(scrollY < 100);
-      
-      // Detectar seção ativa
-      const sections = ['about', 'career', 'skills', 'projects', 'podcasts', 'blog', 'contact'];
-      const scrollPosition = scrollY + window.innerHeight / 2;
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          
+          // Detectar se está no topo (com margem de 100px)
+          setIsAtTop(scrollY < 100);
+          
+          // Detectar seção ativa
+          const sections = ['about', 'career', 'skills', 'projects', 'podcasts', 'blog', 'contact'];
+          const scrollPosition = scrollY + window.innerHeight / 2;
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = document.getElementById(sections[i]);
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i]);
-          break;
-        }
+          for (let i = sections.length - 1; i >= 0; i--) {
+            const section = document.getElementById(sections[i]);
+            if (section && section.offsetTop <= scrollPosition) {
+              setActiveSection(sections[i]);
+              break;
+            }
+          }
+          
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Initial call
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Effect para fechar menu mobile quando clicar fora
-  React.useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (mobileMenuOpen && !(event.target as Element).closest('.mobile-menu')) {
-        setMobileMenuOpen(false);
-      }
-    };
-
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
+  const handleClickOutside = useCallback((event: MouseEvent) => {
+    if (mobileMenuOpen && !(event.target as Element).closest('.mobile-menu')) {
+      setMobileMenuOpen(false);
+    }
   }, [mobileMenuOpen]);
+
+  React.useEffect(() => {
+    if (mobileMenuOpen) {
+      document.addEventListener('click', handleClickOutside);
+      return () => document.removeEventListener('click', handleClickOutside);
+    }
+  }, [mobileMenuOpen, handleClickOutside]);
 
 
     
@@ -171,6 +213,7 @@ export default function Home() {
                   width={40}
                   height={40}
                   className="w-10 h-10 object-contain"
+                  priority
                 />
               </div>
               <div className="flex flex-col">
@@ -224,15 +267,7 @@ export default function Home() {
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         <div className="flex items-center bg-white/15 backdrop-blur-sm rounded-2xl p-2 shadow-2xl gap-1">
-          {[
-            { key: 'about', section: 'about', icon: HomeIcon },
-            { key: 'career', section: 'career', icon: Briefcase },
-            { key: 'skills', section: 'skills', icon: Wrench },
-            { key: 'projects', section: 'projects', icon: Rocket },
-            { key: 'podcasts', section: 'podcasts', icon: Mic },
-            { key: 'blog', section: 'blog', icon: Sparkles },
-            { key: 'contact', section: 'contact', icon: Mail }
-          ].map((item) => {
+          {navigationItems.map((item) => {
             const isActive = activeSection === item.section;
             return (
               <motion.button
@@ -284,15 +319,7 @@ export default function Home() {
           >
               <div className="glass m-4 rounded-2xl p-4 border border-white/10 mobile-menu">
                               <div className="grid grid-cols-4 gap-4">
-                {[
-                  { key: 'about', section: 'about', icon: HomeIcon },
-                  { key: 'career', section: 'career', icon: Briefcase },
-                  { key: 'skills', section: 'skills', icon: Wrench },
-                  { key: 'projects', section: 'projects', icon: Rocket },
-                  { key: 'podcasts', section: 'podcasts', icon: Mic },
-                  { key: 'blog', section: 'blog', icon: Sparkles },
-                  { key: 'contact', section: 'contact', icon: Mail }
-                ].map((item) => {
+                {navigationItems.map((item) => {
                     const isActive = activeSection === item.section;
                     return (
                       <motion.button
@@ -331,19 +358,24 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden enhanced-animated-bg">
-        {/* Enhanced Floating Elements with Multiple Colors */}
+        {/* Enhanced Floating Elements with Multiple Colors - OPTIMIZED */}
         <div className="absolute inset-0 overflow-hidden">
+          {/* Reduced to 4 main lights for better performance */}
+          
           {/* Purple Light - Top Left */}
           <motion.div
             className="absolute top-20 left-20 w-72 h-72 rounded-full blur-3xl"
-            style={{ background: 'radial-gradient(circle, rgba(84, 13, 110, 0.4) 0%, rgba(84, 13, 110, 0.1) 50%, transparent 100%)' }}
+            style={{ 
+              background: 'radial-gradient(circle, rgba(84, 13, 110, 0.4) 0%, rgba(84, 13, 110, 0.1) 50%, transparent 100%)',
+              willChange: 'transform'
+            }}
             animate={{
               y: [-15, 15, -15],
               x: [-8, 8, -8],
               scale: [1, 1.05, 1],
             }}
             transition={{
-              duration: 25,
+              duration: 20, // Reduced from 25
               repeat: Infinity,
               ease: "easeInOut"
             }}
@@ -352,30 +384,17 @@ export default function Home() {
           {/* Pink/Red Light - Top Right */}
           <motion.div
             className="absolute top-32 right-24 w-80 h-80 rounded-full blur-3xl"
-            style={{ background: 'radial-gradient(circle, rgba(238, 66, 102, 0.3) 0%, rgba(238, 66, 102, 0.1) 50%, transparent 100%)' }}
+            style={{ 
+              background: 'radial-gradient(circle, rgba(238, 66, 102, 0.3) 0%, rgba(238, 66, 102, 0.1) 50%, transparent 100%)',
+              willChange: 'transform'
+            }}
             animate={{
               y: [12, -12, 12],
               x: [6, -6, 6],
               scale: [1, 1.08, 1],
             }}
             transition={{
-              duration: 25,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-          
-          {/* Yellow Light - Center */}
-          <motion.div
-            className="absolute top-1/2 left-1/2 w-60 h-60 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"
-            style={{ background: 'radial-gradient(circle, rgba(255, 210, 63, 0.2) 0%, rgba(255, 210, 63, 0.05) 50%, transparent 100%)' }}
-            animate={{
-              y: [-18, 18, -18],
-              x: [-10, 10, -10],
-              scale: [1, 0.95, 1],
-            }}
-            transition={{
-              duration: 25,
+              duration: 22, // Reduced from 25
               repeat: Infinity,
               ease: "easeInOut"
             }}
@@ -384,14 +403,17 @@ export default function Home() {
           {/* Teal Light - Bottom Left */}
           <motion.div
             className="absolute bottom-24 left-32 w-96 h-96 rounded-full blur-3xl"
-            style={{ background: 'radial-gradient(circle, rgba(59, 206, 172, 0.25) 0%, rgba(59, 206, 172, 0.08) 50%, transparent 100%)' }}
+            style={{ 
+              background: 'radial-gradient(circle, rgba(59, 206, 172, 0.25) 0%, rgba(59, 206, 172, 0.08) 50%, transparent 100%)',
+              willChange: 'transform'
+            }}
             animate={{
               y: [16, -16, 16],
               x: [8, -8, 8],
               scale: [1, 1.06, 1],
             }}
             transition={{
-              duration: 25,
+              duration: 24, // Reduced from 25
               repeat: Infinity,
               ease: "easeInOut"
             }}
@@ -400,45 +422,17 @@ export default function Home() {
           {/* Green Light - Bottom Right */}
           <motion.div
             className="absolute bottom-16 right-16 w-64 h-64 rounded-full blur-3xl"
-            style={{ background: 'radial-gradient(circle, rgba(14, 173, 105, 0.3) 0%, rgba(14, 173, 105, 0.1) 50%, transparent 100%)' }}
+            style={{ 
+              background: 'radial-gradient(circle, rgba(14, 173, 105, 0.3) 0%, rgba(14, 173, 105, 0.1) 50%, transparent 100%)',
+              willChange: 'transform'
+            }}
             animate={{
               y: [-14, 14, -14],
               x: [-12, 12, -12],
               scale: [1, 1.1, 1],
             }}
             transition={{
-              duration: 25,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-          
-          {/* Additional Subtle Lights */}
-          <motion.div
-            className="absolute top-1/4 left-1/4 w-40 h-40 rounded-full blur-2xl"
-            style={{ background: 'radial-gradient(circle, rgba(84, 13, 110, 0.15) 0%, transparent 70%)' }}
-            animate={{
-              y: [8, -8, 8],
-              x: [4, -4, 4],
-              opacity: [0.3, 0.6, 0.3],
-            }}
-            transition={{
-              duration: 25,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-          
-          <motion.div
-            className="absolute bottom-1/3 right-1/3 w-48 h-48 rounded-full blur-2xl"
-            style={{ background: 'radial-gradient(circle, rgba(238, 66, 102, 0.12) 0%, transparent 70%)' }}
-            animate={{
-              y: [-10, 10, -10],
-              x: [5, -5, 5],
-              opacity: [0.2, 0.5, 0.2],
-            }}
-            transition={{
-              duration: 25,
+              duration: 26, // Reduced from 25
               repeat: Infinity,
               ease: "easeInOut"
             }}
@@ -475,6 +469,7 @@ export default function Home() {
                     width={192}
                     height={192}
                     className="w-full h-full object-cover"
+                    priority
                   />
                 </motion.div>
               </div>
@@ -527,11 +522,7 @@ export default function Home() {
               className="flex justify-center space-x-6"
               variants={fadeInUp}
             >
-              {[
-                { Icon: Github, href: "https://github.com/Guimma", label: "GitHub" },
-                { Icon: Linkedin, href: "https://www.linkedin.com/in/lucas-campregher/", label: "LinkedIn" },
-                { Icon: Mail, href: "mailto:lucas@campregher.com", label: "Email" }
-              ].map((item, index) => (
+              {socialLinks.map((item, index) => (
                 <motion.a
                   key={index}
                   href={item.href}
@@ -583,7 +574,13 @@ export default function Home() {
               <span className="text-white">{t('about.title')}</span>
             </motion.h2>
             
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              className="grid md:grid-cols-2 gap-12 items-center"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -600,7 +597,7 @@ export default function Home() {
                   {t('about.paragraph3')}
                 </p>
                 <div className="flex flex-wrap gap-3">
-                  {['Java', '.Net', 'C#', 'Azure', 'TypeScript', 'Python', 'Flutter', 'SQL', 'Spring Boot', 'AI'].map((tech, index) => (
+                  {techSkills.map((tech, index) => (
                     <motion.span
                       key={tech}
                       className="about-tech-tag"
@@ -622,16 +619,9 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                {[
-                  { icon: Code2, key: 'backend' },
-                  { icon: Palette, key: 'frontend' },
-                  { icon: Users, key: 'leadership' },
-                  { icon: Rocket, key: 'cloud' },
-                  { icon: Shield, key: 'privacy' },
-                  { icon: Mic, key: 'communication' }
-                ].map((item, index) => (
+                {aboutCards.map((item, index) => (
                   <motion.div
-                    key={index}
+                    key={item.key}
                     className="about-card-gradient"
                     whileHover={{ 
                       transition: { duration: 0.3 } 
@@ -647,7 +637,7 @@ export default function Home() {
                   </motion.div>
                 ))}
               </motion.div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -1371,7 +1361,13 @@ export default function Home() {
             <p className="text-xl text-gray-300 text-center mb-16 max-w-3xl mx-auto">
               {t('projects.description')}
             </p>
-            <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+            <motion.div 
+              className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
               {/* BetterBet */}
               <motion.div
                 className="project-card-wrapper group"
@@ -1608,7 +1604,7 @@ export default function Home() {
                 </div>
               </div>
               </motion.div>
-            </div>
+            </motion.div>
 
             {/* GitHub Call-to-Action */}
             <motion.div
@@ -1773,6 +1769,8 @@ export default function Home() {
                           alt={postData.title}
                           fill
                           className="object-cover"
+                          loading="lazy"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
                         
                         {/* Category overlay */}
@@ -2387,6 +2385,7 @@ export default function Home() {
                       width={40}
                       height={40}
                       className="w-10 h-10 object-contain"
+                      priority
                     />
                   </motion.div>
                   <div className="flex flex-col">
@@ -2400,11 +2399,7 @@ export default function Home() {
                 
                 {/* Social Links */}
                 <div className="flex space-x-3">
-                  {[
-                    { Icon: Github, href: "https://github.com/Guimma", label: "GitHub" },
-                    { Icon: Linkedin, href: "https://www.linkedin.com/in/lucas-campregher/", label: "LinkedIn" },
-                    { Icon: Mail, href: "mailto:lucas@campregher.com", label: "Email" }
-                  ].map((item, index) => (
+                  {socialLinks.map((item, index) => (
                     <a
                       key={index}
                       href={item.href}
@@ -2428,15 +2423,7 @@ export default function Home() {
               >
                 <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wide">Navigation</h4>
                 <div className="space-y-2">
-                  {[
-                    { key: 'about', section: 'about' },
-                    { key: 'career', section: 'career' },
-                    { key: 'skills', section: 'skills' },
-                    { key: 'projects', section: 'projects' },
-                    { key: 'podcasts', section: 'podcasts' },
-                    { key: 'blog', section: 'blog' },
-                    { key: 'contact', section: 'contact' }
-                  ].map((item, index) => (
+                  {navigationItems.map((item, index) => (
                     <motion.button
                       key={item.key}
                       onClick={() => smoothScrollTo(item.section)}
@@ -2494,26 +2481,19 @@ export default function Home() {
               >
                 <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wide">Contact</h4>
                 <div className="space-y-3">
-                  <motion.a
-                    href="mailto:lucas@campregher.com"
-                    className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors duration-300 text-sm"
-                    whileHover={{ x: 3 }}
-                  >
-                    <Mail size={14} className="text-purple-400" />
-                    <span>lucas@campregher.com</span>
-                  </motion.a>
-                  <motion.a
-                    href="https://api.whatsapp.com/send?phone=5531996964056"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors duration-300 text-sm"
-                    whileHover={{ x: 3 }}
-                  >
-                    <svg className="w-3.5 h-3.5 text-green-400" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.787z"/>
-                    </svg>
-                    <span>+55 (31) 99696-4056</span>
-                  </motion.a>
+                  {socialLinks.map((item, index) => (
+                    <motion.a
+                      key={index}
+                      href={item.href}
+                      target={item.href.startsWith('mailto') ? undefined : "_blank"}
+                      rel={item.href.startsWith('mailto') ? undefined : "noopener noreferrer"}
+                      className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors duration-300 text-sm"
+                      whileHover={{ x: 3 }}
+                    >
+                      <item.Icon size={14} className="text-purple-400" />
+                      <span>{item.label}</span>
+                    </motion.a>
+                  ))}
                   <div className="flex items-center space-x-2 text-gray-300 text-sm">
                     <svg className="w-3.5 h-3.5 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
