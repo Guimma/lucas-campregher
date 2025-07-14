@@ -2000,6 +2000,213 @@ section .rounded-full[class*="w-16"] {
   backdrop-filter: blur(4px);
 }
 
+/* ===== CONTACT SECTION STYLES ===== */
 
+/* Enhanced Contact Section Background */
+.contact-section-bg {
+  background: radial-gradient(circle at 18% 28%, rgba(84, 13, 110, 0.12) 0%, rgba(84, 13, 110, 0.03) 45%, transparent 75%),
+              radial-gradient(circle at 82% 35%, rgba(238, 66, 102, 0.11) 0%, rgba(238, 66, 102, 0.025) 45%, transparent 75%),
+              radial-gradient(circle at 45% 85%, rgba(255, 210, 63, 0.09) 0%, rgba(255, 210, 63, 0.02) 45%, transparent 75%),
+              radial-gradient(circle at 28% 78%, rgba(59, 206, 172, 0.1) 0%, rgba(59, 206, 172, 0.025) 45%, transparent 75%),
+              radial-gradient(circle at 72% 68%, rgba(14, 173, 105, 0.08) 0%, rgba(14, 173, 105, 0.02) 45%, transparent 75%),
+              radial-gradient(circle at 55% 45%, rgba(139, 92, 246, 0.07) 0%, rgba(139, 92, 246, 0.015) 45%, transparent 75%),
+              linear-gradient(135deg, #000000 0%, #000000 100%);
+  background-size: 140% 140%;
+  animation: enhanced-gradient-flow 50s ease-in-out infinite;
+  position: relative;
+}
 
+/* Quick Contact Cards */
+.contact-quick-card {
+  @apply flex items-center space-x-4 p-6 rounded-2xl transition-all duration-300;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+  backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.contact-quick-card:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(255, 255, 255, 0.09) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.contact-card-icon-container {
+  @apply w-16 h-16 rounded-xl flex items-center justify-center transition-all duration-300;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.contact-quick-card:hover .contact-card-icon-container {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* Contact Info Card */
+.contact-info-card {
+  @apply p-6 rounded-2xl;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+  backdrop-filter: blur(12px) saturate(130%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Contact Form Card */
+.contact-form-card {
+  @apply p-8 rounded-3xl;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    0 16px 48px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+  position: relative;
+}
+
+.contact-form-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.08) 0%,
+    rgba(139, 92, 246, 0.04) 50%,
+    rgba(236, 72, 153, 0.04) 100%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Contact Form Inputs */
+.contact-form-input {
+  @apply w-full px-5 py-4 rounded-xl text-white placeholder-gray-400 transition-all duration-300;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form-input:focus {
+  outline: none;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+  border-color: rgba(59, 206, 172, 0.5);
+  box-shadow: 
+    inset 0 2px 8px rgba(0, 0, 0, 0.1),
+    0 0 0 2px rgba(59, 206, 172, 0.2),
+    0 8px 25px rgba(59, 206, 172, 0.15);
+}
+
+.contact-form-input::placeholder {
+  color: rgba(156, 163, 175, 0.7);
+}
+
+/* Contact CTA Buttons */
+.contact-cta-button {
+  @apply flex-1 px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-3;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.contact-cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.contact-cta-button:hover::before {
+  transform: translateX(100%);
+}
+
+.contact-cta-whatsapp {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.contact-cta-whatsapp:hover {
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+  transform: translateY(-2px);
+}
+
+.contact-cta-email {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.contact-cta-email:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .contact-quick-card {
+    @apply p-5;
+  }
+  
+  .contact-form-card {
+    @apply p-6;
+  }
+  
+  .contact-card-icon-container {
+    @apply w-14 h-14;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-quick-card {
+    @apply p-4 space-x-3;
+  }
+  
+  .contact-card-icon-container {
+    @apply w-12 h-12;
+  }
+  
+  .contact-cta-button {
+    @apply px-6 py-3;
+  }
+}
 

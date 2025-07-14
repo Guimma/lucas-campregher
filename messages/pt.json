@@ -194,7 +194,11 @@
     }
   },
   "footer": {
-    "copyright": "© 2024 Lucas Campregher. Criado com ❤️ e muito café."
+    "copyright": "© 2025 Lucas Campregher. Criado com ❤️ e muito ☕",
+    "description": "Engenheiro de software apaixonado por criar soluções escaláveis com foco em privacidade de dados, código limpo e inovação. Pronto para transformar ideias em realidade.",
+    "builtWith": "Desenvolvido com Next.js, TypeScript, Tailwind CSS & Framer Motion",
+    "poweredBy": "Powered by Cursor",
+    "openSource": "Código open source disponível no"
   },
   "education": {
     "title": "Educação",

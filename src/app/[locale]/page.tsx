@@ -1834,207 +1834,453 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 relative" style={{ backgroundColor: '#000000' }}>
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="contact" className="py-20 relative overflow-hidden contact-section-bg">
+        {/* Smooth Transition Gradient from Previous Section */}
+        <div className="absolute top-0 left-0 right-0 h-40 pointer-events-none" style={{
+          background: 'linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0.8) 25%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.1) 75%, transparent 100%)'
+        }} />
+        
+        {/* Enhanced Rainbow Background with Floating Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Primary Rainbow Lights - Pure Colors */}
+          <motion.div
+            className="absolute top-1/6 left-1/5 w-[28rem] h-[28rem] rounded-full blur-3xl"
+            style={{ background: 'radial-gradient(circle, rgba(84, 13, 110, 0.18) 0%, rgba(84, 13, 110, 0.06) 40%, rgba(84, 13, 110, 0.02) 70%, transparent 100%)' }}
+            animate={{
+              y: [-25, 35, -25],
+              x: [-15, 20, -15],
+              scale: [1, 1.2, 0.9, 1],
+              rotate: [0, 15, -10, 0],
+            }}
+            transition={{
+              duration: 35,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          <motion.div
+            className="absolute top-1/4 right-1/6 w-[24rem] h-[24rem] rounded-full blur-3xl"
+            style={{ background: 'radial-gradient(circle, rgba(238, 66, 102, 0.16) 0%, rgba(238, 66, 102, 0.05) 40%, rgba(238, 66, 102, 0.015) 70%, transparent 100%)' }}
+            animate={{
+              y: [20, -25, 30, 20],
+              x: [12, -18, 8, 12],
+              scale: [1, 1.15, 0.85, 1],
+              rotate: [0, -20, 25, 0],
+            }}
+            transition={{
+              duration: 42,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          <motion.div
+            className="absolute bottom-1/5 left-1/4 w-[22rem] h-[22rem] rounded-full blur-3xl"
+            style={{ background: 'radial-gradient(circle, rgba(255, 210, 63, 0.14) 0%, rgba(255, 210, 63, 0.045) 40%, rgba(255, 210, 63, 0.012) 70%, transparent 100%)' }}
+            animate={{
+              y: [-22, 28, -15, -22],
+              x: [-18, 15, -25, -18],
+              scale: [1, 0.9, 1.25, 1],
+              rotate: [0, 30, -15, 0],
+            }}
+            transition={{
+              duration: 38,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          <motion.div
+            className="absolute bottom-1/4 right-1/4 w-[26rem] h-[26rem] rounded-full blur-3xl"
+            style={{ background: 'radial-gradient(circle, rgba(59, 206, 172, 0.15) 0%, rgba(59, 206, 172, 0.05) 40%, rgba(59, 206, 172, 0.015) 70%, transparent 100%)' }}
+            animate={{
+              y: [18, -22, 25, 18],
+              x: [10, -15, 20, 10],
+              scale: [1, 1.18, 0.95, 1],
+              rotate: [0, -25, 20, 0],
+            }}
+            transition={{
+              duration: 33,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          <motion.div
+            className="absolute top-2/5 left-2/5 w-[20rem] h-[20rem] rounded-full blur-3xl"
+            style={{ background: 'radial-gradient(circle, rgba(14, 173, 105, 0.13) 0%, rgba(14, 173, 105, 0.04) 40%, rgba(14, 173, 105, 0.01) 70%, transparent 100%)' }}
+            animate={{
+              y: [-20, 25, -30, -20],
+              x: [-22, 18, -12, -22],
+              scale: [1, 1.3, 0.8, 1],
+              rotate: [0, 40, -30, 0],
+            }}
+            transition={{
+              duration: 40,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+
+          {/* Additional Organic Movement Lights */}
+          <motion.div
+            className="absolute top-3/5 right-1/5 w-[18rem] h-[18rem] rounded-full blur-3xl"
+            style={{ background: 'radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, rgba(139, 92, 246, 0.035) 40%, transparent 70%)' }}
+            animate={{
+              y: [15, -20, 25, 15],
+              x: [8, -12, 16, 8],
+              scale: [1, 0.9, 1.15, 1],
+              rotate: [0, -35, 25, 0],
+            }}
+            transition={{
+              duration: 36,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+
+          {/* Secondary Flowing Lights */}
+          <motion.div
+            className="absolute top-1/8 right-2/5 w-32 h-32 rounded-full blur-2xl"
+            style={{ background: 'radial-gradient(circle, rgba(84, 13, 110, 0.08) 0%, transparent 70%)' }}
+            animate={{
+              y: [12, -18, 22, 12],
+              x: [6, -10, 14, 6],
+              opacity: [0.6, 0.9, 0.4, 0.6],
+              scale: [1, 1.2, 0.8, 1],
+            }}
+            transition={{
+              duration: 28,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          <motion.div
+            className="absolute bottom-1/8 left-1/8 w-36 h-36 rounded-full blur-2xl"
+            style={{ background: 'radial-gradient(circle, rgba(238, 66, 102, 0.07) 0%, transparent 70%)' }}
+            animate={{
+              y: [-15, 20, -25, -15],
+              x: [8, -12, 18, 8],
+              opacity: [0.5, 0.8, 0.3, 0.5],
+              scale: [1, 0.85, 1.25, 1],
+            }}
+            transition={{
+              duration: 31,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+
+          <motion.div
+            className="absolute top-1/2 right-1/8 w-28 h-28 rounded-full blur-2xl"
+            style={{ background: 'radial-gradient(circle, rgba(255, 210, 63, 0.06) 0%, transparent 70%)' }}
+            animate={{
+              y: [10, -15, 20, 10],
+              x: [5, -8, 12, 5],
+              opacity: [0.7, 1, 0.5, 0.7],
+              scale: [1, 1.1, 0.9, 1],
+            }}
+            transition={{
+              duration: 27,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            {/* Section Header */}
-            <div className="text-center mb-16">
-                              <div className="flex items-center justify-center mb-6">
-                  <div className="section-icon-container">
-                    <div className="section-icon-glow"></div>
-                    <motion.div
-                      className="flex items-center justify-center w-16 h-16 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full shadow-2xl relative z-10"
-                    >
-                      <Mail className="w-8 h-8 text-white" />
-                    </motion.div>
-                  </div>
+            {/* Enhanced Section Header */}
+            <div className="text-center mb-20 mt-16">
+              <motion.div 
+                className="flex items-center justify-center mb-8"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <div className="section-icon-container">
+                  <div className="section-icon-glow"></div>
+                  <motion.div
+                    className="flex items-center justify-center w-16 h-16 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full shadow-2xl relative z-10"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Mail className="w-8 h-8 text-white" />
+                  </motion.div>
                 </div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              </motion.div>
+              
+              <motion.h2 
+                className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-6"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
                 <span className="text-white">{t('contact.title')}</span>
-              </h2>
-              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+              </motion.h2>
+              
+              <motion.p 
+                className="text-xl text-gray-200 text-center max-w-3xl mx-auto leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
                 {t('contact.description')}
-              </p>
+              </motion.p>
             </div>
             
-            <div className="grid lg:grid-cols-3 gap-8">
-              {/* Contact Information */}
+            {/* Contact Cards Layout */}
+            <div className="grid lg:grid-cols-5 gap-8 mb-16 lg:items-stretch">
+              {/* Quick Contact Cards */}
               <motion.div
-                className="lg:col-span-1"
+                className="lg:col-span-2 flex flex-col space-y-5"
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <div className="glass p-8 rounded-2xl h-full">
-                  <h3 className="text-2xl font-semibold mb-4 text-white">{t('contact.info.title')}</h3>
-                  <p className="text-gray-300 mb-8 leading-relaxed">
-                    {t('contact.info.description')}
-                  </p>
-                  
-                  {/* Contact Details */}
-                  <div className="space-y-6">
-                    {/* Email */}
-                    <motion.a
-                      href="mailto:lucas@campregher.com"
-                      className="flex items-center space-x-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-150 group"
-                      whileHover={{ scale: 1.02, x: 5, transition: { duration: 0.15 } }}
-                    >
-                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-lg flex items-center justify-center group-hover:from-blue-500/30 group-hover:to-blue-600/30 transition-all duration-150">
-                        <Mail className="w-6 h-6 text-blue-400" />
-                      </div>
-                      <div>
-                        <p className="text-sm text-gray-400 font-medium">Email</p>
-                        <p className="text-white font-medium">{t('contact.info.email')}</p>
-                      </div>
-                    </motion.a>
-
-                    {/* Phone */}
-                    <motion.a
-                      href="tel:+5531996964056"
-                      className="flex items-center space-x-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-150 group"
-                      whileHover={{ scale: 1.02, x: 5, transition: { duration: 0.15 } }}
-                    >
-                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-lg flex items-center justify-center group-hover:from-green-500/30 group-hover:to-green-600/30 transition-all duration-150">
-                        <svg className="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                        </svg>
-                      </div>
-                      <div>
-                        <p className="text-sm text-gray-400 font-medium">Phone</p>
-                        <p className="text-white font-medium">{t('contact.info.phone')}</p>
-                      </div>
-                    </motion.a>
-
-                    {/* Location */}
-                    <motion.div
-                      className="flex items-center space-x-4 p-4 bg-white/5 rounded-xl"
-                    >
-                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-500/20 to-purple-600/20 rounded-lg flex items-center justify-center">
-                        <svg className="w-6 h-6 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                        </svg>
-                      </div>
-                      <div>
-                        <p className="text-sm text-gray-400 font-medium">Location</p>
-                        <p className="text-white font-medium">{t('contact.info.location')}</p>
-                      </div>
-                    </motion.div>
+                {/* Email Card */}
+                <motion.a
+                  href="mailto:lucas@campregher.com"
+                  className="contact-quick-card group"
+                  whileHover={{ 
+                    scale: 1.02, 
+                    y: -8,
+                    transition: { duration: 0.2 }
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <div className="contact-card-icon-container bg-gradient-to-br from-blue-500/20 to-blue-600/30">
+                    <Mail className="w-7 h-7 text-blue-300" />
                   </div>
-
-                  {/* Social Links */}
-                  <div className="mt-8 pt-8 border-t border-white/10">
-                    <p className="text-sm text-gray-400 font-medium mb-4">Follow me</p>
-                    <div className="flex space-x-4">
-                      {[
-                        { Icon: Linkedin, href: 'https://www.linkedin.com/in/lucas-campregher/', color: 'text-blue-400 hover:text-blue-300' },
-                        { Icon: Github, href: 'https://github.com/Guimma', color: 'text-gray-400 hover:text-white' }
-                      ].map((social, index) => (
-                        <motion.a
-                          key={index}
-                          href={social.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center ${social.color} transition-all duration-150 hover:bg-white/10`}
-                          whileHover={{ scale: 1.1, transition: { duration: 0.15 } }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <social.Icon className="w-5 h-5" />
-                        </motion.a>
-                      ))}
-                      <motion.a
-                        href="https://api.whatsapp.com/send?phone=5531996964056"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-green-400 hover:text-green-300 transition-all duration-150 hover:bg-white/10"
-                        whileHover={{ scale: 1.1, transition: { duration: 0.15 } }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.787z"/>
-                        </svg>
-                      </motion.a>
-                    </div>
+                  <div className="flex-1">
+                    <h4 className="text-lg font-semibold text-white mb-1">Email</h4>
+                    <p className="text-gray-300 text-sm mb-2">{t('contact.info.email')}</p>
+                    <span className="text-xs text-blue-300 font-medium">Click to send email →</span>
                   </div>
+                </motion.a>
 
-                  {/* Availability Status */}
-                  <div className="mt-6 p-4 bg-gradient-to-r from-green-500/10 to-blue-500/10 rounded-xl border border-green-500/20">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                      <p className="text-sm text-green-300 font-medium">{t('contact.info.availability')}</p>
-                    </div>
+                {/* WhatsApp Card */}
+                <motion.a
+                  href="https://api.whatsapp.com/send?phone=5531996964056"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact-quick-card group"
+                  whileHover={{ 
+                    scale: 1.02, 
+                    y: -8,
+                    transition: { duration: 0.2 }
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <div className="contact-card-icon-container bg-gradient-to-br from-green-500/20 to-green-600/30">
+                    <svg className="w-7 h-7 text-green-300" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.787z"/>
+                    </svg>
                   </div>
-                </div>
+                  <div className="flex-1">
+                    <h4 className="text-lg font-semibold text-white mb-1">WhatsApp</h4>
+                    <p className="text-gray-300 text-sm mb-2">{t('contact.info.phone')}</p>
+                    <span className="text-xs text-green-300 font-medium">Click to chat →</span>
+                  </div>
+                </motion.a>
+
+                {/* LinkedIn Card */}
+                <motion.a
+                  href="https://www.linkedin.com/in/lucas-campregher/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact-quick-card group"
+                  whileHover={{ 
+                    scale: 1.02, 
+                    y: -8,
+                    transition: { duration: 0.2 }
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <div className="contact-card-icon-container bg-gradient-to-br from-blue-600/20 to-blue-700/30">
+                    <Linkedin className="w-7 h-7 text-blue-400" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-lg font-semibold text-white mb-1">LinkedIn</h4>
+                    <p className="text-gray-300 text-sm mb-2">Professional Network</p>
+                    <span className="text-xs text-blue-400 font-medium">Connect with me →</span>
+                  </div>
+                </motion.a>
+
+                                 {/* Location Card */}
+                 <motion.div
+                   className="contact-info-card"
+                   initial={{ opacity: 0, y: 20 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   viewport={{ once: true }}
+                   transition={{ duration: 0.4, delay: 0.2 }}
+                 >
+                   <div className="flex items-center space-x-3">
+                     <div className="w-10 h-10 bg-gradient-to-br from-purple-500/20 to-purple-600/30 rounded-lg flex items-center justify-center">
+                       <svg className="w-5 h-5 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+                         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                       </svg>
+                     </div>
+                     <div>
+                       <p className="text-sm text-gray-400 font-medium">Location</p>
+                       <p className="text-white font-medium">{t('contact.info.location')}</p>
+                     </div>
+                   </div>
+                 </motion.div>
+
+                 {/* Professional Availability Card */}
+                 <motion.div
+                   className="contact-info-card flex-1"
+                   initial={{ opacity: 0, y: 20 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   viewport={{ once: true }}
+                   transition={{ duration: 0.4, delay: 0.3 }}
+                 >
+                   <div className="space-y-4">
+                     <div className="flex items-center space-x-3">
+                       <div className="w-10 h-10 bg-gradient-to-br from-emerald-500/20 to-emerald-600/30 rounded-lg flex items-center justify-center">
+                         <Briefcase className="w-5 h-5 text-emerald-400" />
+                       </div>
+                       <div>
+                         <p className="text-sm text-gray-400 font-medium">Professional Status</p>
+                         <p className="text-white font-medium">Open to Opportunities</p>
+                       </div>
+                     </div>
+                     
+                     <div className="pl-13 space-y-2">
+                       <div className="flex items-center space-x-2">
+                         <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
+                         <span className="text-sm text-gray-300">Full-time positions & career opportunities</span>
+                       </div>
+                       <div className="flex items-center space-x-2">
+                         <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                         <span className="text-sm text-gray-300">Freelance projects & consulting</span>
+                       </div>
+                       <div className="flex items-center space-x-2">
+                         <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                         <span className="text-sm text-gray-300">Software solutions partnerships</span>
+                       </div>
+                     </div>
+                   </div>
+                 </motion.div>
               </motion.div>
 
               {/* Contact Form */}
               <motion.div
-                className="lg:col-span-2"
+                className="lg:col-span-3 flex flex-col"
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <div className="glass p-8 rounded-2xl h-full">
-                  <h3 className="text-2xl font-semibold mb-6 text-white">{t('contact.form.title')}</h3>
+                <div className="contact-form-card flex-1 flex flex-col">
+                  <motion.div
+                    className="mb-8 text-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.3 }}
+                  >
+                    <h3 className="text-2xl font-bold text-white mb-3">{t('contact.form.title')}</h3>
+                    <p className="text-gray-300">{t('contact.info.description')}</p>
+                  </motion.div>
                   
-                  <form id="contact-form" className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
+                  <form id="contact-form" className="space-y-6 flex-1 flex flex-col">
+                    <div className="flex-1 space-y-6">
+                      <div className="grid md:grid-cols-2 gap-6">
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.3, delay: 0.4 }}
+                      >
                         <label className="block text-sm font-medium mb-3 text-gray-300">{t('contact.form.name')}</label>
                         <input
                           type="text"
                           name="fullname"
-                          className="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-teal-400 focus:bg-white/10 transition-all duration-150 text-white placeholder-gray-400"
+                          className="contact-form-input"
                           placeholder={t('contact.form.namePlaceholder')}
                           required
                         />
-                      </div>
-                      <div>
+                      </motion.div>
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.3, delay: 0.5 }}
+                      >
                         <label className="block text-sm font-medium mb-3 text-gray-300">{t('contact.form.email')}</label>
                         <input
                           type="email"
                           name="email"
-                          className="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-teal-400 focus:bg-white/10 transition-all duration-150 text-white placeholder-gray-400"
+                          className="contact-form-input"
                           placeholder={t('contact.form.emailPlaceholder')}
                           required
                         />
-                      </div>
+                      </motion.div>
                     </div>
                     
-                    <div>
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: 0.6 }}
+                    >
                       <label className="block text-sm font-medium mb-3 text-gray-300">{t('contact.form.subject')}</label>
                       <input
                         type="text"
                         name="subject"
-                        className="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-teal-400 focus:bg-white/10 transition-all duration-150 text-white placeholder-gray-400"
+                        className="contact-form-input"
                         placeholder={t('contact.form.subjectPlaceholder')}
                         required
                       />
-                    </div>
+                    </motion.div>
                     
-                    <div>
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: 0.7 }}
+                    >
                       <label className="block text-sm font-medium mb-3 text-gray-300">{t('contact.form.message')}</label>
                       <textarea
-                        rows={6}
+                        rows={5}
                         name="message"
-                        className="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-teal-400 focus:bg-white/10 transition-all duration-150 resize-none text-white placeholder-gray-400"
+                        className="contact-form-input resize-none"
                         placeholder={t('contact.form.messagePlaceholder')}
                         required
                       ></textarea>
+                    </motion.div>
                     </div>
                     
-                    <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                    <motion.div 
+                      className="flex flex-col sm:flex-row gap-4 pt-6"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: 0.8 }}
+                    >
                       <motion.button
                         type="button"
                         onClick={sendWhatsApp}
-                        className="flex-1 px-6 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-semibold hover:shadow-2xl transition-all duration-150 flex items-center justify-center gap-3 hover:from-green-600 hover:to-green-700"
-                        whileHover={{ scale: 1.02, boxShadow: "0 25px 50px -12px rgba(34, 197, 94, 0.5)", transition: { duration: 0.15 } }}
+                        className="contact-cta-button contact-cta-whatsapp"
+                        whileHover={{ 
+                          scale: 1.02, 
+                          y: -3,
+                          boxShadow: "0 25px 50px -12px rgba(34, 197, 94, 0.4)",
+                          transition: { duration: 0.2 }
+                        }}
                         whileTap={{ scale: 0.98 }}
                       >
                         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -2046,8 +2292,13 @@ export default function Home() {
                       <motion.button
                         type="button"
                         onClick={sendEmail}
-                        className="flex-1 px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold hover:shadow-2xl transition-all duration-150 flex items-center justify-center gap-3"
-                        whileHover={{ scale: 1.02, boxShadow: "0 25px 50px -12px rgba(139, 92, 246, 0.5)", transition: { duration: 0.15 } }}
+                        className="contact-cta-button contact-cta-email"
+                        whileHover={{ 
+                          scale: 1.02, 
+                          y: -3,
+                          boxShadow: "0 25px 50px -12px rgba(139, 92, 246, 0.4)",
+                          transition: { duration: 0.2 }
+                        }}
                         whileTap={{ scale: 0.98 }}
                       >
                         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -2055,7 +2306,7 @@ export default function Home() {
                         </svg>
                         {t('contact.form.sendEmail')}
                       </motion.button>
-                    </div>
+                    </motion.div>
                   </form>
                 </div>
               </motion.div>
@@ -2064,12 +2315,221 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-8 glass mt-20">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <p className="text-gray-400">
-            {t('footer.copyright')}
-          </p>
+      {/* Enhanced Footer */}
+      <footer className="pt-12 pb-6 relative" style={{ backgroundColor: '#000000' }}>
+        {/* Top Separator Line */}
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ backgroundColor: 'rgba(255, 255, 255, 0.25)' }}></div>
+        
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.div
+              className="grid md:grid-cols-5 gap-8 mb-8"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              {/* Brand Column */}
+              <motion.div 
+                className="md:col-span-2"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+              >
+                <div className="flex items-center space-x-3 mb-4">
+                  <motion.div 
+                    className="flex items-center justify-center w-10 h-10"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image
+                      src="/mbm.png"
+                      alt="MBM Logo"
+                      width={40}
+                      height={40}
+                      className="w-10 h-10 object-contain"
+                    />
+                  </motion.div>
+                  <div className="flex flex-col">
+                    <span className="text-lg font-bold text-white uppercase tracking-wide">{t('navigation.name')}</span>
+                    <span className="text-xs text-gray-400 font-medium tracking-wider uppercase">MONKEYS BYTE ME</span>
+                  </div>
+                </div>
+                <p className="text-gray-200 text-sm leading-relaxed mb-4">
+                  {t('footer.description')}
+                </p>
+                
+                {/* Social Links */}
+                <div className="flex space-x-3">
+                  {[
+                    { Icon: Github, href: "https://github.com/Guimma", label: "GitHub" },
+                    { Icon: Linkedin, href: "https://www.linkedin.com/in/lucas-campregher/", label: "LinkedIn" },
+                    { Icon: Mail, href: "mailto:lucas@campregher.com", label: "Email" }
+                  ].map((item, index) => (
+                    <a
+                      key={index}
+                      href={item.href}
+                      target={item.href.startsWith('mailto') ? undefined : "_blank"}
+                      rel={item.href.startsWith('mailto') ? undefined : "noopener noreferrer"}
+                      className="p-2 bg-gray-800/50 border border-gray-700 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700/50 transition-all duration-300"
+                      title={item.label}
+                    >
+                      <item.Icon size={18} />
+                    </a>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Quick Links */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wide">Navigation</h4>
+                <div className="space-y-2">
+                  {[
+                    { key: 'about', section: 'about' },
+                    { key: 'career', section: 'career' },
+                    { key: 'skills', section: 'skills' },
+                    { key: 'projects', section: 'projects' },
+                    { key: 'podcasts', section: 'podcasts' },
+                    { key: 'blog', section: 'blog' },
+                    { key: 'contact', section: 'contact' }
+                  ].map((item, index) => (
+                    <motion.button
+                      key={item.key}
+                      onClick={() => smoothScrollTo(item.section)}
+                      className="block text-left text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer text-sm py-1"
+                      whileHover={{ x: 3 }}
+                      initial={{ opacity: 0, x: 10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: 0.3 + index * 0.03 }}
+                    >
+                      {t(`navigation.${item.key}`)}
+                    </motion.button>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Tech */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.25 }}
+              >
+                <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wide">Tech</h4>
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-2 text-sm">
+                    <span className="text-gray-400">{t('footer.builtWith')}</span>
+                  </div>
+                  <div className="flex items-center space-x-2 text-sm">
+                    <span className="text-purple-400 font-medium">{t('footer.poweredBy')}</span>
+                  </div>
+                  <div className="pt-2">
+                    <span className="text-gray-400 text-xs block mb-2">{t('footer.openSource')}</span>
+                    <motion.a
+                      href="https://github.com/Guimma/lucas-campregher"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors duration-300 text-sm"
+                      whileHover={{ scale: 1.05, x: 3 }}
+                    >
+                      <Github size={16} />
+                      <span>View Source</span>
+                    </motion.a>
+                  </div>
+
+                </div>
+              </motion.div>
+
+              {/* Contact Info */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.35 }}
+              >
+                <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wide">Contact</h4>
+                <div className="space-y-3">
+                  <motion.a
+                    href="mailto:lucas@campregher.com"
+                    className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors duration-300 text-sm"
+                    whileHover={{ x: 3 }}
+                  >
+                    <Mail size={14} className="text-purple-400" />
+                    <span>lucas@campregher.com</span>
+                  </motion.a>
+                  <motion.a
+                    href="https://api.whatsapp.com/send?phone=5531996964056"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors duration-300 text-sm"
+                    whileHover={{ x: 3 }}
+                  >
+                    <svg className="w-3.5 h-3.5 text-green-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.787z"/>
+                    </svg>
+                    <span>+55 (31) 99696-4056</span>
+                  </motion.a>
+                  <div className="flex items-center space-x-2 text-gray-300 text-sm">
+                    <svg className="w-3.5 h-3.5 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    <span>{t('contact.info.location')}</span>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Footer Bottom */}
+            <motion.div 
+              className="pt-6"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <div className="relative">
+                {/* Copyright - Centralized */}
+                <div className="text-center">
+                  <motion.p 
+                    className="text-gray-300 text-sm"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: 0.5 }}
+                  >
+                    {t('footer.copyright')}
+                  </motion.p>
+                </div>
+                
+                {/* Back to Top - Right aligned */}
+                <motion.button
+                  onClick={() => smoothScrollTo('about')}
+                  className="absolute right-0 top-0 flex items-center space-x-2 text-gray-400 hover:text-white transition-colors duration-300 cursor-pointer text-sm"
+                  whileHover={{ y: -2, scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.6 }}
+                >
+                  <span>↑</span>
+                  <span>Back to Top</span>
+                </motion.button>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </footer>
     </div>
