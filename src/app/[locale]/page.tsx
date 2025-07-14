@@ -2020,7 +2020,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
           >
             {/* Enhanced Section Header */}
-            <div className="text-center mb-20 mt-16">
+            <div className="text-center mb-4 mt-16">
               <motion.div 
                 className="flex items-center justify-center mb-8"
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -2059,10 +2059,21 @@ export default function Home() {
               >
                 {t('contact.description')}
               </motion.p>
+              
+              {/* CV Download Button in Contact Section */}
+              <motion.div 
+                className="flex justify-center mt-6 mb-0"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              >
+                <CVDownloadButton />
+              </motion.div>
             </div>
             
             {/* Contact Cards Layout */}
-            <div className="grid lg:grid-cols-5 gap-8 mb-16 lg:items-stretch">
+            <div className="grid lg:grid-cols-5 gap-8 lg:items-stretch mt-6">
               {/* Quick Contact Cards */}
               <motion.div
                 className="lg:col-span-2 flex flex-col space-y-5"
