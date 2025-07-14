@@ -49,8 +49,8 @@
     }
   },
   "career": {
-    "title": "Jornada Profissional",
-    "description": "Uma visão abrangente da minha trajetória profissional, desde estágio até liderança técnica, demonstrando crescimento através de projetos diversos e tecnologias em múltiplas indústrias.",
+    "title": "Carreira",
+    "description": "Conheça um pouco da minha trajetória profissional, e dos projetos em que trabalhei",
     "experiences": {
       "devpro": {
         "title": "Engenheiro de Software",
@@ -115,7 +115,7 @@
   },
   "skills": {
     "title": "Habilidades",
-    "description": "Um detalhamento abrangente da minha expertise técnica, desde linguagens de programação e frameworks até tecnologias cloud e soft skills desenvolvidas ao longo da carreira.",
+    "description": "Minha principal stack de tecnologias ⚡",
     "areas": {
       "languages": "Linguagens de Programação",
       "frameworks": "Frameworks e Ferramentas",
@@ -127,18 +127,23 @@
   },
   "projects": {
     "title": "Projetos em Destaque",
-    "description": "Uma seleção de projetos que demonstram minhas habilidades técnicas, criatividade e paixão por resolver problemas do mundo real através de soluções de software inovadoras.",
+    "description": "Aqui estão alguns dos meus projetos pessoais, experimentações, estudos e iniciativas empreendedoras",
+    "githubCta": {
+      "title": "Explore Mais Projetos",
+      "description": "Descubra projetos adicionais, experimentos e contribuições open-source",
+      "button": "Ver Todos no GitHub"
+    },
     "items": {
       "betterbet": {
         "title": "BetterBet",
-        "description": "Plataforma avançada de inteligência para apostas esportivas utilizando algoritmos de machine learning e análise de dados em tempo real para gerar previsões precisas.",
+        "description": "Plataforma avançada de inteligência para apostas esportivas utilizando algoritmos de machine learning e análise de dados em tempo real para gerar previsões precisas. Este é meu principal projeto pessoal além do meu trabalho regular.",
         "tags": ["Python", "IA", "Cursor", "Machine Learning", "Web Scraping", "Data Science"],
         "repo": "https://github.com/Guimma/betterbet"
       },
       "glenio": {
-        "title": "Glenio Campregher - Fotografia",
+        "title": "Glenio Campregher Portifólio de Fotografia",
         "description": "Portfólio profissional de fotografia apresentando trabalhos artísticos através de interface responsiva Vue.js com integração da API do Flickr.",
-        "tags": ["Vue.js"],
+        "tags": ["Vue.js", "Fotografia", "Portfólio", "Flickr API", "Galeria"],
         "site": "https://guimma.github.io/vue-photosite/",
         "repo": "https://github.com/Guimma/vue-photosite"
       },
@@ -150,7 +155,7 @@
         "repo": "https://github.com/Guimma/fantasy-web"
       },
       "cats": {
-        "title": "Christmas Cats",
+        "title": "Christmas Cats 😺🎅",
         "description": "Experiência web interativa com tema natalino apresentando animações divertidas e elementos de design festivos, demonstrando habilidades criativas de frontend.",
         "tags": ["HTML", "CSS", "JavaScript", "Diversão", "Gatos"],
         "site": "https://guimma.github.io/Christmas-Cats/",
@@ -193,7 +198,7 @@
   },
   "education": {
     "title": "Educação",
-    "description": "Minha base educacional em Ciência da Computação, fornecendo o conhecimento teórico e habilidades de pensamento analítico que sustentam meu desenvolvimento profissional.",
+    "description": "Base acadêmica que fundamenta minha expertise técnica e profissional",
     "items": {
       "puc": {
         "name": "Pontifícia Universidade Católica de Minas Gerais",
@@ -213,7 +218,17 @@
   },
   "podcasts": {
     "title": "Episódios de Podcast",
-    "description": "Episódios em destaque de podcasts que participei, compartilhando insights sobre desenvolvimento de software, tendências tecnológicas e melhores práticas da indústria."
+    "description": "Conversas sobre tecnologia e desenvolvimento que participei como convidado",
+    "listenOnSpotify": "Ouvir no Spotify",
+    "swipeToNavigate": "Deslize para navegar",
+    "stats": {
+      "episodes": "+100",
+      "episodesLabel": "episódios como host",
+      "appearances": "+20.000",
+      "appearancesLabel": "streamings",
+      "reach": "+1000",
+      "reachLabel": "desenvolvedores impactados"
+    }
   },
   "blog": {
     "title": "Últimas Reflexões",
@@ -243,7 +258,7 @@
       "enzimasPrivacy": {
         "title": "Enzimas #200 - Os riscos e desafios da falta de Privacidade Digital",
         "excerpt": "Você que já assistiu o documentário \"O Dilema das Redes\", ficou intrigado com o poder que seus dados podem possuir nas mãos de terceiros? Para falar sobre a importância da privacidade e controle deles, convidamos Lucas Campregher, Desenvolvedor na dti digital, para falar sobre o tema tanto pela ótica da pessoa usuária, quanto de quem constrói a solução. Dá o Play!",
-        "readTime": "45",
+        "readTime": "10",
         "tags": ["Privacidade", "Podcast", "Direitos Digitais", "Proteção de Dados"],
         "date": "2023-02",
         "category": "Podcast",

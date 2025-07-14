@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display, JetBrains_Mono } from "next/font/google";
 import "../globals.css";
-import CustomCursor from "../../components/CustomCursor";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
@@ -55,24 +54,9 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: [
-      {
-        url: 'data:image/svg+xml;base64,' + btoa(`
-          <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-            <rect width="32" height="32" rx="6" fill="url(#gradient)"/>
-            <defs>
-              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#3B82F6"/>
-                <stop offset="100%" style="stop-color:#8B5CF6"/>
-              </linearGradient>
-            </defs>
-            <text x="16" y="20" text-anchor="middle" fill="white" font-family="JetBrains Mono, monospace" font-size="12" font-weight="bold">&lt;/&gt;</text>
-          </svg>
-        `),
-        sizes: '32x32',
-        type: 'image/svg+xml',
-      }
-    ],
+    icon: '/mbm.png',
+    shortcut: '/mbm.png',
+    apple: '/mbm.png',
   },
 };
 
@@ -89,7 +73,6 @@ export default async function LocaleLayout({
   return (
     <div className={`${inter.variable} ${playfair.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
       <NextIntlClientProvider messages={messages} locale={locale}>
-        <CustomCursor />
         {children}
       </NextIntlClientProvider>
     </div>

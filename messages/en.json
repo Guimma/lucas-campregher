@@ -49,8 +49,8 @@
     }
   },
   "career": {
-    "title": "Career Journey",
-    "description": "A comprehensive overview of my professional journey, from internship to technical leadership, showcasing growth through diverse projects and technologies across multiple industries.",
+    "title": "Career",
+    "description": "Learn about my professional journey and the projects I've worked on",
     "experiences": {
       "devpro": {
         "title": "Software Engineer",
@@ -115,7 +115,7 @@
   },
   "skills": {
     "title": "Skills",
-    "description": "A comprehensive breakdown of my technical expertise, from programming languages and frameworks to cloud technologies and soft skills developed throughout my career.",
+    "description": "My main tech stack ⚡",
     "areas": {
       "languages": "Programming Languages",
       "frameworks": "Frameworks & Development Tools",
@@ -127,7 +127,12 @@
   },
   "projects": {
     "title": "Featured Projects",
-    "description": "A showcase of selected projects that demonstrate my technical skills, creativity, and passion for solving real-world problems through innovative software solutions.",
+    "description": "Here are some of my personal projects, experiments, studies, and entrepreneurial initiatives",
+    "githubCta": {
+      "title": "Explore More Projects",
+      "description": "Discover additional projects, experiments, and open-source contributions",
+      "button": "View All on GitHub"
+    },
     "items": {
       "dataPrivacy": {
         "title": "Data Privacy Platform",
@@ -143,14 +148,14 @@
       },
       "betterbet": {
         "title": "BetterBet",
-        "description": "Advanced sports betting intelligence platform leveraging machine learning algorithms and real-time data analysis to generate accurate predictions for professional bettors.",
+        "description": "Advanced sports betting intelligence platform using machine learning algorithms and real-time data analysis to generate accurate predictions. This is my main personal project alongside my regular work.",
         "tags": ["Python", "AI", "Cursor", "Machine Learning", "Web Scraping", "Data Science"],
         "repo": "https://github.com/Guimma/betterbet"
       },
       "glenio": {
-        "title": "Glenio Campregher - Photography",
+        "title": "Glenio Campregher Photography Portfolio",
         "description": "Professional photography portfolio showcasing artistic work through a responsive Vue.js interface with Flickr API integration for dynamic content management.",
-        "tags": ["Vue.js"],
+        "tags": ["Vue.js", "Photography", "Portfolio", "Flickr API", "Gallery"],
         "site": "https://guimma.github.io/vue-photosite/",
         "repo": "https://github.com/Guimma/vue-photosite"
       },
@@ -162,7 +167,7 @@
         "repo": "https://github.com/Guimma/fantasy-web"
       },
       "cats": {
-        "title": "Christmas Cats",
+        "title": "Christmas Cats 😺🎅",
         "description": "Interactive holiday-themed web experience featuring playful animations and festive design elements, demonstrating creative frontend development skills.",
         "tags": ["HTML", "CSS", "JavaScript", "Fun", "Cats"],
         "site": "https://guimma.github.io/Christmas-Cats/",
@@ -205,7 +210,7 @@
   },
   "education": {
     "title": "Education",
-    "description": "My educational foundation in Computer Science, providing the theoretical knowledge and analytical thinking skills that support my professional development.",
+    "description": "Academic foundation that supports my technical and professional expertise",
     "items": {
       "puc": {
         "name": "Pontifícia Universidade Católica de Minas Gerais",
@@ -225,7 +230,17 @@
   },
   "podcasts": {
     "title": "Podcast Episodes",
-    "description": "Featured episodes from podcasts I've participated in, sharing insights on software development, technology trends, and industry best practices."
+    "description": "Tech and development conversations I've joined as a guest",
+    "listenOnSpotify": "Listen on Spotify",
+    "swipeToNavigate": "Swipe to navigate",
+    "stats": {
+      "episodes": "+100",
+      "episodesLabel": "episodes as host",
+      "appearances": "+20,000",
+      "appearancesLabel": "streamings",
+      "reach": "+1,000",
+      "reachLabel": "developers impacted"
+    }
   },
   "blog": {
     "title": "Latest Insights",
@@ -255,7 +270,7 @@
       "enzimasPrivacy": {
         "title": "Enzimas #200 - The risks and challenges of lack of Digital Privacy",
         "excerpt": "Have you watched the documentary 'The Social Dilemma' and been intrigued by the power your data can have in the hands of third parties? To talk about the importance of privacy and control of your data, we invited Lucas Campregher, Developer at dti digital, to discuss the topic both from the user's perspective and from those who build the solution. Press Play!",
-        "readTime": "45",
+        "readTime": "10",
         "tags": ["Privacy", "Podcast", "Digital Rights", "Data Protection"],
         "date": "2023-02",
         "category": "Podcast",
@@ -271,7 +286,7 @@
         "url": "https://www.linkedin.com/events/techshot-privacidadededados-doi7024376972268953600"
       },
       "techshotWallE": {
-        "title": "Wall-e Case: how we improved a legacy system by 93%",
+        "title": "Wall-e Case: how we improved a legacy system by 93% by logging",
         "excerpt": "Leaving aside the theoretical and superficial parts, in this techshot we will present a real success case when working with evolutions in a legacy system. Based on performance log analysis and technical development proposals, we optimized process performance by 93%.",
         "readTime": "35",
         "tags": ["Legacy Systems", "Performance", "Optimization", "Case Study"],

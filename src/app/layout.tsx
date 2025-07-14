@@ -13,7 +13,9 @@ export const metadata: Metadata = {
   title: "Lucas Campregher - Developer Portfolio",
   description: "Fullstack Software Engineer specializing in Data Privacy & AI",
   icons: {
-    icon: "/favicon.ico",
+    icon: '/mbm.png',
+    shortcut: '/mbm.png',
+    apple: '/mbm.png',
   },
 };
 

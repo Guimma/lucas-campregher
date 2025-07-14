@@ -1,6 +1,10 @@
 export interface PodcastEpisode {
   id: string;
-  embedUrl: string;
+  title: string;
+  image: string;
+  spotifyUrl: string;
+  episodeNumber?: number;
+  show: string;
 }
 
 export interface PodcastDisplay {

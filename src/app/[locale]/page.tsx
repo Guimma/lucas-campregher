@@ -30,7 +30,6 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import LanguageToggle from '../../components/LanguageToggle';
 import PodcastSection from '../../components/PodcastSection';
-import { PodcastEpisode } from '../../types/podcast';
 import { useContactForm } from '@/hooks/useContactForm';
 
 // Animation variants
@@ -68,6 +67,38 @@ export default function Home() {
 
   const toggleCard = (key: string) => {
     setExpandedCard(expandedCard === key ? null : key);
+  };
+
+  // Smooth scroll function with easing
+  const smoothScrollTo = (elementId: string) => {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+
+    const targetPosition = element.offsetTop;
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    const duration = 2000; // 2 seconds
+    let start: number | null = null;
+
+    // Easing function (ease-in-out cubic)
+    const easeInOutCubic = (t: number): number => {
+      return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+    };
+
+    const animation = (currentTime: number) => {
+      if (start === null) start = currentTime;
+      const timeElapsed = currentTime - start;
+      const progress = Math.min(timeElapsed / duration, 1);
+      const easeProgress = easeInOutCubic(progress);
+      
+      window.scrollTo(0, startPosition + distance * easeProgress);
+      
+      if (progress < 1) {
+        requestAnimationFrame(animation);
+      }
+    };
+
+    requestAnimationFrame(animation);
   };
 
   // Effect para detectar seção ativa e posição do scroll
@@ -108,45 +139,8 @@ export default function Home() {
     return () => document.removeEventListener('click', handleClickOutside);
   }, [mobileMenuOpen]);
 
-  // Exemplo de dados de podcasts
-  const podcastEpisodes: PodcastEpisode[] = [
-    {
-      id: "copilot-184",
-      embedUrl: "https://open.spotify.com/embed/episode/1jddVtYxTc0NHkQ60a0P2U?utm_source=generator&theme=0"
-    },
-    {
-      id: "ddd-181",
-      embedUrl: "https://open.spotify.com/embed/episode/2Bq6Of15RCYUrGT0VdyzrS?utm_source=generator&theme=0"
-    },
-    {
-      id: "clean-179",
-      embedUrl: "https://open.spotify.com/embed/episode/6Nj3KlF2z5V5n1I3pLpywE?utm_source=generator&theme=0"
-    },
-    {
-      id: "ops-177",
-      embedUrl: "https://open.spotify.com/embed/episode/1W9WTWZW2qZA5hUoAxz3Xv?utm_source=generator&theme=0"
-    },
-    {
-      id: "opentelemetry-171",
-      embedUrl: "https://open.spotify.com/embed/episode/7mszNxKgO6suP8DoWWvUSb?utm_source=generator&theme=0"
-    },
-    {
-      id: "microservices-167",
-      embedUrl: "https://open.spotify.com/embed/episode/4GPvd8VeSGSDuJquy6fNPm?utm_source=generator&theme=0"
-    },
-    {
-      id: "sre-164",
-      embedUrl: "https://open.spotify.com/embed/episode/6YqOGmqatuRRelTpBs8FyM?utm_source=generator&theme=0"
-    },
-    {
-      id: "chatbots-20",
-      embedUrl: "https://open.spotify.com/embed/episode/5qLKkWQULsPmNKMQjI98B9?utm_source=generator&theme=0"
-    },
-    {
-      id: "kafka-173",
-      embedUrl: "https://open.spotify.com/embed/episode/11l0xTs7300mAT875Vm5CM?utm_source=generator&theme=0"
-    }
-  ];
+
+    
 
   return (
     <div className="min-h-screen">
@@ -179,7 +173,10 @@ export default function Home() {
                   className="w-10 h-10 object-contain"
                 />
               </div>
-              <span className="text-lg font-bold text-white uppercase tracking-wide">{t('navigation.name')}</span>
+              <div className="flex flex-col">
+                <span className="text-lg font-bold text-white uppercase tracking-wide">{t('navigation.name')}</span>
+                <span className="text-xs text-gray-400 font-medium tracking-wider uppercase">MONKEYS BYTE ME</span>
+              </div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -202,7 +199,7 @@ export default function Home() {
               {/* Menu mobile */}
               <div className="md:hidden">
                 <motion.button
-                  className="p-2 rounded-full hover:bg-white/10 transition-all duration-300 mobile-menu"
+                  className="p-2 rounded-full hover:bg-white/10 transition-all duration-300 mobile-menu cursor-pointer"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -226,7 +223,7 @@ export default function Home() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        <div className="flex items-center bg-white/15 backdrop-blur-sm border border-white/25 rounded-2xl p-2 shadow-2xl gap-1">
+        <div className="flex items-center bg-white/15 backdrop-blur-sm rounded-2xl p-2 shadow-2xl gap-1">
           {[
             { key: 'about', section: 'about', icon: HomeIcon },
             { key: 'career', section: 'career', icon: Briefcase },
@@ -238,10 +235,13 @@ export default function Home() {
           ].map((item) => {
             const isActive = activeSection === item.section;
             return (
-              <motion.a
+              <motion.button
                 key={item.key}
-                href={`#${item.section}`}
-                className={`relative p-3 rounded-xl transition-all duration-300 group ${
+                onClick={(e) => {
+                  e.preventDefault();
+                  smoothScrollTo(item.section);
+                }}
+                className={`relative p-3 rounded-xl transition-all duration-300 group cursor-pointer ${
                   isActive ? 'bg-white shadow-lg shadow-white/30' : 'hover:bg-white/10'
                 }`}
                 whileHover={{ scale: 1.05 }}
@@ -254,7 +254,7 @@ export default function Home() {
                     isActive ? 'text-black' : 'text-gray-300 group-hover:text-white'
                   }`} 
                 />
-              </motion.a>
+              </motion.button>
             );
           })}
         </div>
@@ -295,15 +295,18 @@ export default function Home() {
                 ].map((item) => {
                     const isActive = activeSection === item.section;
                     return (
-                      <motion.a
+                      <motion.button
                         key={item.key}
-                        href={`#${item.section}`}
-                        className={`flex flex-col items-center p-3 rounded-xl transition-all duration-300 ${
+                        onClick={(e) => {
+                          e.preventDefault();
+                          smoothScrollTo(item.section);
+                          setMobileMenuOpen(false);
+                        }}
+                        className={`flex flex-col items-center p-3 rounded-xl transition-all duration-300 cursor-pointer ${
                           isActive ? 'bg-white/90' : 'hover:bg-white/10'
                         }`}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        onClick={() => setMobileMenuOpen(false)}
                       >
                         <item.icon 
                           size={20} 
@@ -316,7 +319,7 @@ export default function Home() {
                         }`}>
                           {t(`navigation.${item.key}`)}
                         </span>
-                      </motion.a>
+                      </motion.button>
                     );
                   })}
                 </div>
@@ -455,7 +458,7 @@ export default function Home() {
             >
               <div className="relative inline-block">
                 <motion.div
-                  className="w-40 h-40 md:w-48 md:h-48 rounded-full mx-auto overflow-hidden border-4 border-white shadow-2xl"
+                  className="w-40 h-40 md:w-48 md:h-48 rounded-full mx-auto overflow-hidden shadow-2xl"
                   style={{
                     boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
                   }}
@@ -496,25 +499,28 @@ export default function Home() {
               className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
               variants={fadeInUp}
             >
-              <motion.a
-                href="#projects"
-                className="px-8 py-4 bg-white text-black rounded-full font-semibold shadow-lg shadow-white/30 border border-white/20"
+              <motion.button
+                onClick={() => smoothScrollTo('projects')}
+                className="px-8 py-4 bg-white text-black rounded-full font-semibold shadow-lg shadow-white/30"
                 whileHover={{ 
                   scale: 1.05,
                   transition: { duration: 0.2 }
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {t('hero.viewWork')}
-              </motion.a>
-              <motion.a
-                href="#contact"
+                <div className="flex items-center gap-2">
+                  <Rocket size={20} />
+                  {t('hero.viewWork')}
+                </div>
+              </motion.button>
+              <motion.button
+                onClick={() => smoothScrollTo('contact')}
                 className="px-8 py-4 glass text-white rounded-full font-semibold hover:bg-white/20 transition-all duration-150"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 {t('hero.getInTouch')}
-              </motion.a>
+              </motion.button>
             </motion.div>
 
             <motion.div 
@@ -762,8 +768,8 @@ export default function Home() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ 
-                      duration: 0.3,
-                      delay: index * 0.05,
+                      duration: 0.2,
+                      delay: index * 0.02,
                       ease: "easeOut"
                     }}
                   >
@@ -774,8 +780,8 @@ export default function Home() {
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ 
-                        duration: 0.4, 
-                        delay: index * 0.05 + 0.3,
+                        duration: 0.3, 
+                        delay: index * 0.02 + 0.1,
                         type: "spring",
                         stiffness: 300
                       }}
@@ -806,7 +812,7 @@ export default function Home() {
                               initial={{ opacity: 0, scale: 0.8 }}
                               whileInView={{ opacity: 1, scale: 1 }}
                               viewport={{ once: true }}
-                              transition={{ duration: 0.4, delay: index * 0.05 + 0.8 }}
+                              transition={{ duration: 0.25, delay: index * 0.02 + 0.15 }}
                             >
                               <Calendar size={16} className="inline mr-1" />
                               {t(`career.experiences.${item.key}.period`)}
@@ -819,7 +825,7 @@ export default function Home() {
                               initial={{ opacity: 0, scale: 0.8 }}
                               whileInView={{ opacity: 1, scale: 1 }}
                               viewport={{ once: true }}
-                              transition={{ duration: 0.2, delay: index * 0.05 + 0.9 }}
+                              transition={{ duration: 0.15, delay: index * 0.02 + 0.2 }}
                             >
                               <a 
                                 href={
@@ -855,7 +861,7 @@ export default function Home() {
                               initial={{ opacity: 0, y: 20 }}
                               whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true }}
-                              transition={{ duration: 0.2, delay: index * 0.05 + 1.0 }}
+                              transition={{ duration: 0.15, delay: index * 0.02 + 0.25 }}
                             >
                               {t(`career.experiences.${item.key}.company`)}
                             </motion.h3>
@@ -864,7 +870,7 @@ export default function Home() {
                               initial={{ opacity: 0 }}
                               whileInView={{ opacity: 1 }}
                               viewport={{ once: true }}
-                              transition={{ duration: 0.2, delay: index * 0.05 + 1.1 }}
+                              transition={{ duration: 0.15, delay: index * 0.02 + 0.3 }}
                             >
                               <Briefcase size={18} />
                               <span>{t(`career.experiences.${item.key}.title`)}</span>
@@ -877,7 +883,7 @@ export default function Home() {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.2, delay: index * 0.05 + 1.1 }}
+                            transition={{ duration: 0.15, delay: index * 0.02 + 0.35 }}
                           >
                             {t(`career.experiences.${item.key}.description`)}
                           </motion.p>
@@ -888,7 +894,7 @@ export default function Home() {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.2, delay: index * 0.05 + 1.3 }}
+                            transition={{ duration: 0.15, delay: index * 0.02 + 0.4 }}
                           >
                             {item.techs.map((tech: string, techIndex: number) => (
                               <motion.span
@@ -898,8 +904,8 @@ export default function Home() {
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ 
-                                  duration: 0.2, 
-                                  delay: index * 0.05 + 1.3 + techIndex * 0.05
+                                  duration: 0.1, 
+                                  delay: index * 0.02 + 0.4 + techIndex * 0.02
                                 }}
                               >
                                 {tech}
@@ -914,7 +920,7 @@ export default function Home() {
                               initial={{ opacity: 0, y: 20 }}
                               whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true }}
-                              transition={{ duration: 0.2, delay: index * 0.05 + 1.4 }}
+                              transition={{ duration: 0.15, delay: index * 0.02 + 0.45 }}
                             >
                               {item.clients.slice(0, 4).map((client, clientIndex) => (
                                 <motion.div
@@ -924,8 +930,8 @@ export default function Home() {
                                   whileInView={{ opacity: 1, scale: 1 }}
                                   viewport={{ once: true }}
                                   transition={{ 
-                                    duration: 0.2, 
-                                    delay: index * 0.05 + 1.4 + clientIndex * 0.05
+                                    duration: 0.1, 
+                                    delay: index * 0.02 + 0.45 + clientIndex * 0.02
                                   }}
                                   title={client.name}
                                 >
@@ -945,8 +951,8 @@ export default function Home() {
                                   whileInView={{ opacity: 1, scale: 1 }}
                                   viewport={{ once: true }}
                                   transition={{ 
-                                    duration: 0.2, 
-                                    delay: index * 0.05 + 1.4 + 4 * 0.05
+                                    duration: 0.1, 
+                                    delay: index * 0.02 + 0.45 + 4 * 0.02
                                   }}
                                 >
                                   <span className="text-xs font-medium text-white">
@@ -963,7 +969,7 @@ export default function Home() {
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.2, delay: index * 0.05 + 1.5 }}
+                            transition={{ duration: 0.15, delay: index * 0.02 + 0.4 }}
                           >
                             <motion.button
                               className="p-4 rounded-xl hover:bg-white/15 transition-all duration-300 flex items-center justify-center"
@@ -998,7 +1004,7 @@ export default function Home() {
                                       key={client.name}
                                       initial={{ opacity: 0, y: 20 }}
                                       animate={{ opacity: 1, y: 0 }}
-                                      transition={{ duration: 0.2, delay: clientIndex * 0.1 }}
+                                      transition={{ duration: 0.15, delay: clientIndex * 0.03 }}
                                       className="flex flex-row items-center gap-6 w-full bg-transparent border-none shadow-none min-h-0"
                                       style={{ minHeight: 'unset', boxShadow: 'none', background: 'none' }}
                                     >
@@ -1114,8 +1120,8 @@ export default function Home() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ 
-                      duration: 0.3,
-                      delay: index * 0.05,
+                      duration: 0.2,
+                      delay: index * 0.02,
                       ease: "easeOut"
                     }}
                   >
@@ -1126,8 +1132,8 @@ export default function Home() {
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ 
-                        duration: 0.4, 
-                        delay: index * 0.05 + 0.3,
+                        duration: 0.3, 
+                        delay: index * 0.02 + 0.1,
                         type: "spring",
                         stiffness: 300
                       }}
@@ -1151,7 +1157,7 @@ export default function Home() {
                               initial={{ opacity: 0, scale: 0.8 }}
                               whileInView={{ opacity: 1, scale: 1 }}
                               viewport={{ once: true }}
-                              transition={{ duration: 0.4, delay: index * 0.05 + 0.8 }}
+                              transition={{ duration: 0.25, delay: index * 0.02 + 0.15 }}
                             >
                                                              <Calendar size={16} className="inline mr-1" />
                                {edu.period}
@@ -1165,7 +1171,7 @@ export default function Home() {
                               initial={{ opacity: 0, scale: 0.8 }}
                               whileInView={{ opacity: 1, scale: 1 }}
                               viewport={{ once: true }}
-                              transition={{ duration: 0.2, delay: index * 0.05 + 0.9 }}
+                              transition={{ duration: 0.15, delay: index * 0.02 + 0.2 }}
                             >
                               <div className="career-logo bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-3">
                                 <edu.icon className="w-10 h-10 text-white" />
@@ -1176,7 +1182,7 @@ export default function Home() {
                               initial={{ opacity: 0, y: 20 }}
                               whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true }}
-                              transition={{ duration: 0.2, delay: index * 0.05 + 1.0 }}
+                              transition={{ duration: 0.15, delay: index * 0.02 + 0.25 }}
                             >
                               {edu.degree}
                             </motion.h3>
@@ -1185,7 +1191,7 @@ export default function Home() {
                               initial={{ opacity: 0 }}
                               whileInView={{ opacity: 1 }}
                               viewport={{ once: true }}
-                              transition={{ duration: 0.2, delay: index * 0.05 + 1.1 }}
+                              transition={{ duration: 0.15, delay: index * 0.02 + 0.3 }}
                             >
                               <Building2 size={16} />
                               <span>{edu.institution}</span>
@@ -1227,129 +1233,92 @@ export default function Home() {
             <p className="text-xl text-gray-300 text-center mb-16 max-w-3xl mx-auto">
               {t('skills.description')}
             </p>
-            <div className="grid md:grid-cols-2 gap-10">
-              {/* Programming Languages */}
-              <motion.div
-                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-sm group"
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.3, ease: 'easeOut' }}
-              >
-                <h3 className="text-xl font-semibold mb-6 text-white group-hover:text-blue-300 flex items-center gap-2 transition-colors duration-300">
-                  <Code2 className="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
-                  {t('skills.areas.languages')}
-                </h3>
-                {[
-                  { name: 'Java', value: 100 },
-                  { name: 'C#', value: 100 },
-                  { name: 'Javascript', value: 90 },
-                  { name: 'Python', value: 85 },
-                  { name: 'Dart', value: 70 },
-                  { name: 'SQL', value: 85 },
-                ].map(skill => (
-                  <SkillBar key={skill.name} name={skill.name} value={skill.value} />
-                ))}
-              </motion.div>
-              {/* Frameworks & Dev Tools */}
-              <motion.div
-                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-sm group"
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.3, ease: 'easeOut' }}
-              >
-                <h3 className="text-xl font-semibold mb-6 text-white group-hover:text-blue-300 flex items-center gap-2 transition-colors duration-300">
-                  <Wrench className="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
-                  {t('skills.areas.frameworks')}
-                </h3>
-                {[
-                  { name: 'Spring Boot', value: 100 },
-                  { name: 'Micronaut', value: 90 },
-                  { name: '.NET', value: 100 },
-                  { name: 'Flutter', value: 70 },
-                  { name: 'Angular', value: 80 },
-                  { name: 'Vue', value: 70 },
-                  { name: 'Next.js', value: 60 },
-                  { name: 'NoSQL', value: 80 },
-                  { name: 'Event Streaming', value: 80 },
-                  { name: 'Logs & Monitoring', value: 90 },
-                  { name: 'AI', value: 90 },
-                ].map(skill => (
-                  <SkillBar key={skill.name} name={skill.name} value={skill.value} />
-                ))}
-              </motion.div>
-              {/* Cloud & DevOps */}
-              <motion.div
-                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-sm group"
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.3, ease: 'easeOut' }}
-              >
-                <h3 className="text-xl font-semibold mb-6 text-white group-hover:text-blue-300 flex items-center gap-2 transition-colors duration-300">
-                  <CloudIcon className="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
-                  {t('skills.areas.cloud')}
-                </h3>
-                {[
-                  { name: 'Azure Cloud', value: 80 },
-                  { name: 'AWS Cloud', value: 70 },
-                  { name: 'Cloud', value: 80 },
-                  { name: 'Devops', value: 75 },
-                  { name: 'Agile', value: 95 },
-                  { name: 'Cost-Effective Thinking', value: 85 },
-                ].map(skill => (
-                  <SkillBar key={skill.name} name={skill.name} value={skill.value} />
-                ))}
-              </motion.div>
-              {/* Software & Solution Skills */}
-              <motion.div
-                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-sm group"
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.3, ease: 'easeOut' }}
-              >
-                <h3 className="text-xl font-semibold mb-6 text-white group-hover:text-blue-300 flex items-center gap-2 transition-colors duration-300">
-                  <Brain className="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
-                  {t('skills.areas.software')}
-                </h3>
-                {[
-                  { name: 'Software Architecture', value: 80 },
-                  { name: 'Clean Code & Design Patterns', value: 90 },
-                  { name: 'Creativity & Innovation', value: 100 },
-                  { name: 'Communication', value: 100 },
-                ].map(skill => (
-                  <SkillBar key={skill.name} name={skill.name} value={skill.value} />
-                ))}
-              </motion.div>
-              {/* AI & Productivity */}
-              <motion.div
-                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-sm md:col-span-1 group"
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.3, ease: 'easeOut' }}
-              >
-                <h3 className="text-xl font-semibold mb-6 text-white group-hover:text-blue-300 flex items-center gap-2 transition-colors duration-300">
-                  <Sparkles className="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
-                  {t('skills.areas.ai')}
-                </h3>
-                {[
-                  { name: 'Cursor', value: 90 },
-                  { name: 'Copilot', value: 80 },
-                  { name: 'Data Privacy', value: 90 },
-                ].map(skill => (
-                  <SkillBar key={skill.name} name={skill.name} value={skill.value} />
-                ))}
-              </motion.div>
-              {/* Spoken Languages */}
-              <motion.div
-                className="glass rounded-2xl p-8 border border-white/10 backdrop-blur-sm md:col-span-1 group"
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.3, ease: 'easeOut' }}
-              >
-                <h3 className="text-xl font-semibold mb-6 text-white group-hover:text-blue-300 flex items-center gap-2 transition-colors duration-300">
-                  <Globe className="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
-                  {t('skills.areas.spokenTitle')}
-                </h3>
-                {[
-                  { name: t('spoken.portuguese'), value: 100 },
-                  { name: t('spoken.english'), value: 100 },
-                ].map(skill => (
-                  <SkillBar key={skill.name} name={skill.name} value={skill.value} />
-                ))}
-              </motion.div>
+            <div className="flex flex-col md:flex-row gap-8">
+              {/* Coluna Esquerda */}
+              <div className="flex-1 flex flex-col gap-8">
+                <SkillCard
+                  title={t('skills.areas.languages')}
+                  icon={Code2}
+                  delay={0.1}
+                  skills={[
+                    { name: 'Java', value: 100 },
+                    { name: 'C#', value: 100 },
+                    { name: 'Javascript', value: 90 },
+                    { name: 'Python', value: 85 },
+                    { name: 'Dart', value: 70 },
+                    { name: 'SQL', value: 85 },
+                  ]}
+                />
+
+                <SkillCard
+                  title={t('skills.areas.cloud')}
+                  icon={CloudIcon}
+                  delay={0.3}
+                  skills={[
+                    { name: 'Azure Cloud', value: 80 },
+                    { name: 'AWS Cloud', value: 70 },
+                    { name: 'Cloud', value: 80 },
+                    { name: 'Devops', value: 75 },
+                    { name: 'Agile', value: 95 },
+                    { name: 'Cost-Effective Thinking', value: 85 },
+                  ]}
+                />
+
+                <SkillCard
+                  title={t('skills.areas.ai')}
+                  icon={Sparkles}
+                  delay={0.5}
+                  skills={[
+                    { name: 'Cursor', value: 90 },
+                    { name: 'Copilot', value: 80 },
+                    { name: 'Data Privacy', value: 90 },
+                  ]}
+                />
+              </div>
+
+              {/* Coluna Direita */}
+              <div className="flex-1 flex flex-col gap-8">
+                <SkillCard
+                  title={t('skills.areas.frameworks')}
+                  icon={Wrench}
+                  delay={0.2}
+                  skills={[
+                    { name: 'Spring Boot', value: 100 },
+                    { name: 'Micronaut', value: 90 },
+                    { name: '.NET', value: 100 },
+                    { name: 'Flutter', value: 70 },
+                    { name: 'Angular', value: 80 },
+                    { name: 'Vue', value: 70 },
+                    { name: 'Next.js', value: 60 },
+                    { name: 'NoSQL', value: 80 },
+                    { name: 'Event Streaming', value: 80 },
+                    { name: 'Logs & Monitoring', value: 90 },
+                    { name: 'AI', value: 90 },
+                  ]}
+                />
+
+                <SkillCard
+                  title={t('skills.areas.software')}
+                  icon={Brain}
+                  delay={0.4}
+                  skills={[
+                    { name: 'Software Architecture', value: 80 },
+                    { name: 'Clean Code & Design Patterns', value: 90 },
+                    { name: 'Creativity & Innovation', value: 100 },
+                    { name: 'Communication', value: 100 },
+                  ]}
+                />
+
+                <SkillCard
+                  title={t('skills.areas.spokenTitle')}
+                  icon={Globe}
+                  delay={0.6}
+                  skills={[
+                    { name: t('spoken.portuguese'), value: 100 },
+                    { name: t('spoken.english'), value: 100 },
+                  ]}
+                />
+              </div>
             </div>
           </motion.div>
         </div>
@@ -1380,33 +1349,42 @@ export default function Home() {
             <p className="text-xl text-gray-300 text-center mb-16 max-w-3xl mx-auto">
               {t('projects.description')}
             </p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
               {/* BetterBet */}
               <motion.div
-                className="group glass rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-150 flex flex-col"
-                initial={{ opacity: 0, y: 50 }}
+                className="project-card-wrapper group"
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0 }}
-                whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.15 } }}
+                transition={{ duration: 0.4, delay: 0 }}
+                whileHover={{
+                  y: -12,
+                  scale: 1.02,
+                  transition: { 
+                    duration: 0.15,
+                    ease: "easeOut"
+                  }
+                }}
+                whileTap={{ scale: 0.98 }}
               >
-                <div className="flex items-center justify-center h-48 bg-white dark:bg-gray-900">
+                <div className="project-card">
+                <div className="project-card-image flex items-center justify-center bg-white dark:bg-gray-900">
                   <Image src="/betterbet.svg" alt="BetterBet Logo" width={180} height={60} className="object-contain h-20" />
                 </div>
-                <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-xl font-semibold mb-3">{t('projects.items.betterbet.title')}</h3>
-                  <p className="text-gray-300 mb-4">{t('projects.items.betterbet.description')}</p>
-                  <div className="flex flex-wrap gap-2 mb-6">
+                <div className="project-card-content">
+                  <h3 className="project-card-title">{t('projects.items.betterbet.title')}</h3>
+                  <p className="project-card-description">{t('projects.items.betterbet.description')}</p>
+                  <div className="project-card-tags">
                     {Array.isArray(t.raw && t.raw('projects.items.betterbet.tags')) ? t.raw('projects.items.betterbet.tags').map((tech: string) => (
-                      <span key={tech} className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">{tech}</span>
+                      <span key={tech} className="project-card-tag blog-tag-1">{tech}</span>
                     )) : null}
                   </div>
-                  <div className="flex justify-center gap-3 mt-auto">
+                  <div className="project-card-actions">
                     <motion.a 
                       href="https://github.com/Guimma/betterbet" 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="px-4 py-2 glass rounded-lg border border-white/20 hover:border-white/40 text-white text-sm font-medium flex items-center gap-2 transition-all duration-200"
+                      className="project-card-button-secondary"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -1414,173 +1392,324 @@ export default function Home() {
                     </motion.a>
                   </div>
                 </div>
+              </div>
               </motion.div>
               {/* Glenio Campregher - Fotografia */}
               <motion.div
-                className="group glass rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-150 flex flex-col"
-                initial={{ opacity: 0, y: 50 }}
+                className="project-card-wrapper group"
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.15 } }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+                whileHover={{
+                  y: -12,
+                  scale: 1.02,
+                  transition: { 
+                    duration: 0.15,
+                    ease: "easeOut"
+                  }
+                }}
+                whileTap={{ scale: 0.98 }}
               >
-                <div className="relative h-48 overflow-hidden">
+                <div className="project-card">
+                <div className="project-card-image">
                   <Image src="/glenio.png" alt="Glenio Campregher" fill className="object-cover" />
+                  <motion.a 
+                    href="https://guimma.github.io/vue-photosite/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="project-card-redirect-icon"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <ExternalLink size={18} />
+                  </motion.a>
                 </div>
-                <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-xl font-semibold mb-3">{t('projects.items.glenio.title')}</h3>
-                  <p className="text-gray-300 mb-4">{t('projects.items.glenio.description')}</p>
-                  <div className="flex flex-wrap gap-2 mb-6">
+                <div className="project-card-content">
+                  <h3 className="project-card-title">{t('projects.items.glenio.title')}</h3>
+                  <p className="project-card-description">{t('projects.items.glenio.description')}</p>
+                  <div className="project-card-tags">
                     {Array.isArray(t.raw && t.raw('projects.items.glenio.tags')) ? t.raw('projects.items.glenio.tags').map((tech: string) => (
-                      <span key={tech} className="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">{tech}</span>
+                      <span key={tech} className="project-card-tag blog-tag-2">{tech}</span>
                     )) : null}
                   </div>
-                  <div className="flex justify-center gap-3 mt-auto">
-                    <motion.a 
-                      href="https://guimma.github.io/vue-photosite/" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg text-sm font-medium flex items-center gap-2 hover:shadow-lg transition-all duration-200"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <ExternalLink size={16}/>Visit Site
-                    </motion.a>
+                  <div className="project-card-actions">
                     <motion.a 
                       href="https://github.com/Guimma/vue-photosite" 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="px-4 py-2 glass rounded-lg border border-white/20 hover:border-white/40 text-white text-sm font-medium flex items-center gap-2 transition-all duration-200"
+                      className="project-card-button-secondary"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <Github size={16}/>View Code
                     </motion.a>
-                  </div>
-                </div>
-              </motion.div>
-              {/* 433 Fantasy */}
-              <motion.div
-                className="group glass rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-150 flex flex-col"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.15 } }}
-              >
-                <div className="relative h-48 bg-black">
-                  <Image src="/433.jpg" alt="433 Fantasy" fill className="object-cover" />
-                </div>
-                <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-xl font-semibold mb-3">{t('projects.items.433.title')}</h3>
-                  <p className="text-gray-300 mb-4">{t('projects.items.433.description')}</p>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {Array.isArray(t.raw && t.raw('projects.items.433.tags')) ? t.raw('projects.items.433.tags').map((tech: string) => (
-                      <span key={tech} className="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">{tech}</span>
-                    )) : null}
-                  </div>
-                  <div className="flex justify-center gap-3 mt-auto">
                     <motion.a 
-                      href="https://guimma.github.io/fantasy-web/#/home" 
+                      href="https://guimma.github.io/vue-photosite/" 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg text-sm font-medium flex items-center gap-2 hover:shadow-lg transition-all duration-200"
+                      className="project-card-button-primary"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <ExternalLink size={16}/>Visit Site
                     </motion.a>
+                  </div>
+                </div>
+              </div>
+              </motion.div>
+              {/* 433 Fantasy */}
+              <motion.div
+                className="project-card-wrapper group"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.2 }}
+                whileHover={{
+                  y: -12,
+                  scale: 1.02,
+                  transition: { 
+                    duration: 0.15,
+                    ease: "easeOut"
+                  }
+                }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div className="project-card">
+                <div className="project-card-image bg-black">
+                  <Image src="/433.jpg" alt="433 Fantasy" fill className="object-cover" />
+                  <motion.a 
+                    href="https://guimma.github.io/fantasy-web/#/home" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="project-card-redirect-icon"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <ExternalLink size={18} />
+                  </motion.a>
+                </div>
+                <div className="project-card-content">
+                  <h3 className="project-card-title">{t('projects.items.433.title')}</h3>
+                  <p className="project-card-description">{t('projects.items.433.description')}</p>
+                  <div className="project-card-tags">
+                    {Array.isArray(t.raw && t.raw('projects.items.433.tags')) ? t.raw('projects.items.433.tags').map((tech: string) => (
+                      <span key={tech} className="project-card-tag blog-tag-3">{tech}</span>
+                    )) : null}
+                  </div>
+                  <div className="project-card-actions">
                     <motion.a 
                       href="https://github.com/Guimma/fantasy-web" 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="px-4 py-2 glass rounded-lg border border-white/20 hover:border-white/40 text-white text-sm font-medium flex items-center gap-2 transition-all duration-200"
+                      className="project-card-button-secondary"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <Github size={16}/>View Code
                     </motion.a>
-                  </div>
-                </div>
-              </motion.div>
-              {/* Christmas Cats */}
-              <motion.div
-                className="group glass rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-150 flex flex-col"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.15 } }}
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <Image src="/cats.png" alt="Christmas Cats" fill className="object-cover" />
-                </div>
-                <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-xl font-semibold mb-3">{t('projects.items.cats.title')}</h3>
-                  <p className="text-gray-300 mb-4">{t('projects.items.cats.description')}</p>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {Array.isArray(t.raw && t.raw('projects.items.cats.tags')) ? t.raw('projects.items.cats.tags').map((tech: string) => (
-                      <span key={tech} className="px-3 py-1 bg-pink-500/20 text-pink-400 rounded-full text-sm">{tech}</span>
-                    )) : null}
-                  </div>
-                  <div className="flex justify-center gap-3 mt-auto">
                     <motion.a 
-                      href="https://guimma.github.io/Christmas-Cats/" 
+                      href="https://guimma.github.io/fantasy-web/#/home" 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg text-sm font-medium flex items-center gap-2 hover:shadow-lg transition-all duration-200"
+                      className="project-card-button-primary"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <ExternalLink size={16}/>Visit Site
                     </motion.a>
+                  </div>
+                </div>
+              </div>
+              </motion.div>
+              {/* Christmas Cats */}
+              <motion.div
+                className="project-card-wrapper group"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.3 }}
+                whileHover={{
+                  y: -12,
+                  scale: 1.02,
+                  transition: { 
+                    duration: 0.15,
+                    ease: "easeOut"
+                  }
+                }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div className="project-card">
+                <div className="project-card-image">
+                  <Image src="/cats.png" alt="Christmas Cats" fill className="object-cover" />
+                  <motion.a 
+                    href="https://guimma.github.io/Christmas-Cats/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="project-card-redirect-icon"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <ExternalLink size={18} />
+                  </motion.a>
+                </div>
+                <div className="project-card-content">
+                  <h3 className="project-card-title">{t('projects.items.cats.title')}</h3>
+                  <p className="project-card-description">{t('projects.items.cats.description')}</p>
+                  <div className="project-card-tags">
+                    {Array.isArray(t.raw && t.raw('projects.items.cats.tags')) ? t.raw('projects.items.cats.tags').map((tech: string) => (
+                      <span key={tech} className="project-card-tag blog-tag-4">{tech}</span>
+                    )) : null}
+                  </div>
+                  <div className="project-card-actions">
                     <motion.a 
                       href="https://github.com/Guimma/Christmas-Cats" 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="px-4 py-2 glass rounded-lg border border-white/20 hover:border-white/40 text-white text-sm font-medium flex items-center gap-2 transition-all duration-200"
+                      className="project-card-button-secondary"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <Github size={16}/>View Code
                     </motion.a>
+                    <motion.a 
+                      href="https://guimma.github.io/Christmas-Cats/" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="project-card-button-primary"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <ExternalLink size={16}/>Visit Site
+                    </motion.a>
                   </div>
                 </div>
+              </div>
               </motion.div>
             </div>
+
+            {/* GitHub Call-to-Action */}
+            <motion.div
+              className="github-cta-container"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              whileHover={{
+                y: -8,
+                transition: { 
+                  duration: 0.3,
+                  ease: "easeOut"
+                }
+              }}
+            >
+              {/* Background particles - Enhanced starfield */}
+              <div className="github-cta-particles">
+                <div className="github-cta-particle"></div>
+                <div className="github-cta-particle"></div>
+                <div className="github-cta-particle"></div>
+                <div className="github-cta-particle"></div>
+                <div className="github-cta-particle"></div>
+                <div className="github-cta-particle"></div>
+                <div className="github-cta-particle"></div>
+                <div className="github-cta-particle"></div>
+                <div className="github-cta-particle"></div>
+                <div className="github-cta-particle"></div>
+                <div className="github-cta-particle"></div>
+                <div className="github-cta-particle"></div>
+              </div>
+
+              <motion.div 
+                className="github-cta-icon"
+                whileHover={{ 
+                  scale: 1.1, 
+                  rotate: 5,
+                  transition: { duration: 0.3 }
+                }}
+              >
+                <Github className="w-8 h-8 text-white" />
+              </motion.div>
+
+              <h3 className="github-cta-title">{t('projects.githubCta.title')}</h3>
+              <p className="github-cta-description">{t('projects.githubCta.description')}</p>
+
+              <motion.a
+                href="https://github.com/Guimma"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="github-cta-button"
+                whileHover={{ 
+                  scale: 1.05,
+                  y: -3,
+                  transition: { duration: 0.2 }
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Github size={20} />
+                {t('projects.githubCta.button')}
+                <ExternalLink size={16} />
+              </motion.a>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* Podcasts Section */}
-      <PodcastSection episodes={podcastEpisodes} />
+      <PodcastSection />
 
       {/* Blog Section */}
       <section id="blog" className="py-20 relative" style={{ backgroundColor: '#000000' }}>
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            variants={staggerContainer}
           >
-            <div className="flex items-center justify-center mb-6">
-              <div className="section-icon-container">
-                <div className="section-icon-glow"></div>
-                <motion.div
-                  className="flex items-center justify-center w-16 h-16 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full shadow-2xl relative z-10"
-                >
-                  <Sparkles className="w-8 h-8 text-white" />
-                </motion.div>
-              </div>
+            {/* Section Header */}
+            <div className="text-center mb-20">
+              <motion.div 
+                className="flex items-center justify-center mb-8"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <div className="section-icon-container">
+                  <div className="section-icon-glow"></div>
+                  <motion.div
+                    className="flex items-center justify-center w-16 h-16 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full shadow-2xl relative z-10"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Sparkles className="w-8 h-8 text-white" />
+                  </motion.div>
+                </div>
+              </motion.div>
+              
+              <motion.h2 
+                className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-6"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <span className="text-white">{t('blog.title')}</span>
+              </motion.h2>
+              
+              <motion.p 
+                className="text-xl text-gray-300 text-center max-w-4xl mx-auto leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                {t('blog.subtitle')}
+              </motion.p>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-              <span className="text-white">{t('blog.title')}</span>
-            </h2>
-            <p className="text-xl text-gray-300 text-center mb-16 max-w-3xl mx-auto">
-              {t('blog.subtitle')}
-            </p>
             
+            {/* Blog Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {Object.entries(t.raw('blog.posts')).map(([key, post], index) => {
                 // Map blog post keys to their respective images
@@ -1597,83 +1726,104 @@ export default function Home() {
                 const isPrivacyByDesign = key === 'privacyByDesign';
                 
                 return (
-                  <motion.a
+                  <motion.div
                     key={key}
-                    href={postData.url}
-                    target={isPrivacyByDesign ? undefined : "_blank"}
-                    rel={isPrivacyByDesign ? undefined : "noopener noreferrer"}
-                    download={isPrivacyByDesign ? true : undefined}
-                    className="group glass rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300 cursor-pointer block flex flex-col h-full"
-                    initial={{ opacity: 0, y: 50 }}
+                    className="project-card-wrapper group"
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.2 } }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    whileHover={{
+                      y: -12,
+                      scale: 1.02,
+                      transition: { 
+                        duration: 0.15,
+                        ease: "easeOut"
+                      }
+                    }}
+                    whileTap={{ scale: 0.98 }}
                   >
-                    {/* Blog post image/header */}
-                    <div className="h-48 relative overflow-hidden flex-shrink-0">
-                      <Image
-                        src={blogImages[key] || '/ai.jpeg'}
-                        alt={postData.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                      <div className="absolute bottom-4 left-4 right-4 z-10">
-                        <div className="flex items-center justify-between text-sm text-white mb-2">
-                          <span className="px-3 py-1 bg-white/20 rounded-full text-xs font-medium backdrop-blur-sm">
+                    <div className="project-card">
+                      {/* Blog post image */}
+                      <div className="project-card-image">
+                        <Image
+                          src={blogImages[key] || '/ai.jpeg'}
+                          alt={postData.title}
+                          fill
+                          className="object-cover"
+                        />
+                        
+                        {/* Category overlay */}
+                        <div className="absolute top-3 left-3">
+                          <span className="inline-block px-2.5 py-1 bg-black/40 backdrop-blur-sm rounded-md text-xs font-medium text-white shadow-lg" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>
                             {postData.category}
                           </span>
-                          {postData.category !== 'Podcast' && (
-                            <span className="px-2 py-1 bg-black/30 rounded text-xs backdrop-blur-sm">
-                              {postData.readTime} {t('blog.readTime')}
-                            </span>
-                          )}
                         </div>
+                        
+                        {/* Read Time overlay */}
+                        {(postData.category !== 'Podcast' && postData.category !== 'Techshot') || key === 'enzimasPrivacy' ? (
+                          <div className="absolute bottom-3 right-3">
+                            <span className="inline-block px-2.5 py-1 bg-black/40 backdrop-blur-sm rounded-md text-xs font-medium text-white shadow-lg" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>
+                              {postData.readTime} min
+                            </span>
+                          </div>
+                        ) : null}
+                        
+                        {/* Read More Icon - similar to redirect icon */}
+                        <motion.a 
+                          href={postData.url}
+                          target={isPrivacyByDesign ? undefined : "_blank"}
+                          rel={isPrivacyByDesign ? undefined : "noopener noreferrer"}
+                          download={isPrivacyByDesign ? true : undefined}
+                          className="project-card-redirect-icon"
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <ExternalLink size={18} />
+                        </motion.a>
                       </div>
-                    </div>
-                    
-                    {/* Blog post content */}
-                    <div className="p-6 flex flex-col flex-1 min-h-0">
-                      <div className="flex-1">
-                        <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-blue-300 transition-colors duration-300">
-                          {postData.title}
-                        </h3>
-                        <p className="text-gray-300 mb-4 leading-relaxed line-clamp-3 overflow-hidden">
-                          {postData.excerpt}
-                        </p>
+                      
+                      {/* Blog post content */}
+                      <div className="project-card-content">
+                        
+                        <h3 className="project-card-title">{postData.title}</h3>
+                        <p className="project-card-description line-clamp-4">{postData.excerpt}</p>
                         
                         {/* Tags */}
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          {postData.tags.map((tag: string) => (
-                            <span key={tag} className="px-2 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs">
+                        <div className="project-card-tags">
+                          {postData.tags.slice(0, 4).map((tag: string) => (
+                            <span key={tag} className={`project-card-tag blog-tag-${(index % 5) + 1}`}>
                               {tag}
                             </span>
                           ))}
                         </div>
-                      </div>
-                      
-                      {/* Bottom section with date and read more button */}
-                      <div className="mt-auto pt-4 border-t border-white/10">
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm text-gray-400">
-                            {new Date(postData.date).toLocaleDateString(
-                              t('navigation.name').includes('Lucas') ? 'en-US' : 'pt-BR',
-                              { year: 'numeric', month: 'short', day: 'numeric' }
-                            )}
-                          </span>
-                          <motion.button
-                            className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg text-sm font-medium hover:from-blue-600 hover:to-purple-700 transition-all duration-200 flex items-center gap-2 shadow-lg hover:shadow-xl"
-                            whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                        
+                        {/* Actions */}
+                        <div className="project-card-actions">
+                          <div className="flex items-center gap-1.5 mr-auto">
+                            <Calendar size={12} className="text-gray-500" />
+                            <span className="text-xs font-medium text-gray-300 bg-gray-800/40 px-2 py-1 rounded-md">
+                              {new Date(postData.date).toLocaleDateString(
+                                t('navigation.name').includes('Lucas') ? 'en-US' : 'pt-BR',
+                                { month: 'short', year: 'numeric' }
+                              )}
+                            </span>
+                          </div>
+                          <motion.a 
+                            href={postData.url}
+                            target={isPrivacyByDesign ? undefined : "_blank"}
+                            rel={isPrivacyByDesign ? undefined : "noopener noreferrer"}
+                            download={isPrivacyByDesign ? true : undefined}
+                            className="project-card-button-primary"
+                            whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                           >
-                            {t('blog.readMore')}
-                            <ExternalLink size={14} className="group-hover:translate-x-1 transition-transform duration-200" />
-                          </motion.button>
+                            <ExternalLink size={16}/>{t('blog.readMore')}
+                          </motion.a>
                         </div>
                       </div>
                     </div>
-                  </motion.a>
+                  </motion.div>
                 );
               })}
             </div>
@@ -1924,21 +2074,59 @@ export default function Home() {
   );
 }
 
-// SkillBar component
+// Reusable SkillCard component
+interface SkillCardProps {
+  title: string;
+  icon: React.ComponentType<{ className?: string }>;
+  skills: Array<{ name: string; value: number }>;
+  delay: number;
+  className?: string;
+}
+
+function SkillCard({ title, icon: Icon, skills, delay, className = "" }: SkillCardProps) {
+  return (
+    <motion.div
+      className={`skills-card group ${className}`}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay }}
+      whileHover={{
+        y: -12,
+        scale: 1.02,
+        transition: { 
+          duration: 0.15,
+          ease: "easeOut"
+        }
+      }}
+      whileTap={{ scale: 0.98 }}
+    >
+      <h3 className="text-xl font-semibold mb-6 skills-card-title flex items-center gap-3">
+        <Icon className="w-7 h-7 skills-card-icon" />
+        {title}
+      </h3>
+      {skills.map(skill => (
+        <SkillBar key={skill.name} name={skill.name} value={skill.value} />
+      ))}
+    </motion.div>
+  );
+}
+
+// Enhanced SkillBar component
 function SkillBar({ name, value }: { name: string; value: number }) {
   return (
-    <div className="mb-4">
-      <div className="flex justify-between items-center mb-1">
-        <span className="text-gray-200 font-medium">{name}</span>
-        <span className="text-gray-400 font-mono text-sm">{value}%</span>
+    <div className="skill-bar-container">
+      <div className="skill-bar-header">
+        <span className="skill-bar-name">{name}</span>
+        <span className="skill-bar-value">{value}%</span>
       </div>
-      <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
+      <div className="skill-bar-track">
         <motion.div
-          className="h-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full shadow-lg"
+          className="skill-bar-fill"
           initial={{ width: 0 }}
           whileInView={{ width: `${value}%` }}
           viewport={{ once: true }}
-          transition={{ duration: 1.2, ease: 'easeOut' }}
+          transition={{ duration: 1.5, ease: 'easeOut', delay: 0.2 }}
         />
       </div>
     </div>
