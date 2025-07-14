@@ -2661,28 +2661,41 @@ function CVDownloadButton({ className = "" }: CVDownloadButtonProps) {
       </button>
 
       {/* Expanded Options */}
-      {isExpanded && (
-        <div className="cv-download-options">
-          <div className="cv-download-separator"></div>
-          <p className="text-sm text-gray-400 mb-3">{t('cv.chooseLanguage')}</p>
-          
-          <button
-            onClick={() => downloadCV('pt')}
-            className="cv-download-option"
+      <AnimatePresence>
+        {isExpanded && (
+          <motion.div 
+            className="cv-download-options"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
           >
-            <Image src="/pt-br.png" alt="Portuguese" width={20} height={20} className="w-5 h-5 object-cover rounded" />
-            <span>Português</span>
-          </button>
-          
-          <button
-            onClick={() => downloadCV('en')}
-            className="cv-download-option"
-          >
-            <Image src="/en-us.png" alt="English" width={20} height={20} className="w-5 h-5 object-cover rounded" />
-            <span>English</span>
-          </button>
-        </div>
-      )}
+            <div className="cv-download-separator"></div>
+            
+            <motion.button
+              onClick={() => downloadCV('pt')}
+              className="cv-download-option"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.2, delay: 0.1 }}
+            >
+              <Image src="/pt-br.png" alt="Portuguese" width={20} height={20} className="w-5 h-5 object-cover rounded" />
+              <span>Português</span>
+            </motion.button>
+            
+            <motion.button
+              onClick={() => downloadCV('en')}
+              className="cv-download-option"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.2, delay: 0.15 }}
+            >
+              <Image src="/en-us.png" alt="English" width={20} height={20} className="w-5 h-5 object-cover rounded" />
+              <span>English</span>
+            </motion.button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }
