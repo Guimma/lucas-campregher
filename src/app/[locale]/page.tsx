@@ -1760,6 +1760,17 @@ export default function Home() {
                           </span>
                         </div>
                         
+                        {/* Date overlay */}
+                        <div className="absolute bottom-3 left-3">
+                          <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-black/40 backdrop-blur-sm rounded-md text-xs font-medium text-white shadow-lg" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>
+                            <Calendar size={12} />
+                            {new Date(postData.date).toLocaleDateString(
+                              t('navigation.name').includes('Lucas') ? 'en-US' : 'pt-BR',
+                              { month: 'short', year: 'numeric' }
+                            )}
+                          </span>
+                        </div>
+                        
                         {/* Read Time overlay */}
                         {(postData.category !== 'Podcast' && postData.category !== 'Techshot') || key === 'enzimasPrivacy' ? (
                           <div className="absolute bottom-3 right-3">
@@ -1800,15 +1811,6 @@ export default function Home() {
                         
                         {/* Actions */}
                         <div className="project-card-actions">
-                          <div className="flex items-center gap-1.5 mr-auto">
-                            <Calendar size={12} className="text-gray-500" />
-                            <span className="text-xs font-medium text-gray-300 bg-gray-800/40 px-2 py-1 rounded-md">
-                              {new Date(postData.date).toLocaleDateString(
-                                t('navigation.name').includes('Lucas') ? 'en-US' : 'pt-BR',
-                                { month: 'short', year: 'numeric' }
-                              )}
-                            </span>
-                          </div>
                           <motion.a 
                             href={postData.url}
                             target={isPrivacyByDesign ? undefined : "_blank"}
