@@ -674,9 +674,20 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
               <span className="text-white">{t('career.title')}</span>
             </h2>
-            <p className="text-xl text-gray-300 text-center mb-16 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 text-center mb-8 max-w-3xl mx-auto">
               {t('career.description')}
             </p>
+            
+            {/* CV Download Button */}
+            <motion.div 
+              className="flex justify-center mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <CVDownloadButton />
+            </motion.div>
             
             <div className="relative max-w-4xl mx-auto pr-[104px] md:pr-[112px]">
               {/* Enhanced Timeline Line */}
@@ -1078,9 +1089,20 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
               <span className="text-white">{t('education.title')}</span>
             </h2>
-            <p className="text-xl text-gray-300 text-center mb-16 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 text-center mb-8 max-w-3xl mx-auto">
               {t('education.description')}
             </p>
+            
+            {/* CV Download Button */}
+            <motion.div 
+              className="flex justify-center mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <CVDownloadButton />
+            </motion.div>
             
             <div className="relative max-w-4xl mx-auto pr-[104px] md:pr-[112px]">
               {/* Enhanced Timeline Line - same as career */}
@@ -2594,4 +2616,126 @@ function SkillBar({ name, value }: { name: string; value: number }) {
     </div>
   );
 } 
+
+// CV Download Component
+interface CVDownloadButtonProps {
+  className?: string;
+}
+
+function CVDownloadButton({ className = "" }: CVDownloadButtonProps) {
+  const t = useTranslations();
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const downloadCV = (language: 'pt' | 'en') => {
+    const fileName = language === 'pt' ? 'Lucas_Campregher_PT.pdf' : 'Lucas_Campregher_EN.pdf';
+    const link = document.createElement('a');
+    link.href = `/${fileName}`;
+    link.download = fileName;
+    link.click();
+    setIsExpanded(false);
+  };
+
+  return (
+    <motion.div className={`cv-download-container ${className}`}>
+      <AnimatePresence>
+        {!isExpanded ? (
+          <motion.button
+            key="main-button"
+            onClick={() => setIsExpanded(true)}
+            className="cv-download-main-button"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            whileHover={{ 
+              scale: 1.05,
+              y: -3,
+              transition: { duration: 0.2 }
+            }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <div className="cv-download-icon-container">
+              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+            <span className="font-semibold">{t('cv.download')}</span>
+            <motion.div
+              animate={{ rotate: 0 }}
+              className="text-gray-300"
+            >
+              <ChevronDown size={16} />
+            </motion.div>
+          </motion.button>
+        ) : (
+          <motion.div
+            key="expanded-options"
+            className="cv-download-expanded"
+            initial={{ opacity: 0, height: 0, scale: 0.9 }}
+            animate={{ opacity: 1, height: 'auto', scale: 1 }}
+            exit={{ opacity: 0, height: 0, scale: 0.9 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          >
+            <div className="cv-download-header">
+              <span className="text-sm font-medium text-gray-300">{t('cv.chooseLanguage')}</span>
+              <motion.button
+                onClick={() => setIsExpanded(false)}
+                className="text-gray-400 hover:text-white transition-colors duration-200"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </motion.button>
+            </div>
+            
+            <div className="cv-download-options">
+              <motion.button
+                onClick={() => downloadCV('pt')}
+                className="cv-download-option-button"
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.2, delay: 0.1 }}
+                whileHover={{ scale: 1.02, x: 3 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div className="cv-flag-container">
+                  <Image src="/pt-br.png" alt="Portuguese" width={24} height={24} className="w-6 h-6 object-cover rounded" />
+                </div>
+                <div className="flex-1 text-left">
+                  <div className="font-medium text-white">Português</div>
+                  <div className="text-xs text-gray-400">Currículo em português</div>
+                </div>
+                <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3" />
+                </svg>
+              </motion.button>
+              
+              <motion.button
+                onClick={() => downloadCV('en')}
+                className="cv-download-option-button"
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.2, delay: 0.15 }}
+                whileHover={{ scale: 1.02, x: 3 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div className="cv-flag-container">
+                  <Image src="/en-us.png" alt="English" width={24} height={24} className="w-6 h-6 object-cover rounded" />
+                </div>
+                <div className="flex-1 text-left">
+                  <div className="font-medium text-white">English</div>
+                  <div className="text-xs text-gray-400">Resume in English</div>
+                </div>
+                <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3" />
+                </svg>
+              </motion.button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+}
 

@@ -48,6 +48,10 @@
       }
     }
   },
+  "cv": {
+    "download": "Baixar Currículo",
+    "chooseLanguage": "Escolha o Idioma"
+  },
   "career": {
     "title": "Carreira",
     "description": "Conheça um pouco da minha trajetória profissional, e dos projetos em que trabalhei",

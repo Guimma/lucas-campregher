@@ -48,6 +48,10 @@
       }
     }
   },
+  "cv": {
+    "download": "Download CV",
+    "chooseLanguage": "Choose Language"
+  },
   "career": {
     "title": "Career",
     "description": "Learn about my professional journey and the projects I've worked on",
