@@ -373,6 +373,15 @@ body {
   transition: all 0.3s ease;
   padding: 8px 16px;
   border-radius: 8px;
+  cursor: pointer !important;
+}
+
+/* Force cursor pointer on all navigation elements */
+nav *,
+.mobile-menu *,
+motion.button,
+button {
+  cursor: pointer !important;
 }
 
 .nav-link:hover {
@@ -475,6 +484,13 @@ input:focus, textarea:focus {
   overflow: hidden;
 }
 
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 /* Root variables */
 :root {
   --background: 0 0% 0%;
@@ -547,8 +563,7 @@ input:focus, textarea:focus {
   box-shadow: 
     0 20px 40px rgba(0, 0, 0, 0.5),
     0 0 30px rgba(84, 13, 110, 0.2),
-    0 0 20px rgba(238, 66, 102, 0.2),
-    0 0 15px rgba(59, 206, 172, 0.2);
+    0 0 20px rgba(238, 66, 102, 0.2);
 }
 
 /* Career Journey Cards */
@@ -836,6 +851,7 @@ nav button,
 .glass button {
   border: none !important;
   outline: none !important;
+  cursor: pointer !important;
 }
 
 /* 2. Hero section buttons - hero buttons by href and content */
@@ -1772,8 +1788,7 @@ section .rounded-full[class*="w-16"] {
     0 20px 40px rgba(0, 0, 0, 0.5),
     0 12px 25px rgba(0, 0, 0, 0.3),
     0 0 30px rgba(84, 13, 110, 0.15),
-    0 0 20px rgba(238, 66, 102, 0.15),
-    0 0 15px rgba(59, 206, 172, 0.15);
+    0 0 20px rgba(238, 66, 102, 0.15);
 }
 
 .podcast-card-content {
@@ -1941,5 +1956,50 @@ section .rounded-full[class*="w-16"] {
 .stats-icon-orange::before {
   background: radial-gradient(circle, rgba(249, 115, 22, 0.4) 0%, transparent 70%);
 }
+
+
+
+/* Blog Tag Variations using Rainbow Gradients */
+.blog-tag-1 {
+  background: linear-gradient(135deg, rgba(84, 13, 110, 0.3) 0%, rgba(139, 69, 19, 0.2) 100%);
+  color: #e879f9;
+  border: 1px solid rgba(84, 13, 110, 0.5);
+  box-shadow: 0 4px 12px rgba(84, 13, 110, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+.blog-tag-2 {
+  background: linear-gradient(135deg, rgba(238, 66, 102, 0.3) 0%, rgba(244, 114, 182, 0.2) 100%);
+  color: #fb7185;
+  border: 1px solid rgba(238, 66, 102, 0.5);
+  box-shadow: 0 4px 12px rgba(238, 66, 102, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+.blog-tag-3 {
+  background: linear-gradient(135deg, rgba(255, 210, 63, 0.3) 0%, rgba(251, 191, 36, 0.2) 100%);
+  color: #fbbf24;
+  border: 1px solid rgba(255, 210, 63, 0.5);
+  box-shadow: 0 4px 12px rgba(255, 210, 63, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+.blog-tag-4 {
+  background: linear-gradient(135deg, rgba(59, 206, 172, 0.3) 0%, rgba(14, 173, 105, 0.2) 100%);
+  color: #5eead4;
+  border: 1px solid rgba(59, 206, 172, 0.5);
+  box-shadow: 0 4px 12px rgba(59, 206, 172, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+.blog-tag-5 {
+  background: linear-gradient(135deg, rgba(14, 173, 105, 0.3) 0%, rgba(34, 197, 94, 0.2) 100%);
+  color: #4ade80;
+  border: 1px solid rgba(14, 173, 105, 0.5);
+  box-shadow: 0 4px 12px rgba(14, 173, 105, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+
 
 

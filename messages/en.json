@@ -270,7 +270,7 @@
       "enzimasPrivacy": {
         "title": "Enzimas #200 - The risks and challenges of lack of Digital Privacy",
         "excerpt": "Have you watched the documentary 'The Social Dilemma' and been intrigued by the power your data can have in the hands of third parties? To talk about the importance of privacy and control of your data, we invited Lucas Campregher, Developer at dti digital, to discuss the topic both from the user's perspective and from those who build the solution. Press Play!",
-        "readTime": "45",
+        "readTime": "10",
         "tags": ["Privacy", "Podcast", "Digital Rights", "Data Protection"],
         "date": "2023-02",
         "category": "Podcast",
@@ -286,7 +286,7 @@
         "url": "https://www.linkedin.com/events/techshot-privacidadededados-doi7024376972268953600"
       },
       "techshotWallE": {
-        "title": "Wall-e Case: how we improved a legacy system by 93%",
+        "title": "Wall-e Case: how we improved a legacy system by 93% by logging",
         "excerpt": "Leaving aside the theoretical and superficial parts, in this techshot we will present a real success case when working with evolutions in a legacy system. Based on performance log analysis and technical development proposals, we optimized process performance by 93%.",
         "readTime": "35",
         "tags": ["Legacy Systems", "Performance", "Optimization", "Case Study"],

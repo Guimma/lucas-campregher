@@ -173,7 +173,10 @@ export default function Home() {
                   className="w-10 h-10 object-contain"
                 />
               </div>
-              <span className="text-lg font-bold text-white uppercase tracking-wide">{t('navigation.name')}</span>
+              <div className="flex flex-col">
+                <span className="text-lg font-bold text-white uppercase tracking-wide">{t('navigation.name')}</span>
+                <span className="text-xs text-gray-400 font-medium tracking-wider uppercase">MONKEYS BYTE ME</span>
+              </div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -196,7 +199,7 @@ export default function Home() {
               {/* Menu mobile */}
               <div className="md:hidden">
                 <motion.button
-                  className="p-2 rounded-full hover:bg-white/10 transition-all duration-300 mobile-menu"
+                  className="p-2 rounded-full hover:bg-white/10 transition-all duration-300 mobile-menu cursor-pointer"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -238,7 +241,7 @@ export default function Home() {
                   e.preventDefault();
                   smoothScrollTo(item.section);
                 }}
-                className={`relative p-3 rounded-xl transition-all duration-300 group ${
+                className={`relative p-3 rounded-xl transition-all duration-300 group cursor-pointer ${
                   isActive ? 'bg-white shadow-lg shadow-white/30' : 'hover:bg-white/10'
                 }`}
                 whileHover={{ scale: 1.05 }}
@@ -299,7 +302,7 @@ export default function Home() {
                           smoothScrollTo(item.section);
                           setMobileMenuOpen(false);
                         }}
-                        className={`flex flex-col items-center p-3 rounded-xl transition-all duration-300 ${
+                        className={`flex flex-col items-center p-3 rounded-xl transition-all duration-300 cursor-pointer ${
                           isActive ? 'bg-white/90' : 'hover:bg-white/10'
                         }`}
                         whileHover={{ scale: 1.05 }}
@@ -1373,7 +1376,7 @@ export default function Home() {
                   <p className="project-card-description">{t('projects.items.betterbet.description')}</p>
                   <div className="project-card-tags">
                     {Array.isArray(t.raw && t.raw('projects.items.betterbet.tags')) ? t.raw('projects.items.betterbet.tags').map((tech: string) => (
-                      <span key={tech} className="project-card-tag betterbet-tag">{tech}</span>
+                      <span key={tech} className="project-card-tag blog-tag-1">{tech}</span>
                     )) : null}
                   </div>
                   <div className="project-card-actions">
@@ -1427,7 +1430,7 @@ export default function Home() {
                   <p className="project-card-description">{t('projects.items.glenio.description')}</p>
                   <div className="project-card-tags">
                     {Array.isArray(t.raw && t.raw('projects.items.glenio.tags')) ? t.raw('projects.items.glenio.tags').map((tech: string) => (
-                      <span key={tech} className="project-card-tag glenio-tag">{tech}</span>
+                      <span key={tech} className="project-card-tag blog-tag-2">{tech}</span>
                     )) : null}
                   </div>
                   <div className="project-card-actions">
@@ -1491,7 +1494,7 @@ export default function Home() {
                   <p className="project-card-description">{t('projects.items.433.description')}</p>
                   <div className="project-card-tags">
                     {Array.isArray(t.raw && t.raw('projects.items.433.tags')) ? t.raw('projects.items.433.tags').map((tech: string) => (
-                      <span key={tech} className="project-card-tag fantasy-tag">{tech}</span>
+                      <span key={tech} className="project-card-tag blog-tag-3">{tech}</span>
                     )) : null}
                   </div>
                   <div className="project-card-actions">
@@ -1555,7 +1558,7 @@ export default function Home() {
                   <p className="project-card-description">{t('projects.items.cats.description')}</p>
                   <div className="project-card-tags">
                     {Array.isArray(t.raw && t.raw('projects.items.cats.tags')) ? t.raw('projects.items.cats.tags').map((tech: string) => (
-                      <span key={tech} className="project-card-tag cats-tag">{tech}</span>
+                      <span key={tech} className="project-card-tag blog-tag-4">{tech}</span>
                     )) : null}
                   </div>
                   <div className="project-card-actions">
@@ -1656,30 +1659,57 @@ export default function Home() {
 
       {/* Blog Section */}
       <section id="blog" className="py-20 relative" style={{ backgroundColor: '#000000' }}>
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            variants={staggerContainer}
           >
-            <div className="flex items-center justify-center mb-6">
-              <div className="section-icon-container">
-                <div className="section-icon-glow"></div>
-                <motion.div
-                  className="flex items-center justify-center w-16 h-16 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full shadow-2xl relative z-10"
-                >
-                  <Sparkles className="w-8 h-8 text-white" />
-                </motion.div>
-              </div>
+            {/* Section Header */}
+            <div className="text-center mb-20">
+              <motion.div 
+                className="flex items-center justify-center mb-8"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <div className="section-icon-container">
+                  <div className="section-icon-glow"></div>
+                  <motion.div
+                    className="flex items-center justify-center w-16 h-16 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full shadow-2xl relative z-10"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Sparkles className="w-8 h-8 text-white" />
+                  </motion.div>
+                </div>
+              </motion.div>
+              
+              <motion.h2 
+                className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-6"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <span className="text-white">{t('blog.title')}</span>
+              </motion.h2>
+              
+              <motion.p 
+                className="text-xl text-gray-300 text-center max-w-4xl mx-auto leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                {t('blog.subtitle')}
+              </motion.p>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-              <span className="text-white">{t('blog.title')}</span>
-            </h2>
-            <p className="text-xl text-gray-300 text-center mb-16 max-w-3xl mx-auto">
-              {t('blog.subtitle')}
-            </p>
             
+            {/* Blog Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {Object.entries(t.raw('blog.posts')).map(([key, post], index) => {
                 // Map blog post keys to their respective images
@@ -1696,83 +1726,104 @@ export default function Home() {
                 const isPrivacyByDesign = key === 'privacyByDesign';
                 
                 return (
-                  <motion.a
+                  <motion.div
                     key={key}
-                    href={postData.url}
-                    target={isPrivacyByDesign ? undefined : "_blank"}
-                    rel={isPrivacyByDesign ? undefined : "noopener noreferrer"}
-                    download={isPrivacyByDesign ? true : undefined}
-                    className="group glass rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300 cursor-pointer block flex flex-col h-full"
-                    initial={{ opacity: 0, y: 50 }}
+                    className="project-card-wrapper group"
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.2 } }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    whileHover={{
+                      y: -12,
+                      scale: 1.02,
+                      transition: { 
+                        duration: 0.15,
+                        ease: "easeOut"
+                      }
+                    }}
+                    whileTap={{ scale: 0.98 }}
                   >
-                    {/* Blog post image/header */}
-                    <div className="h-48 relative overflow-hidden flex-shrink-0">
-                      <Image
-                        src={blogImages[key] || '/ai.jpeg'}
-                        alt={postData.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                      <div className="absolute bottom-4 left-4 right-4 z-10">
-                        <div className="flex items-center justify-between text-sm text-white mb-2">
-                          <span className="px-3 py-1 bg-white/20 rounded-full text-xs font-medium backdrop-blur-sm">
+                    <div className="project-card">
+                      {/* Blog post image */}
+                      <div className="project-card-image">
+                        <Image
+                          src={blogImages[key] || '/ai.jpeg'}
+                          alt={postData.title}
+                          fill
+                          className="object-cover"
+                        />
+                        
+                        {/* Category overlay */}
+                        <div className="absolute top-3 left-3">
+                          <span className="inline-block px-2.5 py-1 bg-black/40 backdrop-blur-sm rounded-md text-xs font-medium text-white shadow-lg" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>
                             {postData.category}
                           </span>
-                          {postData.category !== 'Podcast' && (
-                            <span className="px-2 py-1 bg-black/30 rounded text-xs backdrop-blur-sm">
-                              {postData.readTime} {t('blog.readTime')}
-                            </span>
-                          )}
                         </div>
+                        
+                        {/* Read Time overlay */}
+                        {(postData.category !== 'Podcast' && postData.category !== 'Techshot') || key === 'enzimasPrivacy' ? (
+                          <div className="absolute bottom-3 right-3">
+                            <span className="inline-block px-2.5 py-1 bg-black/40 backdrop-blur-sm rounded-md text-xs font-medium text-white shadow-lg" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>
+                              {postData.readTime} min
+                            </span>
+                          </div>
+                        ) : null}
+                        
+                        {/* Read More Icon - similar to redirect icon */}
+                        <motion.a 
+                          href={postData.url}
+                          target={isPrivacyByDesign ? undefined : "_blank"}
+                          rel={isPrivacyByDesign ? undefined : "noopener noreferrer"}
+                          download={isPrivacyByDesign ? true : undefined}
+                          className="project-card-redirect-icon"
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <ExternalLink size={18} />
+                        </motion.a>
                       </div>
-                    </div>
-                    
-                    {/* Blog post content */}
-                    <div className="p-6 flex flex-col flex-1 min-h-0">
-                      <div className="flex-1">
-                        <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-blue-300 transition-colors duration-300">
-                          {postData.title}
-                        </h3>
-                        <p className="text-gray-300 mb-4 leading-relaxed line-clamp-3 overflow-hidden">
-                          {postData.excerpt}
-                        </p>
+                      
+                      {/* Blog post content */}
+                      <div className="project-card-content">
+                        
+                        <h3 className="project-card-title">{postData.title}</h3>
+                        <p className="project-card-description line-clamp-4">{postData.excerpt}</p>
                         
                         {/* Tags */}
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          {postData.tags.map((tag: string) => (
-                            <span key={tag} className="px-2 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs">
+                        <div className="project-card-tags">
+                          {postData.tags.slice(0, 4).map((tag: string) => (
+                            <span key={tag} className={`project-card-tag blog-tag-${(index % 5) + 1}`}>
                               {tag}
                             </span>
                           ))}
                         </div>
-                      </div>
-                      
-                      {/* Bottom section with date and read more button */}
-                      <div className="mt-auto pt-4 border-t border-white/10">
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm text-gray-400">
-                            {new Date(postData.date).toLocaleDateString(
-                              t('navigation.name').includes('Lucas') ? 'en-US' : 'pt-BR',
-                              { year: 'numeric', month: 'short', day: 'numeric' }
-                            )}
-                          </span>
-                          <motion.button
-                            className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg text-sm font-medium hover:from-blue-600 hover:to-purple-700 transition-all duration-200 flex items-center gap-2 shadow-lg hover:shadow-xl"
-                            whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                        
+                        {/* Actions */}
+                        <div className="project-card-actions">
+                          <div className="flex items-center gap-1.5 mr-auto">
+                            <Calendar size={12} className="text-gray-500" />
+                            <span className="text-xs font-medium text-gray-300 bg-gray-800/40 px-2 py-1 rounded-md">
+                              {new Date(postData.date).toLocaleDateString(
+                                t('navigation.name').includes('Lucas') ? 'en-US' : 'pt-BR',
+                                { month: 'short', year: 'numeric' }
+                              )}
+                            </span>
+                          </div>
+                          <motion.a 
+                            href={postData.url}
+                            target={isPrivacyByDesign ? undefined : "_blank"}
+                            rel={isPrivacyByDesign ? undefined : "noopener noreferrer"}
+                            download={isPrivacyByDesign ? true : undefined}
+                            className="project-card-button-primary"
+                            whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                           >
-                            {t('blog.readMore')}
-                            <ExternalLink size={14} className="group-hover:translate-x-1 transition-transform duration-200" />
-                          </motion.button>
+                            <ExternalLink size={16}/>{t('blog.readMore')}
+                          </motion.a>
                         </div>
                       </div>
                     </div>
-                  </motion.a>
+                  </motion.div>
                 );
               })}
             </div>
