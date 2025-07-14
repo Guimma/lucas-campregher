@@ -288,13 +288,6 @@ export default function PodcastSection() {
               </div>
             </motion.div>
           </div>
-          
-          {/* Decorative divider */}
-          <div className="mt-20 mb-12 flex items-center justify-center">
-            <div className="w-16 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
-            <div className="mx-4 w-2 h-2 bg-white/40 rounded-full"></div>
-            <div className="w-16 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
-          </div>
         </div>
 
         {/* Carousel Container */}
