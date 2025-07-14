@@ -141,7 +141,7 @@ export default function PodcastSection() {
         </div>
 
         {/* Carousel Container */}
-        <div className="w-full overflow-hidden relative">
+        <div className="w-full overflow-hidden relative py-12">
           {/* Left fade gradient */}
           <div className="absolute top-0 left-0 w-16 md:w-24 h-full bg-gradient-to-r from-black via-black/80 to-transparent z-10 pointer-events-none"></div>
           
@@ -157,12 +157,14 @@ export default function PodcastSection() {
             dragTransition={{ bounceDamping: 30 }}
             transition={{ duration: 0.2, ease: 'easeInOut' }}
             className="flex will-change-transform cursor-grab active:cursor-grabbing"
+            style={{ paddingTop: '24px', paddingBottom: '24px' }}
           >
             {podcastEpisodes.map((episode, index) => (
               <motion.div 
                 key={index}
-                className="min-w-[20rem] md:min-w-[24rem] min-h-[32rem] md:min-h-[36rem] p-2 md:p-3"
+                className="min-w-[20rem] md:min-w-[24rem] min-h-[32rem] md:min-h-[36rem]"
                 whileHover={{ y: -8, transition: { duration: 0.2 } }}
+                style={{ margin: '0 12px', padding: '8px' }}
               >
                 <div className="podcast-card-wrapper h-full">
                   <div className="podcast-card rounded-2xl overflow-hidden h-full flex flex-col">
