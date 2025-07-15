@@ -984,7 +984,7 @@ export default function Home() {
                                 exit={{ height: 0, opacity: 0 }}
                                 transition={{ duration: 0.2, ease: 'easeInOut' }}
                                 style={{ overflow: 'hidden' }}
-                                className="max-h-96 sm:max-h-[28rem] md:max-h-[32rem] overflow-y-auto"
+                                className="max-h-[32rem] sm:max-h-[36rem] md:max-h-[40rem] overflow-y-auto"
                               >
                                 <div className="space-y-4 sm:space-y-5 mt-2">
                                   {item.clients.map((client, clientIndex) => (

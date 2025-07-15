@@ -31,7 +31,7 @@ export default function LanguageToggle() {
 
   if (!isMounted) {
     return (
-      <div className="w-10 h-10 glass rounded-full flex items-center justify-center opacity-50">
+      <div className="w-10 h-10 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full flex items-center justify-center opacity-50 shadow-lg">
         <Globe size={18} className="text-gray-400" />
       </div>
     );
@@ -42,7 +42,7 @@ export default function LanguageToggle() {
       <motion.button
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
-        className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-150 relative overflow-hidden cursor-pointer"
+        className="w-10 h-10 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full flex items-center justify-center hover:bg-white/25 transition-all duration-300 relative overflow-hidden cursor-pointer shadow-lg"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         title={`Current: ${currentLanguage?.name}`}
