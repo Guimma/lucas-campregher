@@ -292,11 +292,11 @@ export default function PodcastSection() {
 
         {/* Carousel Container */}
         <div className="w-full overflow-hidden relative py-12">
-          {/* Left fade gradient */}
-          <div className="absolute top-0 left-0 w-16 md:w-24 h-full bg-gradient-to-r from-black via-black/80 to-transparent z-10 pointer-events-none"></div>
+          {/* Left fade gradient - hidden on mobile */}
+          <div className="hidden md:block absolute top-0 left-0 w-16 md:w-24 h-full bg-gradient-to-r from-black via-black/80 to-transparent z-10 pointer-events-none"></div>
           
-          {/* Right fade gradient */}
-          <div className="absolute top-0 right-0 w-16 md:w-24 h-full bg-gradient-to-l from-black via-black/80 to-transparent z-10 pointer-events-none"></div>
+          {/* Right fade gradient - hidden on mobile */}
+          <div className="hidden md:block absolute top-0 right-0 w-16 md:w-24 h-full bg-gradient-to-l from-black via-black/80 to-transparent z-10 pointer-events-none"></div>
           
           <motion.div 
             ref={carousel}
