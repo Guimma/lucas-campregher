@@ -301,20 +301,20 @@ export default function PodcastSection() {
           <motion.div 
             ref={carousel}
             drag="x"
-            whileDrag={{ scale: 0.95 }}
-            dragElastic={0.2}
+            whileDrag={{ scale: 0.99 }}
+            dragElastic={0.1}
             dragConstraints={{ right: 0, left: -width }}
-            dragTransition={{ bounceDamping: 30 }}
-            transition={{ duration: 0.2, ease: 'easeInOut' }}
-            className="flex will-change-transform cursor-grab active:cursor-grabbing"
+            dragTransition={{ bounceDamping: 40, bounceStiffness: 300 }}
+            transition={{ duration: 0.15, ease: 'easeOut' }}
+            className="flex will-change-transform cursor-grab active:cursor-grabbing md:cursor-grab md:active:cursor-grabbing"
             style={{ paddingTop: '24px', paddingBottom: '24px' }}
           >
             {podcastEpisodes.map((episode, index) => (
               <motion.div 
                 key={index}
-                className="min-w-[20rem] md:min-w-[24rem] min-h-[32rem] md:min-h-[36rem]"
-                whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                style={{ margin: '0 12px', padding: '8px' }}
+                className="min-w-[18rem] sm:min-w-[20rem] md:min-w-[24rem] min-h-[28rem] sm:min-h-[32rem] md:min-h-[36rem]"
+                whileHover={{ y: -4, transition: { duration: 0.15 } }}
+                style={{ margin: '0 8px', padding: '4px' }}
               >
                 <div className="podcast-card-wrapper h-full">
                   <div className="podcast-card rounded-2xl overflow-hidden h-full flex flex-col">

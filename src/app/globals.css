@@ -9,6 +9,10 @@ body {
   padding-top: 0; /* Reset any default padding */
 }
 
+html {
+  overflow-x: hidden;
+}
+
 /* Ensure content doesn't hide behind fixed header */
 .main-content {
   position: relative;
