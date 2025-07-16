@@ -229,28 +229,34 @@ export default function Home() {
             {/* Spacer quando logo não está visível */}
             {!isAtTop && <div></div>}
 
-            {/* Opções à direita - visível apenas no topo */}
-            <AnimatePresence>
-              {isAtTop && (
-                <motion.div 
-                  className="flex items-center space-x-3"
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
-                >
-              <LanguageToggle />
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {/* Opções à direita - visível apenas no topo e desktop */}
+            <div className="hidden md:flex items-center relative" style={{ width: 48, height: 40 }}>
+              <AnimatePresence>
+                {isAtTop ? (
+                  <motion.div
+                    key="lang"
+                    className="flex items-center w-12 h-10 absolute top-0 left-0"
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <LanguageToggle />
+                  </motion.div>
+                ) : (
+                  <div key="lang-placeholder" className="w-12 h-10 absolute top-0 left-0" style={{ visibility: 'hidden' }} />
+                )}
+              </AnimatePresence>
+            </div>
 
             {/* Menu mobile - sempre visível */}
-            <div className="md:hidden">
+            <div className="md:hidden flex items-center">
               <motion.button
-                className="p-3 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 hover:bg-white/25 transition-all duration-300 mobile-menu cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center shadow-lg"
-                whileHover={{ scale: 1.1 }}
+                className="w-10 h-10 bg-white/15 backdrop-blur-sm border border-white/25 hover:bg-white/25 transition-all duration-300 mobile-menu cursor-pointer flex items-center justify-center rounded-full shadow-lg"
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                style={{ minWidth: 40, minHeight: 40 }}
               >
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h6v6H3zM14 3h6v6h-6zM14 14h6v6h-6zM3 14h6v6H3z" />
@@ -351,6 +357,10 @@ export default function Home() {
                       </motion.button>
                     );
                   })}
+                </div>
+                {/* LanguageToggle adapted for mobile menu */}
+                <div className="mt-6">
+                  <LanguageToggle mobileMenu={true} />
                 </div>
               </div>
             </motion.div>
